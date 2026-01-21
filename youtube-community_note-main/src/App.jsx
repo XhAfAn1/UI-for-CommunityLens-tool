@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } fro
 import {
   Menu, Search, Mic, Bell, Video, Home, Compass,
   PlaySquare, Clock, ThumbsUp, ThumbsDown, Share2,
-  MoreVertical, ChevronDown, MonitorPlay, Gamepad2,
+  MoreVertical, ChevronDown, ChevronUp, MonitorPlay, Gamepad2,
   Music2, Trophy, Flame, Newspaper, X,
   LogOut, Settings, HelpCircle, History, ShieldAlert,
   ScanFace, ExternalLink, ChevronRight,
   Activity, Eye, Mic2, CheckCircle2, Download, Scissors, ListPlus,
-  AlertOctagon, Info
+  AlertOctagon, Info, Trash2, Maximize2, Minimize2, Sun, Moon 
 } from 'lucide-react';
 
 // --- Mock Data Generators ---
@@ -67,100 +67,231 @@ const INITIAL_VIDEOS = VIDEO_DB.map((vid) => ({
 // --- UNIQUE TOOL DATA FOR EVERY VIDEO ---
 const NOTE_DATABASE = {
   "video1": {
-    type: "manipulated",
-    confidence: 99.8,
-    title: "Manipulated Media",
-    summary: "CRITICAL: Deepfake Detected. The audio and visual content in this video has been synthetically generated. Biometric analysis confirms the voice does not match the subject.",
-    breakdown: { audioScore: 99.9, videoScore: 98.5, timeline: [{ start: 12, end: 88, status: 'fake' }] },
-    details: [{ label: "Audio Integrity", value: "Synthetic Voice", status: "critical" }, { label: "Lip Sync", value: "Desynchronized", status: "critical" }]
+    title: "ZELENSKY ISSUES APOLOGY TO TRUMP",
+    consensus: {
+      label: "AI-GENERATED",
+      text: "Most commenters clearly recognize the video as AI-generated, calling out telltale visual flaws like changing teeth and repeatedly labeling it as AI. They generally find it funny or refer to it as satire, though some worry about misinformation.",
+      previewText: "Most commenters clearly recognize the video as AI-generated, calling out telltale visual flaws..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "Community signal", content: "Impersonation / deepfake: Multiple users note it is an AI video of Zelensky saying unreal things." },
+      { id: 'r2', icon: 'search', title: "Visual anomalies", content: "Facial warping and lighting inconsistencies reported." },
+      { id: 'r3', icon: 'trash', title: "Spam / low-effort repetition", content: "High volume of repetitive bot-like comments detected." }
+    ],
+    viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
+    safety: { 
+      category: "Impersonation", 
+      hoverText: "Mimicry without consent", 
+      score: 15, 
+      ratingCode: "TV-PG", 
+      ratingDesc: "Parental guidance suggested." 
+    }
   },
   "video2": {
-    type: "context",
-    confidence: 95.0,
-    title: "Context Required",
-    summary: "This is a demonstrated deepfake created as a Public Service Announcement (PSA). It is not real footage, but explicitly created to educate about AI dangers.",
-    breakdown: { audioScore: 92.0, videoScore: 96.0, timeline: [{ start: 0, end: 100, status: 'fake' }] },
-    details: [{ label: "Creator Intent", value: "Educational / Satire", status: "info" }]
+    title: "You Won’t Believe What Obama Says!",
+    consensus: {
+      label: "CONTEXT-MISSING",
+      text: "Users point out this is a known educational deepfake by Jordan Peele. It is not real footage, but a PSA about AI dangers.",
+      previewText: "Users point out this is a known educational deepfake by Jordan Peele..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "Context Required", content: "Staged demonstration, not a real event." }
+    ],
+    viewerResponse: "Viewers typically add context to explain the educational intent behind the media.",
+    safety: { 
+      category: "Educational", 
+      hoverText: "Mimicry with consent", 
+      score: 85, 
+      ratingCode: "TV-PG", 
+      ratingDesc: "Parental guidance suggested." 
+    }
   },
   "video3": {
-    type: "authentic",
-    confidence: 98.2,
-    title: "Verified Authentic",
-    summary: "No signs of AI manipulation detected. Metadata and biometric scan confirm this footage is consistent with a live broadcast event.",
-    breakdown: { audioScore: 1.2, videoScore: 0.5, timeline: [] },
-    details: [{ label: "Source", value: "Live Feed Archive", status: "safe" }]
+    title: 'Jake Paul "I WON" - Post Fight',
+    consensus: {
+      label: "VERIFIED-AUTHENTIC",
+      text: "Community consensus confirms this footage matches live broadcast feeds. No signs of manipulation reported.",
+      previewText: "Community consensus confirms this footage matches live broadcast feeds..."
+    },
+    risks: [],
+    viewerResponse: "Viewers are discussing the match results rather than the authenticity of the footage.",
+    safety: { 
+      category: "Sports", 
+      hoverText: "Authentic Broadcast", 
+      score: 98, 
+      ratingCode: "TV-MA", 
+      ratingDesc: "For mature audiences." 
+    }
   },
   "video4": {
-    type: "suspicious",
-    confidence: 65.4,
-    title: "Likely Clickbait",
-    summary: "The video content is authentic, but the audio track contains segments that do not match the visual background noise floor. Potential audio splicing detected.",
-    breakdown: { audioScore: 68.5, videoScore: 12.0, timeline: [{ start: 40, end: 55, status: 'fake' }] },
-    details: [{ label: "Audio Splice", value: "Detected at 2:10", status: "warning" }]
+    title: "Huge News! Social Security 2026 Raise",
+    consensus: {
+      label: "CLICKBAIT",
+      text: "Viewers report misleading titles and recycled audio. The visual content does not match the audio track claims.",
+      previewText: "Viewers report misleading titles and recycled audio..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "Misleading Title", content: "Title promises increases not confirmed by government." },
+      { id: 'r2', icon: 'search', title: "Audio Splicing", content: "Background noise shifts suggest audio manipulation." }
+    ],
+    viewerResponse: "Viewers typically respond by linking to official government websites to debunk the claims.",
+    safety: { 
+      category: "Misinformation", 
+      hoverText: "Unverified Financial Claims", 
+      score: 45, 
+      ratingCode: "TV-G", 
+      ratingDesc: "General Audience." 
+    }
   },
   "video5": {
-    type: "manipulated",
-    confidence: 92.1,
-    title: "AI Generated Video",
-    summary: "This entire video exhibits artifacts consistent with Text-to-Video generation models (Sora/Veo). Physics simulation in background is inconsistent.",
-    breakdown: { audioScore: 40.0, videoScore: 92.1, timeline: [{ start: 0, end: 100, status: 'fake' }] },
-    details: [{ label: "Physics Engine", value: "Inconsistent Shadows", status: "critical" }]
+    title: "Google Veo 3 Fake News | AI Video",
+    consensus: {
+      label: "AI-GENERATED",
+      text: "This video is explicitly labeled as an AI demo. Viewers are discussing the quality of the generation rather than its truthfulness.",
+      previewText: "This video is explicitly labeled as an AI demo..."
+    },
+    risks: [],
+    viewerResponse: "Viewers are engaging in technical discussions about the AI model's capabilities.",
+    safety: { 
+      category: "Technology", 
+      hoverText: "AI Tool Showcase", 
+      score: 90, 
+      ratingCode: "TV-PG", 
+      ratingDesc: "Parental guidance suggested." 
+    }
   },
   "video6": {
-    type: "context",
-    confidence: 88.0,
-    title: "Satire / Parody",
-    summary: "This content is flagged as Parody. While AI tools were used to alter expressions, the exaggerated nature suggests non-malicious intent.",
-    breakdown: { audioScore: 85.0, videoScore: 88.0, timeline: [{ start: 0, end: 100, status: 'fake' }] },
-    details: [{ label: "Category", value: "Political Satire", status: "info" }]
+    title: "Kamala Harris Ad PARODY",
+    consensus: {
+      label: "SATIRE",
+      text: "Content is exaggerated for comedic effect. Viewers recognize this as a parody skit, not a real campaign ad.",
+      previewText: "Content is exaggerated for comedic effect. Viewers recognize this as..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "Parody Signal", content: "Exaggerated features indicate non-literal intent." }
+    ],
+    viewerResponse: "Viewers typically quote lines from the skit and discuss the humor.",
+    safety: { 
+      category: "Satire", 
+      hoverText: "Political Parody", 
+      score: 70, 
+      ratingCode: "TV-14", 
+      ratingDesc: "Parents strongly cautioned." 
+    }
   },
   "video7": {
-    type: "manipulated",
-    confidence: 99.9,
-    title: "AI Audio Clone",
-    summary: "The vocals in this track are 100% synthetic. The visualizer is harmless, but the voice print is a known AI model of the artist.",
-    breakdown: { audioScore: 99.9, videoScore: 5.0, timeline: [{ start: 0, end: 100, status: 'fake' }] },
-    details: [{ label: "Vocal Print", value: "RVC Model v2", status: "critical" }]
+    title: "AI Michael Jackson in 2026",
+    consensus: {
+      label: "AI-AUDIO",
+      text: "The visuals are static/fan-made, but the vocals are confirmed as an AI model (RVC). Users are debating the ethics.",
+      previewText: "The visuals are static/fan-made, but the vocals are confirmed as an AI model..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "Synthetic Vocals", content: "Audio analysis confirms non-human vocal patterns." }
+    ],
+    viewerResponse: "Viewers are debating the ethical implications of using a deceased artist's voice.",
+    safety: { 
+      category: "Synthetic Audio", 
+      hoverText: "AI Voice Cloning", 
+      score: 60, 
+      ratingCode: "TV-PG", 
+      ratingDesc: "Parental guidance suggested." 
+    }
   },
   "video8": {
-    type: "manipulated",
-    confidence: 94.5,
-    title: "Scam / Deepfake",
-    summary: "WARNING: This video uses a deepfake overlay of a famous figure to promote a cryptocurrency scam. Do not interact with links.",
-    breakdown: { audioScore: 96.5, videoScore: 91.0, timeline: [{ start: 0, end: 100, status: 'fake' }] },
-    details: [{ label: "Risk Level", value: "High / Scam", status: "critical" }]
+    title: "Get 0.07 BTC Free Bitcoin!",
+    consensus: {
+      label: "SCAM",
+      text: "WARNING: High volume of bot comments. Real users are flagging this as a wallet drainer scam.",
+      previewText: "WARNING: High volume of bot comments. Real users are flagging this..."
+    },
+    risks: [
+      { id: 'r1', icon: 'trash', title: "Bot Network", content: "95% of comments originate from new accounts." },
+      { id: 'r2', icon: 'search', title: "Malicious Link", content: "Description links flag as phishing." }
+    ],
+    viewerResponse: "Real viewers are posting warnings to ignore the links and report the channel.",
+    safety: { 
+      category: "Scam", 
+      hoverText: "Fraudulent Activity", 
+      score: 10, 
+      ratingCode: "TV-MA", 
+      ratingDesc: "For mature audiences." 
+    }
   },
   "video9": {
-    type: "context",
-    confidence: 72.0,
-    title: "Misleading Context",
-    summary: "The footage is real, but it is 5 years old and from a different event than the title claims. Visuals are safe, context is false.",
-    breakdown: { audioScore: 2.0, videoScore: 5.0, timeline: [] },
-    details: [{ label: "Metadata Date", value: "2018-04-12", status: "warning" }]
+    title: "Hacker donated $4 Billions!",
+    consensus: {
+      label: "MISLEADING",
+      text: "Footage is real but dates back to 2018. The 'Hacker' story is a fabrication added via text overlay.",
+      previewText: "Footage is real but dates back to 2018..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "False Context", content: "Visuals do not support the textual claims." }
+    ],
+    viewerResponse: "Viewers are providing links to the original 2018 news story to correct the record.",
+    safety: { 
+      category: "Misinformation", 
+      hoverText: "False Context", 
+      score: 40, 
+      ratingCode: "TV-PG", 
+      ratingDesc: "Parental guidance suggested." 
+    }
   },
   "video10": {
-    type: "manipulated",
-    confidence: 99.1,
-    title: "Manipulated Audio",
-    summary: "The video is a loop of an old interview, but the audio has been completely replaced with a synthetic TTS voice.",
-    breakdown: { audioScore: 99.1, videoScore: 15.0, timeline: [{ start: 0, end: 100, status: 'fake' }] },
-    details: [{ label: "Lip Sync", value: "No Match", status: "critical" }]
+    title: "Elon Musk Launches Giveaway",
+    consensus: {
+      label: "AI-GENERATED",
+      text: "Classic deepfake scam. Lip movements do not sync with the audio. Voice is monotone and lacks natural inflection.",
+      previewText: "Classic deepfake scam. Lip movements do not sync with the audio..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "Lip Sync Failure", content: "Visuals desynchronized by >200ms." },
+      { id: 'r2', icon: 'trash', title: "Scam Pattern", content: "Matches known 'doubling' scam scripts." }
+    ],
+    viewerResponse: "Viewers are flagging the video as a scam and warning others not to send crypto.",
+    safety: { 
+      category: "Scam", 
+      hoverText: "Deepfake Scam", 
+      score: 12, 
+      ratingCode: "TV-14", 
+      ratingDesc: "Parents strongly cautioned." 
+    }
   },
   "video11": {
-    type: "authentic",
-    confidence: 85.0,
-    title: "Artistic Content",
-    summary: "Contains AI generated imagery, but accurately labeled as 'Future Predictions'. Considered safe creative content.",
-    breakdown: { audioScore: 10.0, videoScore: 85.0, timeline: [{ start: 0, end: 100, status: 'safe' }] },
-    details: [{ label: "Labeling", value: "Transparent", status: "safe" }]
+    title: "A.I Predicts 400 Years",
+    consensus: {
+      label: "ARTISTIC-AI",
+      text: "Users appreciate the visuals. Explicitly understood as a creative prediction/art piece, not factual footage.",
+      previewText: "Users appreciate the visuals. Explicitly understood as a creative prediction..."
+    },
+    risks: [],
+    viewerResponse: "Viewers are complimenting the artistic style and imaginative concepts.",
+    safety: { 
+      category: "Art", 
+      hoverText: "Creative AI Usage", 
+      score: 95, 
+      ratingCode: "TV-G", 
+      ratingDesc: "General Audience." 
+    }
   },
   "video12": {
-    type: "manipulated",
-    confidence: 96.0,
-    title: "AI Generated",
-    summary: "This is a showcase of AI video generation. It is not real footage. Visual artifacts (warping) present throughout.",
-    breakdown: { audioScore: 20.0, videoScore: 96.0, timeline: [{ start: 0, end: 100, status: 'fake' }] },
-    details: [{ label: "Artifacts", value: "Hand warping", status: "warning" }]
+    title: "A Time Traveler's VLOG",
+    consensus: {
+      label: "AI-GENERATED",
+      text: "A creative short film made with Google Veo. Viewers are discussing the plot and visual consistency.",
+      previewText: "A creative short film made with Google Veo..."
+    },
+    risks: [
+      { id: 'r1', icon: 'search', title: "Visual Artifacts", content: "Background warping detected." }
+    ],
+    viewerResponse: "Viewers are treating the content as a fictional story and discussing plot points.",
+    safety: { 
+      category: "Entertainment", 
+      hoverText: "Fictional Narrative", 
+      score: 88, 
+      ratingCode: "TV-PG", 
+      ratingDesc: "Parental guidance suggested." 
+    }
   }
 };
 
@@ -254,186 +385,261 @@ const RelatedVideoCard = ({ video }) => {
   );
 };
 
-// --- Community Note / Tool UI ---
-const CommunityNote = ({ videoId }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  
-  // Retrieve specific data for this video, or fallback to generic safe
-  const noteData = NOTE_DATABASE[videoId] || {
-    type: "authentic", confidence: 99.0, title: "Verified Authentic", 
-    summary: "No issues detected.", breakdown: {audioScore:0, videoScore:0}, details: []
+// --- NEW COMMUNITY LENS TOOL UI ---
+// --- NEW COMMUNITY LENS TOOL UI (Updated with Hover & Viewer Data) ---
+// --- DARK THEME COMMUNITY LENS TOOL UI ---
+// --- COMMUNITY LENS TOOL UI (With Theme Toggle) ---
+const CommunityLensUI = ({ videoId }) => {
+  const [isToolOpen, setIsToolOpen] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(true); // Default to Dark Mode
+  const [showFullConsensus, setShowFullConsensus] = useState(false);
+  const [expandedRisks, setExpandedRisks] = useState({});
+  const [showViewerResponse, setShowViewerResponse] = useState(false);
+  const [isHoveringCategory, setIsHoveringCategory] = useState(false);
+
+  const data = NOTE_DATABASE[videoId];
+  if (!data) return null;
+
+  const toggleRisk = (id) => {
+    setExpandedRisks(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const isCritical = noteData.type === 'manipulated';
-  const isSuspicious = noteData.type === 'suspicious';
-  const isContext = noteData.type === 'context';
-  const isAuthentic = noteData.type === 'authentic';
-
-  // Dynamic Styles
-  let badgeColor, iconBg, mainIcon, barGradient;
-
-  if (isCritical) {
-    badgeColor = 'text-red-400 bg-red-500/10 border-red-500/20';
-    iconBg = 'bg-red-500/20';
-    mainIcon = <ScanFace className="text-red-400" size={14} />;
-    barGradient = 'bg-gradient-to-r from-orange-500 to-red-600';
-  } else if (isSuspicious) {
-    badgeColor = 'text-orange-400 bg-orange-500/10 border-orange-500/20';
-    iconBg = 'bg-orange-500/20';
-    mainIcon = <AlertOctagon className="text-orange-400" size={14} />;
-    barGradient = 'bg-gradient-to-r from-yellow-500 to-orange-600';
-  } else if (isContext) {
-    badgeColor = 'text-blue-400 bg-blue-500/10 border-blue-500/20';
-    iconBg = 'bg-blue-500/20';
-    mainIcon = <Info className="text-blue-400" size={14} />;
-    barGradient = 'bg-gradient-to-r from-blue-400 to-blue-600';
-  } else {
-    badgeColor = 'text-green-400 bg-green-500/10 border-green-500/20';
-    iconBg = 'bg-green-500/20';
-    mainIcon = <CheckCircle2 className="text-green-400" size={14} />;
-    barGradient = 'bg-gradient-to-r from-green-400 to-green-600';
-  }
+  // --- Dynamic Theme Styles ---
+  const theme = {
+    // Containers
+    mainContainer: isDarkMode ? 'bg-[#18181b] border-zinc-700' : 'bg-white border-gray-200',
+    headerGradient: isDarkMode ? 'from-blue-700 to-purple-800 border-b border-zinc-700' : 'from-blue-600 to-purple-600',
+    bodyBg: isDarkMode ? 'bg-[#18181b]' : 'bg-white',
+    
+    // Typography
+    textMain: isDarkMode ? 'text-zinc-200' : 'text-gray-800',
+    textSub: isDarkMode ? 'text-zinc-400' : 'text-gray-500',
+    textHighlight: isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-800',
+    
+    // Sections (Consensus / Risks)
+    cardBorder: isDarkMode ? 'border-[#6366f1]/30 bg-[#27272a]' : 'border-[#A5B4FC] bg-white',
+    sectionHeaderBg: isDarkMode ? 'bg-[#4472C4]/80' : 'bg-[#4472C4]',
+    
+    // Interactive Elements
+    riskItemBg: isDarkMode ? 'bg-[#18181b] border-zinc-700 hover:bg-zinc-800' : 'bg-white border-gray-300 hover:bg-gray-50',
+    viewerResponseBg: isDarkMode ? 'bg-blue-900/10 border-blue-900/30 text-zinc-300' : 'bg-blue-50/50 border-blue-100 text-gray-700',
+    
+    // Icons
+    iconTrashBg: isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-gray-200 text-gray-600',
+    iconSearchBg: isDarkMode ? 'bg-blue-900/30 text-blue-400' : 'bg-blue-100 text-black',
+    
+    // Age Rating
+    ageRatingContainer: isDarkMode ? 'bg-[#27272a] border-zinc-600' : 'bg-white border-black',
+    ageRatingBox: isDarkMode ? 'bg-white text-black' : 'bg-black text-white',
+    
+    // Footer
+    footerBorder: isDarkMode ? 'border-zinc-700' : 'border-gray-200',
+    footerText: isDarkMode ? 'text-zinc-500' : 'text-gray-400',
+    footerBrand: isDarkMode ? 'text-zinc-300' : 'text-gray-600'
+  };
 
   return (
-    <div className="mt-4 bg-[#1f2937] border border-zinc-700 rounded-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-500">
-      {/* Header */}
-      <div
-        className="bg-[#111827] px-4 py-3 border-b border-zinc-700 flex items-center justify-between cursor-pointer hover:bg-[#1f2937] transition-colors"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <div className="flex items-center gap-2">
-          <div className={`w-6 h-6 rounded-full ${iconBg} flex items-center justify-center`}>
-            {mainIcon}
-          </div>
-          <span className="font-semibold text-sm text-zinc-200">AI Detection Tool</span>
+    <div className={`mt-6 w-full font-sans shadow-xl rounded-xl overflow-visible border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
+      
+      {/* 1. HEADER */}
+      <div className={`bg-gradient-to-r p-3 text-white relative rounded-t-xl ${theme.headerGradient}`}>
+        
+        {/* BUTTON GROUP (Theme Toggle + Expand/Collapse) */}
+        <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
+          
+          {/* Theme Toggle */}
+          <button 
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="p-1.5 bg-black/20 rounded-full hover:bg-black/40 transition cursor-pointer"
+            title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
+          </button>
+
+          {/* Expand Toggle */}
+          <button 
+            onClick={() => setIsToolOpen(!isToolOpen)}
+            className="p-1.5 bg-black/20 rounded-full hover:bg-black/40 transition cursor-pointer"
+          >
+            {isToolOpen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
+          </button>
         </div>
-        <div className="flex items-center gap-3">
-          <span className={`text-[11px] font-medium uppercase tracking-wide px-2 py-0.5 rounded-full border ${badgeColor}`}>
-            {noteData.title}
-          </span>
-          <div className="text-zinc-400">
-            {isExpanded ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
-          </div>
+        
+        <div className="text-center">
+          <h1 className="text-lg font-bold tracking-tight">CommunityLens</h1>
+          <p className={`text-[10px] opacity-90 ${isDarkMode ? 'text-zinc-300' : 'text-purple-100'}`}>Navigate AI Content via Community Insights</p>
         </div>
       </div>
 
-      {/* Body */}
-      <div className="p-4">
-        <div className="flex flex-col sm:flex-row gap-4">
-          {/* Probability Meter */}
-          <div className={`${isExpanded ? 'flex-1 sm:max-w-[200px]' : 'w-full'} shrink-0 transition-all duration-300`}>
-            <div className="flex justify-between text-[11px] text-zinc-400 mb-1.5 font-medium">
-              <span>Confidence Score</span>
-              <span className={isCritical ? "text-red-400" : (isAuthentic ? "text-green-400" : "text-blue-400")}>{noteData.confidence}%</span>
-            </div>
-            <div className="h-2 w-full bg-zinc-700 rounded-full overflow-hidden">
-              <div
-                className={`h-full w-full rounded-full shadow-[0_0_10px_rgba(0,0,0,0.3)] transition-all duration-1000 ${barGradient}`}
-                style={{ width: `${noteData.confidence}%` }}
-              ></div>
-            </div>
-
-            {isExpanded && noteData.breakdown && (
-              <div className="mt-4 animate-in fade-in slide-in-from-left-2 duration-500">
-                <div className="text-[10px] uppercase font-bold text-zinc-500 mb-2 tracking-wider">Modality Breakdown</div>
-
-                {/* Audio Score */}
-                <div className="mb-3">
-                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
-                    <span className="flex items-center gap-1"><Mic2 size={10} /> Audio Suspicion</span>
-                    <span className={noteData.breakdown.audioScore > 50 ? "text-red-300" : "text-green-300"}>{noteData.breakdown.audioScore}%</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-zinc-700 rounded-full overflow-hidden">
-                    <div className={`h-full rounded-full ${noteData.breakdown.audioScore > 50 ? 'bg-red-500' : 'bg-green-500'}`} style={{ width: `${noteData.breakdown.audioScore}%` }}></div>
-                  </div>
-                </div>
-
-                {/* Video Score */}
-                <div>
-                  <div className="flex justify-between text-[10px] text-zinc-400 mb-1">
-                    <span className="flex items-center gap-1"><Eye size={10} /> Visual Suspicion</span>
-                    <span className={noteData.breakdown.videoScore > 50 ? "text-orange-300" : "text-green-300"}>{noteData.breakdown.videoScore}%</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-zinc-700 rounded-full overflow-hidden">
-                    <div className={`h-full rounded-full ${noteData.breakdown.videoScore > 50 ? 'bg-orange-500' : 'bg-green-500'}`} style={{ width: `${noteData.breakdown.videoScore}%` }}></div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {!isExpanded && (
-              <div className="mt-2 text-[10px] text-zinc-500 text-center">
-                {isAuthentic ? "Verified as Human Content" : "Potential AI Manipulation Detected"}
-              </div>
-            )}
+      {/* 2. BODY */}
+      {isToolOpen && (
+        <div className={`rounded-b-xl ${theme.bodyBg}`}>
+          
+          <div className={`${isDarkMode ? 'bg-[#4472C4]/90 border-b border-zinc-700' : 'bg-[#4472C4]'} py-2 px-4`}>
+            <h2 className="text-white text-xs font-bold uppercase tracking-wide truncate text-center">
+              {data.title}
+            </h2>
           </div>
 
-          {/* Full Report - Collapsible */}
-          {isExpanded && (
-            <div className="flex-1 text-sm text-zinc-300 leading-relaxed sm:border-l sm:border-zinc-700 sm:pl-4 animate-in fade-in slide-in-from-top-1 duration-300">
-              <p className="mb-3">
-                <strong className="text-zinc-100 block mb-1">Analysis Summary:</strong>
-                {noteData.summary}
-              </p>
+          <div className="p-4 max-h-[600px] overflow-y-auto custom-scrollbar">
+            <h3 className={`text-center font-bold mb-4 text-sm px-8 leading-snug ${theme.textSub}`}>
+              Community Notes on the Content being AIGC
+            </h3>
 
-              {/* Timeline Visualization */}
-              {noteData.breakdown && noteData.breakdown.timeline && noteData.breakdown.timeline.length > 0 && (
-                <div className="mb-4 bg-black/30 p-2 rounded-lg border border-white/5">
-                  <div className="flex justify-between text-[10px] text-zinc-500 mb-1 uppercase tracking-wider font-bold">
-                    <span>Detection Timeline</span>
-                    <span className="flex items-center gap-1"><Activity size={10} /> Segments</span>
-                  </div>
-                  <div className="h-3 w-full bg-zinc-800 rounded flex overflow-hidden">
-                    {noteData.breakdown.timeline.map((seg, i) => (
-                      <div
-                        key={i}
-                        className={`${seg.status === 'fake' ? 'bg-red-500/80' : 'bg-green-500/20'} h-full border-r border-black/20`}
-                        style={{ width: `${seg.end - seg.start}%` }}
-                        title={`${seg.status === 'fake' ? 'Manipulated' : 'Safe'}: ${seg.start}% - ${seg.end}%`}
-                      ></div>
-                    ))}
-                  </div>
-                  <div className="flex justify-between text-[9px] text-zinc-600 mt-1">
-                    <span>0:00</span>
-                    <span>End</span>
-                  </div>
-                </div>
-              )}
+            {/* CONSENSUS */}
+            <div className={`rounded-lg overflow-hidden border mb-4 ${theme.cardBorder}`}>
+              <div className={`p-2 pl-3 ${theme.sectionHeaderBg}`}>
+                <h4 className="text-white font-bold text-xs">Community Consensus about the Content:</h4>
+              </div>
+              <div className="p-3">
+                <span className={`inline-block text-[10px] px-3 py-1 rounded-full font-bold mb-3 ${isDarkMode ? 'bg-[#0f172a] text-blue-200 border border-blue-900/50' : 'bg-[#1E293B] text-white'}`}>
+                  {data.consensus.label}
+                </span>
+                <p className={`text-xs leading-relaxed ${theme.textMain}`}>
+                  {showFullConsensus ? data.consensus.text : data.consensus.previewText}
+                  {!showFullConsensus && (
+                    <button 
+                      onClick={() => setShowFullConsensus(true)}
+                      className={`font-bold hover:underline ml-1 ${theme.textHighlight}`}
+                    >
+                      See more
+                    </button>
+                  )}
+                </p>
+              </div>
+            </div>
 
-              {/* Technical Details Grid */}
-              <div className="grid gap-2 text-xs text-zinc-400 bg-black/20 p-3 rounded-lg border border-white/5">
-                <span className="block font-medium text-zinc-300 border-b border-white/5 pb-1 mb-1">Technical Findings</span>
-                {noteData.details?.map((detail, idx) => (
-                  <div key={idx} className="flex flex-col sm:flex-row sm:justify-between sm:gap-4">
-                    <span className="text-zinc-500 shrink-0">• {detail.label}:</span>
-                    <span className={`${detail.status === 'critical' ? 'text-red-300' : (detail.status === 'safe' ? 'text-green-300' : 'text-zinc-300')} text-right`}>{detail.value}</span>
+            {/* RISKS */}
+            <div className={`rounded-lg overflow-hidden border mb-4 ${theme.cardBorder}`}>
+              <div className={`p-2 pl-3 ${theme.sectionHeaderBg}`}>
+                <h4 className="text-white font-bold text-xs">Risk Patterns in the Content</h4>
+              </div>
+              
+              <div className="p-2 flex flex-col gap-2">
+                {data.risks.map((risk) => (
+                  <div key={risk.id} className={`border rounded-lg shadow-sm ${theme.riskItemBg}`}>
+                    <button 
+                      onClick={() => toggleRisk(risk.id)}
+                      className="w-full flex items-center gap-3 p-2 text-left transition-colors"
+                    >
+                      <div className={`p-1 rounded ${risk.icon === 'trash' ? theme.iconTrashBg : theme.iconSearchBg}`}>
+                         {risk.icon === 'trash' 
+                           ? <Trash2 size={16} />
+                           : <Search size={16} />
+                         }
+                      </div>
+                      <span className={`flex-1 font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
+                      {expandedRisks[risk.id] 
+                        ? <ChevronUp size={14} className={theme.textSub} />
+                        : <ChevronDown size={14} className={theme.textSub} />
+                      }
+                    </button>
+                    {expandedRisks[risk.id] && (
+                      <div className={`px-3 pb-3 pt-0 pl-12 text-xs ${theme.textSub}`}>
+                        {risk.content}
+                      </div>
+                    )}
                   </div>
                 ))}
-              </div>
 
-              {/* Footer */}
-              <div className="flex items-center justify-between pt-4 mt-2 border-t border-zinc-700/50">
-                <div className="flex items-center gap-4 text-xs font-medium text-zinc-400">
-                  <span className="hidden sm:inline">Is this accurate?</span>
-                  <div className="flex gap-2">
-                    <button className="flex items-center gap-1.5 hover:text-white hover:bg-zinc-700 px-2 py-1 rounded-md transition-colors">
-                      <ThumbsUp size={14} /> <span className="hidden sm:inline">Yes</span>
-                    </button>
-                    <button className="flex items-center gap-1.5 hover:text-white hover:bg-zinc-700 px-2 py-1 rounded-md transition-colors">
-                      <ThumbsDown size={14} /> <span className="hidden sm:inline">No</span>
-                    </button>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <button className="flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors">
-                    Detailed Log <ExternalLink size={10} />
+                {/* VIEWER RESPONSE SECTION */}
+                <div className={`mt-1 border-t pt-2 ${isDarkMode ? 'border-zinc-700' : 'border-gray-100'}`}>
+                  <button 
+                    onClick={() => setShowViewerResponse(!showViewerResponse)}
+                    className={`flex items-center gap-1 text-[10px] font-bold transition-colors ${theme.textHighlight}`}
+                  >
+                    {showViewerResponse ? '▲ Hide' : '▼ See'} how viewers generally address these risks
                   </button>
+                  
+                  {showViewerResponse && data.viewerResponse && (
+                    <div className={`mt-2 p-2 border rounded text-xs leading-relaxed ${theme.viewerResponseBg}`}>
+                      {data.viewerResponse}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-          )}
+
+            {/* REFERENCES */}
+            <div className={`rounded-lg overflow-hidden border mb-6 ${theme.cardBorder}`}>
+              <div className={`p-2 pl-3 ${theme.sectionHeaderBg}`}>
+                <h4 className="text-white font-bold text-xs">Community-provided references and citations</h4>
+              </div>
+              <div className="p-3">
+                <p className={`text-xs font-medium ${isDarkMode ? 'text-zinc-400' : 'text-black'}`}>No references available.</p>
+              </div>
+            </div>
+
+            <hr className={`mb-6 ${isDarkMode ? 'border-zinc-700' : 'border-gray-200'}`} />
+
+            {/* CONTENT CATEGORY (With Hover Tooltip) */}
+            <div className="flex flex-col gap-4 mb-6">
+              <div className="flex items-center gap-3">
+                
+                <span className={`text-xs font-bold leading-tight whitespace-nowrap ${theme.textSub}`}>
+                  Content<br/>Category
+                </span>
+                
+                <div className="relative flex-shrink-0">
+                  <div 
+                    onMouseEnter={() => setIsHoveringCategory(true)}
+                    onMouseLeave={() => setIsHoveringCategory(false)}
+                    className="bg-[#DC2626] cursor-help text-white text-[10px] pl-3 pr-2 py-1 rounded-full font-bold flex items-center gap-1 shadow-md hover:scale-105 transition-transform"
+                  >
+                    {data.safety.category}
+                    <div className="bg-black/20 rounded-full w-3.5 h-3.5 flex items-center justify-center">
+                      <Info size={10} className="text-white" strokeWidth={3} />
+                    </div>
+                  </div>
+
+                  {isHoveringCategory && (
+                    <div className={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-max max-w-[150px] text-[10px] px-2 py-1.5 rounded shadow-xl z-50 text-center animate-in fade-in zoom-in duration-200 ${isDarkMode ? 'bg-zinc-800 border border-zinc-600 text-white' : 'bg-black text-white'}`}>
+                      {data.safety.hoverText}
+                      <div className={`absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent ${isDarkMode ? 'border-t-zinc-800' : 'border-t-black'}`}></div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Safety Meter */}
+                <div className="flex-1 flex flex-col items-center relative ml-2">
+                    <div 
+                      className={`absolute -top-1.5 w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[6px] transition-all duration-500 ${isDarkMode ? 'border-t-white' : 'border-t-black'}`}
+                      style={{ left: `${data.safety.score}%`, transform: 'translateX(-50%)' }}
+                    ></div>
+                    <div className={`h-2.5 w-full rounded-full bg-gradient-to-r from-[#EF4444] via-[#FBBF24] to-[#22C55E] border ${isDarkMode ? 'border-zinc-600' : 'border-gray-100'}`}></div>
+                    <div className="flex justify-between w-full text-[8px] font-bold mt-1 tracking-wide">
+                      <span className="text-[#EF4444]">Unsafe</span>
+                      <span className="text-[#F59E0B]">Neutral</span>
+                      <span className="text-[#22C55E]">Safe</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            {/* AGE RATING */}
+            <div className="mb-4">
+               <p className={`text-xs font-bold mb-2 ${theme.textSub}`}>This Content is appropriate for:</p>
+               <div className={`border rounded-lg p-2 flex items-center gap-3 ${theme.ageRatingContainer}`}>
+                  <div className={`p-0.5 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
+                    <span className="text-[6px] font-bold leading-none">TV</span>
+                    <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
+                  </div>
+                  <p className={`text-[10px] leading-tight ${theme.textSub}`}>
+                    <span className={`font-extrabold ${theme.textMain}`}>{data.safety.ratingCode}:</span> {data.safety.ratingDesc}
+                  </p>
+               </div>
+            </div>
+
+            {/* FOOTER */}
+            <div className={`text-center pt-2 border-t mt-4 ${theme.footerBorder}`}>
+              <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
+                POWERED BY <span className={`font-bold ${theme.footerBrand}`}>CHATGPT</span>
+              </p>
+            </div>
+
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
@@ -547,7 +753,7 @@ const WatchPage = ({ videos }) => {
           </button>
         </div>
 
-        <CommunityNote videoId={currentVideo.id} />
+        <CommunityLensUI videoId={currentVideo.id} />
 
         <div className="mt-6 hidden md:block">
           <div className="flex items-center gap-8 mb-6">
