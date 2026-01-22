@@ -395,6 +395,16 @@ const CommunityLensUI = ({ videoId }) => {
   const [showViewerResponse, setShowViewerResponse] = useState(false);
   const [isHoveringCategory, setIsHoveringCategory] = useState(false);
 
+  // State for expandable main sections
+  const [openSections, setOpenSections] = useState({
+    risks: false,
+    references: false
+  });
+
+  const toggleSection = (key) => {
+    setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
   const data = NOTE_DATABASE[videoId];
   if (!data) return null;
 
@@ -402,96 +412,90 @@ const CommunityLensUI = ({ videoId }) => {
     setExpandedRisks(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
-  // --- Dynamic Theme Styles ---
+  // --- Dynamic Theme Styles (YouTube Themed) ---
   const theme = {
     // Containers
-    mainContainer: isDarkMode ? 'bg-[#18181b] border-zinc-700' : 'bg-white border-gray-200',
-    headerGradient: isDarkMode ? 'from-blue-700 to-purple-800 border-b border-zinc-700' : 'from-blue-600 to-purple-600',
-    bodyBg: isDarkMode ? 'bg-[#18181b]' : 'bg-white',
+    // Updated: Tool background is now dark grey (#212121) to contrast with the black (#0f0f0f) page background
+    mainContainer: isDarkMode ? 'bg-[#212121] border-[#3f3f3f]' : 'bg-white border-gray-200',
+    headerBg: isDarkMode ? 'bg-[#212121] border-b border-[#3f3f3f]' : 'bg-[#f0f0f0] border-b border-gray-300',
+    bodyBg: isDarkMode ? 'bg-[#212121]' : 'bg-white',
     
     // Typography
-    textMain: isDarkMode ? 'text-zinc-200' : 'text-gray-800',
-    textSub: isDarkMode ? 'text-zinc-400' : 'text-gray-500',
-    textHighlight: isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-800',
+    textMain: isDarkMode ? 'text-[#f1f1f1]' : 'text-[#0f0f0f]',
+    textSub: isDarkMode ? 'text-[#aaaaaa]' : 'text-[#606060]',
+    textHighlight: isDarkMode ? 'text-[#3ea6ff] hover:text-[#6faeff]' : 'text-[#065fd4] hover:text-[#003e87]', // YouTube Blue for links
     
     // Sections (Consensus / Risks)
-    cardBorder: isDarkMode ? 'border-[#6366f1]/30 bg-[#27272a]' : 'border-[#A5B4FC] bg-white',
-    sectionHeaderBg: isDarkMode ? 'bg-[#4472C4]/80' : 'bg-[#4472C4]',
+    // Updated: Inner cards use black (#0f0f0f) to create depth inside the grey tool
+    cardBorder: isDarkMode ? 'border-[#3f3f3f] bg-[#0f0f0f]' : 'border-gray-300 bg-gray-50',
+    sectionHeaderBg:'bg-[#a10f18]', // YouTube Red
     
     // Interactive Elements
-    riskItemBg: isDarkMode ? 'bg-[#18181b] border-zinc-700 hover:bg-zinc-800' : 'bg-white border-gray-300 hover:bg-gray-50',
-    viewerResponseBg: isDarkMode ? 'bg-blue-900/10 border-blue-900/30 text-zinc-300' : 'bg-blue-50/50 border-blue-100 text-gray-700',
+    riskItemBg: isDarkMode ? 'bg-[#1e1e1e] border-[#3f3f3f] hover:bg-[#2a2a2a]' : 'bg-white border-gray-200 hover:bg-gray-100',
+    viewerResponseBg: isDarkMode ? 'bg-[#1e1e1e] border-[#3f3f3f] text-[#f1f1f1]' : 'bg-blue-50/50 border-blue-100 text-gray-700',
     
     // Icons
-    iconTrashBg: isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-gray-200 text-gray-600',
-    iconSearchBg: isDarkMode ? 'bg-blue-900/30 text-blue-400' : 'bg-blue-100 text-black',
+    iconTrashBg: isDarkMode ? 'bg-[#272727] text-[#aaaaaa]' : 'bg-gray-200 text-gray-600',
+    iconSearchBg: isDarkMode ? 'bg-[#263850] text-[#3ea6ff]' : 'bg-blue-100 text-blue-600',
     
     // Age Rating
-    ageRatingContainer: isDarkMode ? 'bg-[#27272a] border-zinc-600' : 'bg-white border-black',
+    ageRatingContainer: isDarkMode ? 'bg-[#0f0f0f] border-[#3f3f3f]' : 'bg-white border-gray-300',
     ageRatingBox: isDarkMode ? 'bg-white text-black' : 'bg-black text-white',
     
     // Footer
-    footerBorder: isDarkMode ? 'border-zinc-700' : 'border-gray-200',
-    footerText: isDarkMode ? 'text-zinc-500' : 'text-gray-400',
-    footerBrand: isDarkMode ? 'text-zinc-300' : 'text-gray-600'
+    footerBorder: isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200',
+    footerText: isDarkMode ? 'text-[#aaaaaa]' : 'text-gray-500',
+    footerBrand: isDarkMode ? 'text-white' : 'text-black'
   };
 
   return (
-    <div className={`mt-6 w-full font-sans shadow-xl rounded-xl overflow-visible border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
+    <div className={`mt-6 w-full font-sans shadow-lg rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
       
-      {/* 1. HEADER */}
-      <div className={`bg-gradient-to-r p-3 text-white relative rounded-t-xl ${theme.headerGradient}`}>
+      {/* 1. HEADER - Clickable to toggle visibility */}
+      <div 
+        onClick={() => setIsToolOpen(!isToolOpen)}
+        className={`p-3 relative flex items-center justify-between cursor-pointer transition-colors hover:bg-opacity-80 ${theme.headerBg}`}
+      >
         
-        {/* BUTTON GROUP (Theme Toggle + Expand/Collapse) */}
-        <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
+        <div className="flex items-center gap-3">
+           <div className="bg-[#FF0000] p-1.5 rounded-lg shadow-sm">
+              <ShieldAlert size={18} className="text-white" fill="currentColor" />
+           </div>
+           <div>
+              <h1 className={`text-sm font-bold tracking-tight leading-none ${theme.textMain}`}>CommunityLens</h1>
+              <p className={`text-[10px] mt-0.5 font-medium ${theme.textSub}`}>AI Content Analysis</p>
+           </div>
+        </div>
+
+        {/* BUTTON GROUP (Theme Toggle) */}
+        <div className="flex items-center gap-2">
           
           {/* Theme Toggle */}
           <button 
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-1.5 bg-black/20 rounded-full hover:bg-black/40 transition cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent toggling the main tool when switching theme
+              setIsDarkMode(!isDarkMode);
+            }}
+            className={`p-2 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
             title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
-            {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-
-          {/* Expand Toggle */}
-          <button 
-            onClick={() => setIsToolOpen(!isToolOpen)}
-            className="p-1.5 bg-black/20 rounded-full hover:bg-black/40 transition cursor-pointer"
-            title={isToolOpen ? "Minimize Tool" : "Maximize Tool"}
-          >
-            {isToolOpen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
-          </button>
-        </div>
-        
-        <div className="text-center">
-          <h1 className="text-lg font-bold tracking-tight">CommunityLens</h1>
-          <p className={`text-[10px] opacity-90 ${isDarkMode ? 'text-zinc-300' : 'text-purple-100'}`}>Navigate AI Content via Community Insights</p>
         </div>
       </div>
 
       {/* 2. BODY */}
       {isToolOpen && (
-        <div className={`rounded-b-xl ${theme.bodyBg}`}>
-          
-          <div className={`${isDarkMode ? 'bg-[#4472C4]/90 border-b border-zinc-700' : 'bg-[#4472C4]'} py-2 px-4`}>
-            <h2 className="text-white text-xs font-bold uppercase tracking-wide truncate text-center">
-              {data.title}
-            </h2>
-          </div>
-
-          <div className="p-4 max-h-[600px] overflow-y-auto custom-scrollbar">
-            <h3 className={`text-center font-bold mb-4 text-sm px-8 leading-snug ${theme.textSub}`}>
-              Community Notes on the Content being AIGC
-            </h3>
-
-            {/* CONSENSUS */}
-            <div className={`rounded-lg overflow-hidden border mb-4 ${theme.cardBorder}`}>
-              <div className={`p-2 pl-3 ${theme.sectionHeaderBg}`}>
-                <h4 className="text-white font-bold text-xs">Community Consensus about the Content:</h4>
+        <div className={`${theme.bodyBg} p-4`}>
+            
+            {/* CONSENSUS (Static) */}
+            <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+              <div className={`p-2.5 pl-3 flex items-center gap-2 ${theme.sectionHeaderBg}`}>
+                <Activity size={16} className="text-white" />
+                <h4 className="text-white font-bold text-xs uppercase tracking-wider">Community Consensus</h4>
               </div>
-              <div className="p-3">
-                <span className={`inline-block text-[10px] px-3 py-1 rounded-full font-bold mb-3 ${isDarkMode ? 'bg-[#0f172a] text-blue-200 border border-blue-900/50' : 'bg-[#1E293B] text-white'}`}>
+              <div className="p-4">
+                <span className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-3 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black border-gray-300'}`}>
                   {data.consensus.label}
                 </span>
                 <p className={`text-xs leading-relaxed ${theme.textMain}`}>
@@ -499,83 +503,114 @@ const CommunityLensUI = ({ videoId }) => {
                   {!showFullConsensus && (
                     <button 
                       onClick={() => setShowFullConsensus(true)}
-                      className={`font-bold hover:underline ml-1 ${theme.textHighlight}`}
+                      className={`font-medium ml-1 text-[10px] uppercase ${theme.textHighlight}`}
                     >
-                      See more
+                      Read more
                     </button>
                   )}
                 </p>
               </div>
             </div>
 
-            {/* RISKS */}
-            <div className={`rounded-lg overflow-hidden border mb-4 ${theme.cardBorder}`}>
-              <div className={`p-2 pl-3 ${theme.sectionHeaderBg}`}>
-                <h4 className="text-white font-bold text-xs">Risk Patterns in the Content</h4>
-              </div>
-              
-              <div className="p-2 flex flex-col gap-2">
-                {data.risks.map((risk) => (
-                  <div key={risk.id} className={`border rounded-lg shadow-sm ${theme.riskItemBg}`}>
-                    <button 
-                      onClick={() => toggleRisk(risk.id)}
-                      className="w-full flex items-center gap-3 p-2 text-left transition-colors"
-                    >
-                      <div className={`p-1 rounded ${risk.icon === 'trash' ? theme.iconTrashBg : theme.iconSearchBg}`}>
-                          {risk.icon === 'trash' 
-                            ? <Trash2 size={16} />
-                            : <Search size={16} />
-                          }
-                      </div>
-                      <span className={`flex-1 font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
-                      {expandedRisks[risk.id] 
-                        ? <ChevronUp size={14} className={theme.textSub} />
-                        : <ChevronDown size={14} className={theme.textSub} />
-                      }
-                    </button>
-                    {expandedRisks[risk.id] && (
-                      <div className={`px-3 pb-3 pt-0 pl-12 text-xs ${theme.textSub}`}>
-                        {risk.content}
-                      </div>
-                    )}
-                  </div>
-                ))}
-
-                {/* VIEWER RESPONSE SECTION */}
-                <div className={`mt-1 border-t pt-2 ${isDarkMode ? 'border-zinc-700' : 'border-gray-100'}`}>
-                  <button 
-                    onClick={() => setShowViewerResponse(!showViewerResponse)}
-                    className={`flex items-center gap-1 text-[10px] font-bold transition-colors ${theme.textHighlight}`}
-                  >
-                    {showViewerResponse ? '▲ Hide' : '▼ See'} how viewers generally address these risks
-                  </button>
-                  
-                  {showViewerResponse && data.viewerResponse && (
-                    <div className={`mt-2 p-2 border rounded text-xs leading-relaxed ${theme.viewerResponseBg}`}>
-                      {data.viewerResponse}
-                    </div>
-                  )}
+            {/* RISKS (Expandable) */}
+            <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+              <button 
+                onClick={() => toggleSection('risks')}
+                className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg} hover:brightness-110 transition-all`}
+              >
+                <div className="flex items-center gap-2">
+                    <AlertOctagon size={16} className="text-white" />
+                    <h4 className="text-white font-bold text-xs uppercase tracking-wider">Risk Patterns</h4>
                 </div>
-              </div>
+                {openSections.risks ? <ChevronUp size={18} className="text-white" /> : <ChevronDown size={18} className="text-white" />}
+              </button>
+              
+              {openSections.risks && (
+                <div className="p-3 flex flex-col gap-2 animate-in slide-in-from-top-2 duration-200">
+                    {data.risks.length > 0 ? (
+                        data.risks.map((risk) => (
+                        <div key={risk.id} className={`border rounded-lg transition-colors ${theme.riskItemBg}`}>
+                            <button 
+                            onClick={() => toggleRisk(risk.id)}
+                            className="w-full flex items-center gap-3 p-2.5 text-left"
+                            >
+                            <div className={`p-1.5 rounded-full flex-shrink-0 ${risk.icon === 'trash' ? theme.iconTrashBg : theme.iconSearchBg}`}>
+                                {risk.icon === 'trash' 
+                                    ? <Trash2 size={14} />
+                                    : <Search size={14} />
+                                }
+                            </div>
+                            <span className={`flex-1 font-medium text-xs ${theme.textMain}`}>{risk.title}</span>
+                            {expandedRisks[risk.id] 
+                                ? <ChevronUp size={16} className={theme.textSub} />
+                                : <ChevronDown size={16} className={theme.textSub} />
+                            }
+                            </button>
+                            {expandedRisks[risk.id] && (
+                            <div className={`px-3 pb-3 pt-0 pl-11 text-xs ${theme.textSub}`}>
+                                {risk.content}
+                            </div>
+                            )}
+                        </div>
+                        ))
+                    ) : (
+                        <p className={`text-xs p-2 italic ${theme.textSub}`}>No significant risks detected by the community.</p>
+                    )}
+
+                    {/* VIEWER RESPONSE SECTION */}
+                    {data.risks.length > 0 && (
+                        <div className={`mt-2 pt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+                        <button 
+                            onClick={() => setShowViewerResponse(!showViewerResponse)}
+                            className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors w-full p-1 ${theme.textHighlight}`}
+                        >
+                            <div className="flex items-center gap-1">
+                                {showViewerResponse ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                                {showViewerResponse ? 'Hide community response' : 'Show community response'}
+                            </div>
+                        </button>
+                        
+                        {showViewerResponse && data.viewerResponse && (
+                            <div className={`mt-2 p-3 border rounded-lg text-xs leading-relaxed animate-in fade-in ${theme.viewerResponseBg}`}>
+                            <div className="flex gap-3">
+                                <div className="w-0.5 self-stretch bg-[#3ea6ff] rounded-full flex-shrink-0"></div>
+                                <div>{data.viewerResponse}</div>
+                            </div>
+                            </div>
+                        )}
+                        </div>
+                    )}
+                </div>
+              )}
             </div>
 
-            {/* REFERENCES */}
-            <div className={`rounded-lg overflow-hidden border mb-6 ${theme.cardBorder}`}>
-              <div className={`p-2 pl-3 ${theme.sectionHeaderBg}`}>
-                <h4 className="text-white font-bold text-xs">Community-provided references and citations</h4>
-              </div>
-              <div className="p-3">
-                <p className={`text-xs font-medium ${isDarkMode ? 'text-zinc-400' : 'text-black'}`}>No references available.</p>
-              </div>
+            {/* REFERENCES (Expandable) */}
+            <div className={`rounded-xl overflow-hidden border mb-6 ${theme.cardBorder}`}>
+              <button 
+                onClick={() => toggleSection('references')}
+                className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg} hover:brightness-110 transition-all`}
+              >
+                <div className="flex items-center gap-2">
+                    <ExternalLink size={16} className="text-white" />
+                    <h4 className="text-white font-bold text-xs uppercase tracking-wider">References</h4>
+                </div>
+                {openSections.references ? <ChevronUp size={18} className="text-white" /> : <ChevronDown size={18} className="text-white" />}
+              </button>
+              
+              {openSections.references && (
+                <div className="p-4 animate-in slide-in-from-top-2 duration-200">
+                    <p className={`text-xs ${theme.textSub}`}>No community citations available yet.</p>
+                </div>
+              )}
             </div>
 
-            <hr className={`mb-6 ${isDarkMode ? 'border-zinc-700' : 'border-gray-200'}`} />
+            <div className={`h-px w-full mb-6 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
 
             {/* CONTENT CATEGORY (With Hover Tooltip) */}
             <div className="flex flex-col gap-4 mb-6">
               <div className="flex items-center gap-3">
                 
-                <span className={`text-xs font-bold leading-tight whitespace-nowrap ${theme.textSub}`}>
+                <span className={`text-xs font-bold leading-tight whitespace-nowrap uppercase tracking-wide ${theme.textSub}`}>
                   Content<br/>Category
                 </span>
                 
@@ -583,18 +618,18 @@ const CommunityLensUI = ({ videoId }) => {
                   <div 
                     onMouseEnter={() => setIsHoveringCategory(true)}
                     onMouseLeave={() => setIsHoveringCategory(false)}
-                    className="bg-[#DC2626] cursor-help text-white text-[10px] pl-3 pr-2 py-1 rounded-full font-bold flex items-center gap-1 shadow-md hover:scale-105 transition-transform"
+                    className={`border cursor-help text-[10px] pl-3 pr-2 py-1.5 rounded-full font-bold flex items-center gap-2 shadow-sm transition-transform hover:scale-105 ${isDarkMode ? 'bg-[#272727] border-[#3f3f3f] text-[#f1f1f1]' : 'bg-gray-100 border-gray-300 text-black'}`}
                   >
                     {data.safety.category}
-                    <div className="bg-black/20 rounded-full w-3.5 h-3.5 flex items-center justify-center">
-                      <Info size={10} className="text-white" strokeWidth={3} />
+                    <div className={`rounded-full w-4 h-4 flex items-center justify-center ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-300'}`}>
+                      <Info size={10} className={theme.textMain} strokeWidth={2.5} />
                     </div>
                   </div>
 
                   {isHoveringCategory && (
-                    <div className={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-max max-w-[150px] text-[10px] px-2 py-1.5 rounded shadow-xl z-50 text-center animate-in fade-in zoom-in duration-200 ${isDarkMode ? 'bg-zinc-800 border border-zinc-600 text-white' : 'bg-black text-white'}`}>
+                    <div className={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-max max-w-[200px] text-[11px] px-3 py-2 rounded-lg shadow-xl z-50 text-center animate-in fade-in zoom-in duration-200 border ${isDarkMode ? 'bg-[#212121] border-[#3f3f3f] text-[#f1f1f1]' : 'bg-white border-gray-300 text-black'}`}>
                       {data.safety.hoverText}
-                      <div className={`absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent ${isDarkMode ? 'border-t-zinc-800' : 'border-t-black'}`}></div>
+                      <div className={`absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent ${isDarkMode ? 'border-t-[#212121]' : 'border-t-white'}`}></div>
                     </div>
                   )}
                 </div>
@@ -602,14 +637,13 @@ const CommunityLensUI = ({ videoId }) => {
                 {/* Safety Meter */}
                 <div className="flex-1 flex flex-col items-center relative ml-2">
                     <div 
-                      className={`absolute -top-1.5 w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[6px] transition-all duration-500 ${isDarkMode ? 'border-t-white' : 'border-t-black'}`}
+                      className={`absolute -top-1.5 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] transition-all duration-500 ${isDarkMode ? 'border-t-[#f1f1f1]' : 'border-t-black'}`}
                       style={{ left: `${data.safety.score}%`, transform: 'translateX(-50%)' }}
                     ></div>
-                    <div className={`h-2.5 w-full rounded-full bg-gradient-to-r from-[#EF4444] via-[#FBBF24] to-[#22C55E] border ${isDarkMode ? 'border-zinc-600' : 'border-gray-100'}`}></div>
-                    <div className="flex justify-between w-full text-[8px] font-bold mt-1 tracking-wide">
-                      <span className="text-[#EF4444]">Unsafe</span>
-                      <span className="text-[#F59E0B]">Neutral</span>
-                      <span className="text-[#22C55E]">Safe</span>
+                    <div className="h-2 w-full rounded-full bg-gradient-to-r from-[#FF0000] via-[#FFCC00] to-[#2BA640] opacity-90"></div>
+                    <div className="flex justify-between w-full text-[9px] font-bold mt-1 tracking-wider uppercase opacity-70">
+                      <span className="text-[#FF0000]">Unsafe</span>
+                      <span className="text-[#2BA640]">Safe</span>
                     </div>
                 </div>
               </div>
@@ -617,26 +651,27 @@ const CommunityLensUI = ({ videoId }) => {
 
             {/* AGE RATING */}
             <div className="mb-4">
-               <p className={`text-xs font-bold mb-2 ${theme.textSub}`}>This Content is appropriate for:</p>
-               <div className={`border rounded-lg p-2 flex items-center gap-3 ${theme.ageRatingContainer}`}>
-                  <div className={`p-0.5 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
-                    <span className="text-[6px] font-bold leading-none">TV</span>
+               <div className={`border rounded-xl p-3 flex items-center gap-4 ${theme.ageRatingContainer}`}>
+                  <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
+                    <span className="text-[6px] font-bold leading-none uppercase">TV</span>
                     <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
                   </div>
-                  <p className={`text-[10px] leading-tight ${theme.textSub}`}>
-                    <span className={`font-extrabold ${theme.textMain}`}>{data.safety.ratingCode}:</span> {data.safety.ratingDesc}
-                  </p>
+                  <div className="flex flex-col">
+                    <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>Rated for</span>
+                    <p className={`text-[11px] leading-tight font-medium ${theme.textMain}`}>
+                       {data.safety.ratingDesc}
+                    </p>
+                  </div>
                </div>
             </div>
 
             {/* FOOTER */}
-            <div className={`text-center pt-2 border-t mt-4 ${theme.footerBorder}`}>
+            <div className={`text-center pt-4 border-t ${theme.footerBorder}`}>
               <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
-                POWERED BY <span className={`font-bold ${theme.footerBrand}`}>CHATGPT</span>
+                Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
               </p>
             </div>
 
-          </div>
         </div>
       )}
     </div>
