@@ -35,7 +35,6 @@ const categories = [
 ];
 
 // --- Video Data Configuration ---
-// We map internal IDs (video1) to real YouTube IDs (ytId) for the player/images
 const VIDEO_DB = [
   { id: "video1", ytId: "ghLtBXmhDsU", title: "ZELENSKY ISSUES APOLOGY TO TRUMP", channel: "SyntheticVoices" },
   { id: "video2", ytId: "cQ54GDm1eL0", title: "You Won’t Believe What Obama Says In This Video! 😉", channel: "BuzzFeedVideo" },
@@ -298,34 +297,39 @@ const NOTE_DATABASE = {
 
 // --- Sub-components ---
 
-const SidebarItem = ({ icon: Icon, label, isActive, isCollapsed, onClick }) => (
+const SidebarItem = ({ icon: Icon, label, isActive, isCollapsed, onClick, isDarkMode }) => (
   <div
     onClick={onClick}
-    className={`flex items-center p-3 rounded-lg cursor-pointer mb-1 hover:bg-zinc-800 transition-colors ${isActive ? 'bg-zinc-800 font-medium' : ''} ${isCollapsed ? 'flex-col justify-center gap-1 p-2' : 'gap-5'}`}
+    className={`flex items-center p-3 rounded-lg cursor-pointer mb-1 transition-colors 
+      ${isActive 
+        ? (isDarkMode ? 'bg-zinc-800 font-medium' : 'bg-gray-100 font-medium') 
+        : (isDarkMode ? 'hover:bg-zinc-800' : 'hover:bg-gray-100')
+      } 
+      ${isCollapsed ? 'flex-col justify-center gap-1 p-2' : 'gap-5'}`}
   >
-    <Icon size={isCollapsed ? 24 : 22} className={isActive ? 'text-white fill-current' : 'text-white'} />
-    <span className={`text-sm ${isCollapsed ? 'text-[10px]' : 'truncate flex-1'}`}>{label}</span>
+    <Icon size={isCollapsed ? 24 : 22} className={isActive ? (isDarkMode ? 'text-white fill-current' : 'text-black fill-current') : (isDarkMode ? 'text-white' : 'text-black')} />
+    <span className={`text-sm ${isCollapsed ? 'text-[10px]' : 'truncate flex-1'} ${isDarkMode ? 'text-white' : 'text-black'}`}>{label}</span>
   </div>
 );
 
-const CategoryPill = ({ label, isSelected, onClick }) => (
+const CategoryPill = ({ label, isSelected, onClick, isDarkMode }) => (
   <button
     onClick={() => onClick(label)}
     className={`px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors
       ${isSelected
-        ? 'bg-white text-black'
-        : 'bg-zinc-800 text-white hover:bg-zinc-700'
+        ? (isDarkMode ? 'bg-white text-black' : 'bg-black text-white')
+        : (isDarkMode ? 'bg-zinc-800 text-white hover:bg-zinc-700' : 'bg-gray-100 text-black hover:bg-gray-200')
       }`}
   >
     {label}
   </button>
 );
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, isDarkMode }) => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-3 cursor-pointer group" onClick={() => navigate(`/video/${video.id}`)}>
-      <div className="relative aspect-video rounded-xl overflow-hidden bg-zinc-800">
+      <div className={`relative aspect-video rounded-xl overflow-hidden ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-200'}`}>
         <img
           src={video.thumbnail}
           alt={video.title}
@@ -339,14 +343,14 @@ const VideoCard = ({ video }) => {
         <img
           src={video.channelAvatar}
           alt={video.channelName}
-          className="w-9 h-9 rounded-full mt-1 bg-zinc-700 object-cover"
+          className={`w-9 h-9 rounded-full mt-1 object-cover ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-300'}`}
         />
         <div className="flex flex-col">
-          <h3 className="text-white font-semibold leading-tight line-clamp-2 text-sm md:text-base">
+          <h3 className={`font-semibold leading-tight line-clamp-2 text-sm md:text-base ${isDarkMode ? 'text-white' : 'text-black'}`}>
             {video.title}
           </h3>
-          <div className="text-zinc-400 text-xs md:text-sm mt-1">
-            <p className="hover:text-white transition-colors">{video.channelName}</p>
+          <div className={`text-xs md:text-sm mt-1 ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
+            <p className={`transition-colors ${isDarkMode ? 'hover:text-white' : 'hover:text-black'}`}>{video.channelName}</p>
             <div className="flex items-center">
               <span>{video.views} views</span>
               <span className="mx-1">•</span>
@@ -359,11 +363,11 @@ const VideoCard = ({ video }) => {
   );
 };
 
-const RelatedVideoCard = ({ video }) => {
+const RelatedVideoCard = ({ video, isDarkMode }) => {
   const navigate = useNavigate();
   return (
     <div className="flex gap-2 cursor-pointer group" onClick={() => navigate(`/video/${video.id}`)}>
-      <div className="relative w-40 flex-shrink-0 aspect-video rounded-lg overflow-hidden bg-zinc-800">
+      <div className={`relative w-40 flex-shrink-0 aspect-video rounded-lg overflow-hidden ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-200'}`}>
         <img
           src={video.thumbnail}
           alt={video.title}
@@ -374,10 +378,10 @@ const RelatedVideoCard = ({ video }) => {
         </div>
       </div>
       <div className="flex flex-col gap-1 pr-2">
-        <h4 className="text-sm text-white font-medium line-clamp-2 leading-tight group-hover:underline">
+        <h4 className={`text-sm font-medium line-clamp-2 leading-tight group-hover:underline ${isDarkMode ? 'text-white' : 'text-black'}`}>
           {video.title}
         </h4>
-        <div className="text-xs text-zinc-400">
+        <div className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
           <p>{video.channelName}</p>
           <p>{video.views} views • {video.uploadedAt}</p>
         </div>
@@ -387,9 +391,8 @@ const RelatedVideoCard = ({ video }) => {
 };
 
 // --- COMMUNITY LENS TOOL UI (With Theme Toggle) ---
-const CommunityLensUI = ({ videoId }) => {
+const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
   const [isToolOpen, setIsToolOpen] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(true); // Default to Dark Mode
   const [showFullConsensus, setShowFullConsensus] = useState(false);
   const [expandedRisks, setExpandedRisks] = useState({});
   const [showViewerResponse, setShowViewerResponse] = useState(false);
@@ -415,7 +418,6 @@ const CommunityLensUI = ({ videoId }) => {
   // --- Dynamic Theme Styles (YouTube Themed) ---
   const theme = {
     // Containers
-    // Updated: Tool background is now dark grey (#212121) to contrast with the black (#0f0f0f) page background
     mainContainer: isDarkMode ? 'bg-[#212121] border-[#3f3f3f]' : 'bg-white border-gray-200',
     headerBg: isDarkMode ? 'bg-[#212121] border-b border-[#3f3f3f]' : 'bg-[#f0f0f0] border-b border-gray-300',
     bodyBg: isDarkMode ? 'bg-[#212121]' : 'bg-white',
@@ -426,7 +428,6 @@ const CommunityLensUI = ({ videoId }) => {
     textHighlight: isDarkMode ? 'text-[#3ea6ff] hover:text-[#6faeff]' : 'text-[#065fd4] hover:text-[#003e87]', // YouTube Blue for links
     
     // Sections (Consensus / Risks)
-    // Updated: Inner cards use black (#0f0f0f) to create depth inside the grey tool
     cardBorder: isDarkMode ? 'border-[#3f3f3f] bg-[#0f0f0f]' : 'border-gray-300 bg-gray-50',
     sectionHeaderBg:'bg-[#a10f18]', // YouTube Red
     
@@ -470,11 +471,11 @@ const CommunityLensUI = ({ videoId }) => {
         {/* BUTTON GROUP (Theme Toggle) */}
         <div className="flex items-center gap-2">
           
-          {/* Theme Toggle */}
+          {/* Theme Toggle - Synced with global state */}
           <button 
             onClick={(e) => {
-              e.stopPropagation(); // Prevent toggling the main tool when switching theme
-              setIsDarkMode(!isDarkMode);
+              e.stopPropagation();
+              toggleTheme();
             }}
             className={`p-2 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
             title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
@@ -659,7 +660,7 @@ const CommunityLensUI = ({ videoId }) => {
                   <div className="flex flex-col">
                     <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>Rated for</span>
                     <p className={`text-[11px] leading-tight font-medium ${theme.textMain}`}>
-                       {data.safety.ratingDesc}
+                        {data.safety.ratingDesc}
                     </p>
                   </div>
                </div>
@@ -680,7 +681,7 @@ const CommunityLensUI = ({ videoId }) => {
 
 // --- Page Components ---
 
-const WatchPage = ({ videos }) => {
+const WatchPage = ({ videos, isDarkMode, toggleTheme }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [showMore, setShowMore] = useState(false);
@@ -713,51 +714,51 @@ const WatchPage = ({ videos }) => {
         </div>
 
         <div className="mt-4">
-          <h1 className="text-xl font-bold line-clamp-2">{currentVideo.title}</h1>
+          <h1 className={`text-xl font-bold line-clamp-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.title}</h1>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-3 gap-4">
             <div className="flex items-center gap-3">
               <img
                 src={currentVideo.channelAvatar}
-                className="w-10 h-10 rounded-full bg-zinc-700"
+                className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-300'}`}
                 alt={currentVideo.channelName}
               />
               <div>
-                <h3 className="font-bold text-base">{currentVideo.channelName}</h3>
-                <p className="text-xs text-zinc-400">1.45M subscribers</p>
+                <h3 className={`font-bold text-base ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.channelName}</h3>
+                <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>1.45M subscribers</p>
               </div>
-              <button className="ml-2 bg-white text-black px-4 py-2 rounded-full font-medium text-sm hover:bg-zinc-200 transition-colors">
+              <button className={`ml-2 px-4 py-2 rounded-full font-medium text-sm transition-colors ${isDarkMode ? 'bg-white text-black hover:bg-zinc-200' : 'bg-black text-white hover:bg-zinc-800'}`}>
                 Subscribe
               </button>
             </div>
 
             <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-              <div className="flex items-center bg-zinc-800 rounded-full">
-                <button className="flex items-center gap-2 px-4 py-2 hover:bg-zinc-700 rounded-l-full border-r border-zinc-700 transition-colors">
-                  <ThumbsUp size={18} />
-                  <span className="text-sm font-medium">24K</span>
+              <div className={`flex items-center rounded-full ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
+                <button className={`flex items-center gap-2 px-4 py-2 rounded-l-full border-r transition-colors ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
+                  <ThumbsUp size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
+                  <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>24K</span>
                 </button>
-                <button className="px-4 py-2 hover:bg-zinc-700 rounded-r-full transition-colors border-r border-zinc-700">
-                  <ThumbsDown size={18} />
+                <button className={`px-4 py-2 rounded-r-full transition-colors border-r ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
+                  <ThumbsDown size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
                 </button>
               </div>
 
-              <button className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors whitespace-nowrap">
+              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
                 <Share2 size={18} />
                 <span className="text-sm font-medium">Share</span>
               </button>
               
-               <button className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors whitespace-nowrap">
+               <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
                 <Download size={18} />
                 <span className="text-sm font-medium">Download</span>
               </button>
 
-               <button className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors whitespace-nowrap hidden xl:flex">
+               <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap hidden xl:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
                 <Scissors size={18} />
                 <span className="text-sm font-medium">Clip</span>
               </button>
 
-              <button className="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full transition-colors hidden sm:flex">
+              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors hidden sm:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
                 <MoreVertical size={18} />
               </button>
             </div>
@@ -765,19 +766,19 @@ const WatchPage = ({ videos }) => {
         </div>
 
         {/* Expandable Description Box */}
-        <div className={`mt-4 bg-zinc-800/50 rounded-xl p-3 text-sm transition-all duration-200 ${showMore ? '' : 'cursor-pointer hover:bg-zinc-800'}`} onClick={() => !showMore && setShowMore(true)}>
-          <div className="font-bold mb-2">
-            {currentVideo.views} views • {currentVideo.uploadedAt} • <span className="text-zinc-400">#AI #Tech #Future</span>
+        <div className={`mt-4 rounded-xl p-3 text-sm transition-all duration-200 ${isDarkMode ? 'bg-zinc-800/50' : 'bg-gray-100'} ${showMore ? '' : (isDarkMode ? 'cursor-pointer hover:bg-zinc-800' : 'cursor-pointer hover:bg-gray-200')}`} onClick={() => !showMore && setShowMore(true)}>
+          <div className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            {currentVideo.views} views • {currentVideo.uploadedAt} • <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}>#AI #Tech #Future</span>
           </div>
           
           <div className={`relative ${showMore ? '' : 'max-h-20 overflow-hidden'}`}>
-             <p className="whitespace-pre-line text-white/90 leading-relaxed">
+             <p className={`whitespace-pre-line leading-relaxed ${isDarkMode ? 'text-white/90' : 'text-black/90'}`}>
               {currentVideo.description}
             </p>
           </div>
           
           <button 
-            className="mt-2 font-bold text-white/70 hover:text-white block"
+            className={`mt-2 font-bold block ${isDarkMode ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'}`}
             onClick={(e) => {
               e.stopPropagation();
               setShowMore(!showMore);
@@ -787,27 +788,28 @@ const WatchPage = ({ videos }) => {
           </button>
         </div>
 
-        <CommunityLensUI videoId={currentVideo.id} />
+        {/* Pass global theme state to CommunityLens */}
+        <CommunityLensUI videoId={currentVideo.id} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
         <div className="mt-6 hidden md:block">
           <div className="flex items-center gap-8 mb-6">
-            <h3 className="text-xl font-bold">482 Comments</h3>
-            <div className="flex items-center gap-2 text-sm font-medium cursor-pointer">
+            <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>482 Comments</h3>
+            <div className={`flex items-center gap-2 text-sm font-medium cursor-pointer ${isDarkMode ? 'text-white' : 'text-black'}`}>
               <div className="flex flex-col gap-[3px]">
-                <div className="w-5 h-[2px] bg-white"></div>
-                <div className="w-3 h-[2px] bg-white"></div>
-                <div className="w-4 h-[2px] bg-white"></div>
+                <div className={`w-5 h-[2px] ${isDarkMode ? 'bg-white' : 'bg-black'}`}></div>
+                <div className={`w-3 h-[2px] ${isDarkMode ? 'bg-white' : 'bg-black'}`}></div>
+                <div className={`w-4 h-[2px] ${isDarkMode ? 'bg-white' : 'bg-black'}`}></div>
               </div>
               Sort by
             </div>
           </div>
 
           <div className="flex gap-4 mb-8">
-            <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-sm font-bold flex-shrink-0">R</div>
+            <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-sm font-bold flex-shrink-0 text-white">R</div>
             <div className="flex-1">
-              <input type="text" placeholder="Add a comment..." className="w-full bg-transparent border-b border-zinc-700 focus:border-white outline-none pb-1 text-sm" />
+              <input type="text" placeholder="Add a comment..." className={`w-full bg-transparent border-b outline-none pb-1 text-sm ${isDarkMode ? 'border-zinc-700 focus:border-white text-white' : 'border-gray-400 focus:border-black text-black'}`} />
               <div className="flex justify-end gap-2 mt-2">
-                <button className="px-3 py-1.5 rounded-full hover:bg-zinc-800 text-sm font-medium">Cancel</button>
+                <button className={`px-3 py-1.5 rounded-full text-sm font-medium ${isDarkMode ? 'hover:bg-zinc-800 text-white' : 'hover:bg-gray-100 text-black'}`}>Cancel</button>
                 <button className="px-3 py-1.5 rounded-full bg-blue-600/50 text-zinc-400 text-sm font-medium cursor-not-allowed">Comment</button>
               </div>
             </div>
@@ -815,24 +817,24 @@ const WatchPage = ({ videos }) => {
 
           {[1, 2, 3].map(i => (
             <div key={i} className="flex gap-4 mb-6">
-              <div className={`w-10 h-10 rounded-full flex-shrink-0 bg-zinc-700 overflow-hidden`}>
+              <div className={`w-10 h-10 rounded-full flex-shrink-0 overflow-hidden ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-200'}`}>
                 <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=User${i}`} alt="user" />
               </div>
               <div>
                 <div className="flex gap-2 items-center text-xs mb-1">
-                  <span className="font-bold">@user-random{i}</span>
-                  <span className="text-zinc-400">2 days ago</span>
+                  <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>@user-random{i}</span>
+                  <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}>2 days ago</span>
                 </div>
-                <p className="text-sm">This is exactly what I was looking for! Thanks for the great explanation.</p>
+                <p className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>This is exactly what I was looking for! Thanks for the great explanation.</p>
                 <div className="flex items-center gap-4 mt-2">
                   <div className="flex items-center gap-1.5 cursor-pointer">
-                    <ThumbsUp size={14} />
-                    <span className="text-xs text-zinc-400">{12 * i}</span>
+                    <ThumbsUp size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
+                    <span className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{12 * i}</span>
                   </div>
                   <div className="cursor-pointer">
-                    <ThumbsDown size={14} />
+                    <ThumbsDown size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
                   </div>
-                  <button className="text-xs font-medium hover:bg-zinc-800 px-3 py-1 rounded-full">Reply</button>
+                  <button className={`text-xs font-medium px-3 py-1 rounded-full ${isDarkMode ? 'hover:bg-zinc-800 text-white' : 'hover:bg-gray-100 text-black'}`}>Reply</button>
                 </div>
               </div>
             </div>
@@ -842,15 +844,16 @@ const WatchPage = ({ videos }) => {
 
       <div className="lg:w-[350px] xl:w-[400px] flex-shrink-0">
         <div className="flex gap-2 mb-4 overflow-x-auto no-scrollbar pb-2">
-          <CategoryPill label="All" isSelected={true} onClick={() => { }} />
-          <CategoryPill label="From this channel" isSelected={false} onClick={() => { }} />
-          <CategoryPill label="Related" isSelected={false} onClick={() => { }} />
+          <CategoryPill label="All" isSelected={true} onClick={() => { }} isDarkMode={isDarkMode} />
+          <CategoryPill label="From this channel" isSelected={false} onClick={() => { }} isDarkMode={isDarkMode} />
+          <CategoryPill label="Related" isSelected={false} onClick={() => { }} isDarkMode={isDarkMode} />
         </div>
         <div className="flex flex-col gap-2">
           {videos.filter(v => v.id !== currentVideo.id).map((vid) => (
             <div key={`rel-${vid.id}`} onClick={() => navigate(`/video/${vid.id}`)}>
               <RelatedVideoCard
                 video={vid}
+                isDarkMode={isDarkMode}
               />
             </div>
           ))}
@@ -860,16 +863,17 @@ const WatchPage = ({ videos }) => {
   );
 };
 
-const HomePage = ({ videos, selectedCategory, setSelectedCategory }) => {
+const HomePage = ({ videos, selectedCategory, setSelectedCategory, isDarkMode }) => {
   return (
     <div className="flex flex-col">
-      <div className="sticky top-0 bg-[#0f0f0f]/95 backdrop-blur-sm z-10 px-4 py-3 flex gap-3 overflow-x-auto no-scrollbar border-b border-zinc-800/50">
+      <div className={`sticky top-0 z-10 px-4 py-3 flex gap-3 overflow-x-auto no-scrollbar border-b backdrop-blur-sm ${isDarkMode ? 'bg-[#0f0f0f]/95 border-zinc-800/50' : 'bg-white/95 border-gray-200'}`}>
         {categories.map((cat) => (
           <CategoryPill
             key={cat}
             label={cat}
             isSelected={selectedCategory === cat}
             onClick={setSelectedCategory}
+            isDarkMode={isDarkMode}
           />
         ))}
       </div>
@@ -879,6 +883,7 @@ const HomePage = ({ videos, selectedCategory, setSelectedCategory }) => {
           <VideoCard
             key={video.id}
             video={video}
+            isDarkMode={isDarkMode}
           />
         ))}
       </div>
@@ -893,6 +898,8 @@ function AppContent() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [videos, setVideos] = useState(INITIAL_VIDEOS);
+  // Global Theme State
+  const [isDarkMode, setIsDarkMode] = useState(true);
   
   // --- Survey Mode State ---
   const [isSurveyActive, setIsSurveyActive] = useState(false);
@@ -930,6 +937,7 @@ function AppContent() {
   }, [selectedCategory, searchQuery]);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   // --- Survey Functions ---
   const startSurvey = () => {
@@ -970,55 +978,55 @@ function AppContent() {
   };
 
 
-  const SidebarContent = ({ collapsed }) => (
+  const SidebarContent = ({ collapsed, isDarkMode }) => (
     <div className={`h-full overflow-y-auto custom-scrollbar pb-4 ${collapsed ? 'px-1' : 'px-3'}`}>
-      <div className="py-2 border-b border-zinc-800">
-        <SidebarItem icon={Home} label="Home" isActive={location.pathname === '/'} isCollapsed={collapsed} onClick={() => navigate('/')} />
-        <SidebarItem icon={MonitorPlay} label="Shorts" isCollapsed={collapsed} />
-        <SidebarItem icon={Compass} label="Subscriptions" isCollapsed={collapsed} />
+      <div className={`py-2 border-b ${isDarkMode ? 'border-zinc-800' : 'border-gray-200'}`}>
+        <SidebarItem icon={Home} label="Home" isActive={location.pathname === '/'} isCollapsed={collapsed} onClick={() => navigate('/')} isDarkMode={isDarkMode} />
+        <SidebarItem icon={MonitorPlay} label="Shorts" isCollapsed={collapsed} isDarkMode={isDarkMode} />
+        <SidebarItem icon={Compass} label="Subscriptions" isCollapsed={collapsed} isDarkMode={isDarkMode} />
       </div>
       {!collapsed && (
         <>
-          <div className="py-2 border-b border-zinc-800">
-            <h3 className="px-3 py-2 text-base font-medium">You</h3>
-            <SidebarItem icon={History} label="History" />
-            <SidebarItem icon={PlaySquare} label="Your videos" />
-            <SidebarItem icon={Clock} label="Watch later" />
-            <SidebarItem icon={ThumbsUp} label="Liked videos" />
-            <SidebarItem icon={ListPlus} label="Playlists" />
+          <div className={`py-2 border-b ${isDarkMode ? 'border-zinc-800' : 'border-gray-200'}`}>
+            <h3 className={`px-3 py-2 text-base font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>You</h3>
+            <SidebarItem icon={History} label="History" isDarkMode={isDarkMode} />
+            <SidebarItem icon={PlaySquare} label="Your videos" isDarkMode={isDarkMode} />
+            <SidebarItem icon={Clock} label="Watch later" isDarkMode={isDarkMode} />
+            <SidebarItem icon={ThumbsUp} label="Liked videos" isDarkMode={isDarkMode} />
+            <SidebarItem icon={ListPlus} label="Playlists" isDarkMode={isDarkMode} />
           </div>
-          <div className="py-2 border-b border-zinc-800">
-            <h3 className="px-3 py-2 text-base font-medium">Explore</h3>
-            <SidebarItem icon={Flame} label="Trending" />
-            <SidebarItem icon={Music2} label="Music" />
-            <SidebarItem icon={Gamepad2} label="Gaming" />
-            <SidebarItem icon={Newspaper} label="News" />
-            <SidebarItem icon={Trophy} label="Sports" />
+          <div className={`py-2 border-b ${isDarkMode ? 'border-zinc-800' : 'border-gray-200'}`}>
+            <h3 className={`px-3 py-2 text-base font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>Explore</h3>
+            <SidebarItem icon={Flame} label="Trending" isDarkMode={isDarkMode} />
+            <SidebarItem icon={Music2} label="Music" isDarkMode={isDarkMode} />
+            <SidebarItem icon={Gamepad2} label="Gaming" isDarkMode={isDarkMode} />
+            <SidebarItem icon={Newspaper} label="News" isDarkMode={isDarkMode} />
+            <SidebarItem icon={Trophy} label="Sports" isDarkMode={isDarkMode} />
           </div>
           <div className="py-2">
-            <SidebarItem icon={Settings} label="Settings" />
-            <SidebarItem icon={HelpCircle} label="Help" />
-            <SidebarItem icon={LogOut} label="Send feedback" />
+            <SidebarItem icon={Settings} label="Settings" isDarkMode={isDarkMode} />
+            <SidebarItem icon={HelpCircle} label="Help" isDarkMode={isDarkMode} />
+            <SidebarItem icon={LogOut} label="Send feedback" isDarkMode={isDarkMode} />
           </div>
         </>
       )}
       {collapsed && (
         <div className="py-2">
-          <SidebarItem icon={PlaySquare} label="Library" isCollapsed={true} />
+          <SidebarItem icon={PlaySquare} label="Library" isCollapsed={true} isDarkMode={isDarkMode} />
         </div>
       )}
     </div>
   );
 
   return (
-    <div className="flex flex-col h-screen bg-[#0f0f0f] text-white overflow-hidden font-sans relative">
-      <header className="flex items-center justify-between px-4 h-14 bg-[#0f0f0f] fixed w-full top-0 z-50">
+    <div className={`flex flex-col h-screen overflow-hidden font-sans relative transition-colors duration-200 ${isDarkMode ? 'bg-[#0f0f0f] text-white' : 'bg-white text-black'}`}>
+      <header className={`flex items-center justify-between px-4 h-14 fixed w-full top-0 z-50 transition-colors duration-200 ${isDarkMode ? 'bg-[#0f0f0f]' : 'bg-white border-b border-gray-200'}`}>
         <div className="flex items-center gap-4">
           <button
             onClick={toggleSidebar}
-            className="p-2 hover:bg-zinc-800 rounded-full transition-colors active:bg-zinc-700"
+            className={`p-2 rounded-full transition-colors active:bg-zinc-700 ${isDarkMode ? 'hover:bg-zinc-800' : 'hover:bg-gray-100'}`}
           >
-            <Menu className="text-white" />
+            <Menu className={isDarkMode ? 'text-white' : 'text-black'} />
           </button>
           <div
             className="flex items-center gap-1 cursor-pointer select-none"
@@ -1030,7 +1038,7 @@ function AppContent() {
                   <path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="#FF0033"></path>
                   <path d="M19 10L11.5 5.75V14.25L19 10Z" fill="white"></path>
                 </g>
-                <g id="youtube-paths_yt9" fill="currentColor">
+                <g id="youtube-paths_yt9" fill={isDarkMode ? "currentColor" : "black"}>
                   <path d="M37.1384 18.8999V13.4399L40.6084 2.09994H38.0184L36.6984 7.24994C36.3984 8.42994 36.1284 9.65994 35.9284 10.7999H35.7684C35.6584 9.79994 35.3384 8.48994 35.0184 7.22994L33.7384 2.09994H31.1484L34.5684 13.4399V18.8999H37.1384Z"></path>
                   <path d="M44.1003 6.29994C41.0703 6.29994 40.0303 8.04994 40.0303 11.8199V13.6099C40.0303 16.9899 40.6803 19.1099 44.0403 19.1099C47.3503 19.1099 48.0603 17.0899 48.0603 13.6099V11.8199C48.0603 8.44994 47.3803 6.29994 44.1003 6.29994ZM45.3903 14.7199C45.3903 16.3599 45.1003 17.3899 44.0503 17.3899C43.0203 17.3899 42.7303 16.3499 42.7303 14.7199V10.6799C42.7303 9.27994 42.9303 8.02994 44.0503 8.02994C45.2303 8.02994 45.3903 9.34994 45.3903 10.6799V14.7199Z"></path>
                   <path d="M52.2713 19.0899C53.7313 19.0899 54.6413 18.4799 55.3913 17.3799H55.5013L55.6113 18.8999H57.6012V6.53994H54.9613V16.4699C54.6812 16.9599 54.0312 17.3199 53.4212 17.3199C52.6512 17.3199 52.4113 16.7099 52.4113 15.6899V6.53994H49.7812V15.8099C49.7812 17.8199 50.3613 19.0899 52.2713 19.0899Z"></path>
@@ -1046,8 +1054,8 @@ function AppContent() {
 
         <div className="hidden sm:flex items-center flex-1 max-w-[720px] ml-10">
           <div className="flex w-full items-center">
-            <div className="flex items-center flex-1 bg-[#121212] border border-zinc-700 rounded-l-full ml-8 focus-within:border-blue-500 overflow-hidden shadow-inner">
-              <div className="pl-4 pr-1 text-zinc-400 hidden md:block">
+            <div className={`flex items-center flex-1 border rounded-l-full ml-8 focus-within:border-blue-500 overflow-hidden shadow-inner ${isDarkMode ? 'bg-[#121212] border-zinc-700' : 'bg-gray-100 border-gray-300'}`}>
+              <div className={`pl-4 pr-1 hidden md:block ${isDarkMode ? 'text-zinc-400' : 'text-gray-500'}`}>
                 <Search size={18} />
               </div>
               <input
@@ -1055,43 +1063,49 @@ function AppContent() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search"
-                className="w-full bg-transparent border-none outline-none px-4 py-2 text-white placeholder-zinc-400"
+                className={`w-full bg-transparent border-none outline-none px-4 py-2 ${isDarkMode ? 'text-white placeholder-zinc-400' : 'text-black placeholder-gray-500'}`}
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="p-1 hover:bg-zinc-800 rounded-full mr-2"
+                  className={`p-1 rounded-full mr-2 ${isDarkMode ? 'hover:bg-zinc-800' : 'hover:bg-gray-200'}`}
                 >
                   <X size={18} />
                 </button>
               )}
             </div>
-            <button className="px-5 py-2 bg-zinc-800 border border-l-0 border-zinc-700 rounded-r-full hover:bg-zinc-700 transition-colors">
-              <Search size={20} className="text-white" />
+            <button className={`px-5 py-2 border border-l-0 rounded-r-full transition-colors ${isDarkMode ? 'bg-zinc-800 border-zinc-700 hover:bg-zinc-700' : 'bg-gray-100 border-gray-300 hover:bg-gray-200'}`}>
+              <Search size={20} className={isDarkMode ? 'text-white' : 'text-black'} />
             </button>
           </div>
-          <button className="ml-4 p-2.5 bg-zinc-900 hover:bg-zinc-800 rounded-full transition-colors">
-            <Mic size={20} />
+          <button className={`ml-4 p-2.5 rounded-full transition-colors ${isDarkMode ? 'bg-zinc-900 hover:bg-zinc-800' : 'bg-gray-100 hover:bg-gray-200'}`}>
+            <Mic size={20} className={isDarkMode ? 'text-white' : 'text-black'} />
           </button>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
           <button 
-             onClick={startSurvey}
-             className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-full text-sm font-bold transition-all"
+              onClick={startSurvey}
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-full text-sm font-bold transition-all"
           >
             <ClipboardList size={16} />
             Start Survey
           </button>
           
-          <button className="p-2 hover:bg-zinc-800 rounded-full hidden sm:block">
-            <Video size={22} />
+          {/* THEME TOGGLE BUTTON (Replaced Video Icon) */}
+          <button 
+            onClick={toggleTheme}
+            className={`p-2 rounded-full hidden sm:block transition-colors ${isDarkMode ? 'hover:bg-zinc-800 text-white' : 'hover:bg-gray-100 text-black'}`}
+            title="Toggle Theme"
+          >
+            {isDarkMode ? <Sun size={22} /> : <Moon size={22} />}
           </button>
-          <button className="p-2 hover:bg-zinc-800 rounded-full relative">
-            <Bell size={22} />
-            <span className="absolute top-1 right-1 bg-red-600 text-white text-[10px] font-bold px-1 rounded-full border-2 border-[#0f0f0f]">9+</span>
+
+          <button className={`p-2 rounded-full relative ${isDarkMode ? 'hover:bg-zinc-800' : 'hover:bg-gray-100'}`}>
+            <Bell size={22} className={isDarkMode ? 'text-white' : 'text-black'} />
+            <span className={`absolute top-1 right-1 bg-red-600 text-white text-[10px] font-bold px-1 rounded-full border-2 ${isDarkMode ? 'border-[#0f0f0f]' : 'border-white'}`}>9+</span>
           </button>
-          <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-sm font-bold cursor-pointer hover:opacity-90">
+          <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-sm font-bold cursor-pointer hover:opacity-90 text-white">
             R
           </div>
         </div>
@@ -1112,7 +1126,7 @@ function AppContent() {
             </div>
 
             <div className="fixed bottom-6 right-6 z-[100] flex gap-4 animate-in slide-in-from-right duration-300">
-                 <button 
+                  <button 
                     onClick={exitSurvey}
                     className="flex items-center gap-2 px-4 py-4 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white shadow-2xl transition-all active:scale-95 border-2 border-white/10"
                     title="Exit Survey"
@@ -1131,18 +1145,18 @@ function AppContent() {
             </div>
             
             {/* Survey Progress Indicator */}
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-xl text-xs font-mono">
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-xl text-xs font-mono text-white">
                 SURVEY MODE: {currentSurveyIndex + 1} / {surveyQueue.length}
             </div>
         </>
       )}
 
       <div className="flex flex-1 pt-14 h-full">
-        <aside className={`hidden md:flex flex-col bg-[#0f0f0f] h-full transition-all duration-200 ${isSidebarOpen ? 'w-60' : 'w-[72px]'}`}>
-          <SidebarContent collapsed={!isSidebarOpen} />
+        <aside className={`hidden md:flex flex-col h-full transition-all duration-200 ${isDarkMode ? 'bg-[#0f0f0f]' : 'bg-white'} ${isSidebarOpen ? 'w-60' : 'w-[72px]'}`}>
+          <SidebarContent collapsed={!isSidebarOpen} isDarkMode={isDarkMode} />
         </aside>
 
-        <main className="flex-1 overflow-y-auto bg-[#0f0f0f] relative custom-scrollbar">
+        <main className={`flex-1 overflow-y-auto relative custom-scrollbar ${isDarkMode ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
           <Routes>
             <Route
               path="/"
@@ -1151,12 +1165,13 @@ function AppContent() {
                   videos={videos}
                   selectedCategory={selectedCategory}
                   setSelectedCategory={setSelectedCategory}
+                  isDarkMode={isDarkMode}
                 />
               }
             />
             <Route
               path="/video/:id"
-              element={<WatchPage videos={INITIAL_VIDEOS} />}
+              element={<WatchPage videos={INITIAL_VIDEOS} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />}
             />
           </Routes>
         </main>
@@ -1174,7 +1189,7 @@ function AppContent() {
           border-radius: 20px;
         }
         .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-          background-color: #71717a;
+          background-color: ${isDarkMode ? '#71717a' : '#d1d5db'};
         }
         .no-scrollbar::-webkit-scrollbar {
           display: none;
