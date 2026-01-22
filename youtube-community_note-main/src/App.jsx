@@ -8,7 +8,8 @@ import {
   LogOut, Settings, HelpCircle, History, ShieldAlert,
   ScanFace, ExternalLink, ChevronRight,
   Activity, Eye, Mic2, CheckCircle2, Download, Scissors, ListPlus,
-  AlertOctagon, Info, Trash2, Maximize2, Minimize2, Sun, Moon 
+  AlertOctagon, Info, Trash2, Maximize2, Minimize2, Sun, Moon,
+  ArrowLeft, ArrowRight, PlayCircle, XCircle, ClipboardList
 } from 'lucide-react';
 
 // --- Mock Data Generators ---
@@ -385,9 +386,6 @@ const RelatedVideoCard = ({ video }) => {
   );
 };
 
-// --- NEW COMMUNITY LENS TOOL UI ---
-// --- NEW COMMUNITY LENS TOOL UI (Updated with Hover & Viewer Data) ---
-// --- DARK THEME COMMUNITY LENS TOOL UI ---
 // --- COMMUNITY LENS TOOL UI (With Theme Toggle) ---
 const CommunityLensUI = ({ videoId }) => {
   const [isToolOpen, setIsToolOpen] = useState(true);
@@ -460,6 +458,7 @@ const CommunityLensUI = ({ videoId }) => {
           <button 
             onClick={() => setIsToolOpen(!isToolOpen)}
             className="p-1.5 bg-black/20 rounded-full hover:bg-black/40 transition cursor-pointer"
+            title={isToolOpen ? "Minimize Tool" : "Maximize Tool"}
           >
             {isToolOpen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
           </button>
@@ -523,10 +522,10 @@ const CommunityLensUI = ({ videoId }) => {
                       className="w-full flex items-center gap-3 p-2 text-left transition-colors"
                     >
                       <div className={`p-1 rounded ${risk.icon === 'trash' ? theme.iconTrashBg : theme.iconSearchBg}`}>
-                         {risk.icon === 'trash' 
-                           ? <Trash2 size={16} />
-                           : <Search size={16} />
-                         }
+                          {risk.icon === 'trash' 
+                            ? <Trash2 size={16} />
+                            : <Search size={16} />
+                          }
                       </div>
                       <span className={`flex-1 font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
                       {expandedRisks[risk.id] 
@@ -859,6 +858,11 @@ function AppContent() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [videos, setVideos] = useState(INITIAL_VIDEOS);
+  
+  // --- Survey Mode State ---
+  const [isSurveyActive, setIsSurveyActive] = useState(false);
+  const [surveyQueue, setSurveyQueue] = useState([]);
+  const [currentSurveyIndex, setCurrentSurveyIndex] = useState(0);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -891,6 +895,45 @@ function AppContent() {
   }, [selectedCategory, searchQuery]);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+  // --- Survey Functions ---
+  const startSurvey = () => {
+    // Hardcoded list of video IDs
+    const ids = ['video4', 'video6', 'video8', 'video12', 'video1', 'video6','video9', 'video12'];
+    
+    if (ids.length > 0) {
+      setSurveyQueue(ids);
+      setCurrentSurveyIndex(0);
+      setIsSurveyActive(true);
+      navigate(`/video/${ids[0]}`);
+    } else {
+        alert("Configuration Error: No videos found.");
+    }
+  };
+
+  const nextSurveyVideo = () => {
+    if (currentSurveyIndex < surveyQueue.length - 1) {
+      const nextIndex = currentSurveyIndex + 1;
+      setCurrentSurveyIndex(nextIndex);
+      navigate(`/video/${surveyQueue[nextIndex]}`);
+    }
+  };
+
+  const prevSurveyVideo = () => {
+    if (currentSurveyIndex > 0) {
+      const prevIndex = currentSurveyIndex - 1;
+      setCurrentSurveyIndex(prevIndex);
+      navigate(`/video/${surveyQueue[prevIndex]}`);
+    }
+  };
+
+  const exitSurvey = () => {
+    setIsSurveyActive(false);
+    setSurveyQueue([]);
+    setCurrentSurveyIndex(0);
+    navigate('/');
+  };
+
 
   const SidebarContent = ({ collapsed }) => (
     <div className={`h-full overflow-y-auto custom-scrollbar pb-4 ${collapsed ? 'px-1' : 'px-3'}`}>
@@ -933,7 +976,7 @@ function AppContent() {
   );
 
   return (
-    <div className="flex flex-col h-screen bg-[#0f0f0f] text-white overflow-hidden font-sans">
+    <div className="flex flex-col h-screen bg-[#0f0f0f] text-white overflow-hidden font-sans relative">
       <header className="flex items-center justify-between px-4 h-14 bg-[#0f0f0f] fixed w-full top-0 z-50">
         <div className="flex items-center gap-4">
           <button
@@ -998,6 +1041,14 @@ function AppContent() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
+          <button 
+             onClick={startSurvey}
+             className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-full text-sm font-bold transition-all"
+          >
+            <ClipboardList size={16} />
+            Start Survey
+          </button>
+          
           <button className="p-2 hover:bg-zinc-800 rounded-full hidden sm:block">
             <Video size={22} />
           </button>
@@ -1010,6 +1061,46 @@ function AppContent() {
           </div>
         </div>
       </header>
+
+      {/* --- SURVEY FLOATING BUTTONS --- */}
+      {isSurveyActive && (
+        <>
+            <div className="fixed bottom-6 left-6 z-[100] animate-in slide-in-from-left duration-300">
+                <button 
+                    onClick={prevSurveyVideo}
+                    disabled={currentSurveyIndex === 0}
+                    className={`flex items-center gap-2 px-6 py-4 rounded-full shadow-2xl transition-all active:scale-95 border-2 border-white/10 ${currentSurveyIndex === 0 ? 'bg-zinc-800/50 text-zinc-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
+                >
+                    <ArrowLeft size={24} strokeWidth={3} />
+                    <span className="font-bold text-lg hidden sm:inline">PREVIOUS</span>
+                </button>
+            </div>
+
+            <div className="fixed bottom-6 right-6 z-[100] flex gap-4 animate-in slide-in-from-right duration-300">
+                 <button 
+                    onClick={exitSurvey}
+                    className="flex items-center gap-2 px-4 py-4 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white shadow-2xl transition-all active:scale-95 border-2 border-white/10"
+                    title="Exit Survey"
+                >
+                    <XCircle size={24} />
+                </button>
+
+                <button 
+                    onClick={nextSurveyVideo}
+                    disabled={currentSurveyIndex === surveyQueue.length - 1}
+                    className={`flex items-center gap-2 px-6 py-4 rounded-full shadow-2xl transition-all active:scale-95 border-2 border-white/10 ${currentSurveyIndex === surveyQueue.length - 1 ? 'bg-zinc-800/50 text-zinc-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
+                >
+                    <span className="font-bold text-lg hidden sm:inline">NEXT VIDEO</span>
+                    <ArrowRight size={24} strokeWidth={3} />
+                </button>
+            </div>
+            
+            {/* Survey Progress Indicator */}
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-xl text-xs font-mono">
+                SURVEY MODE: {currentSurveyIndex + 1} / {surveyQueue.length}
+            </div>
+        </>
+      )}
 
       <div className="flex flex-1 pt-14 h-full">
         <aside className={`hidden md:flex flex-col bg-[#0f0f0f] h-full transition-all duration-200 ${isSidebarOpen ? 'w-60' : 'w-[72px]'}`}>
