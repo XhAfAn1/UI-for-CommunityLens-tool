@@ -9,8 +9,184 @@ import {
   ScanFace, ExternalLink, ChevronRight,
   Activity, Eye, Mic2, CheckCircle2, Download, Scissors, ListPlus,
   AlertOctagon, Info, Trash2, Maximize2, Minimize2, Sun, Moon,
-  ArrowLeft, ArrowRight, PlayCircle, XCircle, ClipboardList
+  ArrowLeft, ArrowRight, PlayCircle, XCircle, ClipboardList, Bot
 } from 'lucide-react';
+
+
+const CSV_DATA = {
+  "ghLtBXmhDsU": {
+    "description": "ZELENSKY ISSUES APOLOGY TO TRUMP regarding his temu suit",
+  "comments": [
+  "Scary realistic, had me there for a second",
+  "AI has a problem with teeth. He's teeth change a few times. Always look at the teeth if your ever unsure.",
+  "LOL",
+  "😂😂😂",
+  "Greatest comedian that ever lived, turned Russia into a joke.",
+  "AI is getting scary",
+  "Look at this: an AI-generated video of a key political figure at a crucial moment in history, saying something that is somewhat relevant to current events; the dystopian future has arrived!",
+  "Good that Zelenskyy apologised to Trump.",
+  "It’s fake but funny 😂",
+  "AI",
+  "True story",
+  "xD",
+  "Hello American people, I CU-",
+  "A.I",
+  "AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII",
+  "Love to Habibi Volodymyr.....🙏\n\nLove to my Donald......🙏",
+  "zelensky bend his knees, fr fr",
+  "What was that? Is that real",
+  "Not groveling enough! (Can't wait to see the bedazzled star lapel pin, however ;)",
+  "That's not funny man. He is trying to help his war torn country, get's ridiculed in the oval office and now you are making fun of him?",
+  "WW3 is on",
+  "😂😂😂"
+]
+  },
+  "cQ54GDm1eL0": {
+    "description": "\"We're entering an era in which our enemies can make anyone say anything at any point in time.\"\n\nCheck out more awesome videos at BuzzFeedVideo!\nhttps://bit.ly/YTbuzzfeedvideo\nhttps://bit.ly/YTbuzzfeedblue1\nhttps://bit.ly/YTbuzzfeedviolet\n\nGET MORE BUZZFEED:\nhttps://www.buzzfeed.com\nhttps://www.buzzfeed.com/videos\n / buzzfeedvideo \n / asis \n / buzzfeedblue \n / buzzfeedviolet \n / perolike \n / ladylike \n\nBuzzFeedVideo\nBuzzFeed Motion Picture’s flagship channel. Sometimes funny, sometimes serious, always shareable. New videos posted daily!\n\nLove BuzzFeed? Get the merch! BUY NOW: https://goo.gl/gQKF8m\n\nCredits: https://www.buzzfeed.com/bfmp/videos/...\n\nEXTERNAL CREDITS\nJordan Peele\nhttps://monkeypawproductions.com/",
+    "comments": [
+      "\"Never trust anything you see on the internet.\" \n-Abraham Lincoln",
+      "Wow, Barack Obama does a mean Jordan Peele impersonation",
+      "According to Buzzfeed, I shouldn't be listening to Buzzfeed.",
+      "Now in 2020 : \"dame da ne........\"",
+      "Shut up BuzzFeed and tell me what kind of apple I am",
+      "I did NOT expect this 😂",
+      "Wow Obama does a great Jorden Peele",
+      "\"Most Quotes On The internet Are Fake\" Winston Churchill",
+      "All this and black mirror is making me terrified of the future",
+      "People need to be more aware of what they see on the internet especially on Facebook, be more cautious about what they read and watch.",
+      "I am dazed and confused",
+      "\"Don't believe everything you see on the internet.\"\n- Sun Tzu The Art of War",
+      "Next up on your trusted news source, what kind of bread are you based on your personality?",
+      "Sound like Obama mixed with one of the muppets!",
+      "Lmao talking about trusted news sources coming from buzzfeed",
+      "\"Trusting people on the internet leads to countless desinformation.\"\n\n _-uncle_ _Iroh_",
+      "damn. that confused me",
+      "This is an ironic message coming from buzzfeed. Not the trump thing, the relying on trusted news sources part.",
+      ">\"Trusted news sources\"\n>Video posted by BuzzFeed\n\n*hmm*",
+      "What people thought would happen to deepfakes. \n\n2020- BAKA MITA"
+    ]
+  },
+  "wIjc3ceDzr4": {
+    "description": "Huge News! Social Security September 2025 Raise - See If You Qualify For New Payment\n\n🚨 BREAKING: Major Social Security changes happening in September 2025! If you're receiving Social Security benefits, this video contains critical information that could affect when your payment arrives and how much money you receive.\n📄 What You'll Learn:\nSeptember payment date changes due to Labor Day\nNew qualification rules for increased benefits\nHow the 2.5% COLA affects your monthly income\nImportant deadline for paper check recipients\nMaximum benefit amounts for 2025\nTiming differences between SSI and regular Social Security\nStep-by-step guide to avoid payment delays\n💰 Important Updates: The average Social Security recipient is now receiving an additional $49 per month thanks to the 2025 cost-of-living adjustment. But September brings unique timing changes that every beneficiary needs to understand. Don't let payment schedule confusion affect your monthly budget!\n⚠️ URGENT: Paper Social Security checks end after September 30th, 2025. If you haven't switched to direct deposit, this is your final month to make the change.\n🎯 Who Should Watch:\nCurrent Social Security recipients\nAnyone planning to claim benefits soon\nSeniors managing monthly budgets\nPeople receiving SSI payments\nAnyone wanting to maximize their Social Security income\n💡 Pro Tip: Understanding these September changes could help you better plan your finances and ensure you never miss a payment. Share this video with friends and family who depend on Social Security benefits.\n📞 Need Help? Contact the Social Security Administration at 1-800-772-1213 for personalized assistance with your benefits.\n👍 If this video helped you understand your Social Security benefits better, please LIKE and SUBSCRIBE for more important updates about retirement and government benefits!\nDISCLAIMER: This video is for educational purposes only and should not replace professional financial advice. Always consult with the Social Security Administration for official information about your specific benefits.\n\n🔥 #SocialSecurity2025 #SocialSecurityIncrease #SocialSecurityPayments #September2025 #COLA2025 #RetirementBenefits #SocialSecurityRaise #SSI2025 #SocialSecurityChanges #RetirementIncome #SocialSecurityUpdate #BenefitIncrease #SeniorBenefits #GovernmentBenefits #SocialSecurityNews",
+  "comments": [
+  "Oh thanks again for telling us when we get paid",
+  "SEEING IS BELEIVING???Seniors are not all blind.. dumb..deaf or stupid! Enough is enough.. cut the crap!",
+  "Hmm.... the poor see nothing ever. Just alot of BS.",
+  "SO I will not be getting My SSI And I will NEVER receive My money because I never got it's from social security",
+  "clickbait AI generated. Disregard this and move on.",
+  "In my case 2.1% raise means 4% rent increase. Thank you dumpy for the 4% rent increase.",
+  "Nothing new here...just more lies and shit we already know😢😮",
+  "Absolutely useless video. Much Ado About Nothing !!! Shame !!!",
+  "When????????????  Its August 29th.  Estremely poor communications.",
+  "Is this another fake news i think should be a law any fake news by any media types that harms American citizens should be investigated and punished  fake news is a crime .",
+  "Some checks ate in the bank already and no one has seen any increase. Same amount.",
+  "Seniors need at least 3.5 or more money to live",
+  "I got NOTHING EXTRA! NOTHING!",
+  "How are they randomly allowed to change the date or Social Security is deposited. I have automatic deposits going out right after I assume my Social Security is in my account. Now they’re changing the date it’s going to be delivered. WTF is going on here get it fucking together.",
+  "I don’t believe any of it! I haven’t seen a dime hit any of my accounts. Everything is getting more and more expensive and we are getting less money all the time. This is so fucked up on so many levels someone needs a goddamn do something to do it now! Sorry for the rant",
+  "Another clickbait lying video.",
+  "Huge social security ca\nchange small checks 😂😂😂😂😂😂😂",
+  "No SSI anymore",
+  "I need the money",
+  "Clickbait, none of this is true.",
+  "You are allowed to be shy with yourself that is not true",
+  "Nope!",
+  "Trump is Social Security check from Federal Government and that would be Medicare and then if you have medical that is state funded so why is the state trying to take people payment from their social security check for medical payments from what I understand is the state government has no right touching the federal government checks",
+  "COLA IS A DUMB JOKE.",
+  "Yakking for nothing. Most of the information is known already.",
+  "Trump you you can keep my 20 dollar increase",
+  "This is BS",
+  "Stop LYING 😂",
+  "Stop lying to us . We are fed up with your lies .you arecworking for the ri ch",
+  "Funny I have not seen a damn thing since Trump came into office. Stop your lie and the only people getting anything are the ones who make more than the average low income senior,remember the ones who need it the most. As seniors get older we are forgotten and receive NOTHING.Everybody else has gotten something but us.",
+  "SO FAR I'VE SEEN & HEARD NOTHING BUT BULLSHIT LIES"
+]
+
+  },
+  "_qczkG_AqmU": {
+    "description": "Jake Paul speaks to the media after being stopped by Anthony Joshua in Miami — and somehow manages to turn a knockout loss into a victory speech.\n\nIn this parody post-fight interview, Jake insists he didn’t lose, claims a broken jaw proves he’s built different, and reframes six brutal rounds with a two-time heavyweight champion as “historic game planning.”\n\nFrom dancing around the ring to surviving longer than expected, Jake explains why this wasn’t a defeat — it was a trailer for what’s next.\n\n⚠️ This video is a satirical parody created for entertainment purposes.\nNothing said should be taken as a real interview or factual statement.\n\nIf you enjoy boxing parodies, post-fight reactions, and exaggerated sports press conferences — like, comment, and subscribe.",
+  "comments": [
+  "Ahaha ik this is AI. I just wanted to say if his mouth was shut he was getting knocked out cold. Since it was open it broke his jaw in two places",
+  "And NO ONE realises this is AI 🤣",
+  "Just … MAN what a f**kwit",
+  "From what I saw ya 🤡 ya spent most of those 6 rounds sticking ya 😝 out and running away 😂😂",
+  "Keep telling yourself that pal",
+  "you did not fight Anthony Joshua for 6 rounds. You ran away and on your knees with arms around his leg for 6 round then got knocked out with broken jaw.",
+  "Thank you very much AJ"
+]
+  },
+  "sVspeqNnoWM": {
+    "description": "Thanks to Elon Musk for the tweet! \nKamala Harris just posted her first 2024 presidential campaign ad.\nIt's clean and professional. It's very well done.\nSo, of course, I had to produce a parody.\n-----------------------------------------------\nPatreon: / mrreagan \n-----------------------------------------------\nMR REAGAN MERCHANDISE\nhttps://teespring.com/stores/mr-reagan\n--------------------------------------------\nFOLLOW MR REAGAN ON TWITTER!\n / mrreaganusa \n-----------------------------------------------\nMusic by The Passion HiFi\nwww.thepassionhifi.com\n\n#Politics #News #Trending",
+    "comments": [
+  "Elon Musk gave me a retweet for this video! 👍🏻 Thanks Elon.\n\nhttps://x.com/elonmusk/status/1816974609637417112?s=46&t=WGm5UEGUY7Rz53i1NxAdCQ",
+  "So Newsom tried to ban this? This was obviously a parody and not just because of the video title. He is far from a promoter or preserver of our freedom of speech",
+  "Absolutely hysterical",
+  "Joe did not teach you to hide incompetence. He has no idea how.",
+  "Why is no one doing press conferences on current affairs as if she was president?",
+  "So stupid",
+  "Love it.",
+  "I hate your cackling and I hate you Kamala Harris",
+  "Oh what a nut cake she is. We almost had her as a president?? Dearest God, thank you for our escape from her and our new, strong, cognizant President Trump🫶👍👍👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻👏🏻🙏🙏",
+  "😂😂😂",
+  "Can you imagine if this bird brain would have won the election? Thank God we have enough smart people who voted in 2024 for Trump.",
+  "I am subscribing here on your show because like you I hate YouTube and Hope Elon Musk buys it as well.",
+  "Parody? 😂it’s all true!!!!",
+  "Elon Musk is brilliant!!!",
+  "And don't ever forget she lost so hard 😂",
+  "GOD BLESS PRESIDENT TRUMP!",
+  "I watch this clip over and over again. don't get tire of it .",
+  "On my mama y'all is retarded as hell and this is a projection of the root of who Donald Trump is as a makeshift politician. Donald Trump is nothing more than a celebrity who had that capital to go political. He has no significant political background or knowledge of the Constitution and you uneducated hillbillies elected him. I can stand y'all, Donald Trump, or Elon Musk's closeted gay ass!",
+  "She is the definition of a simpleton. Thank God America has dodged the bullet.",
+  "I would like to reclaim my time!!",
+  "That's the truest video on the Internet.",
+  "The only Black she has or had was the slaves her family owned. So now, she say well they were like family…..hummmm",
+  "This parady is so accurate.",
+  "I didn’t know it was a parody because it’s how she actually acts lmaoooo",
+  "I am not Joe Biden. I am also not Donald Trump. And I approve of this message (except for the inappropriate language toward the end).",
+  "I tried sharing this on Facebook, but when I clicked \"post\", it gave me the notification that it goes against their community standards. When I shared it without the caption, it posted just fine. Zucknut is protecting Kameltoe Harris.",
+  "I wouldn't let this woman manage a Taco Bell.",
+  "This is LITERALLY perfect",
+  "This has me laughing so loud I worry my neighbors will file a noise complaint",
+  "Dude, Gavin Nuscum is after you!",
+  "If you watch this ad in California, you can get 10 yrs imprisonment.",
+  "You are genius man, it is so hilarious but it is so true. Please do Kamala cackle 😁😁😁",
+  "Good thing you don’t still live in California, Kris or this would be banned by the all mighty NewScum!",
+  "Facebook won't let me share on my timeline!",
+  "Trump 2024",
+  "Trump is crazy and evil",
+  "My prayers that we all be saved from the idiocy of fellow Americans who think she's super kewl!",
+  "Yeah yea😂",
+  "Hahahah she is so stupid",
+  "Still good the third time round 😂😂😂",
+  "Why is this video so hard to find? …. YouTube",
+  "This video is very holistic. Like a Venn diagram.",
+  "When I shared this to Facebook, FB tried to censor it.",
+  "Brilliant!❤",
+  "Sadly, these seems more real than a parody.\nGod help America.",
+  "EPIC!!!!! 😅 👏👏👏👏",
+  "Hey Newscum… What are you going to do to us? LOL 😂 You’re a gay joke Newscum!",
+  "Always buffles me that trump supporters are so much against corruption and deep state but then smh they vote for trump who is just openly corrupt and evil. So apperently the open evil and corruption is better than the hidden corruption?",
+  "The book of faces won't allow the video link. Goes against \"established community standards.\"\n\nF*** you Zuckerberg. Suppressing oppositional speech is antithetical to freedom of speech.",
+  "😂😂😂😂 love it ! TRUMP 2024🇺🇸❤️"
+]
+
+  },
+  "Qn4SP5Z2wOY": {
+    "description": "It's been 48h since Google launched Veo 3\nIt's time for the thing that everyone feared.\nFake news.\n---------------------------\nVisuals: https://flow.google/\nMotion: https://flow.google/\nMusic: https://share.epidemicsound.com/zjob5v\nUpscaled to 4K with Topaz AI Video: https://topazlabs.com/ref/2435/\n---------------------------\n\nWelcome to my YouTube channel, where I'm exploring the fascinating world of AI-generated films and advertising. I'm on a mission to push the boundaries of what's possible in cinema through the power of artificial intelligence, focusing on creating innovative films for cinema, advertisements, and more. My work showcases how AI can transform storytelling and visual content, and I'm excited to share this journey with you.\n\n#ai #veo3 #fakenews",
+    "comments": [
+      "Facebook elders, Twitter and Tiktok brain damage will have a lot to do 😂",
+      "Old people will believe this and I‘m not blaming them. We are cooked.",
+      "Scary thing is none of this sounds that implausible",
+      "WE ARE SO COOKED.",
+      "I can’t with the dramatic music that keeps playing 😭",
+      "Man this paired with VR and we'll live in a completely artificial world. The future is going to be strange",
+      "I remember in the 80s and 90s I used to say all these news anchors sound the same and deliver the news from the same script they sound like robots, here we are in 2025 and it's happening.",
+      "Welp. Humanity had a good run.",
+      "We can make our own \"TheOnion\"\" skits now.",
+      "Some of these would fool me, for sure"
+    ]
+  }
+};
 
 // --- Mock Data Generators ---
 
@@ -27,6 +203,19 @@ const generateViews = () => {
 const generateDescription = (title, channel) => {
   return `In this video, ${channel} brings you an exclusive look at "${title}". We dive deep into the details, analyzing every aspect to give you the most comprehensive breakdown possible.\n\nTimestamps:\n0:00 - Intro\n2:30 - Key Analysis\n5:45 - The Reveal\n8:20 - Final Thoughts\n\nMake sure to like, comment, and subscribe for more content like this! We upload videos every week covering the latest trends in technology, politics, and entertainment.\n\nFollow us on social media:\nTwitter: @${channel.replace(/\s/g, '')}\nInstagram: @${channel.replace(/\s/g, '')}_official\n\n#${channel.replace(/\s/g, '')} #Trending #VideoAnalysis #2026`;
 };
+
+const generateDummyComments = () => [
+  "This is so interesting!",
+  "I never thought about it this way.",
+  "Can you make more videos like this?",
+  "Amazing content, keep it up!",
+  "I'm not sure if I agree with this.",
+  "Wow, technology is moving fast.",
+  "Great video!",
+  "Subscribed!",
+  "Waiting for the next part.",
+  "This helped me understand the topic better, thanks!"
+];
 
 const categories = [
   "All", "Gaming", "Music", "Live", "Mixes", "React Routers",
@@ -50,19 +239,27 @@ const VIDEO_DB = [
   { id: "video12", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 Short Film", channel: "Filmmaker Pro" }
 ];
 
-const INITIAL_VIDEOS = VIDEO_DB.map((vid) => ({
-  id: vid.id,
-  ytId: vid.ytId,
-  title: vid.title,
-  thumbnail: `https://img.youtube.com/vi/${vid.ytId}/mqdefault.jpg`,
-  channelName: vid.channel,
-  channelAvatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${vid.channel}`,
-  views: generateViews(),
-  uploadedAt: generateRandomTime(),
-  duration: "12:45",
-  category: "General",
-  description: generateDescription(vid.title, vid.channel)
-}));
+const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
+  // Check if we have real data for this video
+  const realData = CSV_DATA[vid.ytId];
+  
+  return {
+    id: vid.id,
+    ytId: vid.ytId,
+    title: vid.title,
+    thumbnail: `https://img.youtube.com/vi/${vid.ytId}/mqdefault.jpg`,
+    channelName: vid.channel,
+    channelAvatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${vid.channel}`,
+    views: generateViews(),
+    uploadedAt: generateRandomTime(),
+    duration: "12:45",
+    category: "General",
+    // Use real description or fallback to generator
+    description: realData ? realData.description : generateDescription(vid.title, vid.channel),
+    // Use real comments or fallback to generator
+    comments: realData ? realData.comments : generateDummyComments()
+  };
+});
 
 // --- UNIQUE TOOL DATA FOR EVERY VIDEO ---
 const NOTE_DATABASE = {
@@ -70,21 +267,21 @@ const NOTE_DATABASE = {
     title: "ZELENSKY ISSUES APOLOGY TO TRUMP",
     consensus: {
       label: "AI-GENERATED",
-      text: "Most commenters clearly recognize the video as AI-generated, calling out telltale visual flaws like changing teeth and repeatedly labeling it as AI. They generally find it funny or refer to it as satire, though some worry about misinformation.",
-      previewText: "Most commenters clearly recognize the video as AI-generated, calling out telltale visual flaws..."
+      text: "Commenters overwhelmingly recognize the video as AI-generated or fake, noting visual glitches like changing teeth and explicitly calling it AI. While many find it funny or impressive, they also describe it as scary and dystopian, implying it should not be trusted as real or shared as genuine political footage.",
+      previewText: "Commenters overwhelmingly recognize the video as AI-generated or fake, noting visual glitches like changing teeth and explicitly calling it AI. While..."
     },
     risks: [
-      { id: 'r1', icon: 'search', title: "Community signal", content: "Impersonation / deepfake: Multiple users note it is an AI video of Zelensky saying unreal things." },
-      { id: 'r2', icon: 'search', title: "Visual anomalies", content: "Facial warping and lighting inconsistencies reported." },
-      { id: 'r3', icon: 'trash', title: "Spam / low-effort repetition", content: "High volume of repetitive bot-like comments detected." }
-    ],
+      { id: 'r1', icon: 'search', title: "Community signal", content: "Impersonation risk: Users identify it as an AI deepfake of a political figure, potentially misleading viewers." },
+      { id: 'r3', icon: 'trash', title: "Spam / low-effort repetition", content: "Spam/low-signal comments: Repetitive short reactions (LOL, emojis, 'AI') contribute noise without adding context." },
+      { id: 'r2', icon: 'search', title: "Visual anomalies", content: "Political misinformation: Some comments treat the fake apology as real, risking confusion about actual events." },
+      ],
     viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
     safety: { 
       category: "Impersonation", 
-      hoverText: "Mimicry without consent", 
-      score: 15, 
+      hoverText: "Mimicking someone without their consent", 
+      score: 10, 
       ratingCode: "TV-PG", 
-      ratingDesc: "Parental guidance suggested." 
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
     }
   },
   "video2": {
@@ -109,38 +306,44 @@ const NOTE_DATABASE = {
   "video3": {
     title: 'Jake Paul "I WON" - Post Fight',
     consensus: {
-      label: "VERIFIED-AUTHENTIC",
-      text: "Community consensus confirms this footage matches live broadcast feeds. No signs of manipulation reported.",
-      previewText: "Community consensus confirms this footage matches live broadcast feeds..."
+      label: "AI-GENERATED",
+      text: "Most commenters recognize or suspect the video is AI-generated, with at least one explicitly stating it. Others discuss the fictional fight outcome as if critiquing a staged or fabricated scenario, suggesting they do not treat it as authentic footage. Overall, the community seems to view it as untrustworthy as real sports media but acceptable as parody.",
+      previewText: "Most commenters recognize or suspect the video is AI-generated, with at least one explicitly stating it. Others discuss..."
     },
-    risks: [],
-    viewerResponse: "Viewers are discussing the match results rather than the authenticity of the footage.",
+    risks: [
+      { id: 'r1', icon: 'search', title: "Community signal", content: "Impersonation / Deceptive realism: AI content appears to mimic real fighters and events, potentially misleading casual viewers." },
+      { id: 'r3', icon: 'search', title: "Community signal", content: "Targeted abuse / Harassment: Comments insulting Jake Paul’s performance and injury border on hostile, personal mockery." },
+      { id: 'r2', icon: 'search', title: "Visual anomalies", content: "Content authenticity confusion: Mixed reactions (jokes vs. critiques) indicate uncertainty about what is real versus synthetic." },
+      ],
+    viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
     safety: { 
-      category: "Sports", 
-      hoverText: "Authentic Broadcast", 
-      score: 98, 
-      ratingCode: "TV-MA", 
-      ratingDesc: "For mature audiences." 
+      category: "Impersonation", 
+      hoverText: "Mimicking someone without their consent", 
+      score: 10, 
+      ratingCode: "TV-14", 
+      ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned." 
     }
   },
   "video4": {
     title: "Huge News! Social Security 2026 Raise",
     consensus: {
-      label: "CLICKBAIT",
-      text: "Viewers report misleading titles and recycled audio. The visual content does not match the audio track claims.",
-      previewText: "Viewers report misleading titles and recycled audio..."
+      label: "AI-GENERATED",
+      text: "Most commenters distrust the video, calling it clickbait, fake, and misleading about Social Security raises and payment dates. Viewers report seeing no increases, accuse the creator of lying for views or money, and consider it useless, repetitive content offering nothing new or verifiable. Overall credibility and trustworthiness are perceived as very low.",
+      previewText: "Most commenters distrust the video, calling it clickbait, fake, and misleading about Social Security raises..."
     },
     risks: [
-      { id: 'r1', icon: 'search', title: "Misleading Title", content: "Title promises increases not confirmed by government." },
-      { id: 'r2', icon: 'search', title: "Audio Splicing", content: "Background noise shifts suggest audio manipulation." }
+      { id: 'r1', icon: 'search', title: "Community signal", content: "Scam/Deception: Multiple users label the video as fake news, lies, and misleading clickbait about payments." },
+      { id: 'r3', icon: 'search', title: "Community signal", content: "Exploitative monetization: Viewers accuse the creator of using fear and false hope to drive views and revenue." },
+      { id: 'r3', icon: 'trash', title: "Spam / low-effort repetition", content: "Spam/Low-value content: Comments note repetitive, useless information with no real updates or actionable details." },
+      { id: 'r4', icon: 'bot', title: "Bot-like Behavior", content: "Bot/AI suspicion: One commenter explicitly calls it 'clickbait AI generated', implying automated, low-trust production." },
     ],
-    viewerResponse: "Viewers typically respond by linking to official government websites to debunk the claims.",
+    viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
     safety: { 
-      category: "Misinformation", 
-      hoverText: "Unverified Financial Claims", 
-      score: 45, 
-      ratingCode: "TV-G", 
-      ratingDesc: "General Audience." 
+      category: "News and Media", 
+      hoverText: "Content related to current events or up", 
+      score: 10, 
+      ratingCode: "TV-14", 
+      ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned." 
     }
   },
   "video5": {
@@ -163,20 +366,24 @@ const NOTE_DATABASE = {
   "video6": {
     title: "Kamala Harris Ad PARODY",
     consensus: {
-      label: "SATIRE",
+      label: "AI-GENERATED",
       text: "Content is exaggerated for comedic effect. Viewers recognize this as a parody skit, not a real campaign ad.",
       previewText: "Content is exaggerated for comedic effect. Viewers recognize this as..."
     },
     risks: [
-      { id: 'r1', icon: 'search', title: "Parody Signal", content: "Exaggerated features indicate non-literal intent." }
-    ],
-    viewerResponse: "Viewers typically quote lines from the skit and discuss the humor.",
+      { id: 'r1', icon: 'search', title: "Community signal", content: "Targeted abuse/harassment: Multiple comments mock and insult Kamala Harris personally, including her laugh and intelligence." },
+      { id: 'r2', icon: 'search', title: "Community signal", content: "Scaling & amplification: Users claim suppression and shadow-banning on YouTube and Facebook, encouraging mass sharing and reporting." },
+      { id: 'r3', icon: 'search', title: "Community signal", content: "Political manipulation: Comments frame the parody as “truthful ad,” urging voting behavior and coordinated reporting of real ads." },
+      { id: 'r4', icon: 'trash', title: "Spam / low-effort repetition", content: "Spam/promotion: Repeated calls to share, download, and spread the video across platforms to boost its reach." },
+      ],
+    references: ['https://x.com/elonmusk/status/1816974609637417112?s=46&t=WGm5UEGUY7Rz53i1NxAdCQ'],
+    viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
     safety: { 
-      category: "Satire", 
-      hoverText: "Political Parody", 
-      score: 70, 
-      ratingCode: "TV-14", 
-      ratingDesc: "Parents strongly cautioned." 
+      category: "Impersonation", 
+      hoverText: "Mimicking someone without their consent", 
+      score: 10, 
+      ratingCode: "TV-PG", 
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
     }
   },
   "video7": {
@@ -438,7 +645,8 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
     // Icons
     iconTrashBg: isDarkMode ? 'bg-[#272727] text-[#aaaaaa]' : 'bg-gray-200 text-gray-600',
     iconSearchBg: isDarkMode ? 'bg-[#263850] text-[#3ea6ff]' : 'bg-blue-100 text-blue-600',
-    
+    iconBotBg: isDarkMode ? 'bg-[#3E2723] text-[#FFAB91]' : 'bg-orange-100 text-orange-600', // New bot icon style
+
     // Age Rating
     ageRatingContainer: isDarkMode ? 'bg-[#0f0f0f] border-[#3f3f3f]' : 'bg-white border-gray-300',
     ageRatingBox: isDarkMode ? 'bg-white text-black' : 'bg-black text-white',
@@ -447,6 +655,20 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
     footerBorder: isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200',
     footerText: isDarkMode ? 'text-[#aaaaaa]' : 'text-gray-500',
     footerBrand: isDarkMode ? 'text-white' : 'text-black'
+  };
+
+  // Helper to get correct icon
+  const getRiskIcon = (type) => {
+      if (type === 'trash') return <Trash2 size={14} />;
+      if (type === 'bot') return <Bot size={14} />;
+      return <Search size={14} />;
+  };
+
+  // Helper to get correct icon style
+  const getRiskIconStyle = (type) => {
+      if (type === 'trash') return theme.iconTrashBg;
+      if (type === 'bot') return theme.iconBotBg;
+      return theme.iconSearchBg;
   };
 
   // Shadows removed from main container
@@ -537,11 +759,8 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
                             onClick={() => toggleRisk(risk.id)}
                             className="w-full flex items-center gap-3 p-2.5 text-left"
                             >
-                            <div className={`p-1.5 rounded-full flex-shrink-0 ${risk.icon === 'trash' ? theme.iconTrashBg : theme.iconSearchBg}`}>
-                                {risk.icon === 'trash' 
-                                    ? <Trash2 size={14} />
-                                    : <Search size={14} />
-                                }
+                            <div className={`p-1.5 rounded-full flex-shrink-0 ${getRiskIconStyle(risk.icon)}`}>
+                                {getRiskIcon(risk.icon)}
                             </div>
                             <span className={`flex-1 font-medium text-xs ${theme.textMain}`}>{risk.title}</span>
                             {expandedRisks[risk.id] 
@@ -602,7 +821,19 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
               
               {openSections.references && (
                 <div className="p-4 animate-in slide-in-from-top-2 duration-200">
-                    <p className={`text-xs ${theme.textSub}`}>No community citations available yet.</p>
+                    {data.references && data.references.length > 0 ? (
+                        <ul className="list-disc pl-4 space-y-1">
+                            {data.references.map((ref, index) => (
+                                <li key={index} className={`text-xs ${theme.textMain}`}>
+                                    <a href={ref} target="_blank" rel="noopener noreferrer" className={`hover:underline break-all ${theme.textHighlight}`}>
+                                        {ref}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p className={`text-xs ${theme.textSub}`}>No community citations available yet.</p>
+                    )}
                 </div>
               )}
             </div>
@@ -613,7 +844,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
             <div className="flex flex-col sm:flex-row gap-3 mb-4">
               
               {/* Col 1: Content Category & Safety */}
-              <div className={`flex-3 border rounded-xl p-3 flex flex-col justify-between ${theme.cardBorder}`}>
+              <div className={`flex-1 border rounded-xl p-3 flex flex-col justify-between ${theme.cardBorder}`}>
                   <div className="flex justify-between items-start mb-2">
                       <span className={`text-[9px] font-bold uppercase tracking-wider ${theme.textSub}`}>Category</span>
                       
@@ -655,7 +886,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
               </div>
 
               {/* Col 2: Age Rating */}
-              <div className={`flex-2 border rounded-xl p-3 flex items-center gap-3 ${theme.ageRatingContainer}`}>
+              <div className={`flex-1 border rounded-xl p-3 flex items-center gap-3 ${theme.ageRatingContainer}`}>
                   <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
                     <span className="text-[6px] font-bold leading-none uppercase">TV</span>
                     <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
@@ -700,6 +931,9 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
   }, [targetId]);
 
   if (!currentVideo) return <div className="p-10 text-white">Video not found.</div>;
+
+  // UPDATED: Dynamic comment count
+  const commentCount = currentVideo.comments.length;
 
   return (
     <div className="flex flex-col lg:flex-row max-w-[1700px] mx-auto p-4 lg:p-6 gap-6 animate-in fade-in duration-500">
@@ -801,7 +1035,8 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
 
         <div className="mt-6 hidden md:block">
           <div className="flex items-center gap-8 mb-6">
-            <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>482 Comments</h3>
+            {/* UPDATED: Dynamic comment count */}
+            <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>{commentCount} Comments</h3>
             <div className={`flex items-center gap-2 text-sm font-medium cursor-pointer ${isDarkMode ? 'text-white' : 'text-black'}`}>
               <div className="flex flex-col gap-[3px]">
                 <div className={`w-5 h-[2px] ${isDarkMode ? 'bg-white' : 'bg-black'}`}></div>
@@ -823,7 +1058,13 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
             </div>
           </div>
 
-          {[1, 2, 3].map(i => (
+          {currentVideo.comments.map((comment, i) => {
+            // UPDATED: Calculate decreasing likes based on index to simulate "Top Comments" sort
+            // First comment gets the most likes, last gets the least.
+            // Formula: (Total Comments - Index) * Multiplier (e.g., 23)
+            const simulatedLikes = (currentVideo.comments.length - i) * 23 + Math.floor(Math.random() * 10); 
+
+            return (
             <div key={i} className="flex gap-4 mb-6">
               <div className={`w-10 h-10 rounded-full flex-shrink-0 overflow-hidden ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-200'}`}>
                 <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=User${i}`} alt="user" />
@@ -833,11 +1074,12 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
                   <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>@user-random{i}</span>
                   <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}>2 days ago</span>
                 </div>
-                <p className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>This is exactly what I was looking for! Thanks for the great explanation.</p>
+                <p className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>{comment}</p>
                 <div className="flex items-center gap-4 mt-2">
                   <div className="flex items-center gap-1.5 cursor-pointer">
                     <ThumbsUp size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
-                    <span className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{12 * i}</span>
+                    {/* UPDATED: Display simulated likes */}
+                    <span className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{simulatedLikes}</span>
                   </div>
                   <div className="cursor-pointer">
                     <ThumbsDown size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
@@ -846,7 +1088,7 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
                 </div>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
 
@@ -866,34 +1108,6 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
-  );
-};
-
-const HomePage = ({ videos, selectedCategory, setSelectedCategory, isDarkMode }) => {
-  return (
-    <div className="flex flex-col">
-      <div className={`sticky top-0 z-10 px-4 py-3 flex gap-3 overflow-x-auto no-scrollbar border-b backdrop-blur-sm ${isDarkMode ? 'bg-[#0f0f0f]/95 border-zinc-800/50' : 'bg-white/95 border-gray-200'}`}>
-        {categories.map((cat) => (
-          <CategoryPill
-            key={cat}
-            label={cat}
-            isSelected={selectedCategory === cat}
-            onClick={setSelectedCategory}
-            isDarkMode={isDarkMode}
-          />
-        ))}
-      </div>
-
-      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 pb-10">
-        {videos.map((video) => (
-          <VideoCard
-            key={video.id}
-            video={video}
-            isDarkMode={isDarkMode}
-          />
-        ))}
       </div>
     </div>
   );
@@ -1092,7 +1306,7 @@ function AppContent() {
             <span className={`absolute top-1 right-1 bg-red-600 text-white text-[10px] font-bold px-1 rounded-full border-2 ${isDarkMode ? 'border-[#0f0f0f]' : 'border-white'}`}>9+</span>
           </button>
           <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-sm font-bold cursor-pointer hover:opacity-90 text-white">
-            R
+            AA
           </div>
         </div>
       </header>
