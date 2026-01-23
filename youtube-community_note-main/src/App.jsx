@@ -326,9 +326,9 @@ const CategoryPill = ({ label, isSelected, onClick, isDarkMode }) => (
 );
 
 const VideoCard = ({ video, isDarkMode }) => {
-  const navigate = useNavigate();
+  // Navigation removed
   return (
-    <div className="flex flex-col gap-3 cursor-pointer group" onClick={() => navigate(`/video/${video.id}`)}>
+    <div className="flex flex-col gap-3 cursor-default group">
       <div className={`relative aspect-video rounded-xl overflow-hidden ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-200'}`}>
         <img
           src={video.thumbnail}
@@ -364,9 +364,9 @@ const VideoCard = ({ video, isDarkMode }) => {
 };
 
 const RelatedVideoCard = ({ video, isDarkMode }) => {
-  const navigate = useNavigate();
+  // Navigation removed
   return (
-    <div className="flex gap-2 cursor-pointer group" onClick={() => navigate(`/video/${video.id}`)}>
+    <div className="flex gap-2 cursor-default group">
       <div className={`relative w-40 flex-shrink-0 aspect-video rounded-lg overflow-hidden ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-200'}`}>
         <img
           src={video.thumbnail}
@@ -449,8 +449,9 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
     footerBrand: isDarkMode ? 'text-white' : 'text-black'
   };
 
+  // Shadows removed from main container
   return (
-    <div className={`mt-6 w-full font-sans shadow-lg rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
+    <div className={`mt-6 w-full font-sans rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
       
       {/* 1. HEADER - Clickable to toggle visibility */}
       <div 
@@ -459,7 +460,8 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
       >
         
         <div className="flex items-center gap-3">
-           <div className="bg-[#FF0000] p-1.5 rounded-lg shadow-sm">
+           {/* Shadows removed */}
+           <div className="bg-[#FF0000] p-1.5 rounded-lg">
               <ShieldAlert size={18} className="text-white" fill="currentColor" />
            </div>
            <div>
@@ -607,63 +609,65 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
             <div className={`h-px w-full mb-6 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
 
-            {/* CONTENT CATEGORY (With Hover Tooltip) */}
-            <div className="flex flex-col gap-4 mb-6">
-              <div className="flex items-center gap-3">
-                
-                <span className={`text-xs font-bold leading-tight whitespace-nowrap uppercase tracking-wide ${theme.textSub}`}>
-                  Content<br/>Category
-                </span>
-                
-                <div className="relative flex-shrink-0">
-                  <div 
-                    onMouseEnter={() => setIsHoveringCategory(true)}
-                    onMouseLeave={() => setIsHoveringCategory(false)}
-                    className={`border cursor-help text-[10px] pl-3 pr-2 py-1.5 rounded-full font-bold flex items-center gap-2 shadow-sm transition-transform hover:scale-105 ${isDarkMode ? 'bg-[#272727] border-[#3f3f3f] text-[#f1f1f1]' : 'bg-gray-100 border-gray-300 text-black'}`}
-                  >
-                    {data.safety.category}
-                    <div className={`rounded-full w-4 h-4 flex items-center justify-center ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-300'}`}>
-                      <Info size={10} className={theme.textMain} strokeWidth={2.5} />
-                    </div>
+            {/* --- UPDATED LAYOUT: Content Category & Age Rating in 2 Columns --- */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-4">
+              
+              {/* Col 1: Content Category & Safety */}
+              <div className={`flex-3 border rounded-xl p-3 flex flex-col justify-between ${theme.cardBorder}`}>
+                  <div className="flex justify-between items-start mb-2">
+                      <span className={`text-[9px] font-bold uppercase tracking-wider ${theme.textSub}`}>Category</span>
+                      
+                      {/* FIX: Relative Wrapper for Tooltip */}
+                      <div className="relative">
+                          <div 
+                            onMouseEnter={() => setIsHoveringCategory(true)}
+                            onMouseLeave={() => setIsHoveringCategory(false)}
+                            // Shadows removed, cursor-help kept
+                            className={`border cursor-help text-[10px] pl-3 pr-2 py-1 rounded-full font-bold flex items-center gap-2 transition-transform hover:scale-105 ${isDarkMode ? 'bg-[#272727] border-[#3f3f3f] text-[#f1f1f1]' : 'bg-gray-100 border-gray-300 text-black'}`}
+                          >
+                            {data.safety.category}
+                            <div className={`rounded-full w-3 h-3 flex items-center justify-center ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-300'}`}>
+                              <Info size={8} className={theme.textMain} strokeWidth={2.5} />
+                            </div>
+                          </div>
+                          
+                          {/* Hover Tooltip - Positioned absolute to relative wrapper */}
+                          {isHoveringCategory && (
+                            <div className={`absolute bottom-full mb-2 right-0 w-max max-w-[200px] text-[11px] px-3 py-2 rounded-lg z-50 text-center animate-in fade-in zoom-in duration-200 border ${isDarkMode ? 'bg-[#212121] border-[#3f3f3f] text-[#f1f1f1]' : 'bg-white border-gray-300 text-black'}`}>
+                              {data.safety.hoverText}
+                            </div>
+                          )}
+                      </div>
                   </div>
-
-                  {isHoveringCategory && (
-                    <div className={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-max max-w-[200px] text-[11px] px-3 py-2 rounded-lg shadow-xl z-50 text-center animate-in fade-in zoom-in duration-200 border ${isDarkMode ? 'bg-[#212121] border-[#3f3f3f] text-[#f1f1f1]' : 'bg-white border-gray-300 text-black'}`}>
-                      {data.safety.hoverText}
-                      <div className={`absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent ${isDarkMode ? 'border-t-[#212121]' : 'border-t-white'}`}></div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Safety Meter */}
-                <div className="flex-1 flex flex-col items-center relative ml-2">
-                    <div 
-                      className={`absolute -top-1.5 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] transition-all duration-500 ${isDarkMode ? 'border-t-[#f1f1f1]' : 'border-t-black'}`}
-                      style={{ left: `${data.safety.score}%`, transform: 'translateX(-50%)' }}
-                    ></div>
-                    <div className="h-2 w-full rounded-full bg-gradient-to-r from-[#FF0000] via-[#FFCC00] to-[#2BA640] opacity-90"></div>
-                    <div className="flex justify-between w-full text-[9px] font-bold mt-1 tracking-wider uppercase opacity-70">
-                      <span className="text-[#FF0000]">Unsafe</span>
-                      <span className="text-[#2BA640]">Safe</span>
-                    </div>
-                </div>
+                  
+                  {/* Safety Meter */}
+                  <div className="relative w-full mt-1">
+                      <div 
+                        className={`absolute -top-1.5 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] transition-all duration-500 ${isDarkMode ? 'border-t-[#f1f1f1]' : 'border-t-black'}`}
+                        style={{ left: `${data.safety.score}%`, transform: 'translateX(-50%)' }}
+                      ></div>
+                      <div className="h-1.5 w-full rounded-full bg-gradient-to-r from-[#FF0000] via-[#FFCC00] to-[#2BA640] opacity-90"></div>
+                      <div className="flex justify-between w-full text-[8px] font-bold mt-1 tracking-wider uppercase opacity-70">
+                        <span className="text-[#FF0000]">Unsafe</span>
+                        <span className="text-[#2BA640]">Safe</span>
+                      </div>
+                  </div>
               </div>
-            </div>
 
-            {/* AGE RATING */}
-            <div className="mb-4">
-               <div className={`border rounded-xl p-3 flex items-center gap-4 ${theme.ageRatingContainer}`}>
+              {/* Col 2: Age Rating */}
+              <div className={`flex-2 border rounded-xl p-3 flex items-center gap-3 ${theme.ageRatingContainer}`}>
                   <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
                     <span className="text-[6px] font-bold leading-none uppercase">TV</span>
                     <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
                   </div>
                   <div className="flex flex-col">
                     <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>Rated for</span>
-                    <p className={`text-[11px] leading-tight font-medium ${theme.textMain}`}>
+                    <p className={`text-[10px] leading-tight font-medium ${theme.textMain}`}>
                         {data.safety.ratingDesc}
                     </p>
                   </div>
-               </div>
+              </div>
+
             </div>
 
             {/* FOOTER */}
@@ -681,36 +685,41 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
 // --- Page Components ---
 
-const WatchPage = ({ videos, isDarkMode, toggleTheme }) => {
-  const { id } = useParams();
+const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
+  // ROUTING REMOVED: const { id } = useParams();
   const navigate = useNavigate();
   const [showMore, setShowMore] = useState(false);
   
-  // Find video by internal ID (video1, video2...)
-  const currentVideo = videos.find(v => v.id === id);
+  // Find video by internal ID passed via Props
+  const targetId = currentVideoId || "video1";
+  const currentVideo = videos.find(v => v.id === targetId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setShowMore(false);
-  }, [id]);
+  }, [targetId]);
 
-  if (!currentVideo) return <div className="p-10 text-white">Video not found. Try /video/video1</div>;
+  if (!currentVideo) return <div className="p-10 text-white">Video not found.</div>;
 
   return (
     <div className="flex flex-col lg:flex-row max-w-[1700px] mx-auto p-4 lg:p-6 gap-6 animate-in fade-in duration-500">
       <div className="flex-1 min-w-0">
         <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-lg relative z-20">
-          {/* We use ytId for the embed, even though route is video1 */}
+          
+          {/* UPDATED IFRAME: Added key, mute=1 */}
           <iframe
+            key={currentVideo.ytId} // ensures the player completely reloads for new videos
             width="100%"
             height="100%"
-            src={`https://www.youtube.com/embed/${currentVideo.ytId}`}
+            // mute=1 is required for Chrome/Edge/Safari to allow autoplay on the very first load
+            src={`https://www.youtube.com/embed/${currentVideo.ytId}?autoplay=1&mute=1`} 
             title={currentVideo.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             className="w-full h-full"
           ></iframe>
+
         </div>
 
         <div className="mt-4">
@@ -788,7 +797,6 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme }) => {
           </button>
         </div>
 
-        {/* Pass global theme state to CommunityLens */}
         <CommunityLensUI videoId={currentVideo.id} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
         <div className="mt-6 hidden md:block">
@@ -850,7 +858,7 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme }) => {
         </div>
         <div className="flex flex-col gap-2">
           {videos.filter(v => v.id !== currentVideo.id).map((vid) => (
-            <div key={`rel-${vid.id}`} onClick={() => navigate(`/video/${vid.id}`)}>
+            <div key={`rel-${vid.id}`}>
               <RelatedVideoCard
                 video={vid}
                 isDarkMode={isDarkMode}
@@ -901,9 +909,10 @@ function AppContent() {
   // Global Theme State
   const [isDarkMode, setIsDarkMode] = useState(true);
   
-  // --- Survey Mode State ---
-  const [isSurveyActive, setIsSurveyActive] = useState(false);
-  const [surveyQueue, setSurveyQueue] = useState([]);
+  // --- Survey Mode State (Default ON) ---
+  const [isSurveyActive, setIsSurveyActive] = useState(true);
+  // OPTIMIZED: Fixed queue 
+  const [surveyQueue, setSurveyQueue] = useState(['video1', 'video6', 'video3', 'video4']);
   const [currentSurveyIndex, setCurrentSurveyIndex] = useState(0);
 
   const navigate = useNavigate();
@@ -939,42 +948,26 @@ function AppContent() {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
-  // --- Survey Functions ---
-  const startSurvey = () => {
-    // Hardcoded list of video IDs
-    const ids = ['video4', 'video6', 'video8', 'video12', 'video1', 'video6','video9', 'video12'];
-    
-    if (ids.length > 0) {
-      setSurveyQueue(ids);
-      setCurrentSurveyIndex(0);
-      setIsSurveyActive(true);
-      navigate(`/video/${ids[0]}`);
-    } else {
-        alert("Configuration Error: No videos found.");
-    }
-  };
+  // --- Survey Functions (Simplified) ---
+  // Note: startSurvey is removed as requested, it defaults to ON.
 
   const nextSurveyVideo = () => {
     if (currentSurveyIndex < surveyQueue.length - 1) {
-      const nextIndex = currentSurveyIndex + 1;
-      setCurrentSurveyIndex(nextIndex);
-      navigate(`/video/${surveyQueue[nextIndex]}`);
+      setCurrentSurveyIndex(prev => prev + 1);
     }
   };
 
   const prevSurveyVideo = () => {
     if (currentSurveyIndex > 0) {
-      const prevIndex = currentSurveyIndex - 1;
-      setCurrentSurveyIndex(prevIndex);
-      navigate(`/video/${surveyQueue[prevIndex]}`);
+      setCurrentSurveyIndex(prev => prev - 1);
     }
   };
 
   const exitSurvey = () => {
+    // Optional: Reset if you want to allow exiting, though user implied "this is the flow"
     setIsSurveyActive(false);
     setSurveyQueue([]);
     setCurrentSurveyIndex(0);
-    navigate('/');
   };
 
 
@@ -1084,13 +1077,6 @@ function AppContent() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
-          <button 
-              onClick={startSurvey}
-              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-full text-sm font-bold transition-all"
-          >
-            <ClipboardList size={16} />
-            Start Survey
-          </button>
           
           {/* THEME TOGGLE BUTTON (Replaced Video Icon) */}
           <button 
@@ -1111,7 +1097,7 @@ function AppContent() {
         </div>
       </header>
 
-      {/* --- SURVEY FLOATING BUTTONS --- */}
+      {/* --- SURVEY FLOATING BUTTONS (Exit Button Removed) --- */}
       {isSurveyActive && (
         <>
             <div className="fixed bottom-6 left-6 z-[100] animate-in slide-in-from-left duration-300">
@@ -1126,13 +1112,7 @@ function AppContent() {
             </div>
 
             <div className="fixed bottom-6 right-6 z-[100] flex gap-4 animate-in slide-in-from-right duration-300">
-                  <button 
-                    onClick={exitSurvey}
-                    className="flex items-center gap-2 px-4 py-4 rounded-full bg-zinc-800 hover:bg-zinc-700 text-white shadow-2xl transition-all active:scale-95 border-2 border-white/10"
-                    title="Exit Survey"
-                >
-                    <XCircle size={24} />
-                </button>
+                {/* Exit button removed here */}
 
                 <button 
                     onClick={nextSurveyVideo}
@@ -1157,7 +1137,8 @@ function AppContent() {
         </aside>
 
         <main className={`flex-1 overflow-y-auto relative custom-scrollbar ${isDarkMode ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
-          <Routes>
+          {/* OPTIMIZED: Routes commented out to enforce single-view fixed flow */}
+          {/* <Routes>
             <Route
               path="/"
               element={
@@ -1173,7 +1154,16 @@ function AppContent() {
               path="/video/:id"
               element={<WatchPage videos={INITIAL_VIDEOS} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />}
             />
-          </Routes>
+          </Routes> 
+          */}
+          
+          {/* Direct Render of Survey Mode */}
+          <WatchPage 
+            videos={INITIAL_VIDEOS} 
+            isDarkMode={isDarkMode} 
+            toggleTheme={toggleTheme} 
+            currentVideoId={surveyQueue[currentSurveyIndex]} 
+          />
         </main>
       </div>
 
