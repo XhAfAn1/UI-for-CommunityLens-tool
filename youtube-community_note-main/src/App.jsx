@@ -451,35 +451,35 @@ const NOTE_DATABASE = {
     title: "ZELENSKY ISSUES APOLOGY TO TRUMP",
     consensus: {
       label: "6 people found it AI-generated",
-      text: "Commenters overwhelmingly recognize the video as AI-generated or fake, noting visual glitches like changing teeth and explicitly calling it AI. While many find it funny or impressive, they also describe it as scary and dystopian.",
-      previewText: "Commenters overwhelmingly recognize the video as AI-generated or fake, noting visual glitches...",
+      text: "Most commenters clearly recognize the video as AI-generated impersonation of Zelensky, noting visual glitches like changing teeth and calling the realism scary. While many find it funny, they implicitly treat it as untrustworthy satire rather than genuine political communication, expressing concern about how convincing such deepfakes have become.",
+      previewText: "",
       useful: 142,
       notUseful: 12
     },
     risks: [
       { 
         id: 'r1', 
-        title: "Community signal", 
+        title: "Misinformation", 
         riskLevel: "High", 
-        tacticDetail: "High-fidelity impersonation intended to blur the line between satire and reality for casual scrollers.",
-        content: "Impersonation risk: Users identify it as an AI deepfake of a political figure, potentially misleading viewers." 
-      },
-      { 
-        id: 'r3', 
-        title: "Spam / low-effort repetition", 
-        riskLevel: "Low", 
-        tacticDetail: "Shock-value content designed to trigger mass low-quality engagement (emojis, 'LOL') to boost algorithm performance.",
-        content: "Spam/low-signal comments: Repetitive short reactions (LOL, emojis, 'AI') contribute noise without adding context." 
+        tacticDetail: "Fabricated Reality: Using high-fidelity deepfake technology to mimic a geopolitical crisis event, creating a false historical record.",
+        content: "Highly realistic deepfake of a political figure could mislead viewers into believing fabricated statements." 
       },
       { 
         id: 'r2', 
-        title: "Visual anomalies", 
+        title: "Inpersonation", 
+        riskLevel: "High", 
+        tacticDetail: "Identity Theft: Hijacking the likeness and voice of a world leader to lend false credibility to a statement they never made.",
+        content: "Video mimics Zelensky’s likeness and speech, creating a deceptive but realistic fake apology." 
+      },
+      { 
+        id: 'r3', 
+        title: "Clickbait & Engagement Farming", 
         riskLevel: "Mid", 
-        tacticDetail: "Reliance on mobile screen size to hide imperfections; fails when users spot details like changing teeth.",
-        content: "Political misinformation: Some comments treat the fake apology as real, risking confusion about actual events." 
+        tacticDetail: "Sensationalism: Utilizing shock-value political scenarios to trigger immediate emotional reactions and shares.",
+        content: "Sensational political scenario and shock-value title encourage reactions and shares over accurate understanding." 
       }
     ],
-    viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
+    viewerResponse: "Viewers should check reliable news sources, scrutinize visual artifacts, treat such clips as satire unless verified, and avoid sharing them as factual. Platforms can label AI-generated political content and promote media literacy around deepfakes and manipulated media.",
     safety: { 
       category: "Impersonation", 
       hoverText: "Mimicking someone without their consent", 
@@ -491,7 +491,7 @@ const NOTE_DATABASE = {
   "video2": {
     title: "You Won’t Believe What Obama Says!",
     consensus: {
-      label: "1 person found it Deepfake/AI",
+      label: "6 people found it Deepfake/AI",
       text: "Users point out this is a known educational deepfake by Jordan Peele. It is not real footage, but a PSA about AI dangers.",
       previewText: "Users point out this is a known educational deepfake by Jordan Peele...",
       useful: 89,
@@ -502,7 +502,7 @@ const NOTE_DATABASE = {
         id: 'r1', 
         title: "Context Required", 
         riskLevel: "Low", 
-        tacticDetail: "Disclosure by demonstration: The deception is intentionally revealed at the end to educate the viewer.",
+        tacticDetail: "Disclosure by Demonstration: Intentionally revealing the deception at the end to educate the viewer about AI capabilities.",
         content: "Staged demonstration, not a real event." 
       }
     ],
@@ -529,21 +529,21 @@ const NOTE_DATABASE = {
         id: 'r1', 
         title: "Community signal", 
         riskLevel: "Mid", 
-        tacticDetail: "Deceptive realism: Mimicking a high-interest sporting event to capture traffic from confused fans.",
+        tacticDetail: "Deceptive Realism: Capitalizing on the confusion between actual match highlights and fan-made simulations to gain views.",
         content: "Impersonation / Deceptive realism: AI content appears to mimic real fighters and events, potentially misleading casual viewers." 
       },
       { 
         id: 'r3', 
         title: "Community signal", 
         riskLevel: "Mid", 
-        tacticDetail: "Rage-baiting: Depicting a controversial figure in a humiliating way to drive hostile engagement.",
+        tacticDetail: "Rage-Baiting: Depicting a controversial figure in a specific, often humiliating way to drive hostile engagement.",
         content: "Targeted abuse / Harassment: Comments insulting Jake Paul’s performance and injury border on hostile, personal mockery." 
       },
       { 
         id: 'r2', 
         title: "Visual anomalies", 
-        riskLevel: "Mid", 
-        tacticDetail: "Uncanny valley effect: The mix of realistic visuals and illogical physics creates confusion about authenticity.",
+        riskLevel: "Low", 
+        tacticDetail: "Uncanny Valley: The mix of realistic visuals and illogical physics creates unintentional confusion about authenticity.",
         content: "Content authenticity confusion: Mixed reactions (jokes vs. critiques) indicate uncertainty about what is real versus synthetic." 
       }
     ],
@@ -559,43 +559,36 @@ const NOTE_DATABASE = {
   "video4": {
     title: "Huge News! Social Security 2026 Raise",
     consensus: {
-      label: "1 person found it AI-generated",
-      text: "Most commenters distrust the video, calling it clickbait, fake, and misleading about Social Security raises. Only one explicitly identified it as AI, while others focused on the 'Scam' aspect.",
-      previewText: "Most commenters distrust the video, calling it clickbait, fake, and misleading about Social Security raises...",
+      label: "4 people found it AI-generated",
+      text: "Most commenters view the video as misleading, clickbait, and possibly AI-generated filler. They report no actual payment increases, accuse the creator of lying and exploiting seniors’ financial anxieties, and characterize the content as untrustworthy, repetitive, and not worth watching, relying on fear and confusion about Social Security benefits.",
+      previewText: "",
       useful: 215,
       notUseful: 5
     },
     risks: [
       { 
         id: 'r1', 
-        title: "Community signal", 
+        title: "Misinformation", 
         riskLevel: "High", 
-        tacticDetail: "Fearmongering: Using false financial urgency to target vulnerable demographics (seniors).",
-        content: "Scam/Deception: Multiple users label the video as fake news, lies, and misleading clickbait about payments." 
+        tacticDetail: "Fearmongering: Using false financial urgency and fabricated news to target a vulnerable demographic (seniors).",
+        content: "Multiple viewers report no increases received, calling video fake news, lies, and completely untrue." 
       },
       { 
         id: 'r2', 
-        title: "Community signal", 
+        title: "Clickbait & Engagement Farming", 
         riskLevel: "Mid", 
-        tacticDetail: "Exploitative SEO: Churning content on high-value keywords like 'COLA Increase' regardless of truth.",
-        content: "Exploitative monetization: Viewers accuse the creator of using fear and false hope to drive views and revenue." 
+        tacticDetail: "Keyword Stuffing: Churning content on high-value keywords like 'COLA Increase' regardless of factual accuracy.",
+        content: "Users repeatedly describe video as clickbait, exaggerated title with no new or useful information." 
       },
       { 
         id: 'r3', 
-        title: "Spam / low-effort repetition", 
-        riskLevel: "Low", 
-        tacticDetail: "Content farming: Repetitive, circular scripts designed to extend watch time without providing value.",
-        content: "Spam/Low-value content: Comments note repetitive, useless information with no real updates or actionable details." 
-      },
-      { 
-        id: 'r4', 
-        title: "Bot-like Behavior", 
+        title: "Exploitative Monetization", 
         riskLevel: "High", 
-        tacticDetail: "Automated production: Using AI Text-to-Speech and stock footage to mass-produce deceptive content.",
-        content: "Bot/AI suspicion: One commenter explicitly calls it 'clickbait AI generated', implying automated, low-trust production." 
-      }
+        tacticDetail: "Content Farming: Automated creation of repetitive, circular scripts designed to extend watch time without providing value.",
+        content: "Content appears to exploit vulnerable seniors’ financial fears for views, engagement, and likely ad revenue." 
+      },
     ],
-    viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
+    viewerResponse: "Viewers typically downvote, report, and warn others in comments, advise ignoring similar channels, cross-check claims with official Social Security sources, and rely on trusted news or government websites before sharing or acting on such content.",
     safety: { 
       category: "News and Media", 
       hoverText: "Content related to current events or up", 
@@ -651,7 +644,7 @@ const NOTE_DATABASE = {
         id: 'r3', 
         title: "Community signal", 
         riskLevel: "High", 
-        tacticDetail: "Disinformation layering: Framing the parody as 'the hidden truth' to influence voting behavior.",
+        tacticDetail: "Disinformation Layering: Framing the parody as 'the hidden truth' to influence voting behavior.",
         content: "Political manipulation: Comments frame the parody as “truthful ad,” urging voting behavior and coordinated reporting of real ads." 
       },
       { 
@@ -676,27 +669,41 @@ const NOTE_DATABASE = {
     title: "AI Michael Jackson in 2026",
     consensus: {
       label: "6 people found it AI-generated",
-      text: "The visuals are static/fan-made, but the vocals are confirmed as an AI model (RVC). Users are debating the ethics.",
-      previewText: "The visuals are static/fan-made, but the vocals are confirmed as an AI model...",
+      text: "Most commenters are enthusiastic Michael Jackson fans expressing love and nostalgia, treating the video as a fun or impressive AI recreation. A few explicitly note it is AI. Overall, viewers seem to accept it as entertaining but not authentic, with little discussion of deeper trust or ethical concerns.",
+      previewText: "",
       useful: 30,
       notUseful: 8
     },
     risks: [
       { 
         id: 'r1', 
-        title: "Synthetic Vocals", 
+        title: "Impersonation", 
         riskLevel: "Mid", 
-        tacticDetail: "Voice Cloning: Using RVC technology to replicate the voice of a deceased artist for entertainment.",
-        content: "Audio analysis confirms non-human vocal patterns." 
+        tacticDetail: "Voice Cloning: Using RVC (Retrieval-based Voice Conversion) to clone a deceased artist's voice.",
+        content: "AI video mimics Michael Jackson’s likeness and voice, potentially misleading viewers about authenticity." 
+      },
+      { 
+        id: 'r2', 
+        title: "Misinformation", 
+        riskLevel: "Low", 
+        tacticDetail: "Reality Blurring: High-quality audio synthesis creating confusion about whether unreleased tracks exist.",
+        content: "Limited labeling and heavy fan praise could make some viewers misinterpret AI recreation as real." 
+      },
+      { 
+        id: 'r3', 
+        title: "Clickbait & Engagement Farming", 
+        riskLevel: "Low", 
+        tacticDetail: "Nostalgia Baiting: Leveraging the emotional connection to a late icon to drive traffic.",
+        content: "Title and AI impersonation of a deceased celebrity likely designed mainly to attract views." 
       }
     ],
-    viewerResponse: "Viewers are debating the ethical implications of using a deceased artist's voice.",
+    viewerResponse: "Viewers can check descriptions for AI disclosures, read skeptical comments, and verify through official Michael Jackson channels or reputable news sources. They can also report misleading impersonations and avoid resharing unclear or deceptively presented AI celebrity content.",
     safety: { 
-      category: "Synthetic Audio", 
-      hoverText: "AI Voice Cloning", 
-      score: 60, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "Parental guidance suggested." 
+      category: "Impersonation", 
+      hoverText: "Mimicking someone without their consent", 
+      score: 10, 
+      ratingCode: "TV-G", 
+      ratingDesc: "This program is suitable for all ages." 
     }
   },
   "video8": {
@@ -737,64 +744,85 @@ const NOTE_DATABASE = {
     title: "Hacker donated $4 Billions!",
     consensus: {
       label: "6 people found it AI-generated",
-      text: "Footage is real but dates back to 2018. The 'Hacker' story is a fabrication added via text overlay.",
-      previewText: "Footage is real but dates back to 2018...",
+      text: "Multiple viewers explicitly label the video as AI-generated with a fabricated or misleading story, calling it a fake scam. While a few comments praise it as informative or mind-blowing, the dominant perception questions its authenticity, credibility, and trustworthiness, warning others that the narrative is not real and should be viewed skeptically.",
+      previewText: "",
       useful: 75,
       notUseful: 2
     },
     risks: [
       { 
         id: 'r1', 
-        title: "False Context", 
+        title: "Scam/Fraud", 
+        riskLevel: "High", 
+        tacticDetail: "Narrative Fabrication: Creating a false 'benevolent hacker' story to lower viewer defenses for potential scams.",
+        content: "Repeated accusations of a fake AI scammer suggest potential deceptive or fraudulent narrative tactics." 
+      },
+      { 
+        id: 'r2', 
+        title: "Misinformation", 
         riskLevel: "Mid", 
-        tacticDetail: "Recontextualization: Hijacking old, legitimate news footage to lend credibility to a fake narrative.",
-        content: "Visuals do not support the textual claims." 
+        tacticDetail: "Decontextualization: Hijacking old or unrelated news footage to lend authority to a fake story.",
+        content: "Viewers state the story is made up and not real, indicating likely misleading narrative." 
+      },
+      { 
+        id: 'r3', 
+        title: "Clickbait & Engagement Farming", 
+        riskLevel: "Mid", 
+        tacticDetail: "Sensationalism: Using astronomical figures ($4 Billion) to trigger curiosity and click-throughs.",
+        content: "Sensational claims about billions donated and dramatic AI story indicate attention-grabbing, engagement-driven content." 
       }
     ],
-    viewerResponse: "Viewers are providing links to the original 2018 news story to correct the record.",
+    viewerResponse: "Viewers typically respond by warning others in comments, labeling content as fake or AI-generated, encouraging skepticism, and discouraging sharing. Some cross-check claims with external sources or official news before believing or further engaging with such sensational narratives.",
     safety: { 
-      category: "Misinformation", 
-      hoverText: "False Context", 
+      category: "Scaling & Amplification", 
+      hoverText: "Unethical spreading or exaggeration of content", 
       score: 40, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "Parental guidance suggested." 
+      ratingCode: "TV-G", 
+      ratingDesc: "This program is suitable for all ages." 
     }
   },
   "video10": {
     title: "Elon Musk Launches Giveaway",
     consensus: {
-      label: "20 people found it AI-generated",
-      text: "Classic deepfake scam. Lip movements do not sync with the audio. Voice is monotone and lacks natural inflection.",
-      previewText: "Classic deepfake scam. Lip movements do not sync with the audio...",
+      label: "4 people found it AI-generated",
+      text: "Most commenters clearly label the video as AI-generated and fake, alleging fabricated visuals and comments involving Trump and Elon Musk. They strongly suggest it is a scam giveaway and warn others not to trust or engage with the content.",
+      previewText: "",
       useful: 320,
       notUseful: 0
     },
     risks: [
       { 
         id: 'r1', 
-        title: "Lip Sync Failure", 
+        title: "Scam/Fraud", 
         riskLevel: "High", 
-        tacticDetail: "Cheap Deepfake: Using low-quality Wav2Lip models that fail to match the speaker's natural cadence.",
-        content: "Visuals desynchronized by >200ms." 
+        tacticDetail: "Social Engineering: The 'Doubling' crypto scam script promising huge returns for 'verifying' a wallet.",
+        content: "Users explicitly call it a scam giveaway using fake Musk and Trump AI footage." 
       },
       { 
         id: 'r2', 
-        title: "Scam Pattern", 
+        title: "Impersonation", 
         riskLevel: "High", 
-        tacticDetail: "Double-your-money Scam: A classic social engineering script promising huge returns for 'verifying' a wallet.",
-        content: "Matches known 'doubling' scam scripts." 
+        tacticDetail: "Authority Hijacking: Using deepfakes of trusted/wealthy figures to bypass skepticism.",
+        content: "Comments describe AI-generated depictions of Elon Musk and Donald Trump misused for deceptive promotion." 
+      },
+      { 
+        id: 'r3', 
+        title: "Unethical/Deceptive Promotion", 
+        riskLevel: "High", 
+        tacticDetail: "Artificial Urgency: simulating a live event to pressure victims into acting quickly.",
+        content: "Video title promises massive daily giveaway, while commenters allege fabricated AI video and comments." 
       }
     ],
-    viewerResponse: "Viewers are flagging the video as a scam and warning others not to send crypto.",
+    viewerResponse: "Viewers often flag such videos as fake, warn others in comments, avoid clicking external links, and discourage sharing. Some report the content or channel to platforms for impersonation, scams, or deceptive promotional practices.",
     safety: { 
-      category: "Scam", 
-      hoverText: "Deepfake Scam", 
+      category: "Impersonation/Scam", 
+      hoverText: "Mimicking someone without their consent", 
       score: 12, 
-      ratingCode: "TV-14", 
-      ratingDesc: "Parents strongly cautioned." 
+      ratingCode: "TV-PG", 
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
     }
   },
-  "video11": {
+"video11": {
     title: "A.I Predicts 400 Years",
     consensus: {
       label: "16 people found it AI-generated",
@@ -813,31 +841,39 @@ const NOTE_DATABASE = {
       ratingDesc: "General Audience." 
     }
   },
-  "video12": {
+  "video12": { 
     title: "A Time Traveler's VLOG",
     consensus: {
-      label: "40 people found AI-Generated",
-      text: "A creative short film made with Google Veo. Viewers are discussing the plot and visual consistency.",
-      previewText: "A creative short film made with Google Veo...",
+      label: "36 people found AI-Generated",
+      text: "Viewers clearly recognize this as an AI-generated short film, frequently mentioning Veo 3 and AI video generation. The community finds it highly impressive, immersive, and creative, often speculative about future capabilities. Commenters generally see it as trustworthy entertainment rather than deceptive, and many encourage more such experiments and educational uses.",
+      previewText: "",
       useful: 40,
       notUseful: 2
     },
     risks: [
       { 
         id: 'r1', 
-        title: "Visual Artifacts", 
+        title: "Exploitative Monetization", 
         riskLevel: "Low", 
-        tacticDetail: "Generative Hallucination: The AI struggles to maintain object permanence in the background.",
-        content: "Background warping detected." 
+        tacticDetail: "Tech Hype Cycle: Leveraging the excitement around new AI tools to build a brand or affiliate channel.",
+        content: "Comments highlight tool integrations and awards, suggesting possible strong commercial promotion of AI capabilities." 
+      },
+      { 
+        id: 'r2', 
+        title: "Clickbait & Engagement Farming", 
+        riskLevel: "Low", 
+        tacticDetail: "Narrative Hook: Using a sci-fi premise ('Time Traveler') to frame a technology demonstration.",
+        content: "Hyperbolic praise like “BEST ON YOUTUBE” and singularity talk encourage amplified engagement and hype." 
       }
     ],
-    viewerResponse: "Viewers are treating the content as a fictional story and discussing plot points.",
+    references: ['Mentions of Google Veo 3 and Filmora integration as AI video-genaration tools.','References to seeing similar AI clips on Instagram and using AI for historical visualization.'],
+    viewerResponse: "Viewers can check for sponsorship disclosures, treat promotional-sounding comments skeptically, and contextualize AI-generated visuals as entertainment rather than reality. Encouraging creators to label AI content clearly and platforms to flag sponsored promotions helps reduce confusion and overhype.",
     safety: { 
       category: "Entertainment", 
-      hoverText: "Fictional Narrative", 
+      hoverText: "Content Intended for joyment and social interaction", 
       score: 88, 
       ratingCode: "TV-PG", 
-      ratingDesc: "Parental guidance suggested." 
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
     }
   }
 };
@@ -1351,7 +1387,16 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
           </button>
         </div>
 
-        <CommunityLensUI videoId={currentVideo.id} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+        {/* Hide tool for video9 */}
+        {currentVideo.id !== "video9" && (
+          <CommunityLensUI 
+            videoId={currentVideo.id} 
+            isDarkMode={isDarkMode} 
+            toggleTheme={toggleTheme} 
+          />
+        )}
+
+        <div className="mt-6 hidden md:block"> </div>
 
         <div className="mt-6 hidden md:block">
           <div className="flex items-center gap-8 mb-6">
