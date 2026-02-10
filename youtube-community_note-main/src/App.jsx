@@ -976,61 +976,31 @@ const RelatedVideoCard = ({ video, isDarkMode }) => {
 // --- COMMUNITY LENS TOOL UI  ---
 
 const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
-  const [isToolOpen, setIsToolOpen] = useState(true);
-  const [showFullConsensus, setShowFullConsensus] = useState(false);
-  const [expandedRisks, setExpandedRisks] = useState({});
-  const [showViewerResponse, setShowViewerResponse] = useState(false);
-  
-  // State handling
-  const [openSections, setOpenSections] = useState({
-    consensus: false, // Controls the "Learn more" expansion
-    risks: true,
-    references: false
-  });
-
-  const toggleSection = (key) => {
-    setOpenSections(prev => ({ ...prev, [key]: !prev[key] }));
-  };
-
   const data = NOTE_DATABASE[videoId];
   if (!data) return null;
 
-  const toggleRisk = (id) => {
-    setExpandedRisks(prev => ({ ...prev, [id]: !prev[id] }));
-  };
-
   // --- Dynamic Theme Styles ---
   const theme = {
-    // Containers
     mainContainer: isDarkMode ? 'bg-[#212121] border-[#3f3f3f]' : 'bg-white border-gray-200',
     headerBg: isDarkMode ? 'bg-[#212121] border-b border-[#3f3f3f]' : 'bg-[#f0f0f0] border-b border-gray-300',
     bodyBg: isDarkMode ? 'bg-[#212121]' : 'bg-white',
-    
-    // Typography
     textMain: isDarkMode ? 'text-[#f1f1f1]' : 'text-[#0f0f0f]',
     textSub: isDarkMode ? 'text-[#aaaaaa]' : 'text-[#606060]',
     textHighlight: isDarkMode ? 'text-red-400 hover:text-red-300' : 'text-[#a10f18] hover:underline',
-    
-    // Sections
     cardBorder: isDarkMode ? 'border-[#3f3f3f] bg-[#0f0f0f]' : 'border-gray-300 bg-gray-50',
     sectionHeaderBg: isDarkMode ? 'bg-[#3d1212]' : 'bg-[#ffdddf]', 
     sectionHeaderText: isDarkMode ? 'text-red-300' : 'text-[#a10f18]',
-    
-    // Interactive Elements
     riskItemBg: isDarkMode ? 'bg-[#1e1e1e] border-[#3f3f3f] hover:bg-[#2a2a2a]' : 'bg-white border-gray-200 hover:bg-gray-100',
     viewerResponseBg: isDarkMode ? 'bg-[#1a1a1a] border-[#3f3f3f]' : 'bg-white border-gray-200',
     viewerResponseAccent: isDarkMode ? 'bg-red-900' : 'bg-[#ffdddf]',
-    
-    // Risk Level Colors
-    riskHigh: isDarkMode ? 'text-red-400 border-0' : 'text-red-700 border-0',
-    riskMid: isDarkMode ? 'text-orange-400 border-0' : 'text-orange-700 border-0',
-    riskLow: isDarkMode ? 'text-gray-400 border-0' : 'text-gray-600 border-0',
-
-    // Age Rating
+    riskHigh: isDarkMode ? 'bg-red-900/50 text-red-200 border-red-800' : 'bg-red-100 text-red-700 border-red-200',
+    riskMid: isDarkMode ? 'bg-orange-900/50 text-orange-200 border-orange-800' : 'bg-orange-100 text-orange-700 border-orange-200',
+    riskLow: isDarkMode ? 'bg-zinc-800 text-zinc-300 border-zinc-700' : 'bg-gray-100 text-gray-600 border-gray-200',
+    contentClassificationBg: isDarkMode ? 'bg-[#1a1a1a] border-[#3f3f3f]' : 'bg-white border-gray-200',
+    ratingUnsafeBg: isDarkMode ? 'bg-red-900/30 text-red-400 border-red-800' : 'bg-red-50 text-red-600 border-red-200',
+    ratingSafeBg: isDarkMode ? 'bg-green-900/30 text-green-400 border-green-800' : 'bg-green-50 text-green-700 border-green-200',
     ageRatingContainer: isDarkMode ? 'bg-[#0f0f0f] border-[#3f3f3f]' : 'bg-white border-gray-300',
     ageRatingBox: isDarkMode ? 'bg-white text-black' : 'bg-black text-white',
-    
-    // Footer
     footerBorder: isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200',
     footerText: isDarkMode ? 'text-[#aaaaaa]' : 'text-gray-500',
     footerBrand: isDarkMode ? 'text-white' : 'text-black'
@@ -1045,11 +1015,8 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
   return (
     <div className={`mt-6 w-full font-sans rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
       
-      {/* 1. HEADER */}
-      <div 
-        onClick={() => setIsToolOpen(!isToolOpen)}
-        className={`p-3 relative flex items-center justify-between cursor-pointer transition-colors hover:bg-opacity-80 ${theme.headerBg}`}
-      >
+      {/* 1. HEADER (Static) */}
+      <div className={`p-3 relative flex items-center justify-between ${theme.headerBg}`}>
         <div className="flex items-center gap-3">
            <div className="bg-[#FF0000] p-1.5 rounded-lg">
               <ShieldAlert size={18} className="text-white" fill="currentColor" />
@@ -1062,10 +1029,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
         <div className="flex items-center gap-2">
           <button 
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleTheme();
-            }}
+            onClick={toggleTheme}
             className={`p-2 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
           >
             {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
@@ -1073,199 +1037,171 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
         </div>
       </div>
 
-      {/* 2. BODY */}
-      {isToolOpen && (
-        <div className={`${theme.bodyBg} p-4`}>
-            
-            {/* CONSENSUS */}
-            <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-              <div className={`p-2.5 pl-3 flex items-center gap-2 ${theme.sectionHeaderBg}`}>
-                <Activity size={16} className={theme.sectionHeaderText} />
-                <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community Consensus of this video</h4>
-              </div>
+      {/* 2. BODY (Always Open) */}
+      <div className={`${theme.bodyBg} p-4`}>
+          
+          {/* CONSENSUS */}
+          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+            <div className={`p-2.5 pl-3 flex items-center gap-2 ${theme.sectionHeaderBg}`}>
+              <Activity size={16} className={theme.sectionHeaderText} />
+              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community Consensus of this video</h4>
+            </div>
 
-              <div className="p-4">
+            <div className="p-4">
               <p className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-3 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black font-bold border-gray-300'}`}>
                 AI- GENERATED
               </p>
               <br />
-              <p
-                className={`inline-block text-[14px] font-bold mb-1
-                ${isDarkMode
-                    ? 'text-red-400 drop-shadow-[0_0_6px_rgba(248,113,113,0.7)]'
-                    : 'text-red-600 drop-shadow-[0_0_3px_rgba(248,113,113,0.4)]'
-                  }`}
-              >
+              <p className={`inline-block text-[14px] font-bold mb-1 ${isDarkMode ? 'text-red-400' : 'text-red-600'}`}>
                 {data.consensus.label}
               </p>
 
-                {!openSections.consensus ? (
-                    <button 
-                        onClick={() => toggleSection('consensus')}
-                        className={`block mt-2 pb-1 text-[10px] font-bold uppercase ${theme.sectionHeaderText}`}
-                    >
-                        Learn more
-                    </button>
-                ) : (
-                    <div className="animate-in fade-in slide-in-from-top-1">
-                        <p className={`text-xs leading-relaxed mt-2 ${theme.textMain}`}>
-                            {data.consensus.text}
-                        </p>
-                        <button 
-                            onClick={() => toggleSection('consensus')}
-                            className={`block mt-2 text-[10px] font-bold uppercase opacity-60 hover:opacity-100 ${theme.textSub}`}
-                        >
-                            Show less
-                        </button>
+              <div className="animate-in fade-in slide-in-from-top-1">
+                <p className={`text-xs leading-relaxed mt-2 ${theme.textMain}`}>
+                  {data.consensus.text}
+                </p>
+              </div>
+
+              <div className={`flex items-center gap-4 pt-3 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+                  <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
+                      <ThumbsUp size={14} />
+                      <span className="text-[11px] font-medium">{data.consensus.useful || 0} found useful</span>
+                  </div>
+                  <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
+                      <ThumbsDown size={14} />
+                      <span className="text-[11px] font-medium">{data.consensus.notUseful || 0} not useful</span>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RISKS */}
+          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+            <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
+              <div className="flex items-center gap-2">
+                  <AlertOctagon size={16} className={theme.sectionHeaderText} />
+                  <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Risk Patterns</h4>
+              </div>
+            </div>
+            
+            <div className="p-3 flex flex-col gap-2">
+                {data.risks.length > 0 ? (
+                    data.risks.map((risk) => (
+                    <div key={risk.id} className={`border rounded-lg overflow-hidden ${theme.riskItemBg}`}>
+                        <div className="w-full flex items-center justify-between p-3 text-left">
+                            <span className={`font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
+                        </div>
+                        
+                        <div className={`px-3 pb-3 pt-0 text-xs leading-relaxed ${theme.textSub}`}>
+                            <div className="flex items-center gap-2 mb-1 ">
+                                <span className="font-bold uppercase text-[10px] tracking-wider opacity-80">Risk Level:</span>
+                                <span className={`text-[9px] py-0.5 px-1.5 rounded border font-bold uppercase ${getRiskLevelStyle(risk.riskLevel)}`}>
+                                    {risk.riskLevel}
+                                </span>
+                            </div>
+                            <div className="space-y-2">                     
+                                <div className={`p-1 rounded`}>
+                                    <p>{risk.content} {risk.tacticDetail}</p>                                     
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    ))
+                ) : (
+                    <p className={`text-xs p-2 italic ${theme.textSub}`}>No significant risks detected by the community.</p>
                 )}
 
-                <div className={`flex items-center gap-4 pt-3 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
-                    <button className={`flex items-center gap-1.5 transition-colors hover:opacity-80 ${theme.textSub}`}>
-                        <ThumbsUp size={14} />
-                        <span className="text-[11px] font-medium">{data.consensus.useful || 0} found useful</span>
-                    </button>
-                    <button className={`flex items-center gap-1.5 transition-colors hover:opacity-80 ${theme.textSub}`}>
-                        <ThumbsDown size={14} />
-                        <span className="text-[11px] font-medium">{data.consensus.notUseful || 0} not useful</span>
-                    </button>
-                </div>
+                {/* Viewer Response Sub-section */}
+                {data.viewerResponse && (
+                  <div className={`mt-2 pt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+                      <div className={`flex items-center gap-1.5 text-[11px] font-medium w-full p-1 mb-2 ${theme.sectionHeaderText}`}>
+                        how viewers generally address these risks
+                      </div>
+                      <div className={`p-3 border rounded-lg text-xs leading-relaxed ${theme.viewerResponseBg}`}>
+                        <div className="flex gap-3">
+                            <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${theme.viewerResponseAccent}`}></div>
+                            <div className={theme.textMain}>{data.viewerResponse}</div>
+                        </div>
+                      </div>
+                  </div>
+                )}
+            </div>
+          </div>
+
+          {/* CONTENT CLASSIFICATION */}
+          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+            <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
+              <div className="flex items-center gap-2">
+                <ScanFace size={16} className={theme.sectionHeaderText} />
+                <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Content Classification</h4>
               </div>
             </div>
 
-            {/* RISKS */}
-            <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-              <button 
-                onClick={() => toggleSection('risks')}
-                className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg} hover:brightness-110 transition-all`}
-              >
-                <div className="flex items-center gap-2">
-                    <AlertOctagon size={16} className={theme.sectionHeaderText} />
-                    <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Risk Patterns</h4>
-                </div>
-                {openSections.risks ? <ChevronUp size={18} className={theme.sectionHeaderText} /> : <ChevronDown size={18} className={theme.sectionHeaderText} />}
-              </button>
-              
-              {openSections.risks && (
-                <div className="p-3 flex flex-col gap-2 animate-in slide-in-from-top-2 duration-200">
-                    {data.risks.length > 0 ? (
-                        data.risks.map((risk) => (
-                        <div key={risk.id} className={`border rounded-lg transition-colors overflow-hidden ${theme.riskItemBg}`}>
-                            <button 
-                                onClick={() => toggleRisk(risk.id)}
-                                className="w-full flex items-center justify-between p-3 text-left"
-                            >
-                                <span className={`font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
-                                {expandedRisks[risk.id] 
-                                    ? <ChevronUp size={16} className={theme.textSub} />
-                                    : <ChevronDown size={16} className={theme.textSub} />
-                                }
-                            </button>
-                            
-                            {expandedRisks[risk.id] && (
-                                <div className={`px-3 pb-3 pt-0 text-xs leading-relaxed ${theme.textSub}`}>
-                                    <div className="flex items-center gap-2 mb-1 ">
-                                        <span className="font-bold uppercase text-[10px] tracking-wider opacity-80">Risk Level:</span>
-                                        <span className={`text-[9px]  py-0.5 rounded border font-bold uppercase ${getRiskLevelStyle(risk.riskLevel)}`}>
-                                            {risk.riskLevel}
-                                        </span>
-                                    </div>
-                                    <div className="space-y-2">                                     
-                                            <div className={`p-1 rounded`}>
-                                                <p>{risk.content} {risk.tacticDetail}</p>                                     
-                                            </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                        ))
-                    ) : (
-                        <p className={`text-xs p-2 italic ${theme.textSub}`}>No significant risks detected by the community.</p>
-                    )}
+            <div className="p-4 space-y-3">
+              <div className="flex flex-col gap-1">
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Category:</span>
+                <span className={`text-sm font-medium ${theme.textMain}`}>{data.safety.category}</span>
+              </div>
 
-                    {data.risks.length > 0 && (
-                        <div className={`mt-2 pt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
-                        <button 
-                            onClick={() => setShowViewerResponse(!showViewerResponse)}
-                            className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors w-full p-1 ${theme.sectionHeaderText}`}
-                        >
-                            <div className="flex items-center gap-1">
-                                {showViewerResponse ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-                                {showViewerResponse ? 'Hide how viewers generally address these risks' : 'See how viewers generally address these risks'}
-                            </div>
-                        </button>
-                        
-                        {showViewerResponse && data.viewerResponse && (
-                            <div className={`mt-2 p-3 border rounded-lg text-xs leading-relaxed animate-in fade-in ${theme.viewerResponseBg}`}>
-                            <div className="flex gap-3">
-                                <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${theme.viewerResponseAccent}`}></div>
-                                <div className={theme.textMain}>{data.viewerResponse}</div>
-                            </div>
-                            </div>
-                        )}
-                        </div>
-                    )}
-                </div>
-              )}
+              <div className="flex items-center gap-3">
+                <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Safety Rating:</span>
+                <span className={`px-2 py-0.5 rounded-md border text-[10px] font-bold uppercase ${data.safety.score < 50 ? theme.ratingUnsafeBg : theme.ratingSafeBg}`}>
+                  {data.safety.score < 50 ? 'Unsafe' : 'Safe'}
+                </span>
+              </div>
             </div>
+          </div>
 
-            {/* REFERENCES */}
-            <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-              <button 
-                onClick={() => toggleSection('references')}
-                className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg} hover:brightness-110 transition-all`}
-              >
+          {/* REFERENCES */}
+          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+              <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
                 <div className="flex items-center gap-2">
                     <ExternalLink size={16} className={theme.sectionHeaderText} />
                     <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community-provided references and citations</h4>
                 </div>
-                {openSections.references ? <ChevronUp size={18} className={theme.sectionHeaderText} /> : <ChevronDown size={18} className={theme.sectionHeaderText} />}
-              </button>
+              </div>
               
-              {openSections.references && (
-                <div className="p-4 animate-in slide-in-from-top-2 duration-200">
-                    {data.references && data.references.length > 0 ? (
-                        <ul className="list-disc pl-4 space-y-1">
-                            {data.references.map((ref, index) => (
-                                <li key={index} className={`text-xs ${theme.textMain}`}>
-                                    <a href={ref} target="_blank" rel="noopener noreferrer" className={`hover:underline break-all ${theme.textHighlight}`}>
-                                        {ref}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p className={`text-xs ${theme.textSub}`}>No community citations available yet.</p>
-                    )}
+              <div className="p-4">
+                  {data.references && data.references.length > 0 ? (
+                      <ul className="list-disc pl-4 space-y-1">
+                          {data.references.map((ref, index) => (
+                              <li key={index} className={`text-xs ${theme.textMain}`}>
+                                  <a href={ref} target="_blank" rel="noopener noreferrer" className={`hover:underline break-all ${theme.textHighlight}`}>
+                                      {ref}
+                                  </a>
+                              </li>
+                          ))}
+                      </ul>
+                  ) : (
+                      <p className={`text-xs ${theme.textSub}`}>No community citations available yet.</p>
+                  )}
+              </div>
+          </div>
+
+          {/* AGE RATING */}
+          <div className={`h-px w-full mb-4 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
+          <div className="mb-4">
+             <div className={`border rounded-xl p-3 flex items-center gap-4 ${theme.ageRatingContainer}`}>
+                <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
+                  <span className="text-[6px] font-bold leading-none uppercase">TV</span>
+                  <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
                 </div>
-              )}
-            </div>
+                <div className="flex flex-col">
+                  <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>This Content is appropriate for:</span>
+                  <p className={`text-[11px] leading-tight font-medium ${theme.textMain}`}>
+                      {data.safety.ratingDesc}
+                  </p>
+                </div>
+             </div>
+          </div>
 
-            {/* AGE RATING */}
-            <div className={`h-px w-full mb-4 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
-            <div className="mb-4">
-               <div className={`border rounded-xl p-3 flex items-center gap-4 ${theme.ageRatingContainer}`}>
-                  <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
-                    <span className="text-[6px] font-bold leading-none uppercase">TV</span>
-                    <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>This Content is appropriate for:</span>
-                    <p className={`text-[11px] leading-tight font-medium ${theme.textMain}`}>
-                        {data.safety.ratingDesc}
-                    </p>
-                  </div>
-               </div>
-            </div>
-
-            {/* FOOTER */}
-            <div className={`text-center pt-4 border-t ${theme.footerBorder}`}>
-              <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
-                Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
-              </p>
-            </div>
-        </div>
-      )}
+          {/* FOOTER */}
+          <div className={`text-center pt-4 border-t ${theme.footerBorder}`}>
+            <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
+              Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
+            </p>
+          </div>
+      </div>
     </div>
   );
 };
@@ -1275,7 +1211,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
   // ROUTING REMOVED: const { id } = useParams();
   const navigate = useNavigate();
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(true);
   
   // Find video by internal ID passed via Props
   const targetId = currentVideoId || "video1";
@@ -1283,7 +1219,7 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setShowMore(false);
+    setShowMore(true);
   }, [targetId]);
 
   if (!currentVideo) return <div className="p-10 text-white">Video not found.</div>;
