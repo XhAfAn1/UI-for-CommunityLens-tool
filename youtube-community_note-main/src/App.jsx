@@ -9,13 +9,14 @@ import {
   ScanFace, ExternalLink, ChevronRight,
   Activity, Eye, Mic2, CheckCircle2, Download, Scissors, ListPlus,
   AlertOctagon, Info, Trash2, Maximize2, Minimize2, Sun, Moon,
-  ArrowLeft, ArrowRight, PlayCircle, XCircle, ClipboardList, Bot
+  ArrowLeft, ArrowRight, PlayCircle, XCircle, ClipboardList, Bot,
+  FileText, Link2, Quote
 } from 'lucide-react';
 
 
 const CSV_DATA = {
   "ghLtBXmhDsU": {
-    "description": "ZELENSKY ISSUES APOLOGY TO TRUMP regarding his temu suit\n\n\n──────────────────────────\n𝗛𝗼𝘄 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼 𝘄𝗮𝘀 𝗺𝗮𝗱𝗲\n✨ 𝗔𝗹𝘁𝗲𝗿𝗲𝗱 𝗼𝗿 𝘀𝘆𝗻𝘁𝗵𝗲𝘁𝗶𝗰 𝗰𝗼𝗻𝘁𝗲𝗻𝘁\nSound or visuals were significantly edited or digitally generated.",
+    "description": "ZELENSKY ISSUES APOLOGY TO TRUMP regarding his temu suit\n\n\n──────────────────────────\n𝗛𝗼𝘄 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼 𝘄𝗮𝘀 𝗺𝗮𝗱𝗲\n𝗔𝗹𝘁𝗲𝗿𝗲𝗱 𝗼𝗿 𝘀𝘆𝗻𝘁𝗵𝗲𝘁𝗶𝗰 𝗰𝗼𝗻𝘁𝗲𝗻𝘁\nSound or visuals were significantly edited or digitally generated. 𝗟𝗲𝗮𝗿𝗻 𝗺𝗼𝗿𝗲.",
     "comments": [
       "Scary realistic, had me there for a second",
       "AI has a problem with teeth. He's teeth change a few times. Always look at the teeth if your ever unsure.",
@@ -185,7 +186,7 @@ const CSV_DATA = {
     ]
   },
   "FlztGX_y0OI": {
-    "description": "Experimenting with local AI models to bring Michael Jackson back to life. This is more of a proof of concept than anything meaningful, but I feel it came out alright. Looking forward to adding animations and \n\nNOTE: This project is made for entertainment and creative purposes only. I did not use the best source image as this was made on a whim, but will produce a new version down the line once other projects are complete.\n\nDon't forget to like, comment, and subscribe for more AI-powered experiments with music, culture, and history!\n\n#mj #michaeljackson #jackson5 #aivideo #kingofpop\n\n\n──────────────────────────\n𝗛𝗼𝘄 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼 𝘄𝗮𝘀 𝗺𝗮𝗱𝗲\n✨ 𝗔𝗹𝘁𝗲𝗿𝗲𝗱 𝗼𝗿 𝘀𝘆𝗻𝘁𝗵𝗲𝘁𝗶𝗰 𝗰𝗼𝗻𝘁𝗲𝗻𝘁\nSound or visuals were significantly edited or digitally generated.",
+    "description": "Experimenting with local AI models to bring Michael Jackson back to life. This is more of a proof of concept than anything meaningful, but I feel it came out alright. Looking forward to adding animations and \n\nNOTE: This project is made for entertainment and creative purposes only. I did not use the best source image as this was made on a whim, but will produce a new version down the line once other projects are complete.\n\nDon't forget to like, comment, and subscribe for more AI-powered experiments with music, culture, and history!\n\n#mj #michaeljackson #jackson5 #aivideo #kingofpop\n\n\n──────────────────────────\n𝗛𝗼𝘄 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼 𝘄𝗮𝘀 𝗺𝗮𝗱𝗲\n𝗔𝗹𝘁𝗲𝗿𝗲𝗱 𝗼𝗿 𝘀𝘆𝗻𝘁𝗵𝗲𝘁𝗶𝗰 𝗰𝗼𝗻𝘁𝗲𝗻𝘁\nSound or visuals were significantly edited or digitally generated. 𝗟𝗲𝗮𝗿𝗻 𝗺𝗼𝗿𝗲.",
     "comments": [
       "Michael Jackson i love you",
       "Heal the world, make a better place, for you, for me and the entire human race.\nThere are people dying and if you care for the living make a better place for you and for me.",
@@ -372,18 +373,6 @@ const CSV_DATA = {
   }
 };
 
-// --- Mock Data Generators ---
-
-const generateRandomTime = () => {
-  const times = ['2 hours ago', '5 hours ago', '1 day ago', '3 days ago', '1 week ago', '2 weeks ago', '1 month ago', '1 year ago'];
-  return times[Math.floor(Math.random() * times.length)];
-};
-
-const generateViews = () => {
-  const views = ['12K', '45K', '110K', '1.2M', '5.4M', '8.9M', '230K', '15K'];
-  return views[Math.floor(Math.random() * views.length)];
-};
-
 const generateDescription = (title, channel) => {
   return `In this video, ${channel} brings you an exclusive look at "${title}". We dive deep into the details, analyzing every aspect to give you the most comprehensive breakdown possible.\n\nTimestamps:\n0:00 - Intro\n2:30 - Key Analysis\n5:45 - The Reveal\n8:20 - Final Thoughts\n\nMake sure to like, comment, and subscribe for more content like this! We upload videos every week covering the latest trends in technology, politics, and entertainment.\n\nFollow us on social media:\nTwitter: @${channel.replace(/\s/g, '')}\nInstagram: @${channel.replace(/\s/g, '')}_official\n\n#${channel.replace(/\s/g, '')} #Trending #VideoAnalysis #2026`;
 };
@@ -407,26 +396,26 @@ const categories = [
   "Recently uploaded", "Watched", "New to you"
 ];
 
-// --- Video Data Configuration ---
+// --- Video Data Configuration (UPDATED) ---
 const VIDEO_DB = [
-  { id: "video1", ytId: "ghLtBXmhDsU", title: "ZELENSKY ISSUES APOLOGY TO TRUMP", channel: "SyntheticVoices" },
-  { id: "video2", ytId: "cQ54GDm1eL0", title: "You Won’t Believe What Obama Says In This Video! 😉", channel: "BuzzFeedVideo" },
-  { id: "video3", ytId: "_qczkG_AqmU", title: 'Jake Paul "I WON" - Post Fight Press Conference', channel: "Sports Central" },
-  { id: "video4", ytId: "wIjc3ceDzr4", title: "Huge News! Social Security 2026 Raise Update", channel: "Benefit Alert Now" },
-  { id: "video5", ytId: "Qn4SP5Z2wOY", title: "Google Veo 3 Fake News | AI Video Generation", channel: "AI Trends" },
-  { id: "video6", ytId: "sVspeqNnoWM", title: "Kamala Harris Ad PARODY", channel: "Political Satire" },
-  { id: "video7", ytId: "FlztGX_y0OI", title: "AI Michael Jackson in 2026 - New Song", channel: "Music Futurism" },
-  { id: "video8", ytId: "_-1eC2LK6u0", title: "Get 0.07 BTC ($7,000) Free Bitcoin: Complete Tutorial!", channel: "Crypto King" },
-  { id: "video9", ytId: "-Sv9YjU0fRE", title: "Hacker who donated $4 Billions to Palestine!", channel: "Tech & Society" },
-  { id: "video10", ytId: "M4CosGoddVA", title: "Elon Musk Launches $1 Million Daily Giveaway", channel: "Crypto News Daily" },
-  { id: "video11", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline" },
-  { id: "video12", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 Short Film", channel: "Filmmaker Pro" }
+  { id: "video1", ytId: "ghLtBXmhDsU", title: "ZELENSKY ISSUES APOLOGY TO TRUMP", channel: "SyntheticVoices", views: "4.9K", uploadedAt: "11 months ago", likes: "73", subscribers: "4.25K", duration: "0:56" },
+  { id: "video2", ytId: "cQ54GDm1eL0", title: "You Won’t Believe What Obama Says In This Video! 😉", channel: "BuzzFeedVideo", views: "12M", uploadedAt: "4 years ago", likes: "450K", subscribers: "20M", duration: "3:45" },
+  { id: "video3", ytId: "_qczkG_AqmU", title: 'Jake Paul "I WON" - Post Fight Press Conference', channel: "Sports Central", views: "2.1M", uploadedAt: "1 day ago", likes: "35K", subscribers: "1.2M", duration: "4:10" },
+  { id: "video4", ytId: "wIjc3ceDzr4", title: "Huge News! Social Security September 2025 Raise - See If You Qualify For New Payment", channel: "Benefit Alert Now", views: "9.7K", uploadedAt: "5 months ago", likes: "151", subscribers: "1.93K", duration: "8:22" },
+  { id: "video5", ytId: "Qn4SP5Z2wOY", title: "Google Veo 3 Fake News | AI Video Generation", channel: "AI Trends", views: "230K", uploadedAt: "2 days ago", likes: "15K", subscribers: "120K", duration: "5:15" },
+  { id: "video6", ytId: "sVspeqNnoWM", title: "Kamala Harris Ad PARODY", channel: "Political Satire", views: "1.8M", uploadedAt: "3 days ago", likes: "89K", subscribers: "340K", duration: "2:45" },
+  { id: "video7", ytId: "FlztGX_y0OI", title: "AI Michael Jackson in 2026 - New Song", channel: "Mr. Miller", views: "450K", uploadedAt: "1 week ago", likes: "28K", subscribers: "67K", duration: "3:20" },
+  { id: "video8", ytId: "_-1eC2LK6u0", title: "Get 0.07 BTC ($7,000) Free Bitcoin: Complete Tutorial!", channel: "Crypto King", views: "12K", uploadedAt: "1 hour ago", likes: "50", subscribers: "1.2K", duration: "6:00" },
+  { id: "video9", ytId: "-Sv9YjU0fRE", title: "Hacker who donated $4 Billions to Palestine & Africa!", channel: "The Knowledge Nexus", views: "154", uploadedAt: "1 year ago", likes: "14", subscribers: "79", duration: "2:49" },
+  { id: "video10", ytId: "M4CosGoddVA", title: "Elon Musk Launches $1 Million Daily Giveaway", channel: "CCN NEWS", views: "56K", uploadedAt: "4 hours ago", likes: "200", subscribers: "5K", duration: "4:50" },
+  { id: "video11", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline", views: "8.9M", uploadedAt: "2 years ago", likes: "300K", subscribers: "2.5M", duration: "15:20" },
+  { id: "video12", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 AI Short Film + Assets Available", channel: "Uisato", views: "215K", uploadedAt: "8 months ago", likes: "4.4K", subscribers: "11.2K", duration: "1.46" }
 ];
 
 const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
   // Check if we have real data for this video
   const realData = CSV_DATA[vid.ytId];
-  
+
   return {
     id: vid.id,
     ytId: vid.ytId,
@@ -434,9 +423,11 @@ const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
     thumbnail: `https://img.youtube.com/vi/${vid.ytId}/mqdefault.jpg`,
     channelName: vid.channel,
     channelAvatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${vid.channel}`,
-    views: generateViews(),
-    uploadedAt: generateRandomTime(),
-    duration: "12:45",
+    views: vid.views,          // Direct mapping
+    uploadedAt: vid.uploadedAt,// Direct mapping
+    duration: vid.duration,    // Direct mapping
+    likes: vid.likes,          // New mapping
+    subscribers: vid.subscribers, // New mapping
     category: "General",
     // Use real description or fallback to generator
     description: realData ? realData.description : generateDescription(vid.title, vid.channel),
@@ -457,35 +448,35 @@ const NOTE_DATABASE = {
       notUseful: 12
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Misinformation", 
-        riskLevel: "High", 
+      {
+        id: 'r1',
+        title: "Misinformation",
+        riskLevel: "High",
         tacticDetail: "Fabricated Reality: Using high-fidelity deepfake technology to mimic a geopolitical crisis event, creating a false historical record.",
-        content: "Highly realistic deepfake of a political figure could mislead viewers into believing fabricated statements." 
+        content: "Highly realistic deepfake of a political figure could mislead viewers into believing fabricated statements."
       },
-      { 
-        id: 'r2', 
-        title: "Inpersonation", 
-        riskLevel: "High", 
+      {
+        id: 'r2',
+        title: "Inpersonation",
+        riskLevel: "High",
         tacticDetail: "Identity Theft: Hijacking the likeness and voice of a world leader to lend false credibility to a statement they never made.",
-        content: "Video mimics Zelensky’s likeness and speech, creating a deceptive but realistic fake apology." 
+        content: "Video mimics Zelensky’s likeness and speech, creating a deceptive but realistic fake apology."
       },
-      { 
-        id: 'r3', 
-        title: "Clickbait & Engagement Farming", 
-        riskLevel: "Mid", 
+      {
+        id: 'r3',
+        title: "Clickbait & Engagement Farming",
+        riskLevel: "Mid",
         tacticDetail: "Sensationalism: Utilizing shock-value political scenarios to trigger immediate emotional reactions and shares.",
-        content: "Sensational political scenario and shock-value title encourage reactions and shares over accurate understanding." 
+        content: "Sensational political scenario and shock-value title encourage reactions and shares over accurate understanding."
       }
     ],
     viewerResponse: "Viewers should check reliable news sources, scrutinize visual artifacts, treat such clips as satire unless verified, and avoid sharing them as factual. Platforms can label AI-generated political content and promote media literacy around deepfakes and manipulated media.",
-    safety: { 
-      category: "Impersonation", 
-      hoverText: "Mimicking someone without their consent", 
-      score: 10, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
+    safety: {
+      category: "Impersonation",
+      hoverText: "Mimicking someone without their consent",
+      score: 10,
+      ratingCode: "TV-PG",
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
     }
   },
   "video2": {
@@ -498,21 +489,21 @@ const NOTE_DATABASE = {
       notUseful: 3
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Context Required", 
-        riskLevel: "Low", 
+      {
+        id: 'r1',
+        title: "Context Required",
+        riskLevel: "Low",
         tacticDetail: "Disclosure by Demonstration: Intentionally revealing the deception at the end to educate the viewer about AI capabilities.",
-        content: "Staged demonstration, not a real event." 
+        content: "Staged demonstration, not a real event."
       }
     ],
     viewerResponse: "Viewers typically add context to explain the educational intent behind the media.",
-    safety: { 
-      category: "Educational", 
-      hoverText: "Mimicry with consent", 
-      score: 85, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "Parental guidance suggested." 
+    safety: {
+      category: "Educational",
+      hoverText: "Mimicry with consent",
+      score: 85,
+      ratingCode: "TV-PG",
+      ratingDesc: "Parental guidance suggested."
     }
   },
   "video3": {
@@ -525,35 +516,35 @@ const NOTE_DATABASE = {
       notUseful: 20
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Community signal", 
-        riskLevel: "Mid", 
+      {
+        id: 'r1',
+        title: "Community signal",
+        riskLevel: "Mid",
         tacticDetail: "Deceptive Realism: Capitalizing on the confusion between actual match highlights and fan-made simulations to gain views.",
-        content: "Impersonation / Deceptive realism: AI content appears to mimic real fighters and events, potentially misleading casual viewers." 
+        content: "Impersonation / Deceptive realism: AI content appears to mimic real fighters and events, potentially misleading casual viewers."
       },
-      { 
-        id: 'r3', 
-        title: "Community signal", 
-        riskLevel: "Mid", 
+      {
+        id: 'r3',
+        title: "Community signal",
+        riskLevel: "Mid",
         tacticDetail: "Rage-Baiting: Depicting a controversial figure in a specific, often humiliating way to drive hostile engagement.",
-        content: "Targeted abuse / Harassment: Comments insulting Jake Paul’s performance and injury border on hostile, personal mockery." 
+        content: "Targeted abuse / Harassment: Comments insulting Jake Paul’s performance and injury border on hostile, personal mockery."
       },
-      { 
-        id: 'r2', 
-        title: "Visual anomalies", 
-        riskLevel: "Low", 
+      {
+        id: 'r2',
+        title: "Visual anomalies",
+        riskLevel: "Low",
         tacticDetail: "Uncanny Valley: The mix of realistic visuals and illogical physics creates unintentional confusion about authenticity.",
-        content: "Content authenticity confusion: Mixed reactions (jokes vs. critiques) indicate uncertainty about what is real versus synthetic." 
+        content: "Content authenticity confusion: Mixed reactions (jokes vs. critiques) indicate uncertainty about what is real versus synthetic."
       }
     ],
     viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
-    safety: { 
-      category: "Impersonation", 
-      hoverText: "Mimicking someone without their consent", 
-      score: 10, 
-      ratingCode: "TV-14", 
-      ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned." 
+    safety: {
+      category: "Impersonation",
+      hoverText: "Mimicking someone without their consent",
+      score: 10,
+      ratingCode: "TV-14",
+      ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned."
     }
   },
   "video4": {
@@ -566,35 +557,35 @@ const NOTE_DATABASE = {
       notUseful: 5
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Misinformation", 
-        riskLevel: "High", 
+      {
+        id: 'r1',
+        title: "Misinformation",
+        riskLevel: "High",
         tacticDetail: "Fearmongering: Using false financial urgency and fabricated news to target a vulnerable demographic (seniors).",
-        content: "Multiple viewers report no increases received, calling video fake news, lies, and completely untrue." 
+        content: "Multiple viewers report no increases received, calling video fake news, lies, and completely untrue."
       },
-      { 
-        id: 'r2', 
-        title: "Clickbait & Engagement Farming", 
-        riskLevel: "Mid", 
+      {
+        id: 'r2',
+        title: "Clickbait & Engagement Farming",
+        riskLevel: "Mid",
         tacticDetail: "Keyword Stuffing: Churning content on high-value keywords like 'COLA Increase' regardless of factual accuracy.",
-        content: "Users repeatedly describe video as clickbait, exaggerated title with no new or useful information." 
+        content: "Users repeatedly describe video as clickbait, exaggerated title with no new or useful information."
       },
-      { 
-        id: 'r3', 
-        title: "Exploitative Monetization", 
-        riskLevel: "High", 
+      {
+        id: 'r3',
+        title: "Exploitative Monetization",
+        riskLevel: "High",
         tacticDetail: "Content Farming: Automated creation of repetitive, circular scripts designed to extend watch time without providing value.",
-        content: "Content appears to exploit vulnerable seniors’ financial fears for views, engagement, and likely ad revenue." 
+        content: "Content appears to exploit vulnerable seniors’ financial fears for views, engagement, and likely ad revenue."
       },
     ],
     viewerResponse: "Viewers typically downvote, report, and warn others in comments, advise ignoring similar channels, cross-check claims with official Social Security sources, and rely on trusted news or government websites before sharing or acting on such content.",
-    safety: { 
-      category: "News and Media", 
-      hoverText: "Content related to current events or up", 
-      score: 10, 
-      ratingCode: "TV-14", 
-      ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned." 
+    safety: {
+      category: "News and Media",
+      hoverText: "Content related to current events or up",
+      score: 10,
+      ratingCode: "TV-14",
+      ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned."
     }
   },
   "video5": {
@@ -608,12 +599,12 @@ const NOTE_DATABASE = {
     },
     risks: [],
     viewerResponse: "Viewers are engaging in technical discussions about the AI model's capabilities.",
-    safety: { 
-      category: "Technology", 
-      hoverText: "AI Tool Showcase", 
-      score: 90, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "Parental guidance suggested." 
+    safety: {
+      category: "Technology",
+      hoverText: "AI Tool Showcase",
+      score: 90,
+      ratingCode: "TV-PG",
+      ratingDesc: "Parental guidance suggested."
     }
   },
   "video6": {
@@ -626,43 +617,43 @@ const NOTE_DATABASE = {
       notUseful: 45
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Community signal", 
-        riskLevel: "Mid", 
+      {
+        id: 'r1',
+        title: "Community signal",
+        riskLevel: "Mid",
         tacticDetail: "Ad Hominem Satire: Exaggerating personal traits to demean the subject rather than critique policy.",
-        content: "Targeted abuse/harassment: Multiple comments mock and insult Kamala Harris personally, including her laugh and intelligence." 
+        content: "Targeted abuse/harassment: Multiple comments mock and insult Kamala Harris personally, including her laugh and intelligence."
       },
-      { 
-        id: 'r2', 
-        title: "Community signal", 
-        riskLevel: "Low", 
+      {
+        id: 'r2',
+        title: "Community signal",
+        riskLevel: "Low",
         tacticDetail: "Persecution Narrative: Claiming censorship to encourage followers to aggressively share the content.",
-        content: "Scaling & amplification: Users claim suppression and shadow-banning on YouTube and Facebook, encouraging mass sharing and reporting." 
+        content: "Scaling & amplification: Users claim suppression and shadow-banning on YouTube and Facebook, encouraging mass sharing and reporting."
       },
-      { 
-        id: 'r3', 
-        title: "Community signal", 
-        riskLevel: "High", 
+      {
+        id: 'r3',
+        title: "Community signal",
+        riskLevel: "High",
         tacticDetail: "Disinformation Layering: Framing the parody as 'the hidden truth' to influence voting behavior.",
-        content: "Political manipulation: Comments frame the parody as “truthful ad,” urging voting behavior and coordinated reporting of real ads." 
+        content: "Political manipulation: Comments frame the parody as “truthful ad,” urging voting behavior and coordinated reporting of real ads."
       },
-      { 
-        id: 'r4', 
-        title: "Spam / low-effort repetition", 
-        riskLevel: "Low", 
+      {
+        id: 'r4',
+        title: "Spam / low-effort repetition",
+        riskLevel: "Low",
         tacticDetail: "Astroturfing: Coordinated calls to action to artificially boost the video's reach.",
-        content: "Spam/promotion: Repeated calls to share, download, and spread the video across platforms to boost its reach." 
+        content: "Spam/promotion: Repeated calls to share, download, and spread the video across platforms to boost its reach."
       }
     ],
     references: ['https://x.com/elonmusk/status/1816974609637417112?s=46&t=WGm5UEGUY7Rz53i1NxAdCQ'],
     viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
-    safety: { 
-      category: "Impersonation", 
-      hoverText: "Mimicking someone without their consent", 
-      score: 10, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
+    safety: {
+      category: "Impersonation",
+      hoverText: "Mimicking someone without their consent",
+      score: 10,
+      ratingCode: "TV-PG",
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
     }
   },
   "video7": {
@@ -675,35 +666,35 @@ const NOTE_DATABASE = {
       notUseful: 8
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Impersonation", 
-        riskLevel: "Mid", 
+      {
+        id: 'r1',
+        title: "Impersonation",
+        riskLevel: "Mid",
         tacticDetail: "Voice Cloning: Using RVC (Retrieval-based Voice Conversion) to clone a deceased artist's voice.",
-        content: "AI video mimics Michael Jackson’s likeness and voice, potentially misleading viewers about authenticity." 
+        content: "AI video mimics Michael Jackson’s likeness and voice, potentially misleading viewers about authenticity."
       },
-      { 
-        id: 'r2', 
-        title: "Misinformation", 
-        riskLevel: "Low", 
+      {
+        id: 'r2',
+        title: "Misinformation",
+        riskLevel: "Low",
         tacticDetail: "Reality Blurring: High-quality audio synthesis creating confusion about whether unreleased tracks exist.",
-        content: "Limited labeling and heavy fan praise could make some viewers misinterpret AI recreation as real." 
+        content: "Limited labeling and heavy fan praise could make some viewers misinterpret AI recreation as real."
       },
-      { 
-        id: 'r3', 
-        title: "Clickbait & Engagement Farming", 
-        riskLevel: "Low", 
+      {
+        id: 'r3',
+        title: "Clickbait & Engagement Farming",
+        riskLevel: "Low",
         tacticDetail: "Nostalgia Baiting: Leveraging the emotional connection to a late icon to drive traffic.",
-        content: "Title and AI impersonation of a deceased celebrity likely designed mainly to attract views." 
+        content: "Title and AI impersonation of a deceased celebrity likely designed mainly to attract views."
       }
     ],
     viewerResponse: "Viewers can check descriptions for AI disclosures, read skeptical comments, and verify through official Michael Jackson channels or reputable news sources. They can also report misleading impersonations and avoid resharing unclear or deceptively presented AI celebrity content.",
-    safety: { 
-      category: "Impersonation", 
-      hoverText: "Mimicking someone without their consent", 
-      score: 10, 
-      ratingCode: "TV-G", 
-      ratingDesc: "This program is suitable for all ages." 
+    safety: {
+      category: "Impersonation",
+      hoverText: "Mimicking someone without their consent",
+      score: 10,
+      ratingCode: "TV-G",
+      ratingDesc: "This program is suitable for all ages."
     }
   },
   "video8": {
@@ -716,28 +707,28 @@ const NOTE_DATABASE = {
       notUseful: 0
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Bot Network", 
-        riskLevel: "High", 
+      {
+        id: 'r1',
+        title: "Bot Network",
+        riskLevel: "High",
         tacticDetail: "Sybil Attack: Using a network of fake accounts to create artificial social proof and trust.",
-        content: "95% of comments originate from new accounts." 
+        content: "95% of comments originate from new accounts."
       },
-      { 
-        id: 'r2', 
-        title: "Malicious Link", 
-        riskLevel: "High", 
+      {
+        id: 'r2',
+        title: "Malicious Link",
+        riskLevel: "High",
         tacticDetail: "Phishing: Luring users to external sites to steal credentials or crypto assets.",
-        content: "Description links flag as phishing." 
+        content: "Description links flag as phishing."
       }
     ],
     viewerResponse: "Real viewers are posting warnings to ignore the links and report the channel.",
-    safety: { 
-      category: "Scam", 
-      hoverText: "Fraudulent Activity", 
-      score: 10, 
-      ratingCode: "TV-MA", 
-      ratingDesc: "For mature audiences." 
+    safety: {
+      category: "Scam",
+      hoverText: "Fraudulent Activity",
+      score: 10,
+      ratingCode: "TV-MA",
+      ratingDesc: "For mature audiences."
     }
   },
   "video9": {
@@ -750,35 +741,35 @@ const NOTE_DATABASE = {
       notUseful: 2
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Scam/Fraud", 
-        riskLevel: "High", 
+      {
+        id: 'r1',
+        title: "Scam/Fraud",
+        riskLevel: "High",
         tacticDetail: "Narrative Fabrication: Creating a false 'benevolent hacker' story to lower viewer defenses for potential scams.",
-        content: "Repeated accusations of a fake AI scammer suggest potential deceptive or fraudulent narrative tactics." 
+        content: "Repeated accusations of a fake AI scammer suggest potential deceptive or fraudulent narrative tactics."
       },
-      { 
-        id: 'r2', 
-        title: "Misinformation", 
-        riskLevel: "Mid", 
+      {
+        id: 'r2',
+        title: "Misinformation",
+        riskLevel: "Mid",
         tacticDetail: "Decontextualization: Hijacking old or unrelated news footage to lend authority to a fake story.",
-        content: "Viewers state the story is made up and not real, indicating likely misleading narrative." 
+        content: "Viewers state the story is made up and not real, indicating likely misleading narrative."
       },
-      { 
-        id: 'r3', 
-        title: "Clickbait & Engagement Farming", 
-        riskLevel: "Mid", 
+      {
+        id: 'r3',
+        title: "Clickbait & Engagement Farming",
+        riskLevel: "Mid",
         tacticDetail: "Sensationalism: Using astronomical figures ($4 Billion) to trigger curiosity and click-throughs.",
-        content: "Sensational claims about billions donated and dramatic AI story indicate attention-grabbing, engagement-driven content." 
+        content: "Sensational claims about billions donated and dramatic AI story indicate attention-grabbing, engagement-driven content."
       }
     ],
     viewerResponse: "Viewers typically respond by warning others in comments, labeling content as fake or AI-generated, encouraging skepticism, and discouraging sharing. Some cross-check claims with external sources or official news before believing or further engaging with such sensational narratives.",
-    safety: { 
-      category: "Scaling & Amplification", 
-      hoverText: "Unethical spreading or exaggeration of content", 
-      score: 40, 
-      ratingCode: "TV-G", 
-      ratingDesc: "This program is suitable for all ages." 
+    safety: {
+      category: "Scaling & Amplification",
+      hoverText: "Unethical spreading or exaggeration of content",
+      score: 40,
+      ratingCode: "TV-G",
+      ratingDesc: "This program is suitable for all ages."
     }
   },
   "video10": {
@@ -791,38 +782,38 @@ const NOTE_DATABASE = {
       notUseful: 0
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Scam/Fraud", 
-        riskLevel: "High", 
+      {
+        id: 'r1',
+        title: "Scam/Fraud",
+        riskLevel: "High",
         tacticDetail: "Social Engineering: The 'Doubling' crypto scam script promising huge returns for 'verifying' a wallet.",
-        content: "Users explicitly call it a scam giveaway using fake Musk and Trump AI footage." 
+        content: "Users explicitly call it a scam giveaway using fake Musk and Trump AI footage."
       },
-      { 
-        id: 'r2', 
-        title: "Impersonation", 
-        riskLevel: "High", 
+      {
+        id: 'r2',
+        title: "Impersonation",
+        riskLevel: "High",
         tacticDetail: "Authority Hijacking: Using deepfakes of trusted/wealthy figures to bypass skepticism.",
-        content: "Comments describe AI-generated depictions of Elon Musk and Donald Trump misused for deceptive promotion." 
+        content: "Comments describe AI-generated depictions of Elon Musk and Donald Trump misused for deceptive promotion."
       },
-      { 
-        id: 'r3', 
-        title: "Unethical/Deceptive Promotion", 
-        riskLevel: "High", 
+      {
+        id: 'r3',
+        title: "Unethical/Deceptive Promotion",
+        riskLevel: "High",
         tacticDetail: "Artificial Urgency: simulating a live event to pressure victims into acting quickly.",
-        content: "Video title promises massive daily giveaway, while commenters allege fabricated AI video and comments." 
+        content: "Video title promises massive daily giveaway, while commenters allege fabricated AI video and comments."
       }
     ],
     viewerResponse: "Viewers often flag such videos as fake, warn others in comments, avoid clicking external links, and discourage sharing. Some report the content or channel to platforms for impersonation, scams, or deceptive promotional practices.",
-    safety: { 
-      category: "Impersonation/Scam", 
-      hoverText: "Mimicking someone without their consent", 
-      score: 12, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
+    safety: {
+      category: "Impersonation/Scam",
+      hoverText: "Mimicking someone without their consent",
+      score: 12,
+      ratingCode: "TV-PG",
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
     }
   },
-"video11": {
+  "video11": {
     title: "A.I Predicts 400 Years",
     consensus: {
       label: "16 people found it AI-generated",
@@ -833,15 +824,15 @@ const NOTE_DATABASE = {
     },
     risks: [],
     viewerResponse: "Viewers are complimenting the artistic style and imaginative concepts.",
-    safety: { 
-      category: "Art", 
-      hoverText: "Creative AI Usage", 
-      score: 95, 
-      ratingCode: "TV-G", 
-      ratingDesc: "General Audience." 
+    safety: {
+      category: "Art",
+      hoverText: "Creative AI Usage",
+      score: 95,
+      ratingCode: "TV-G",
+      ratingDesc: "General Audience."
     }
   },
-  "video12": { 
+  "video12": {
     title: "A Time Traveler's VLOG",
     consensus: {
       label: "36 people found AI-Generated",
@@ -851,29 +842,29 @@ const NOTE_DATABASE = {
       notUseful: 2
     },
     risks: [
-      { 
-        id: 'r1', 
-        title: "Exploitative Monetization", 
-        riskLevel: "Low", 
+      {
+        id: 'r1',
+        title: "Exploitative Monetization",
+        riskLevel: "Low",
         tacticDetail: "Tech Hype Cycle: Leveraging the excitement around new AI tools to build a brand or affiliate channel.",
-        content: "Comments highlight tool integrations and awards, suggesting possible strong commercial promotion of AI capabilities." 
+        content: "Comments highlight tool integrations and awards, suggesting possible strong commercial promotion of AI capabilities."
       },
-      { 
-        id: 'r2', 
-        title: "Clickbait & Engagement Farming", 
-        riskLevel: "Low", 
+      {
+        id: 'r2',
+        title: "Clickbait & Engagement Farming",
+        riskLevel: "Low",
         tacticDetail: "Narrative Hook: Using a sci-fi premise ('Time Traveler') to frame a technology demonstration.",
-        content: "Hyperbolic praise like “BEST ON YOUTUBE” and singularity talk encourage amplified engagement and hype." 
+        content: "Hyperbolic praise like “BEST ON YOUTUBE” and singularity talk encourage amplified engagement and hype."
       }
     ],
-    references: ['Mentions of Google Veo 3 and Filmora integration as AI video-genaration tools.','References to seeing similar AI clips on Instagram and using AI for historical visualization.'],
+    references: ['Mentions of Google Veo 3 and Filmora integration as AI video-genaration tools.', 'References to seeing similar AI clips on Instagram and using AI for historical visualization.'],
     viewerResponse: "Viewers can check for sponsorship disclosures, treat promotional-sounding comments skeptically, and contextualize AI-generated visuals as entertainment rather than reality. Encouraging creators to label AI content clearly and platforms to flag sponsored promotions helps reduce confusion and overhype.",
-    safety: { 
-      category: "Entertainment", 
-      hoverText: "Content Intended for joyment and social interaction", 
-      score: 88, 
-      ratingCode: "TV-PG", 
-      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested." 
+    safety: {
+      category: "Entertainment",
+      hoverText: "Content Intended for joyment and social interaction",
+      score: 88,
+      ratingCode: "TV-PG",
+      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
     }
   }
 };
@@ -884,8 +875,8 @@ const SidebarItem = ({ icon: Icon, label, isActive, isCollapsed, onClick, isDark
   <div
     onClick={onClick}
     className={`flex items-center p-3 rounded-lg cursor-pointer mb-1 transition-colors 
-      ${isActive 
-        ? (isDarkMode ? 'bg-zinc-800 font-medium' : 'bg-gray-100 font-medium') 
+      ${isActive
+        ? (isDarkMode ? 'bg-zinc-800 font-medium' : 'bg-gray-100 font-medium')
         : (isDarkMode ? 'hover:bg-zinc-800' : 'hover:bg-gray-100')
       } 
       ${isCollapsed ? 'flex-col justify-center gap-1 p-2' : 'gap-5'}`}
@@ -988,7 +979,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
     textSub: isDarkMode ? 'text-[#aaaaaa]' : 'text-[#606060]',
     textHighlight: isDarkMode ? 'text-red-400 hover:text-red-300' : 'text-[#a10f18] hover:underline',
     cardBorder: isDarkMode ? 'border-[#3f3f3f] bg-[#0f0f0f]' : 'border-gray-300 bg-gray-50',
-    sectionHeaderBg: isDarkMode ? 'bg-[#3d1212]' : 'bg-[#ffdddf]', 
+    sectionHeaderBg: isDarkMode ? 'bg-[#3d1212]' : 'bg-[#ffdddf]',
     sectionHeaderText: isDarkMode ? 'text-red-300' : 'text-[#a10f18]',
     riskItemBg: isDarkMode ? 'bg-[#1e1e1e] border-[#3f3f3f] hover:bg-[#2a2a2a]' : 'bg-white border-gray-200 hover:bg-gray-100',
     viewerResponseBg: isDarkMode ? 'bg-[#1a1a1a] border-[#3f3f3f]' : 'bg-white border-gray-200',
@@ -1014,21 +1005,21 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
   return (
     <div className={`mt-6 w-full font-sans rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
-      
+
       {/* 1. HEADER (Static) */}
       <div className={`p-3 relative flex items-center justify-between ${theme.headerBg}`}>
         <div className="flex items-center gap-3">
-           <div className="bg-[#FF0000] p-1.5 rounded-lg">
-              <ShieldAlert size={18} className="text-white" fill="currentColor" />
-           </div>
-           <div>
-              <h1 className={`text-sm font-bold tracking-tight leading-none ${theme.textMain}`}>CommunityLens</h1>
-              <p className={`text-[10px] mt-0.5 font-medium ${theme.textSub}`}>Navigate AI Content via Community Insights</p>
-           </div>
+          <div className="bg-[#FF0000] p-1.5 rounded-lg">
+            <ShieldAlert size={18} className="text-white" fill="currentColor" />
+          </div>
+          <div>
+            <h1 className={`text-sm font-bold tracking-tight leading-none ${theme.textMain}`}>CommunityLens</h1>
+            <p className={`text-[10px] mt-0.5 font-medium ${theme.textSub}`}>Navigate AI Content via Community Insights</p>
+          </div>
         </div>
 
         <div className="flex items-center gap-2">
-          <button 
+          <button
             onClick={toggleTheme}
             className={`p-2 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
           >
@@ -1039,168 +1030,188 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
       {/* 2. BODY (Always Open) */}
       <div className={`${theme.bodyBg} p-4`}>
-          
-          {/* CONSENSUS */}
-          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-            <div className={`p-2.5 pl-3 flex items-center gap-2 ${theme.sectionHeaderBg}`}>
-              <Activity size={16} className={theme.sectionHeaderText} />
-              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community Consensus of this video</h4>
-            </div>
 
-            <div className="p-4">
-              <p className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-3 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black font-bold border-gray-300'}`}>
-                AI- GENERATED
-              </p>
-              <br />
-              <p className={`inline-block text-[14px] font-bold mb-1 ${isDarkMode ? 'text-red-400' : 'text-red-600'}`}>
-                {data.consensus.label}
-              </p>
-
-              <div className="animate-in fade-in slide-in-from-top-1">
-                <p className={`text-xs leading-relaxed mt-2 ${theme.textMain}`}>
-                  {data.consensus.text}
-                </p>
-              </div>
-
-              <div className={`flex items-center gap-4 pt-3 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
-                  <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
-                      <ThumbsUp size={14} />
-                      <span className="text-[11px] font-medium">{data.consensus.useful || 0} found useful</span>
-                  </div>
-                  <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
-                      <ThumbsDown size={14} />
-                      <span className="text-[11px] font-medium">{data.consensus.notUseful || 0} not useful</span>
-                  </div>
-              </div>
-            </div>
+        {/* CONSENSUS */}
+        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+          <div className={`p-2.5 pl-3 flex items-center gap-2 ${theme.sectionHeaderBg}`}>
+            <Activity size={16} className={theme.sectionHeaderText} />
+            <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community Consensus of this video</h4>
           </div>
 
-          {/* RISKS */}
-          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-            <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
-              <div className="flex items-center gap-2">
-                  <AlertOctagon size={16} className={theme.sectionHeaderText} />
-                  <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Risk Patterns</h4>
-              </div>
-            </div>
-            
-            <div className="p-3 flex flex-col gap-2">
-                {data.risks.length > 0 ? (
-                    data.risks.map((risk) => (
-                    <div key={risk.id} className={`border rounded-lg overflow-hidden ${theme.riskItemBg}`}>
-                        <div className="w-full flex items-center justify-between p-3 text-left">
-                            <span className={`font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
-                        </div>
-                        
-                        <div className={`px-3 pb-3 pt-0 text-xs leading-relaxed ${theme.textSub}`}>
-                            <div className="flex items-center gap-2 mb-1 ">
-                                <span className="font-bold uppercase text-[10px] tracking-wider opacity-80">Risk Level:</span>
-                                <span className={`text-[9px] py-0.5 px-1.5 rounded border font-bold uppercase ${getRiskLevelStyle(risk.riskLevel)}`}>
-                                    {risk.riskLevel}
-                                </span>
-                            </div>
-                            <div className="space-y-2">                     
-                                <div className={`p-1 rounded`}>
-                                    <p>{risk.content} {risk.tacticDetail}</p>                                     
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    ))
-                ) : (
-                    <p className={`text-xs p-2 italic ${theme.textSub}`}>No significant risks detected by the community.</p>
-                )}
-
-                {/* Viewer Response Sub-section */}
-                {data.viewerResponse && (
-                  <div className={`mt-2 pt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
-                      <div className={`flex items-center gap-1.5 text-[11px] font-medium w-full p-1 mb-2 ${theme.sectionHeaderText}`}>
-                        how viewers generally address these risks
-                      </div>
-                      <div className={`p-3 border rounded-lg text-xs leading-relaxed ${theme.viewerResponseBg}`}>
-                        <div className="flex gap-3">
-                            <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${theme.viewerResponseAccent}`}></div>
-                            <div className={theme.textMain}>{data.viewerResponse}</div>
-                        </div>
-                      </div>
-                  </div>
-                )}
-            </div>
-          </div>
-
-          {/* CONTENT CLASSIFICATION */}
-          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-            <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
-              <div className="flex items-center gap-2">
-                <ScanFace size={16} className={theme.sectionHeaderText} />
-                <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Content Classification</h4>
-              </div>
-            </div>
-
-            <div className="p-4 space-y-3">
-              <div className="flex flex-col gap-1">
-                <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Category:</span>
-                <span className={`text-sm font-medium ${theme.textMain}`}>{data.safety.category}</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Safety Rating:</span>
-                <span className={`px-2 py-0.5 rounded-md border text-[10px] font-bold uppercase ${data.safety.score < 50 ? theme.ratingUnsafeBg : theme.ratingSafeBg}`}>
-                  {data.safety.score < 50 ? 'Unsafe' : 'Safe'}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* REFERENCES */}
-          <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-              <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
-                <div className="flex items-center gap-2">
-                    <ExternalLink size={16} className={theme.sectionHeaderText} />
-                    <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community-provided references and citations</h4>
-                </div>
-              </div>
-              
-              <div className="p-4">
-                  {data.references && data.references.length > 0 ? (
-                      <ul className="list-disc pl-4 space-y-1">
-                          {data.references.map((ref, index) => (
-                              <li key={index} className={`text-xs ${theme.textMain}`}>
-                                  <a href={ref} target="_blank" rel="noopener noreferrer" className={`hover:underline break-all ${theme.textHighlight}`}>
-                                      {ref}
-                                  </a>
-                              </li>
-                          ))}
-                      </ul>
-                  ) : (
-                      <p className={`text-xs ${theme.textSub}`}>No community citations available yet.</p>
-                  )}
-              </div>
-          </div>
-
-          {/* AGE RATING */}
-          <div className={`h-px w-full mb-4 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
-          <div className="mb-4">
-             <div className={`border rounded-xl p-3 flex items-center gap-4 ${theme.ageRatingContainer}`}>
-                <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
-                  <span className="text-[6px] font-bold leading-none uppercase">TV</span>
-                  <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>This Content is appropriate for:</span>
-                  <p className={`text-[11px] leading-tight font-medium ${theme.textMain}`}>
-                      {data.safety.ratingDesc}
-                  </p>
-                </div>
-             </div>
-          </div>
-
-          {/* FOOTER */}
-          <div className={`text-center pt-4 border-t ${theme.footerBorder}`}>
-            <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
-              Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
+          <div className="p-4">
+            <p className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-3 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black font-bold border-gray-300'}`}>
+              AI- GENERATED
             </p>
+
+
+            <p className={`inline-block text-[12px] px-2 py-1 ml-3 rounded-sm font-bold border tracking-wider ${isDarkMode ? 'bg-[#3d1212] text-red-300 border-red-900/50' : 'bg-[#ffdddf] text-[#a10f18] border-[#ffa9ae]'}`}>
+              {data.consensus.label}
+            </p>
+
+
+            <div className="animate-in fade-in slide-in-from-top-1">
+              <p className={`text-xs leading-relaxed mt-2 ${theme.textMain}`}>
+                {data.consensus.text}
+              </p>
+            </div>
+
+            <div className={`flex items-center gap-4 pt-3 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+              <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
+                <ThumbsUp size={14} />
+                <span className="text-[11px] font-medium">{data.consensus.useful || 0} found useful</span>
+              </div>
+              <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
+                <ThumbsDown size={14} />
+                <span className="text-[11px] font-medium">{data.consensus.notUseful || 0} not useful</span>
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* RISKS */}
+        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+          <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
+            <div className="flex items-center gap-2">
+              <AlertOctagon size={16} className={theme.sectionHeaderText} />
+              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Risk Patterns</h4>
+            </div>
+          </div>
+
+          <div className="p-3 flex flex-col gap-2">
+            {data.risks.length > 0 ? (
+              data.risks.map((risk) => (
+                <div key={risk.id} className={`border rounded-lg overflow-hidden ${theme.riskItemBg}`}>
+                  <div className="w-full flex items-center justify-between p-3 text-left">
+                    <div className="flex items-center gap-2">
+                      <span className={`font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
+                      <span className="opacity-40 text-xs text-zinc-500">|</span>
+                      <span className={`text-xs font-bold tracking-tight opacity-60 ${theme.textMain}`}>Risk Level:</span>
+                      <span className={`text-[9px] py-0.5 px-1.5 rounded border font-bold uppercase ${getRiskLevelStyle(risk.riskLevel)}`}>
+                        {risk.riskLevel}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={`px-3 pb-3 pt-0 text-xs leading-relaxed ${theme.textSub}`}>
+                    <div className="space-y-2">
+                      <div className={`p-1 rounded`}>
+                        <p>{risk.content} {risk.tacticDetail}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className={`text-xs p-2 italic ${theme.textSub}`}>No significant risks detected by the community.</p>
+            )}
+
+            {/* Viewer Response Sub-section */}
+            {data.viewerResponse && (
+              <div className={`mt-2 pt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+                <div className={`flex items-center gap-1.5 text-[11px] font-medium w-full p-1 mb-2 ${theme.sectionHeaderText}`}>
+                  how viewers generally address these risks
+                </div>
+                <div className={`p-3 border rounded-lg text-xs leading-relaxed ${theme.viewerResponseBg}`}>
+                  <div className="flex gap-3">
+                    <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${theme.viewerResponseAccent}`}></div>
+                    <div className={theme.textMain}>{data.viewerResponse}</div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* CONTENT CLASSIFICATION */}
+        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+          <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
+            <div className="flex items-center gap-2">
+              <ScanFace size={16} className={theme.sectionHeaderText} />
+              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Content Classification</h4>
+            </div>
+          </div>
+
+          <div className="p-4 grid grid-cols-[100px_1fr] gap-y-3 gap-x-4 items-center">
+            <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Category:</span>
+            <span className={`text-sm font-medium ${theme.textMain}`}>{data.safety.category}</span>
+
+            <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Safety Rating:</span>
+            <div className="flex">
+              <span className={`px-2 py-0.5 rounded-md border text-[10px] font-bold uppercase ${data.safety.score < 50 ? theme.ratingUnsafeBg : theme.ratingSafeBg}`}>
+                {data.safety.score < 50 ? 'Unsafe' : 'Safe'}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* REFERENCES */}
+        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
+          <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
+            <div className="flex items-center gap-2">
+              <ExternalLink size={16} className={theme.sectionHeaderText} />
+              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community-provided references and citations</h4>
+            </div>
+          </div>
+
+          <div className="p-3 flex flex-col gap-2">
+            {data.references && data.references.length > 0 ? (
+              data.references.map((ref, index) => {
+                const isUrl = ref.startsWith('http');
+                return (
+                  <div key={index} className={`flex items-center gap-3 p-2.5 border rounded-lg transition-all duration-200 ${theme.riskItemBg} border-l-2 ${isDarkMode ? 'hover:border-l-red-500 border-l-zinc-700' : 'hover:border-l-[#a10f18] border-l-gray-200'}`}>
+                    <div className={`flex-shrink-0 p-1.5 rounded-md ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
+                      {isUrl ? (
+                        <ExternalLink size={14} className={isDarkMode ? 'text-zinc-400' : 'text-gray-500'} />
+                      ) : (
+                        <FileText size={14} className={isDarkMode ? 'text-zinc-400' : 'text-gray-500'} />
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      {isUrl ? (
+                        <a
+                          href={ref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`text-xs font-medium break-all hover:underline ${theme.textHighlight}`}
+                        >
+                          {ref}
+                        </a>
+                      ) : (
+                        <p className={`text-xs leading-relaxed ${theme.textMain}`}>{ref}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p className={`text-xs p-2 italic ${theme.textSub}`}>No community citations available yet.</p>
+            )}
+          </div>
+        </div>
+
+        {/* AGE RATING */}
+        <div className={`h-px w-full mb-4 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
+        <div className="mb-4">
+          <div className={`border rounded-xl p-3 flex items-center gap-4 ${theme.ageRatingContainer}`}>
+            <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
+              <span className="text-[6px] font-bold leading-none uppercase">TV</span>
+              <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>This Content is appropriate for:</span>
+              <p className={`text-[11px] leading-tight font-medium ${theme.textMain}`}>
+                {data.safety.ratingDesc}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* FOOTER */}
+        <div className={`text-center pt-4 border-t ${theme.footerBorder}`}>
+          <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
+            Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -1212,7 +1223,7 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
   // ROUTING REMOVED: const { id } = useParams();
   const navigate = useNavigate();
   const [showMore, setShowMore] = useState(true);
-  
+
   // Find video by internal ID passed via Props
   const targetId = currentVideoId || "video1";
   const currentVideo = videos.find(v => v.id === targetId);
@@ -1231,14 +1242,14 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
     <div className="flex flex-col lg:flex-row max-w-[1700px] mx-auto p-4 lg:p-6 gap-6 animate-in fade-in duration-500">
       <div className="flex-1 min-w-0">
         <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-lg relative z-20">
-          
+
           {/* UPDATED IFRAME: Added key, mute=1 */}
           <iframe
             key={currentVideo.ytId} // ensures the player completely reloads for new videos
             width="100%"
             height="100%"
             // mute=1 is required for Chrome/Edge/Safari to allow autoplay on the very first load
-            src={`https://www.youtube.com/embed/${currentVideo.ytId}?autoplay=1&mute=1`} 
+            src={`https://www.youtube.com/embed/${currentVideo.ytId}?autoplay=1&mute=1`}
             title={currentVideo.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1260,7 +1271,8 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
               />
               <div>
                 <h3 className={`font-bold text-base ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.channelName}</h3>
-                <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>1.45M subscribers</p>
+                {/* DYNAMIC SUBSCRIBER COUNT */}
+                <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{currentVideo.subscribers} subscribers</p>
               </div>
               <button className={`ml-2 px-4 py-2 rounded-full font-medium text-sm transition-colors ${isDarkMode ? 'bg-white text-black hover:bg-zinc-200' : 'bg-black text-white hover:bg-zinc-800'}`}>
                 Subscribe
@@ -1271,7 +1283,8 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
               <div className={`flex items-center rounded-full ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
                 <button className={`flex items-center gap-2 px-4 py-2 rounded-l-full border-r transition-colors ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
                   <ThumbsUp size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
-                  <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>24K</span>
+                  {/* DYNAMIC LIKE COUNT */}
+                  <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.likes}</span>
                 </button>
                 <button className={`px-4 py-2 rounded-r-full transition-colors border-r ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
                   <ThumbsDown size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
@@ -1282,13 +1295,13 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
                 <Share2 size={18} />
                 <span className="text-sm font-medium">Share</span>
               </button>
-              
-               <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+
+              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
                 <Download size={18} />
                 <span className="text-sm font-medium">Download</span>
               </button>
 
-               <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap hidden xl:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap hidden xl:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
                 <Scissors size={18} />
                 <span className="text-sm font-medium">Clip</span>
               </button>
@@ -1305,14 +1318,14 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
           <div className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
             {currentVideo.views} views • {currentVideo.uploadedAt}  <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}></span>
           </div>
-          
+
           <div className={`relative ${showMore ? '' : 'max-h-20 overflow-hidden'}`}>
-             <p className={`whitespace-pre-line leading-relaxed ${isDarkMode ? 'text-white/90' : 'text-black/90'}`}>
+            <p className={`whitespace-pre-line leading-relaxed ${isDarkMode ? 'text-white/90' : 'text-black/90'}`}>
               {currentVideo.description}
             </p>
           </div>
-          
-          <button 
+
+          <button
             className={`mt-2 font-bold block ${isDarkMode ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'}`}
             onClick={(e) => {
               e.stopPropagation();
@@ -1325,10 +1338,10 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
 
         {/* Hide tool for video9 */}
         {currentVideo.id !== "video9" && (
-          <CommunityLensUI 
-            videoId={currentVideo.id} 
-            isDarkMode={isDarkMode} 
-            toggleTheme={toggleTheme} 
+          <CommunityLensUI
+            videoId={currentVideo.id}
+            isDarkMode={isDarkMode}
+            toggleTheme={toggleTheme}
           />
         )}
 
@@ -1363,33 +1376,34 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
             // UPDATED: Calculate decreasing likes based on index to simulate "Top Comments" sort
             // First comment gets the most likes, last gets the least.
             // Formula: (Total Comments - Index) * Multiplier (e.g., 23)
-            const simulatedLikes = (currentVideo.comments.length - i) * 23 + Math.floor(Math.random() * 10); 
+            const simulatedLikes = (currentVideo.comments.length - i) * 23 + Math.floor(Math.random() * 10);
 
             return (
-            <div key={i} className="flex gap-4 mb-6">
-              <div className={`w-10 h-10 rounded-full flex-shrink-0 overflow-hidden ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-200'}`}>
-                <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=User${i}`} alt="user" />
-              </div>
-              <div>
-                <div className="flex gap-2 items-center text-xs mb-1">
-                  <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>@user-random{i}</span>
-                  <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}>2 days ago</span>
+              <div key={i} className="flex gap-4 mb-6">
+                <div className={`w-10 h-10 rounded-full flex-shrink-0 overflow-hidden ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-200'}`}>
+                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=User${i}`} alt="user" />
                 </div>
-                <p className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>{comment}</p>
-                <div className="flex items-center gap-4 mt-2">
-                  <div className="flex items-center gap-1.5 cursor-pointer">
-                    <ThumbsUp size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
-                    {/* UPDATED: Display simulated likes */}
-                    <span className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{simulatedLikes}</span>
+                <div>
+                  <div className="flex gap-2 items-center text-xs mb-1">
+                    <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>@user-random{i}</span>
+                    <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}>2 days ago</span>
                   </div>
-                  <div className="cursor-pointer">
-                    <ThumbsDown size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
+                  <p className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>{comment}</p>
+                  <div className="flex items-center gap-4 mt-2">
+                    <div className="flex items-center gap-1.5 cursor-pointer">
+                      <ThumbsUp size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
+                      {/* UPDATED: Display simulated likes */}
+                      <span className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{simulatedLikes}</span>
+                    </div>
+                    <div className="cursor-pointer">
+                      <ThumbsDown size={14} className={isDarkMode ? 'text-white' : 'text-black'} />
+                    </div>
+                    <button className={`text-xs font-medium px-3 py-1 rounded-full ${isDarkMode ? 'hover:bg-zinc-800 text-white' : 'hover:bg-gray-100 text-black'}`}>Reply</button>
                   </div>
-                  <button className={`text-xs font-medium px-3 py-1 rounded-full ${isDarkMode ? 'hover:bg-zinc-800 text-white' : 'hover:bg-gray-100 text-black'}`}>Reply</button>
                 </div>
               </div>
-            </div>
-          )})}
+            )
+          })}
         </div>
       </div>
 
@@ -1423,11 +1437,11 @@ function AppContent() {
   const [videos, setVideos] = useState(INITIAL_VIDEOS);
   // Global Theme State
   const [isDarkMode, setIsDarkMode] = useState(false);
-  
+
   // --- Survey Mode State (Default ON) ---
   const [isSurveyActive, setIsSurveyActive] = useState(true);
   // OPTIMIZED: Fixed queue 
-  const [surveyQueue, setSurveyQueue] = useState(['video4', 'video1', 'video12', 'video7','video10','video9']);
+  const [surveyQueue, setSurveyQueue] = useState(['video4', 'video1', 'video12', 'video7', 'video10', 'video9']);
   const [currentSurveyIndex, setCurrentSurveyIndex] = useState(0);
 
   const navigate = useNavigate();
@@ -1592,9 +1606,9 @@ function AppContent() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
-          
+
           {/* THEME TOGGLE BUTTON (Replaced Video Icon) */}
-          <button 
+          <button
             onClick={toggleTheme}
             className={`p-2 rounded-full hidden sm:block transition-colors ${isDarkMode ? 'hover:bg-zinc-800 text-white' : 'hover:bg-gray-100 text-black'}`}
             title="Toggle Theme"
@@ -1615,34 +1629,34 @@ function AppContent() {
       {/* --- SURVEY FLOATING BUTTONS (Exit Button Removed) --- */}
       {isSurveyActive && (
         <>
-            <div className="fixed bottom-6 left-6 z-[100] animate-in slide-in-from-left duration-300">
-                <button 
-                    onClick={prevSurveyVideo}
-                    disabled={currentSurveyIndex === 0}
-                    className={`flex items-center gap-2 px-6 py-4 rounded-full shadow-2xl transition-all active:scale-95 border-2 border-white/10 ${currentSurveyIndex === 0 ? 'bg-zinc-800/50 text-zinc-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
-                >
-                    <ArrowLeft size={24} strokeWidth={3} />
-                    <span className="font-bold text-lg hidden sm:inline">PREVIOUS</span>
-                </button>
-            </div>
+          <div className="fixed bottom-6 left-6 z-[100] animate-in slide-in-from-left duration-300">
+            <button
+              onClick={prevSurveyVideo}
+              disabled={currentSurveyIndex === 0}
+              className={`flex items-center gap-2 px-6 py-4 rounded-full shadow-2xl transition-all active:scale-95 border-2 border-white/10 ${currentSurveyIndex === 0 ? 'bg-zinc-800/50 text-zinc-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
+            >
+              <ArrowLeft size={24} strokeWidth={3} />
+              <span className="font-bold text-lg hidden sm:inline">PREVIOUS</span>
+            </button>
+          </div>
 
-            <div className="fixed bottom-6 right-6 z-[100] flex gap-4 animate-in slide-in-from-right duration-300">
-                {/* Exit button removed here */}
+          <div className="fixed bottom-6 right-6 z-[100] flex gap-4 animate-in slide-in-from-right duration-300">
+            {/* Exit button removed here */}
 
-                <button 
-                    onClick={nextSurveyVideo}
-                    disabled={currentSurveyIndex === surveyQueue.length - 1}
-                    className={`flex items-center gap-2 px-6 py-4 rounded-full shadow-2xl transition-all active:scale-95 border-2 border-white/10 ${currentSurveyIndex === surveyQueue.length - 1 ? 'bg-zinc-800/50 text-zinc-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
-                >
-                    <span className="font-bold text-lg hidden sm:inline">NEXT VIDEO</span>
-                    <ArrowRight size={24} strokeWidth={3} />
-                </button>
-            </div>
-            
-            {/* Survey Progress Indicator */}
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-xl text-xs font-mono text-white">
-                SURVEY MODE: {currentSurveyIndex + 1} / {surveyQueue.length}
-            </div>
+            <button
+              onClick={nextSurveyVideo}
+              disabled={currentSurveyIndex === surveyQueue.length - 1}
+              className={`flex items-center gap-2 px-6 py-4 rounded-full shadow-2xl transition-all active:scale-95 border-2 border-white/10 ${currentSurveyIndex === surveyQueue.length - 1 ? 'bg-zinc-800/50 text-zinc-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}
+            >
+              <span className="font-bold text-lg hidden sm:inline">NEXT VIDEO</span>
+              <ArrowRight size={24} strokeWidth={3} />
+            </button>
+          </div>
+
+          {/* Survey Progress Indicator */}
+          <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-xl text-xs font-mono text-white">
+            SURVEY MODE: {currentSurveyIndex + 1} / {surveyQueue.length}
+          </div>
         </>
       )}
 
@@ -1671,13 +1685,13 @@ function AppContent() {
             />
           </Routes> 
           */}
-          
+
           {/* Direct Render of Survey Mode */}
-          <WatchPage 
-            videos={INITIAL_VIDEOS} 
-            isDarkMode={isDarkMode} 
-            toggleTheme={toggleTheme} 
-            currentVideoId={surveyQueue[currentSurveyIndex]} 
+          <WatchPage
+            videos={INITIAL_VIDEOS}
+            isDarkMode={isDarkMode}
+            toggleTheme={toggleTheme}
+            currentVideoId={surveyQueue[currentSurveyIndex]}
           />
         </main>
       </div>
