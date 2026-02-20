@@ -15,8 +15,63 @@ import {
 
 
 const CSV_DATA = {
+  "6QRFcO1lPHE": {
+    "description": "Donald Trump Announcement on reducing healthcare price for all Americans.",
+    "comments": [
+      "So after 10 years Trumps blockbuster Obamacare replacement plan…is to subsidize private health insurance plans?",
+      "Trumps trying to Gulf of America Obamacare this shits so stupid",
+      "They are hiding his internal bleeding on his right hand too.",
+      "Practicing for when the dirt calls him home.",
+      "His hands are ghostly white, dont move and his left wrist is freakishly small.",
+      "Omg and they look terrible",
+      "He doesn't even look like this anymore. He has aged so much in the last year.",
+      "He kept his hand covered through the whole thing.",
+      "Trump is in serious decline.",
+      "He’s gonna die and nobody will know for a week maybe more.",
+      "Looks like a pedophile protector",
+      "Nobody has ever heard of 80 or 90% before",
+      "The media works for Trump.",
+      "bro he’s literally a president do you think they would just have some shitty ass cameras?",
+      "You see he’s still covering that hand.",
+      "Look at that hand. Those fingers look really weird, even for him.",
+      "His hands and face are completely different colours",
+      "Ur cooked",
+      "Yeah, otherwise he slurs and sounds like he has a mouth full of saliva.",
+      "Too slurpy to be AI.",
+      "It’s not ai, it’s trump slurring his words, perhaps fighting a battle with his dentures.",
+      "It's definitely not ai. He is hiding his right hand and they cut to different camera angles when he fucks up the line.",
+      "Have some confidence. You’re smarter than an above-average MAGAT.",
+      "I dont even know how the media is supposed to adres this",
+      "He has never once stayed on point for more than 30 seconds. 100% AI",
+      "Either his imaginary accordion finally broke or this is ai",
+      "We should make it illegal for the Whitehouse to release AI videos of the president - especially when representing it as if it’s real",
+      "AI sure has his remedial speaking skills down pat.",
+      "yes I think many of his adress to the nation are AI, he cant talk that fast or fluently in real life",
+      "Well ole Grok says it's AI",
+      "5 mins and his face and fingers are the only thing that move. 100% AI",
+      "Agree, it’s so obviously AI.",
+      "Even the voice is blatant AI",
+      "AI Slop in every sense of the definition",
+      "This is an AI video",
+      "I called this out over his Kirk video too - it’s the same AI tool",
+      "The AI video got too much energy to be Trump that nigga half asleep fr",
+      "Anyone who has worked with AI models can easily tell this is AI.",
+      "You can tell it’s AI cuz Trump can’t form full sentences and stay on topic.",
+      "This shit is AI again, isn't it?",
+      "Ai satan you say?",
+      "This is the exact same AI software from when Charlie Kirk died.",
+      "If anything, it's AI enhanced. He recorded it and they cleaned up pronunciation",
+      "Analyze the video and give me your best judgment if this is an Ai generated video.",
+      "Even AI trunp is tryin desperately to hide that hand bruise",
+      "I’m pretty sure they filmed him and used ai to fix up his face.",
+      "The fact that they now appear to be using the Chinese model Qwen to do the second angle should be a little concerning",
+      "Plot twist, Trump is already dead, and we won't know for months due to AI",
+      "Is it, I was thinking it was AI, its not like Trump to talk without his minions by his side",
+      "It legit looks like his hands are superglued to the desk."
+    ]
+  },
   "ghLtBXmhDsU": {
-    "description": "ZELENSKY ISSUES APOLOGY TO TRUMP regarding his temu suit\n\n\n──────────────────────────\n𝗛𝗼𝘄 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼 𝘄𝗮𝘀 𝗺𝗮𝗱𝗲\n𝗔𝗹𝘁𝗲𝗿𝗲𝗱 𝗼𝗿 𝘀𝘆𝗻𝘁𝗵𝗲𝘁𝗶𝗰 𝗰𝗼𝗻𝘁𝗲𝗻𝘁\nSound or visuals were significantly edited or digitally generated. 𝗟𝗲𝗮𝗿𝗻 𝗺𝗼𝗿𝗲.",
+    "description": "ZELENSKY ISSUES APOLOGY TO TRUMP regarding his temu suit.",
     "comments": [
       "Scary realistic, had me there for a second",
       "AI has a problem with teeth. He's teeth change a few times. Always look at the teeth if your ever unsure.",
@@ -186,7 +241,7 @@ const CSV_DATA = {
     ]
   },
   "FlztGX_y0OI": {
-    "description": "Experimenting with local AI models to bring Michael Jackson back to life. This is more of a proof of concept than anything meaningful, but I feel it came out alright. Looking forward to adding animations and \n\nNOTE: This project is made for entertainment and creative purposes only. I did not use the best source image as this was made on a whim, but will produce a new version down the line once other projects are complete.\n\nDon't forget to like, comment, and subscribe for more AI-powered experiments with music, culture, and history!\n\n#mj #michaeljackson #jackson5 #aivideo #kingofpop\n\n\n──────────────────────────\n𝗛𝗼𝘄 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼 𝘄𝗮𝘀 𝗺𝗮𝗱𝗲\n𝗔𝗹𝘁𝗲𝗿𝗲𝗱 𝗼𝗿 𝘀𝘆𝗻𝘁𝗵𝗲𝘁𝗶𝗰 𝗰𝗼𝗻𝘁𝗲𝗻𝘁\nSound or visuals were significantly edited or digitally generated. 𝗟𝗲𝗮𝗿𝗻 𝗺𝗼𝗿𝗲.",
+    "description": "Experimenting with local AI models to bring Michael Jackson back to life. This is more of a proof of concept than anything meaningful, but I feel it came out alright. Looking forward to adding animations and \n\nNOTE: This project is made for entertainment and creative purposes only. I did not use the best source image as this was made on a whim, but will produce a new version down the line once other projects are complete.\n\nDon't forget to like, comment, and subscribe for more AI-powered experiments with music, culture, and history!\n\n#mj #michaeljackson #jackson5 #aivideo #kingofpop",
     "comments": [
       "Michael Jackson i love you",
       "Heal the world, make a better place, for you, for me and the entire human race.\nThere are people dying and if you care for the living make a better place for you and for me.",
@@ -201,39 +256,59 @@ const CSV_DATA = {
       "Ai"
     ]
   },
-  "_-1eC2LK6u0": {
-    "description": "🔗 777betsp.cc\n\n💸 Get 0.07 BTC (≈$7,000) for FREE in 2025?!\nSounds unbelievable — but this airdrop campaign is real!\n\nIn 2025, leading blockchain investors and game developers are promoting their new crypto platform. To attract early users, they're giving away up to 0.07 BTC per participant as part of a special marketing campaign.\n\n✅ No investment. No hidden fees.\nJust registration + wallet verification, and you can claim your Bitcoin.\n\n🎥 What this video covers:\n\nStep-by-step tutorial on how to claim your 0.07 BTC\n\nHow to verify your wallet and request withdrawal\n\nProof of balance and live withdrawal demonstration\n\nTips to stay safe and avoid fake airdrops\n\n💡 Why are they giving away Bitcoin?\nThis is a proven strategy to grow fast. By rewarding real users with free BTC, the platform gets real testers, early feedback, and an active community to boost its ecosystem.\n\n📌 What you'll learn in this video:\n\nHow to join the campaign and claim your free Bitcoin\n\nVerified links and safe registration process\n\nHow withdrawals are processed and how long they take\n\nExtra tips to maximize your chances of receiving rewards\n\n⚡ Limited-time opportunity!\nThis airdrop will not last forever. Rules and conditions may change quickly, so don't wait too long to check it out.\n\n⚠️ Important notice:\n\nThis video reflects my personal experience at the time of recording. I cannot guarantee that the same results will apply later — conditions may change.\n\nThis content is for educational purposes only, not financial advice.\n\nThe platform involves crypto and gaming elements, which are for 18+ users only.\n\n👇 All the official links are in the description below.\n📲 Subscribe and turn on the 🔔 bell so you don't miss future crypto airdrops, giveaways, and blockchain gaming updates!",
+  "n2muvB3NGZc": {
+    "description": "New video has emerged showing a physical clash between Alex Pretti and federal agents over a week before he was fatally shot by Customs and Border Protection agents. A representative for Pretti’s family confirmed to CNN that the man in a video posted Wednesday is Pretti.\n\n0:00 New video shows federal agents clashing with Alex Pretti 11 days before his death \n1:55 CNN This Morning panel discusses the new video of Pretti \n3:20 Steve Bannon remarks about Minneapolis controversy\n6 :57 CNN chief law enforcement and intelligence analyst reacts to the video \n\n#Minneapolis #AlexPretti  #News",
     "comments": [
-      "Please send me link",
-      "Please help I tried it site do not exist",
-      "Website link please",
-      "I have received 25k Doller bonus amount",
-      "Pls tellme my friendss",
-      "Link expire brother❤",
-      "Pls link me im noobie",
-      "Link",
-      "App name?",
-      "very helpful content — thanks for making it so easy to follow.",
-      "good video with clear delivery, definitely worth watching.",
-      "such a clear and enjoyable video — thank you for putting in the effort!",
-      "this was really helpful and gave me a lot of motivation as a beginner.",
-      "agreat video! i really enjoyed watching it and appreciate you sharing it.",
-      "❤❤❤❤❤❤❤❤❤❤❤❤❤❤100😊😊😊",
-      "i have 1M$ in there",
-      "website not working its closed",
-      "Link?",
-      "site do not exist",
-      "Can you give 3 $",
-      "Finally found something legit, thanks for sharing this.",
-      "Didn't believe at first, but my withdrawal just came through. Crazy times.",
-      "So glad I tried this. Even if it ends tomorrow, I managed to cash out.",
-      "Such a rare legit opportunity, glad I didn't skip this.",
-      "Confirmed on blockchain, the BTC is sitting in my wallet now.",
-      "The moment I saw the confirmation, I knew it was real.",
-      "Still can't believe I actually got my BTC.",
-      "So real 👏",
-      "Balance up! 💸",
-      "Link"
+      "This video is official and not AI. A second angle reveals that he did this: https://www.youtube.com/watch?v=_bwI_MfMhHo.",
+      "Physically confronting federal law enforcement officers and obstructing their operations is never a bright idea. FAFO.",
+      "Clearly he was unhinged. Already committed a felony by assaulting ICE. Which means he should not be carrying a firearm to begin with.",
+      "The video clearly suggest he was never a peaceful protester, he was a violent protesters who also had a gun.",
+      "Why does his arm disappear when dropping his coat? It's AI...",
+      "He was a mentally deranged lunatic and it was only of time before he would kill someone.",
+      "Fake AI video of a dead man, now that’s low‼‼",
+      "I like how they covered the ai watermark with the date. If you look closely you can see the watermark for a Korean based ai video platform.",
+      "He came back for more and now he’s dead.",
+      "Wait 11 days before?? Man I thought it was same day. No point in even publishing this, it's clearly an AI fabrication with Grok.",
+      "Imagine that, Pretti was a violent, armed rioter, and not an innocent person.",
+      "It’s AI. Fire hydrants don’t move. Scrub the video back and fourth from 0:30 to 0:59.",
+      "This video is AI. The name on the suv disappears, and that light came off like it was held on with bubblegum.",
+      "He was looking for trouble and found it. Peaceful protestors, no way.",
+      "This is straight up A.I. look how the ice agents move. Almost galloping.",
+      "The tail light wires are the same color as the vehicle, and the wires are coming out where there are none. AI.",
+      "Kudos to CNN for posting actual news - Alex assaulting agents, local PD not arresting Alex.",
+      "Seems he wasnt so peaceful afterall.",
+      "Definitely looks suspicious as AI to me. Same clothes identical.",
+      "Took them near 3 days to render this video and they couldn’t even prompt a new outfit 😂",
+      "He had a fully loaded 9mm. Why did he need an extra clip? This just shows intent.",
+      "TNM is a Korean a.i company. Ffs, you can see the watermark. This is fake.",
+      "This video looks like it was AI generated!!!",
+      "Spitting and kicking im sure he means well. Not so lovely guy after all.",
+      "The way the SUV breaks looks so unrealistic, probably Sora 2.",
+      "This just proves hes was unhinged and batshit crazy. 😂",
+      "Look closely. The ai has a difficult time generating people coming out of vehicles. The license plate changes size.",
+      "Violence while armed against law enforcement is dangerous. This guy is a classic FAFO.",
+      "That rear light came off pretty cleanly. Footage is suspicious. AI is getting more and more realistic.",
+      "He was an agitator and kept pushing the line until he paid the price.",
+      "Gotta put out an AI video to try to spin it. It looks fake.",
+      "This poor guy was mental, obviously didn't know how to behave. Anger issues on full display.",
+      "Who filmed this? Has the footage been thoroughly vetted to check that it's not AI?",
+      "Can Be a Fake Video?",
+      "It's AI and he Is Niko Bellic.",
+      "Alex Pretti got what he REPEATEDLY asked for and should be SATISFIED.",
+      "I call AI. No way this just popped up and he's in all the same clothing. Stop it.",
+      "He was a nut case. Spitting and kicking. Good riddance.",
+      "It is AI created. We have authorities that review things like that in my country. It's fake news.",
+      "Seems like A.I generated. But if real, on the day he was killed, he was calm and peaceful.",
+      "Oh so he was a nut case.",
+      "Clearly an AI video and people are falling for it 😅😊!",
+      "He made several bad decisions and ended up dead. It is sad, but this is how life works.",
+      "Yes this AI video with his arms flapping around.",
+      "Blatant AI manipulation. Never seen a taillight broken that easily. 2 10mm bolts hold that on.",
+      "The more that comes out about this guy, the more he doesn’t look like the all-American Joe.",
+      "Scrub the video back and fourth 0:30 to 0:59. AI artifacts everywhere.",
+      "So he is wearing the same clothes from 11 days ago? AI.",
+      "It's scary how the news doesn’t even verify and its reported as real. AI at it's finest.",
+      "Definitely not the nurse saint they portrayed him to be. It's AI haha."
     ]
   },
   "-Sv9YjU0fRE": {
@@ -250,15 +325,37 @@ const CSV_DATA = {
       "This is Ai fake scammer"
     ]
   },
-  "M4CosGoddVA": {
-    "description": "CCN TV\nIn the rapidly evolving crypto market, access to timely and accurate information is crucial. Our new channel bridges this gap by providing a centralized hub for all your digital currency news needs.\nExperience the future of investing with our AI-powered analytical news network. Benefit from real-time analysis of news and market-driving trends conducted by world-class analysts. Our platform offers in-depth evaluations of promising future projects, ensuring you stay ahead of the curve. With 17 challenging news programs, we provide the insights you need to make informed decisions.\nNow, introducing our dedicated 24/7 crypto news channel, delivering live analysis, expert opinions, and breaking news directly to your screen. Leveraging insights from experienced financial market analysts, our users can significantly reduce potential losses. Watch the latest news, analyses, and insights live 24/7 on CCN Satellite, YouTube, our mobile app, and now on our dedicated cryptocurrency news channel.\nIn the end, CCN aims to act as a reliable and trustworthy source for investors and is committed to helping them make better financial decisions.\n**************************************************************************\nWebsite: https://cryptocurrencynetwork.co\nInstagram: / ccnnews_en \nTwitter: https://x.com/CCNNEWS_EN \nTelegram: https://t.me/ccnnetwork\n\n********************************************************************\n#crypto #bitcoin #cryptocurrency #blockchain #ethereum #btc #forex #trading #money #cryptonews #cryptotrading #bitcoinmining #cryptocurrencies #investing #eth #investment #bitcoinnews #bitcoins #nft #business #invest #entrepreneur #binance #forextrader #bitcointrading #trader #investor #bitcoincash #litecoin #finance#stocks #coinbase #xrp #forextrading #dogecoin #binaryoptions #bitcoinprice #cryptoworld #cryptoinvestor #forexsignals #stockmarket #altcoin #hodl #nfts #ripple #motivation #cryptoart #success #blockchaintechnology #cryptomining #wealth #nftart #mining #binary #altcoins #financialfreedom #trade #art #usa #forexlifestyle #cryptoexchange #cryptomeme #cryptozoology #cryptotrade #cryptocurrencytrading #cryptos #cryptotrader #cryptolife #cryptomemes #cryptomarket #cryptocurrencynews #cryptoinvestor #cryptomining #cryptoworld #blockchaintechnology #altcoins #dogecoin #hodl #bitcoinexchange #altcoin #cryptocoin #cryptomoney #cryptozoology #cryptos #cryptocurrencynews #cryptoinvestor #cryptomining #cryptonews #cryptocurrencies #dogecoin #bitcoins #forexlifestyle #daytrader #binary #bitcoinmining #ethereum #stockmarket #trade #wallstreet #forexsignals #stocks #binaryoptions #forextrading #btc #trader #blockchain #investor #financialfreedom #forextrader #investor #finance #investing #invest #millionaire #investment #forex #bitcoin #money #success #entrepreneur #business #forexlifestyle #art #trade #financialfreedom #mining #nftart #blockchaintechnology #cryptoart #motivation #nfts #coinbase #bitcoinprice #motivation #bitcoinprice #binance #ethereum",
+  "hoTBQC5XVSU": {
+    "description": "In a recent address, a senior cabinet minister allegedly introduced a revolutionary AI-powered investment platform known as “Quantum AI,” designed to help Indian citizens generate consistent passive income using advanced machine learning and quantum computing models.\n\n🔹 Minimum Investment: ₹21,000\n🔹 Claimed Monthly Earnings: ₹2,50,000 – ₹3,50,000\n🔹 Automated AI Trading System\n🔹 Government-Supported Infrastructure\n🔹 Limited Public Access Phase  \n\nEarly participants allegedly reported doubling their investment within weeks, citing the platform’s automated risk management and\nzero-loss trading strategy.\n\nInterested individuals are urged to register immediately due to “limited allocation under the national digital financial expansion initiative.”\n\nRegistration Portal:\nhttps://quantum-ai-gov-india-register.idn\n\n#QuantumAI #AIInvestment #GovtInitiative #PassiveIncome #DigitalIndia #AutomatedTrading",
     "comments": [
-      "👌👏👍🔥",
-      "Love it!!!",
-      "AI generated video 😂",
-      "This is Fake. AI genarated video of Trump and Elon Musk to scam people.",
-      "ai genarated video with fake comment.",
-      "ai genarated video with fake comment."
+      "Too bad for scammers. I'd never trust Piyush Goyal even if this was true",
+      "he would have shared via reels",
+      "What the heck🥲 saas leti hu toh koi naya scam ajata hai.",
+      "Kitna bura time hai, saans bhi nahi le sakte..",
+      "I feel like people would rather put their minds into cheating other people than doing a decent job.",
+      "People do whatever is easy. Cheating is easier than working very hard and progressing through one's career.. Considering the reach of digital payments and mobile phones, everyone is vulnerable and we all know how gullible and greedy we Indians are..",
+      "I just got cheated yesterday by A BOOK SELLER of all people, I have lost faith in humanity.",
+      "Book seller? 🥲 Them too?",
+      "'Leti hu' - Good deduction.",
+      "Man I have to start educating my family on this. Relatives keep sending crap in group chats for them. I'm not in any of the groups. High returns are the scam and greed is the fuel.",
+      "The lip sync is too damn bad, that's enough to tell the diff",
+      "Yeah it's a bit bad but only if you observe closely. If he had promised 10-15% per annum, I would have believed it. The only reason I was able to immediately tell this was a scam is because of the absolutely bullshit ROI (130000% per annum).",
+      "Didn't went in to details bout it, but 130000% ROI is crazy",
+      "I guess at this point, a possibly effective way to combat such scams would be to anonymously inundate the public with similar, but poorly generated AI videos using the face of local, national and international celebs, so that people realise it is AI generated and stop taking these videos seriously.",
+      "You can spot that the mouth movement dont match some of the words spoken if you watch carefully.",
+      "Every single day Sandeep Maheshwari keeps popping up in my feed telling people how his friend helped people make millions :-D",
+      "ANI ka mic nahi laga - matlab fake h",
+      "7th core!!!!",
+      "Government’s solution is to push sanchar sathi on your phone. No more scams.",
+      "21k or 22k.. rookie mistake from the guy who made the video!",
+      "If there was actually a scheme paying 63k daily, it would be known to everybody",
+      "Why would you start believing it? A government official would never ask for money like that. Let alone a ai trading platform. How naive one can be to believe that. If it's easy money, it's a scam.",
+      "Just look at the video a few times how well made it is but with a few inconsistencies",
+      "Meanwhile the doctors who are getting murdered by big pharma corps every few days (in order to stop their free and cheap therapies they teach at 500₹ masterclasses) are all crying in the corner.",
+      "\"Ministry of Economy of India\" - Any one who falls for that deserves an idiot tax",
+      "Recently saw a video about India becoming / being a country of scammers scamming each other: Why Everyone Scams Everyone in India - EXPLAINED https://www.youtube.com/watch?app=desktop&v=5s6NaexL9ZE",
+      "yes and it's dangerous and I saw Nirmala Tai saying same things",
+      "This is pure misuse of Ai !!! Some facebook pages also advertise these all over facebook"
     ]
   },
   "-UBaW1OIgTo": {
@@ -396,20 +493,20 @@ const categories = [
   "Recently uploaded", "Watched", "New to you"
 ];
 
-// --- Video Data Configuration (UPDATED) ---
+// --- Video Data Configuration ---
 const VIDEO_DB = [
-  { id: "video1", ytId: "ghLtBXmhDsU", title: "ZELENSKY ISSUES APOLOGY TO TRUMP", channel: "SyntheticVoices", views: "4.9K", uploadedAt: "11 months ago", likes: "73", subscribers: "4.25K", duration: "0:56" },
-  { id: "video2", ytId: "cQ54GDm1eL0", title: "You Won’t Believe What Obama Says In This Video! 😉", channel: "BuzzFeedVideo", views: "12M", uploadedAt: "4 years ago", likes: "450K", subscribers: "20M", duration: "3:45" },
-  { id: "video3", ytId: "_qczkG_AqmU", title: 'Jake Paul "I WON" - Post Fight Press Conference', channel: "Sports Central", views: "2.1M", uploadedAt: "1 day ago", likes: "35K", subscribers: "1.2M", duration: "4:10" },
-  { id: "video4", ytId: "wIjc3ceDzr4", title: "Huge News! Social Security September 2025 Raise - See If You Qualify For New Payment", channel: "Benefit Alert Now", views: "9.7K", uploadedAt: "5 months ago", likes: "151", subscribers: "1.93K", duration: "8:22" },
-  { id: "video5", ytId: "Qn4SP5Z2wOY", title: "Google Veo 3 Fake News | AI Video Generation", channel: "AI Trends", views: "230K", uploadedAt: "2 days ago", likes: "15K", subscribers: "120K", duration: "5:15" },
-  { id: "video6", ytId: "sVspeqNnoWM", title: "Kamala Harris Ad PARODY", channel: "Political Satire", views: "1.8M", uploadedAt: "3 days ago", likes: "89K", subscribers: "340K", duration: "2:45" },
-  { id: "video7", ytId: "FlztGX_y0OI", title: "AI Michael Jackson in 2026 - New Song", channel: "Mr. Miller", views: "450K", uploadedAt: "1 week ago", likes: "28K", subscribers: "67K", duration: "3:20" },
-  { id: "video8", ytId: "_-1eC2LK6u0", title: "Get 0.07 BTC ($7,000) Free Bitcoin: Complete Tutorial!", channel: "Crypto King", views: "12K", uploadedAt: "1 hour ago", likes: "50", subscribers: "1.2K", duration: "6:00" },
-  { id: "video9", ytId: "-Sv9YjU0fRE", title: "Hacker who donated $4 Billions to Palestine & Africa!", channel: "The Knowledge Nexus", views: "154", uploadedAt: "1 year ago", likes: "14", subscribers: "79", duration: "2:49" },
-  { id: "video10", ytId: "M4CosGoddVA", title: "Elon Musk Launches $1 Million Daily Giveaway", channel: "CCN NEWS", views: "56K", uploadedAt: "4 hours ago", likes: "200", subscribers: "5K", duration: "4:50" },
-  { id: "video11", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline", views: "8.9M", uploadedAt: "2 years ago", likes: "300K", subscribers: "2.5M", duration: "15:20" },
-  { id: "video12", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 AI Short Film + Assets Available", channel: "Uisato", views: "215K", uploadedAt: "8 months ago", likes: "4.4K", subscribers: "11.2K", duration: "1.46" }
+  { id: "video1", ytId: "6QRFcO1lPHE", title: "Donald Trump Announcement on reducing healthcare price for all Americans", channel: "SyntheticVoices", views: "4.9K", uploadedAt: "11 months ago", likes: "73", subscribers: "4.25K", duration: "0:56", isaigenarated: true },
+  { id: "video2", ytId: "cQ54GDm1eL0", title: "You Won’t Believe What Obama Says In This Video! 😉", channel: "BuzzFeedVideo", views: "12M", uploadedAt: "4 years ago", likes: "450K", subscribers: "20M", duration: "3:45", isaigenarated: false },
+  { id: "video3", ytId: "_qczkG_AqmU", title: 'Jake Paul "I WON" - Post Fight Press Conference', channel: "Sports Central", views: "2.1M", uploadedAt: "1 day ago", likes: "35K", subscribers: "1.2M", duration: "4:10", isaigenarated: false },
+  { id: "video4", ytId: "wIjc3ceDzr4", title: "Huge News! Social Security September 2025 Raise - See If You Qualify For New Payment", channel: "Benefit Alert Now", views: "9.7K", uploadedAt: "5 months ago", likes: "151", subscribers: "1.93K", duration: "8:22", isaigenarated: false },
+  { id: "video5", ytId: "Qn4SP5Z2wOY", title: "Google Veo 3 Fake News | AI Video Generation", channel: "AI Trends", views: "230K", uploadedAt: "2 days ago", likes: "15K", subscribers: "120K", duration: "5:15", isaigenarated: false },
+  { id: "video6", ytId: "sVspeqNnoWM", title: "Kamala Harris Ad PARODY", channel: "Political Satire", views: "1.8M", uploadedAt: "3 days ago", likes: "89K", subscribers: "340K", duration: "2:45", isaigenarated: false },
+  { id: "video7", ytId: "FlztGX_y0OI", title: "AI Michael Jackson in 2026 - New Song", channel: "Mr. Miller", views: "450K", uploadedAt: "1 week ago", likes: "28K", subscribers: "67K", duration: "3:20", isaigenarated: true },
+  { id: "video8", ytId: "n2muvB3NGZc", title: "New video shows previous clash between Pretti and federal agents", channel: "CNN", views: "248K", uploadedAt: "2 weeks ago", likes: "2.7K", subscribers: "19.1M", duration: "10:03", isaigenarated: false },
+  { id: "video9", ytId: "-Sv9YjU0fRE", title: "Hacker who donated $4 Billions to Palestine & Africa!", channel: "The Knowledge Nexus", views: "154", uploadedAt: "1 year ago", likes: "14", subscribers: "79", duration: "2:49", isaigenarated: false },
+  { id: "video10", ytId: "hoTBQC5XVSU", title: "BREAKING: Piyush Goyal Reveals New Government-Backed Investment Platform QuantumAI 🇮🇳", channel: "CCN NEWS", views: "56K", uploadedAt: "4 hours ago", likes: "200", subscribers: "5K", duration: "1:47", isaigenarated: false },
+  { id: "video11", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline", views: "8.9M", uploadedAt: "2 years ago", likes: "300K", subscribers: "2.5M", duration: "15:20", isaigenarated: false },
+  { id: "video12", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 AI Short Film + Assets Available", channel: "Uisato", views: "215K", uploadedAt: "8 months ago", likes: "4.4K", subscribers: "11.2K", duration: "1.46", isaigenarated: false }
 ];
 
 const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
@@ -429,6 +526,7 @@ const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
     likes: vid.likes,          // New mapping
     subscribers: vid.subscribers, // New mapping
     category: "General",
+    isaigenarated: vid.isaigenarated, // Direct mapping
     // Use real description or fallback to generator
     description: realData ? realData.description : generateDescription(vid.title, vid.channel),
     // Use real comments or fallback to generator
@@ -439,44 +537,49 @@ const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
 // --- UNIQUE TOOL DATA FOR EVERY VIDEO ---
 const NOTE_DATABASE = {
   "video1": {
-    title: "ZELENSKY ISSUES APOLOGY TO TRUMP",
+    title: "Donald Trump Announcement on reducing healthcare price for all Americans",
     consensus: {
-      label: "6 people found it AI-generated",
-      text: "Most commenters clearly recognize the video as AI-generated impersonation of Zelensky, noting visual glitches like changing teeth and calling the realism scary. While many find it funny, they implicitly treat it as untrustworthy satire rather than genuine political communication, expressing concern about how convincing such deepfakes have become.",
-      previewText: "",
-      useful: 142,
-      notUseful: 12
+      label: "26 people found it AI-generated",
+      text: "A large portion of commenters explicitly claim the video is AI-generated or AI-enhanced, pointing to unusual hand positioning, facial inconsistencies, limited body movement, and unusually fluent speech. Many express distrust and speculate about concealment or manipulation. A smaller group argues it is authentic footage. Overall, community sentiment leans heavily toward skepticism and questions the video's credibility and trustworthiness.",
+      previewText: "A large portion of commenters explicitly claim the video is AI-generated or AI-enhanced...",
+      useful: 184,
+      notUseful: 14
     },
     risks: [
       {
         id: 'r1',
-        title: "Misinformation",
+        title: "Impersonation",
         riskLevel: "High",
-        tacticDetail: "Fabricated Reality: Using high-fidelity deepfake technology to mimic a geopolitical crisis event, creating a false historical record.",
-        content: "Highly realistic deepfake of a political figure could mislead viewers into believing fabricated statements."
+        tacticDetail: "Synthetic Political Replica: AI potentially mimicking a real president’s appearance and speech patterns without clear disclosure.",
+        content: "Multiple commenters argue the footage may digitally replicate Donald Trump’s likeness and voice, creating confusion about authenticity."
       },
       {
         id: 'r2',
-        title: "Inpersonation",
-        riskLevel: "High",
-        tacticDetail: "Identity Theft: Hijacking the likeness and voice of a world leader to lend false credibility to a statement they never made.",
-        content: "Video mimics Zelensky’s likeness and speech, creating a deceptive but realistic fake apology."
+        title: "Misinformation",
+        riskLevel: "Mid",
+        tacticDetail: "Policy Manipulation Narrative: Presenting potentially altered or fabricated presidential announcements as legitimate public policy communication.",
+        content: "Users question whether the healthcare announcement itself is real or digitally altered, suggesting possible misleading political messaging."
       },
       {
         id: 'r3',
-        title: "Clickbait & Engagement Farming",
+        title: "Targeted Abuse",
         riskLevel: "Mid",
-        tacticDetail: "Sensationalism: Utilizing shock-value political scenarios to trigger immediate emotional reactions and shares.",
-        content: "Sensational political scenario and shock-value title encourage reactions and shares over accurate understanding."
+        tacticDetail: "Hostile Commentary Amplification: Comment section contains insults, slurs, and degrading personal remarks.",
+        content: "Several comments attack physical appearance, health, and use explicit or derogatory language toward the political figure."
       }
     ],
-    viewerResponse: "Viewers should check reliable news sources, scrutinize visual artifacts, treat such clips as satire unless verified, and avoid sharing them as factual. Platforms can label AI-generated political content and promote media literacy around deepfakes and manipulated media.",
+    references: [
+      "Mentions of Grok AI claiming the video is AI-generated.",
+      "References to the Chinese AI model Qwen being used for alternate angles.",
+      "Comparisons to a previous AI-generated 'Charlie Kirk' video using the same software."
+    ],
+    viewerResponse: "Viewers commonly debate authenticity, point out perceived visual anomalies, reference AI tools or past suspected deepfakes, and warn others about potential digital manipulation. Some call for regulation of AI political media, while others dismiss the AI claims and defend the footage as real.",
     safety: {
       category: "Impersonation",
-      hoverText: "Mimicking someone without their consent",
-      score: 10,
-      ratingCode: "TV-PG",
-      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
+      hoverText: "Mimicking someone without verified disclosure",
+      score: 15,
+      ratingCode: "TV-MA",
+      ratingDesc: "This program contains strong language, political hostility, and mature themes. Mature audiences only."
     }
   },
   "video2": {
@@ -698,39 +801,53 @@ const NOTE_DATABASE = {
     }
   },
   "video8": {
-    title: "Get 0.07 BTC Free Bitcoin!",
+    title: "CNN: New video shows Alex Pretti confronting ICE agents",
     consensus: {
-      label: "8 people found it AI-generated",
-      text: "WARNING: High volume of bot comments. Real users are flagging this as a wallet drainer scam.",
-      previewText: "WARNING: High volume of bot comments. Real users are flagging this...",
-      useful: 500,
-      notUseful: 0
+      label: "30 people found it AI-generated",
+      text: "A significant number of commenters explicitly claim the footage is AI-generated, citing visual anomalies such as disappearing limbs, shifting license plates, inconsistent vehicle damage, watermark traces, and unnatural movement. Many describe it as fake or manipulated news. A smaller group argues it is real and confirms events via alternate angles. Overall, the dominant sentiment questions authenticity and credibility.",
+      previewText: "A significant number of commenters explicitly claim the footage is AI-generated, citing visual anomalies...",
+      useful: 143,
+      notUseful: 21
     },
     risks: [
       {
         id: 'r1',
-        title: "Bot Network",
+        title: "Misinformation",
         riskLevel: "High",
-        tacticDetail: "Sybil Attack: Using a network of fake accounts to create artificial social proof and trust.",
-        content: "95% of comments originate from new accounts."
+        tacticDetail: "Synthetic News Footage: Alleged AI-generated video presented as real breaking news.",
+        content: "Many users accuse the clip of being fabricated or digitally altered, undermining factual reporting."
       },
       {
         id: 'r2',
-        title: "Malicious Link",
-        riskLevel: "High",
-        tacticDetail: "Phishing: Luring users to external sites to steal credentials or crypto assets.",
-        content: "Description links flag as phishing."
+        title: "Impersonation",
+        riskLevel: "Mid",
+        tacticDetail: "Event Simulation: Recreating a real individual's actions through AI-generated visuals.",
+        content: "Comments suggest AI may be mimicking a deceased individual’s actions to shape public perception."
+      },
+      {
+        id: 'r3',
+        title: "Targeted Abuse",
+        riskLevel: "Mid",
+        tacticDetail: "Hostile Narrative Framing: Commenters repeatedly use insults and dehumanizing language.",
+        content: "Numerous comments describe the individual as mentally unstable, violent, or deserving harm."
       }
     ],
-    viewerResponse: "Real viewers are posting warnings to ignore the links and report the channel.",
+    references: [
+      "https://www.youtube.com/watch?v=_bwI_MfMhHo",
+      "Mentions of Grok AI being used to fabricate the video.",
+      "References to TNM, described as a Korean AI video platform watermark.",
+      "Speculation about Sora 2 being used to generate vehicle movement."
+    ],
+    viewerResponse: "Viewers typically analyze frames for AI artifacts, reference alternative footage, question media verification standards, and warn others about potential digital manipulation. Some demand clearer sourcing and validation, while others defend the footage as legitimate based on secondary angles.",
     safety: {
-      category: "Scam",
-      hoverText: "Fraudulent Activity",
-      score: 10,
+      category: "News and Media",
+      hoverText: "Content related to current events or updates",
+      score: 25,
       ratingCode: "TV-MA",
-      ratingDesc: "For mature audiences."
+      ratingDesc: "This program contains strong language, violent themes, and mature discussions. Mature audiences only."
     }
   },
+
   "video9": {
     title: "Hacker donated $4 Billions!",
     consensus: {
@@ -773,44 +890,48 @@ const NOTE_DATABASE = {
     }
   },
   "video10": {
-    title: "Elon Musk Launches Giveaway",
+    title: "BREAKING: Piyush Goyal Reveals New Government-Backed Investment Platform QuantumAI 🇮🇳",
     consensus: {
-      label: "4 people found it AI-generated",
-      text: "Most commenters clearly label the video as AI-generated and fake, alleging fabricated visuals and comments involving Trump and Elon Musk. They strongly suggest it is a scam giveaway and warn others not to trust or engage with the content.",
-      previewText: "",
-      useful: 320,
+      label: "8 people found it AI-generated",
+      text: "Most commenters strongly believe the video is AI-generated and part of a scam. They point to poor lip-sync, mismatched mouth movements, unrealistic return claims (130000% ROI), and fake visual cues like incorrect microphones and ministry names. The community widely views it as deceptive, untrustworthy, and financially dangerous, warning others not to believe or share it.",
+      previewText: "Most commenters strongly believe the video is AI-generated and part of a scam...",
+      useful: 0,
       notUseful: 0
     },
     risks: [
       {
-        id: 'r1',
+        id: "r1",
         title: "Scam/Fraud",
         riskLevel: "High",
-        tacticDetail: "Social Engineering: The 'Doubling' crypto scam script promising huge returns for 'verifying' a wallet.",
-        content: "Users explicitly call it a scam giveaway using fake Musk and Trump AI footage."
+        tacticDetail: "Unrealistic ROI Bait: Promising impossible daily returns to lure financially vulnerable viewers.",
+        content: "Comments repeatedly reference absurd returns (130000% annually, 63k daily), calling it a clear financial scam."
       },
       {
-        id: 'r2',
+        id: "r2",
         title: "Impersonation",
         riskLevel: "High",
-        tacticDetail: "Authority Hijacking: Using deepfakes of trusted/wealthy figures to bypass skepticism.",
-        content: "Comments describe AI-generated depictions of Elon Musk and Donald Trump misused for deceptive promotion."
+        tacticDetail: "Political Deepfake: Using AI-generated likeness of a government minister to create false authority.",
+        content: "Users highlight lip-sync errors and inconsistencies, suggesting AI-generated replication of Piyush Goyal."
       },
       {
-        id: 'r3',
-        title: "Unethical/Deceptive Promotion",
+        id: "r3",
+        title: "Misinformation",
         riskLevel: "High",
-        tacticDetail: "Artificial Urgency: simulating a live event to pressure victims into acting quickly.",
-        content: "Video title promises massive daily giveaway, while commenters allege fabricated AI video and comments."
+        tacticDetail: "Fabricated Government Scheme: Presenting a non-existent investment platform as official policy.",
+        content: "References to fake ministry names and unrealistic government-backed claims indicate misleading narrative."
       }
     ],
-    viewerResponse: "Viewers often flag such videos as fake, warn others in comments, avoid clicking external links, and discourage sharing. Some report the content or channel to platforms for impersonation, scams, or deceptive promotional practices.",
+    references: [
+      "https://www.youtube.com/watch?app=desktop&v=5s6NaexL9ZE (Shared by commenter discussing scam culture and AI misinformation trends)",
+      "User mentions similar AI scam-style videos featuring Nirmala Sitharaman ('Nirmala Tai') making identical claims."
+    ],
+    viewerResponse: "Viewers actively warn others in comments, point out visual deepfake flaws, highlight unrealistic financial promises, and advise educating family members about such scams. Many emphasize skepticism toward easy-money schemes and encourage verifying through official government sources before believing or sharing.",
     safety: {
-      category: "Impersonation/Scam",
-      hoverText: "Mimicking someone without their consent",
-      score: 12,
-      ratingCode: "TV-PG",
-      ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
+      category: "Impersonation",
+      hoverText: "AI-generated political figure promoting fraudulent investment scheme",
+      score: 5,
+      ratingCode: "TV-14",
+      ratingDesc: "This program contains material involving financial scams and deceptive impersonation. Parents strongly cautioned."
     }
   },
   "video11": {
@@ -964,7 +1085,35 @@ const RelatedVideoCard = ({ video, isDarkMode }) => {
   );
 };
 
+const LensSection = ({ title, icon: Icon, children, theme, defaultOpen = false }) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
+
+  return (
+    <div className={`rounded-xl overflow-hidden border mb-3 ${theme.cardBorder}`}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full p-2 pl-3 flex items-center justify-between transition-colors cursor-pointer ${theme.sectionHeaderBg} hover:opacity-90`}
+      >
+        <div className="flex items-center gap-2">
+          <Icon size={16} className={theme.sectionHeaderText} />
+          <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider text-left`}>{title}</h4>
+        </div>
+        <div className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
+          <ChevronDown size={16} className={theme.sectionHeaderText} />
+        </div>
+      </button>
+
+      <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+        <div className="overflow-hidden">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // --- COMMUNITY LENS TOOL UI  ---
+
 
 const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
   const data = NOTE_DATABASE[videoId];
@@ -1004,12 +1153,12 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
   };
 
   return (
-    <div className={`mt-6 w-full font-sans rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
+    <div className={`mt-4 w-full font-sans rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
 
       {/* 1. HEADER (Static) */}
-      <div className={`p-3 relative flex items-center justify-between ${theme.headerBg}`}>
-        <div className="flex items-center gap-3">
-          <div className="bg-[#FF0000] p-1.5 rounded-lg">
+      <div className={`p-2 relative flex items-center justify-between ${theme.headerBg}`}>
+        <div className="flex items-center gap-2">
+          <div className="bg-[#FF0000] p-1.5 rounded-md">
             <ShieldAlert size={18} className="text-white" fill="currentColor" />
           </div>
           <div>
@@ -1018,28 +1167,28 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
+            className={`p-1.5 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
           >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+            {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
           </button>
         </div>
       </div>
 
       {/* 2. BODY (Always Open) */}
-      <div className={`${theme.bodyBg} p-4`}>
+      <div className={`${theme.bodyBg} p-2`}>
 
         {/* CONSENSUS */}
-        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-          <div className={`p-2.5 pl-3 flex items-center gap-2 ${theme.sectionHeaderBg}`}>
-            <Activity size={16} className={theme.sectionHeaderText} />
-            <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community Consensus of this video</h4>
-          </div>
-
-          <div className="p-4">
-            <p className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-3 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black font-bold border-gray-300'}`}>
+        <LensSection
+          title="Community Consensus of this video"
+          icon={Activity}
+          theme={theme}
+          defaultOpen={true}
+        >
+          <div className="p-2">
+            <p className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-2 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black font-bold border-gray-300'}`}>
               AI- GENERATED
             </p>
 
@@ -1050,12 +1199,12 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
 
             <div className="animate-in fade-in slide-in-from-top-1">
-              <p className={`text-xs leading-relaxed mt-2 ${theme.textMain}`}>
+              <p className={`text-xs leading-relaxed mt-1 ${theme.textMain}`}>
                 {data.consensus.text}
               </p>
             </div>
 
-            <div className={`flex items-center gap-4 pt-3 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+            <div className={`flex items-center gap-3 pt-2 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
               <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
                 <ThumbsUp size={14} />
                 <span className="text-[11px] font-medium">{data.consensus.useful || 0} found useful</span>
@@ -1066,22 +1215,21 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
               </div>
             </div>
           </div>
-        </div>
+        </LensSection>
 
         {/* RISKS */}
-        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-          <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
-            <div className="flex items-center gap-2">
-              <AlertOctagon size={16} className={theme.sectionHeaderText} />
-              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Risk Patterns</h4>
-            </div>
-          </div>
 
-          <div className="p-3 flex flex-col gap-2">
+        <LensSection
+          title="Risk Patterns"
+          icon={AlertOctagon}
+          theme={theme}
+          defaultOpen={true}
+        >
+          <div className="p-2 flex flex-col gap-1.5">
             {data.risks.length > 0 ? (
               data.risks.map((risk) => (
                 <div key={risk.id} className={`border rounded-lg overflow-hidden ${theme.riskItemBg}`}>
-                  <div className="w-full flex items-center justify-between p-3 text-left">
+                  <div className="w-full flex items-center justify-between p-2 text-left">
                     <div className="flex items-center gap-2">
                       <span className={`font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
                       <span className="opacity-40 text-xs text-zinc-500">|</span>
@@ -1092,8 +1240,8 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
                     </div>
                   </div>
 
-                  <div className={`px-3 pb-3 pt-0 text-xs leading-relaxed ${theme.textSub}`}>
-                    <div className="space-y-2">
+                  <div className={`px-2 pb-2 pt-0 text-xs leading-relaxed ${theme.textSub}`}>
+                    <div className="space-y-1.5">
                       <div className={`p-1 rounded`}>
                         <p>{risk.content} {risk.tacticDetail}</p>
                       </div>
@@ -1107,12 +1255,12 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
             {/* Viewer Response Sub-section */}
             {data.viewerResponse && (
-              <div className={`mt-2 pt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
-                <div className={`flex items-center gap-1.5 text-[11px] font-medium w-full p-1 mb-2 ${theme.sectionHeaderText}`}>
+              <div className={`mt-1.5 pt-1.5 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+                <div className={`flex items-center gap-1.5 text-[11px] font-medium w-full p-0.5 mb-1.5 ${theme.sectionHeaderText}`}>
                   how viewers generally address these risks
                 </div>
-                <div className={`p-3 border rounded-lg text-xs leading-relaxed ${theme.viewerResponseBg}`}>
-                  <div className="flex gap-3">
+                <div className={`p-2 border rounded-lg text-xs leading-relaxed ${theme.viewerResponseBg}`}>
+                  <div className="flex gap-2">
                     <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${theme.viewerResponseAccent}`}></div>
                     <div className={theme.textMain}>{data.viewerResponse}</div>
                   </div>
@@ -1120,46 +1268,46 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
               </div>
             )}
           </div>
-        </div>
+        </LensSection>
 
         {/* CONTENT CLASSIFICATION */}
-        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-          <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
-            <div className="flex items-center gap-2">
-              <ScanFace size={16} className={theme.sectionHeaderText} />
-              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Content Classification</h4>
+        <LensSection
+          title="Content Classification"
+          icon={ScanFace}
+          theme={theme}
+          defaultOpen={true}
+        >
+          <div className="p-2 flex flex-wrap items-center">
+            <div className="flex items-baseline gap-2">
+              <span className={`text-[10px] font-bold uppercase tracking-wider whitespace-nowrap ${theme.textSub}`}>Category:</span>
+              <span className={`text-sm font-medium ${theme.textMain}`}>{data.safety.category}</span>
             </div>
-          </div>
 
-          <div className="p-4 grid grid-cols-[100px_1fr] gap-y-3 gap-x-4 items-center">
-            <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Category:</span>
-            <span className={`text-sm font-medium ${theme.textMain}`}>{data.safety.category}</span>
+            <div className={`w-px h-3 mx-4 self-center ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-300'}`}></div>
 
-            <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.textSub}`}>Safety Rating:</span>
-            <div className="flex">
+            <div className="flex items-center gap-2">
+              <span className={`text-[10px] font-bold uppercase tracking-wider whitespace-nowrap ${theme.textSub}`}>Safety Rating:</span>
               <span className={`px-2 py-0.5 rounded-md border text-[10px] font-bold uppercase ${data.safety.score < 50 ? theme.ratingUnsafeBg : theme.ratingSafeBg}`}>
                 {data.safety.score < 50 ? 'Unsafe' : 'Safe'}
               </span>
             </div>
           </div>
-        </div>
+        </LensSection>
 
         {/* REFERENCES */}
-        <div className={`rounded-xl overflow-hidden border mb-4 ${theme.cardBorder}`}>
-          <div className={`w-full p-2.5 pl-3 flex items-center justify-between ${theme.sectionHeaderBg}`}>
-            <div className="flex items-center gap-2">
-              <ExternalLink size={16} className={theme.sectionHeaderText} />
-              <h4 className={`${theme.sectionHeaderText} font-bold text-xs uppercase tracking-wider`}>Community-provided references and citations</h4>
-            </div>
-          </div>
-
-          <div className="p-3 flex flex-col gap-2">
+        <LensSection
+          title="Community-provided references and citations"
+          icon={ExternalLink}
+          theme={theme}
+          defaultOpen={true}
+        >
+          <div className="p-2 flex flex-col gap-1.5">
             {data.references && data.references.length > 0 ? (
               data.references.map((ref, index) => {
                 const isUrl = ref.startsWith('http');
                 return (
-                  <div key={index} className={`flex items-center gap-3 p-2.5 border rounded-lg transition-all duration-200 ${theme.riskItemBg} border-l-2 ${isDarkMode ? 'hover:border-l-red-500 border-l-zinc-700' : 'hover:border-l-[#a10f18] border-l-gray-200'}`}>
-                    <div className={`flex-shrink-0 p-1.5 rounded-md ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
+                  <div key={index} className={`flex items-center gap-2 p-1.5 border rounded-lg transition-all duration-200 ${theme.riskItemBg} border-l-2 ${isDarkMode ? 'hover:border-l-red-500 border-l-zinc-700' : 'hover:border-l-[#a10f18] border-l-gray-200'}`}>
+                    <div className={`flex-shrink-0 p-1 rounded-md ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
                       {isUrl ? (
                         <ExternalLink size={14} className={isDarkMode ? 'text-zinc-400' : 'text-gray-500'} />
                       ) : (
@@ -1187,15 +1335,15 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
               <p className={`text-xs p-2 italic ${theme.textSub}`}>No community citations available yet.</p>
             )}
           </div>
-        </div>
+        </LensSection>
 
         {/* AGE RATING */}
-        <div className={`h-px w-full mb-4 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
-        <div className="mb-4">
-          <div className={`border rounded-xl p-3 flex items-center gap-4 ${theme.ageRatingContainer}`}>
-            <div className={`p-1 rounded w-10 h-8 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
-              <span className="text-[6px] font-bold leading-none uppercase">TV</span>
-              <span className="text-sm font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
+        <div className={`h-px w-full mb-3 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
+        <div className="mb-3">
+          <div className={`border rounded-xl p-2 flex items-center gap-3 ${theme.ageRatingContainer}`}>
+            <div className={`p-1 rounded w-9 h-7 flex flex-col items-center justify-center flex-shrink-0 ${theme.ageRatingBox}`}>
+              <span className="text-[5px] font-bold leading-none uppercase">TV</span>
+              <span className="text-xs font-black leading-none -mt-0.5">{data.safety.ratingCode.split('-')[1]}</span>
             </div>
             <div className="flex flex-col">
               <span className={`text-[9px] font-bold uppercase tracking-wider mb-0.5 ${theme.textSub}`}>This Content is appropriate for:</span>
@@ -1207,7 +1355,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
         </div>
 
         {/* FOOTER */}
-        <div className={`text-center pt-4 border-t ${theme.footerBorder}`}>
+        <div className={`text-center pt-2 border-t ${theme.footerBorder}`}>
           <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
             Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
           </p>
@@ -1323,6 +1471,22 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
             <p className={`whitespace-pre-line leading-relaxed ${isDarkMode ? 'text-white/90' : 'text-black/90'}`}>
               {currentVideo.description}
             </p>
+
+            {currentVideo.isaigenarated && (
+              <div className={`mt-6 pt-4 border-t ${isDarkMode ? 'border-zinc-700' : 'border-gray-300'}`}>
+                <h1 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                  How this was made
+                </h1>
+                <div className="flex flex-col gap-1">
+                  <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                    Altered or synthetic content
+                  </h4>
+                  <p className={`text-xs leading-relaxed ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
+                    Sound or visuals were significantly edited or digitally generated. <a href="https://support.google.com/youtube/answer/15447836?hl=en" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 cursor-pointer">Learn more</a>
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
           <button
@@ -1441,7 +1605,7 @@ function AppContent() {
   // --- Survey Mode State (Default ON) ---
   const [isSurveyActive, setIsSurveyActive] = useState(true);
   // OPTIMIZED: Fixed queue 
-  const [surveyQueue, setSurveyQueue] = useState(['video4', 'video1', 'video12', 'video7', 'video10', 'video9']);
+  const [surveyQueue, setSurveyQueue] = useState(['video4', 'video1', 'video12', 'video7', 'video10', 'video8', 'video9']);
   const [currentSurveyIndex, setCurrentSurveyIndex] = useState(0);
 
   const navigate = useNavigate();
