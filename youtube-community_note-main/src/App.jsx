@@ -467,7 +467,63 @@ const CSV_DATA = {
       "This is how we will be able to live in the VR world.",
       "There's movies where the audience follows a time traveler, but what if the twist reveal is we are the time travelers"
     ]
+  },
+  "hfuYpYpwgDI": {
+    "description": "News is coming that Iran shot down America's proud B-2 bomber in one hit... Iran became the first country to shoot down a B-2 bomber, America should ground the B-2 bombers and buy Sukhoi from Russia for its defense.  \n\n#Sukhoi30  #B_2 #Iran #Russia #USA #IranWar",
+    "comments": [
+      "This is real footage of b 2 boomber shot down by iran",
+      "Whether real or not, the USA was never actually involved in a real war, certainly not on its own soil",
+      "This is for shure AI generated",
+      "This is real.",
+      "If true then excellent news and this will prove to be a game changer.",
+      "It is a great news, Alhamdhu Lillah",
+      "Take down all the fake news and delete this profile !",
+      "It looks like AI generated?",
+      "The intelligence of an extremist Muslim is no greater than this. They only see themselves as superior",
+      "The news that is coming is Fake. And this videovis AI generated!",
+      "I dont think thats true, but its is not something impossible",
+      "Mashallah",
+      "Bravo!",
+      "U wish dickhead",
+      "BRO THIS IS FAKE AI",
+      "What a great",
+      "It an F117 not B2,F117 is has been out of service for years. Don’t discredit yourself by posting aI",
+      "What a taunting suggestion wow america should consider buying sukhoi from Russia seriously.",
+      "How stupid are Americans! They send their own children to die for Israel.",
+      "B-2 Bombers doesn't fly at that altitude, its 200% Fake",
+      "The propaganda is strong today",
+      "Sir it looks like an AI video , please verify first then spread . Thanks",
+      "Serious question: Do you think people believe you?",
+      "Some ai has become so very good, it’s hard for me to know what’s real in some videos",
+      "If you're this clueless then maybe you shouldn't be commenting on important issues such as war",
+      "AI generated video you cannot shoot a b2 on video openly like that",
+      "Turns out you’re wrong about just about everything…asshole!",
+      "Sir it looks like an AI video , please verify first then spread . Thanks",
+      "No proof or confirmation so far ... ? what u say now?",
+      "Poster should be ashamed of itself. Obvious lie.",
+      "James MUTCHLER: you must really be ignorant as we thought",
+      "Its AI, think before posting fake videos",
+      "You dummy",
+      "Suckers who falls for this",
+      "They don't fly low, they're are kept above 50K.",
+      "Likely fake. Camera on plane, then cuts to missile launcher that follows missile to point of contact.",
+      "So you send us a videogame????",
+      "This is AI generated and fake video",
+      "In this video, the plane and the missile are original, but when the missiles hit the plane, flames are fake",
+      "Lol , cheap AI quality",
+      "Did US confirm this? Link ?",
+      "Time to reload our last save.",
+      "War Thunder graphics so good people think it's real life.",
+      "That couldn't look much more fake if you tried",
+      "I think the video is just for illustration because this video is from a video game",
+      "Total bollox. AI And shit AI at that.",
+      "Are you so dumb that you fall for every tide bit of propaganda?",
+      "It looks AI generated video. 1 B2 do not fly at such low altitude",
+      "Lol it's DCS world game",
+      "Real or ai, I have to know"
+    ]
   }
+
 };
 
 const generateDescription = (title, channel) => {
@@ -495,18 +551,20 @@ const categories = [
 
 // --- Video Data Configuration ---
 const VIDEO_DB = [
-  { id: "video1", ytId: "6QRFcO1lPHE", title: "Donald Trump Announcement on reducing healthcare price for all Americans", channel: "SyntheticVoices", views: "4.9K", uploadedAt: "11 months ago", likes: "73", subscribers: "4.25K", duration: "0:56", isaigenarated: true },
-  { id: "video2", ytId: "cQ54GDm1eL0", title: "You Won’t Believe What Obama Says In This Video! 😉", channel: "BuzzFeedVideo", views: "12M", uploadedAt: "4 years ago", likes: "450K", subscribers: "20M", duration: "3:45", isaigenarated: false },
-  { id: "video3", ytId: "_qczkG_AqmU", title: 'Jake Paul "I WON" - Post Fight Press Conference', channel: "Sports Central", views: "2.1M", uploadedAt: "1 day ago", likes: "35K", subscribers: "1.2M", duration: "4:10", isaigenarated: false },
-  { id: "video4", ytId: "wIjc3ceDzr4", title: "Huge News! Social Security September 2025 Raise - See If You Qualify For New Payment", channel: "Benefit Alert Now", views: "9.7K", uploadedAt: "5 months ago", likes: "151", subscribers: "1.93K", duration: "8:22", isaigenarated: false },
-  { id: "video5", ytId: "Qn4SP5Z2wOY", title: "Google Veo 3 Fake News | AI Video Generation", channel: "AI Trends", views: "230K", uploadedAt: "2 days ago", likes: "15K", subscribers: "120K", duration: "5:15", isaigenarated: false },
-  { id: "video6", ytId: "sVspeqNnoWM", title: "Kamala Harris Ad PARODY", channel: "Political Satire", views: "1.8M", uploadedAt: "3 days ago", likes: "89K", subscribers: "340K", duration: "2:45", isaigenarated: false },
-  { id: "video7", ytId: "FlztGX_y0OI", title: "AI Michael Jackson in 2026 - New Song", channel: "Mr. Miller", views: "450K", uploadedAt: "1 week ago", likes: "28K", subscribers: "67K", duration: "3:20", isaigenarated: true },
-  { id: "video8", ytId: "n2muvB3NGZc", title: "New video shows previous clash between Pretti and federal agents", channel: "CNN", views: "248K", uploadedAt: "2 weeks ago", likes: "2.7K", subscribers: "19.1M", duration: "10:03", isaigenarated: false },
-  { id: "video9", ytId: "-Sv9YjU0fRE", title: "Hacker who donated $4 Billions to Palestine & Africa!", channel: "The Knowledge Nexus", views: "154", uploadedAt: "1 year ago", likes: "14", subscribers: "79", duration: "2:49", isaigenarated: false },
-  { id: "video10", ytId: "hoTBQC5XVSU", title: "BREAKING: Piyush Goyal Reveals New Government-Backed Investment Platform QuantumAI 🇮🇳", channel: "CCN NEWS", views: "56K", uploadedAt: "4 hours ago", likes: "200", subscribers: "5K", duration: "1:47", isaigenarated: false },
-  { id: "video11", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline", views: "8.9M", uploadedAt: "2 years ago", likes: "300K", subscribers: "2.5M", duration: "15:20", isaigenarated: false },
-  { id: "video12", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 AI Short Film + Assets Available", channel: "Uisato", views: "215K", uploadedAt: "8 months ago", likes: "4.4K", subscribers: "11.2K", duration: "1.46", isaigenarated: false }
+  { id: "video2", ytId: "6QRFcO1lPHE", title: "Donald Trump Announcement on reducing healthcare price for all Americans", channel: "SyntheticVoices", views: "4.9K", uploadedAt: "11 months ago", likes: "73", subscribers: "4.25K", duration: "0:56", isaigenarated: true },
+  { id: "video9", ytId: "cQ54GDm1eL0", title: "You Won’t Believe What Obama Says In This Video! 😉", channel: "BuzzFeedVideo", views: "12M", uploadedAt: "4 years ago", likes: "450K", subscribers: "20M", duration: "3:45", isaigenarated: false },
+  { id: "video10", ytId: "_qczkG_AqmU", title: 'Jake Paul "I WON" - Post Fight Press Conference', channel: "Sports Central", views: "2.1M", uploadedAt: "1 day ago", likes: "35K", subscribers: "1.2M", duration: "4:10", isaigenarated: false },
+  { id: "video1", ytId: "wIjc3ceDzr4", title: "Huge News! Social Security September 2025 Raise - See If You Qualify For New Payment", channel: "Benefit Alert Now", views: "9.7K", uploadedAt: "5 months ago", likes: "151", subscribers: "1.93K", duration: "8:22", isaigenarated: false },
+  { id: "video11", ytId: "Qn4SP5Z2wOY", title: "Google Veo 3 Fake News | AI Video Generation", channel: "AI Trends", views: "230K", uploadedAt: "2 days ago", likes: "15K", subscribers: "120K", duration: "5:15", isaigenarated: false },
+  { id: "video12", ytId: "sVspeqNnoWM", title: "Kamala Harris Ad PARODY", channel: "Political Satire", views: "1.8M", uploadedAt: "3 days ago", likes: "89K", subscribers: "340K", duration: "2:45", isaigenarated: false },
+  { id: "video4", ytId: "FlztGX_y0OI", title: "AI Michael Jackson in 2025", channel: "Mr. Miller", views: "7.9K", uploadedAt: "5 months ago", likes: "204", subscribers: "62", duration: "3:20", isaigenarated: true },
+  { id: "video6", ytId: "n2muvB3NGZc", title: "New video shows previous clash between Pretti and federal agents", channel: "CNN", views: "248K", uploadedAt: "2 weeks ago", likes: "2.7K", subscribers: "19.1M", duration: "10:03", isaigenarated: false },
+  { id: "video7", ytId: "-Sv9YjU0fRE", title: "Hacker who donated $4 Billions to Palestine & Africa!", channel: "The Knowledge Nexus", views: "154", uploadedAt: "1 year ago", likes: "14", subscribers: "79", duration: "2:49", isaigenarated: false },
+  { id: "video5", ytId: "hoTBQC5XVSU", title: "BREAKING: Piyush Goyal Reveals New Government-Backed Investment Platform QuantumAI 🇮🇳", channel: "CCN NEWS", views: "56K", uploadedAt: "4 hours ago", likes: "200", subscribers: "5K", duration: "1:47", isaigenarated: false },
+  { id: "video13", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline", views: "8.9M", uploadedAt: "2 years ago", likes: "300K", subscribers: "2.5M", duration: "15:20", isaigenarated: false },
+  { id: "video3", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 AI Short Film + Assets Available", channel: "Uisato", views: "215K", uploadedAt: "8 months ago", likes: "4.4K", subscribers: "11.2K", duration: "1.46", isaigenarated: false },
+  { id: "video8", ytId: "hfuYpYpwgDI", title: "Iran shot down America's proud B-2 bomber in one hit...", channel: "Muhammed Faisal", views: "215K", uploadedAt: "1 month ago", likes: "4.4K", subscribers: "11.2K", duration: "0.31", isaigenarated: true }
+
 ];
 
 const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
@@ -536,7 +594,7 @@ const INITIAL_VIDEOS = VIDEO_DB.map((vid) => {
 
 // --- UNIQUE TOOL DATA FOR EVERY VIDEO ---
 const NOTE_DATABASE = {
-  "video1": {
+  "video2": {
     title: "Donald Trump Announcement on reducing healthcare price for all Americans",
     consensus: {
       label: "26 people found it AI-generated",
@@ -582,7 +640,7 @@ const NOTE_DATABASE = {
       ratingDesc: "This program contains strong language, political hostility, and mature themes. Mature audiences only."
     }
   },
-  "video2": {
+  "video9": {
     title: "You Won’t Believe What Obama Says!",
     consensus: {
       label: "6 people found it Deepfake/AI",
@@ -609,7 +667,7 @@ const NOTE_DATABASE = {
       ratingDesc: "Parental guidance suggested."
     }
   },
-  "video3": {
+  "video10": {
     title: 'Jake Paul "I WON" - Post Fight',
     consensus: {
       label: "2 people found it AI-generated",
@@ -650,7 +708,7 @@ const NOTE_DATABASE = {
       ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned."
     }
   },
-  "video4": {
+  "video1": {
     title: "Huge News! Social Security 2026 Raise",
     consensus: {
       label: "4 people found it AI-generated",
@@ -691,7 +749,7 @@ const NOTE_DATABASE = {
       ratingDesc: "This program contains material that parents may find unsuitable for children under 14. Parents strongly cautioned."
     }
   },
-  "video5": {
+  "video11": {
     title: "Google Veo 3 Fake News | AI Video",
     consensus: {
       label: "6 people found it AI-generated",
@@ -710,7 +768,7 @@ const NOTE_DATABASE = {
       ratingDesc: "Parental guidance suggested."
     }
   },
-  "video6": {
+  "video12": {
     title: "Kamala Harris Ad PARODY",
     consensus: {
       label: "6 people found it AI-generated",
@@ -759,7 +817,7 @@ const NOTE_DATABASE = {
       ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
     }
   },
-  "video7": {
+  "video4": {
     title: "AI Michael Jackson in 2026",
     consensus: {
       label: "6 people found it AI-generated",
@@ -800,7 +858,7 @@ const NOTE_DATABASE = {
       ratingDesc: "This program is suitable for all ages."
     }
   },
-  "video8": {
+  "video6": {
     title: "CNN: New video shows Alex Pretti confronting ICE agents",
     consensus: {
       label: "30 people found it AI-generated",
@@ -848,7 +906,7 @@ const NOTE_DATABASE = {
     }
   },
 
-  "video9": {
+  "video7": {
     title: "Hacker donated $4 Billions!",
     consensus: {
       label: "6 people found it AI-generated",
@@ -889,14 +947,14 @@ const NOTE_DATABASE = {
       ratingDesc: "This program is suitable for all ages."
     }
   },
-  "video10": {
+  "video5": {
     title: "BREAKING: Piyush Goyal Reveals New Government-Backed Investment Platform QuantumAI 🇮🇳",
     consensus: {
       label: "8 people found it AI-generated",
       text: "Most commenters strongly believe the video is AI-generated and part of a scam. They point to poor lip-sync, mismatched mouth movements, unrealistic return claims (130000% ROI), and fake visual cues like incorrect microphones and ministry names. The community widely views it as deceptive, untrustworthy, and financially dangerous, warning others not to believe or share it.",
       previewText: "Most commenters strongly believe the video is AI-generated and part of a scam...",
-      useful: 0,
-      notUseful: 0
+      useful: 78,
+      notUseful: 8
     },
     risks: [
       {
@@ -934,7 +992,7 @@ const NOTE_DATABASE = {
       ratingDesc: "This program contains material involving financial scams and deceptive impersonation. Parents strongly cautioned."
     }
   },
-  "video11": {
+  "video13": {
     title: "A.I Predicts 400 Years",
     consensus: {
       label: "16 people found it AI-generated",
@@ -953,7 +1011,7 @@ const NOTE_DATABASE = {
       ratingDesc: "General Audience."
     }
   },
-  "video12": {
+  "video3": {
     title: "A Time Traveler's VLOG",
     consensus: {
       label: "36 people found AI-Generated",
@@ -986,6 +1044,52 @@ const NOTE_DATABASE = {
       score: 88,
       ratingCode: "TV-PG",
       ratingDesc: "This program contains material that parents may find unsuitable for younger children. Parental guidance suggested."
+    }
+  },
+  "video8": {
+    title: "Iran shot down America's proud B-2 bomber in one hit...",
+    consensus: {
+      label: "15 people found it AI-generated",
+      text: "Most commenters believe the video is fake or AI-generated, frequently pointing to unrealistic aircraft behavior, incorrect altitude, poor visual effects, and suspicious editing. Several viewers suggest the footage may actually come from a video game like DCS World or War Thunder rather than real combat footage. Overall, the community widely questions the authenticity and warns others not to trust or spread the clip as real military news.",
+      previewText: "Most commenters believe the video is fake or AI-generated, frequently pointing to unrealistic aircraft behavior...",
+      useful: 132,
+      notUseful: 12
+    },
+    risks: [
+      {
+        id: "r1",
+        title: "Misinformation",
+        riskLevel: "High",
+        tacticDetail: "Fabricated War Footage: Presenting simulated or AI-generated military footage as real combat evidence.",
+        content: "Multiple commenters say the claim of Iran shooting down a B-2 bomber is unverified and likely fake."
+      },
+      {
+        id: "r2",
+        title: "Clickbait & Engagement Farming",
+        riskLevel: "Mid",
+        tacticDetail: "Sensational War Claim: Using dramatic geopolitical headlines to attract attention and engagement.",
+        content: "Title claims a historic military event without proof, encouraging reactions, debate, and emotional engagement."
+      },
+      {
+        id: "r3",
+        title: "Extremist Amplification",
+        riskLevel: "Low",
+        tacticDetail: "Conflict Celebration: Comments praising destruction of enemy military assets in geopolitical conflict.",
+        content: "Some comments celebrate the alleged attack or frame it as ideological victory in geopolitical tensions."
+      }
+    ],
+    references: [
+      "Commenters mention 'DCS World' and 'War Thunder' as possible sources of the footage.",
+      "Several users note unrealistic B-2 flight altitude and behavior as evidence the clip is not real.",
+      "Repeated comments explicitly label the video as 'AI generated', 'video game footage', or 'fake propaganda'."
+    ],
+    viewerResponse: "Viewers generally respond by challenging the claim, pointing out technical inaccuracies in aircraft behavior, identifying AI artifacts or game graphics, and asking for official confirmation or credible sources before believing or sharing the video.",
+    safety: {
+      category: "News and Media",
+      hoverText: "Unverified military footage claiming a major geopolitical event",
+      score: 18,
+      ratingCode: "TV-14",
+      ratingDesc: "This program contains war-related misinformation, hostile language, and geopolitical conflict discussion. Parents strongly cautioned."
     }
   }
 };
@@ -1485,6 +1589,47 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
                     Sound or visuals were significantly edited or digitally generated. <a href="https://support.google.com/youtube/answer/15447836?hl=en" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 cursor-pointer">Learn more</a>
                   </p>
                 </div>
+
+                {/* New Video8 Content Credentials Block matching the exact parent style */}
+                {currentVideo.id === "video8" && (
+                  <div className="mt-4 flex flex-col gap-4">
+                    <div className="flex flex-col gap-1">
+                      <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                        Signed by
+                      </h4>
+                      <p className={`text-xs leading-relaxed mt-0.5 ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
+                        mady
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                      <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                        Signed on
+                      </h4>
+                      <p className={`text-xs leading-relaxed mt-0.5 ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
+                        9 March 2026 00:27 GMT
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                      <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                        AI tool used
+                      </h4>
+                      <p className={`text-xs leading-relaxed mt-0.5 ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
+                        Advanced AI Video Generator
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-1">
+                      <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                        Actions
+                      </h4>
+                      <p className={`text-xs leading-relaxed mt-0.5 ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
+                        Synthesized with visual effects
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -1500,8 +1645,8 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
           </button>
         </div>
 
-        {/* Hide tool for video9 */}
-        {currentVideo.id !== "video9" && (
+        {/* Hide tool for video7 */}
+        {currentVideo.id !== "video7" && (
           <CommunityLensUI
             videoId={currentVideo.id}
             isDarkMode={isDarkMode}
@@ -1588,7 +1733,7 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
           ))}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
@@ -1604,12 +1749,37 @@ function AppContent() {
 
   // --- Survey Mode State (Default ON) ---
   const [isSurveyActive, setIsSurveyActive] = useState(true);
-  // OPTIMIZED: Fixed queue 
-  const [surveyQueue, setSurveyQueue] = useState(['video4', 'video1', 'video12', 'video7', 'video10', 'video8', 'video9']);
-  const [currentSurveyIndex, setCurrentSurveyIndex] = useState(0);
+  const fixedSurveyQueue = ['video1', 'video2', 'video3', 'video4', 'video5', 'video6', 'video7', 'video8'];
+  const [surveyQueue, setSurveyQueue] = useState(fixedSurveyQueue);
+
+  // Initialize index directly from the URL to prevent flickering
+  const [currentSurveyIndex, setCurrentSurveyIndex] = useState(() => {
+    const pathId = window.location.pathname.replace(/^\/+/, '');
+    const idx = fixedSurveyQueue.indexOf(pathId);
+    return idx !== -1 ? idx : 0;
+  });
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Sync index from URL
+  useEffect(() => {
+    const pathId = location.pathname.replace(/^\/+/, '');
+    const idx = surveyQueue.indexOf(pathId);
+    if (idx !== -1 && idx !== currentSurveyIndex) {
+      setCurrentSurveyIndex(idx);
+    } else if (!pathId) {
+      navigate(`/${surveyQueue[0]}`, { replace: true });
+    }
+  }, [location.pathname, surveyQueue]);
+
+  // Sync URL from index
+  useEffect(() => {
+    const currentId = surveyQueue[currentSurveyIndex];
+    if (currentId && location.pathname !== `/${currentId}`) {
+      navigate(`/${currentId}`);
+    }
+  }, [currentSurveyIndex, surveyQueue, navigate]);
 
   useEffect(() => {
     const handleResize = () => {
