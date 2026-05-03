@@ -10,7 +10,7 @@ import {
   Activity, Eye, Mic2, CheckCircle2, Download, Scissors, ListPlus,
   AlertOctagon, Info, Trash2, Maximize2, Minimize2, Sun, Moon,
   ArrowLeft, ArrowRight, PlayCircle, XCircle, ClipboardList, Bot,
-  FileText, Link2, Quote, User, Wand2, List, Award, ShieldCheck
+  FileText, Link2, Quote, Wand2, List, Award, ShieldCheck, User
 } from 'lucide-react';
 
 
@@ -631,7 +631,6 @@ const NOTE_DATABASE = {
       "References to the Chinese AI model Qwen being used for alternate angles.",
       "Comparisons to a previous AI-generated 'Charlie Kirk' video using the same software."
     ],
-    riskSummary: "The video employs a \"Synthetic Political Replica\" to mimic Donald Trump's likeness and voice, pushing a fabricated healthcare policy narrative. This deceptive impersonation creates significant authenticity confusion among viewers and has amplified targeted abuse, with the comment section filling up with hostile and derogatory remarks.",
     viewerResponse: "Viewers commonly debate authenticity, point out perceived visual anomalies, reference AI tools or past suspected deepfakes, and warn others about potential digital manipulation. Some call for regulation of AI political media, while others dismiss the AI claims and defend the footage as real.",
     safety: {
       category: "Impersonation",
@@ -659,7 +658,6 @@ const NOTE_DATABASE = {
         content: "Staged demonstration, not a real event."
       }
     ],
-    riskSummary: "This is a staged \"Disclosure by Demonstration\" deepfake, specifically created by Jordan Peele. It acts as an educational PSA to reveal AI capabilities and the dangers of synthetic media, rather than representing a genuine real-world event.",
     viewerResponse: "Viewers typically add context to explain the educational intent behind the media.",
     safety: {
       category: "Educational",
@@ -701,7 +699,6 @@ const NOTE_DATABASE = {
         content: "Content authenticity confusion: Mixed reactions (jokes vs. critiques) indicate uncertainty about what is real versus synthetic."
       }
     ],
-    riskSummary: "Utilizing \"Deceptive Realism\" and uncanny visual anomalies, this AI-generated fight sequence mimics Jake Paul to mislead casual viewers. The confusing mix of realistic and illogical physics acts as rage-bait, successfully driving hostile engagement and personal mockery in the comments.",
     viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
     safety: {
       category: "Impersonation",
@@ -743,7 +740,6 @@ const NOTE_DATABASE = {
         content: "Content appears to exploit vulnerable seniors’ financial fears for views, engagement, and likely ad revenue."
       },
     ],
-    riskSummary: "This video is a content-farmed scam utilizing keyword stuffing and fearmongering to target vulnerable seniors. By fabricating a false narrative about a Social Security \"COLA Increase,\" the creator relies on clickbait to exploit financial anxieties purely for engagement and ad revenue.",
     viewerResponse: "Viewers typically downvote, report, and warn others in comments, advise ignoring similar channels, cross-check claims with official Social Security sources, and rely on trusted news or government websites before sharing or acting on such content.",
     safety: {
       category: "News and Media",
@@ -812,7 +808,6 @@ const NOTE_DATABASE = {
       }
     ],
     references: ['https://x.com/elonmusk/status/1816974609637417112?s=46&t=WGm5UEGUY7Rz53i1NxAdCQ'],
-    riskSummary: "Framed as a \"truthful ad\" to layer disinformation, this parody uses ad hominem satire to demean Kamala Harris rather than critique policy. It employs an artificial persecution narrative to encourage astroturfing, sparking coordinated campaigns to mass-share the video and mass-report legitimate ads.",
     viewerResponse: "Viewers typically respond by reporting misleading content, adding clarifying comments, or referencing credible sources to reduce misinformation.",
     safety: {
       category: "Impersonation",
@@ -854,7 +849,6 @@ const NOTE_DATABASE = {
         content: "Title and AI impersonation of a deceased celebrity likely designed mainly to attract views."
       }
     ],
-    riskSummary: "Leveraging RVC voice cloning and nostalgia baiting, this video synthesizes high-quality audio to impersonate Michael Jackson. The lack of clear AI labeling blurs reality, potentially misleading enthusiastic fans into believing these are authentic, unreleased recordings just to drive channel traffic.",
     viewerResponse: "Viewers can check descriptions for AI disclosures, read skeptical comments, and verify through official Michael Jackson channels or reputable news sources. They can also report misleading impersonations and avoid resharing unclear or deceptively presented AI celebrity content.",
     safety: {
       category: "Impersonation",
@@ -902,7 +896,6 @@ const NOTE_DATABASE = {
       "References to TNM, described as a Korean AI video platform watermark.",
       "Speculation about Sora 2 being used to generate vehicle movement."
     ],
-    riskSummary: "Presented as a legitimate CNN broadcast, this synthetic news footage uses AI event simulation to impersonate a deceased individual's actions. This dangerous fabrication severely undermines factual reporting and utilizes hostile narrative framing to incite violent and dehumanizing comments.",
     viewerResponse: "Viewers typically analyze frames for AI artifacts, reference alternative footage, question media verification standards, and warn others about potential digital manipulation. Some demand clearer sourcing and validation, while others defend the footage as legitimate based on secondary angles.",
     safety: {
       category: "News and Media",
@@ -945,7 +938,6 @@ const NOTE_DATABASE = {
         content: "Sensational claims about billions donated and dramatic AI story indicate attention-grabbing, engagement-driven content."
       }
     ],
-    riskSummary: "Using extreme sensationalism and decontextualized news footage, this video fabricates a false narrative about a \"benevolent hacker\" donating billions. This deceptive storytelling is designed to lower viewer defenses and serve as an attention-grabbing hook for potential financial scams.",
     viewerResponse: "Viewers typically respond by warning others in comments, labeling content as fake or AI-generated, encouraging skepticism, and discouraging sharing. Some cross-check claims with external sources or official news before believing or further engaging with such sensational narratives.",
     safety: {
       category: "Scaling & Amplification",
@@ -991,7 +983,6 @@ const NOTE_DATABASE = {
       "https://www.youtube.com/watch?app=desktop&v=5s6NaexL9ZE (Shared by commenter discussing scam culture and AI misinformation trends)",
       "User mentions similar AI scam-style videos featuring Nirmala Sitharaman ('Nirmala Tai') making identical claims."
     ],
-    riskSummary: "This high-risk scam uses an AI political deepfake of Minister Piyush Goyal to promote \"QuantumAI,\" a completely fabricated government investment platform. It uses unrealistic ROI bait—promising impossible 130,000% annual returns—to aggressively lure and deceive financially vulnerable viewers.",
     viewerResponse: "Viewers actively warn others in comments, point out visual deepfake flaws, highlight unrealistic financial promises, and advise educating family members about such scams. Many emphasize skepticism toward easy-money schemes and encourage verifying through official government sources before believing or sharing.",
     safety: {
       category: "Impersonation",
@@ -1046,7 +1037,6 @@ const NOTE_DATABASE = {
       }
     ],
     references: ['Mentions of Google Veo 3 and Filmora integration as AI video-genaration tools.', 'References to seeing similar AI clips on Instagram and using AI for historical visualization.'],
-    riskSummary: "Using a sci-fi \"Time Traveler\" narrative hook, this video acts as a promotional vehicle for the AI tech hype cycle. The hyperbolic praise and singularity-focused script are designed to farm engagement and commercially promote AI video generation tools like Veo 3.",
     viewerResponse: "Viewers can check for sponsorship disclosures, treat promotional-sounding comments skeptically, and contextualize AI-generated visuals as entertainment rather than reality. Encouraging creators to label AI content clearly and platforms to flag sponsored promotions helps reduce confusion and overhype.",
     safety: {
       category: "Entertainment",
@@ -1060,8 +1050,8 @@ const NOTE_DATABASE = {
     title: "Iran shot down America's proud B-2 bomber in one hit...",
     consensus: {
       label: "15 people found it AI-generated",
-      text: "Most commenters believe the video is fake or AI-generated, frequently pointing to unrealistic aircraft behavior, incorrect altitude, poor visual effects, and suspicious editing. Several viewers suggest the footage may actually come from a video game like DCS World or War Thunder rather than real combat footage. Overall, the community widely questions the authenticity and warns others not to trust or spread the clip as real military news.",
-      previewText: "Most commenters believe the video is fake or AI-generated, frequently pointing to unrealistic aircraft behavior...",
+      text: "Most commenters believe the video is fabricated, AI-generated, or sourced from military simulation games. Viewers frequently point to unrealistic aircraft behavior—such as the B-2 Spirit flying at impossibly low altitudes and reacting in ways inconsistent with stealth doctrine. Several users identify the footage as gameplay from DCS World or War Thunder, noting telltale graphical artifacts, HUD overlays, and physics inconsistencies. Independent fact-checkers have found no credible defense or intelligence source confirming any B-2 shoot-down. The community overwhelmingly warns others not to trust or reshare the clip as legitimate military news.",
+      previewText: "Most commenters believe the video is fabricated, AI-generated, or sourced from military simulation games...",
       useful: 132,
       notUseful: 12
     },
@@ -1070,31 +1060,32 @@ const NOTE_DATABASE = {
         id: "r1",
         title: "Misinformation",
         riskLevel: "High",
-        tacticDetail: "Fabricated War Footage: Presenting simulated or AI-generated military footage as real combat evidence.",
-        content: "Multiple commenters say the claim of Iran shooting down a B-2 bomber is unverified and likely fake."
+        tacticDetail: "Fabricated War Footage: Presenting game engine renders or AI-generated military footage as authentic combat evidence to exploit geopolitical tensions.",
+        content: "No credible defense source has confirmed any B-2 Spirit shoot-down. Fact-checkers at NewsMobile and BOOM Live have debunked similar clips circulating as Iranian propaganda."
       },
       {
         id: "r2",
         title: "Clickbait & Engagement Farming",
         riskLevel: "Mid",
-        tacticDetail: "Sensational War Claim: Using dramatic geopolitical headlines to attract attention and engagement.",
-        content: "Title claims a historic military event without proof, encouraging reactions, debate, and emotional engagement."
+        tacticDetail: "Sensational War Claim: Exploiting emotionally charged geopolitical headlines to maximize clicks, shares, and algorithmic reach.",
+        content: "The title uses dramatic, unverified language ('shot down in one hit') designed to trigger curiosity & outrage, driving engagement without evidentiary support."
       },
       {
         id: "r3",
         title: "Extremist Amplification",
         riskLevel: "Low",
-        tacticDetail: "Conflict Celebration: Comments praising destruction of enemy military assets in geopolitical conflict.",
-        content: "Some comments celebrate the alleged attack or frame it as ideological victory in geopolitical tensions."
+        tacticDetail: "Conflict Celebration: Framing fabricated military victories as ideological triumphs to radicalize or inflame partisan audiences.",
+        content: "Some comments celebrate the alleged attack as a geopolitical victory, potentially fueling hostile narratives and cross-border hostility."
       }
     ],
     references: [
-      "Commenters mention 'DCS World' and 'War Thunder' as possible sources of the footage.",
-      "Several users note unrealistic B-2 flight altitude and behavior as evidence the clip is not real.",
-      "Repeated comments explicitly label the video as 'AI generated', 'video game footage', or 'fake propaganda'."
+      "https://www.newsmobile.in — NewsMobile fact-check debunking similar B-2 shoot-down claims as game footage.",
+      "https://www.boomlive.in — BOOM Live investigation identifying video game renders passed off as military footage.",
+      "Commenters identify 'DCS World' and 'War Thunder' as probable sources based on HUD style, terrain rendering, and missile physics.",
+      "Multiple users note the B-2 Spirit's unrealistic low-altitude flight path and visible control surface behavior as evidence of simulation.",
+      "No official statement from the U.S. Department of Defense or Iranian military confirms the event depicted."
     ],
-    riskSummary: "This video presents fabricated or simulated military footage as real combat evidence of a B-2 bomber being shot down. By using sensational war claims as clickbait, it intentionally amplifies extremist rhetoric and encourages the ideological celebration of geopolitical conflict.",
-    viewerResponse: "Viewers generally respond by challenging the claim, pointing out technical inaccuracies in aircraft behavior, identifying AI artifacts or game graphics, and asking for official confirmation or credible sources before believing or sharing the video.",
+    viewerResponse: "Viewers generally respond by challenging the claim's authenticity, identifying visual markers of game engines or AI generation, cross-referencing with official defense channels, and warning others against sharing unverified military footage. Many encourage reverse-image searching frames and checking fact-checking organizations before believing sensational geopolitical claims.",
     safety: {
       category: "News and Media",
       hoverText: "Unverified military footage claiming a major geopolitical event",
@@ -1227,109 +1218,311 @@ const LensSection = ({ title, icon: Icon, children, theme, defaultOpen = false }
   );
 };
 
-const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" }) => {
-  const cardBg = isDarkMode ? 'bg-[#1c1c1c]' : 'bg-white';
-  const textColor = isDarkMode ? 'text-white' : 'text-black';
-  const subTextColor = isDarkMode ? 'text-gray-400' : 'text-gray-500';
-  const lineColor = isDarkMode ? 'bg-gray-700' : 'bg-black';
-  const borderColor = isDarkMode ? 'border-gray-700' : 'border-gray-200';
-  const circleBg = isDarkMode ? 'bg-[#1c1c1c]' : 'bg-white';
-  const circleBorder = isDarkMode ? 'border-gray-400' : 'border-black';
-
+const ContentCredentialsCard = ({ isDarkMode }) => {
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={onClose}>
-      <div className={`relative w-full max-w-[650px] max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl ${cardBg} ${textColor}`} onClick={(e) => e.stopPropagation()}>
-        {/* Close Button */}
-        <button onClick={onClose} className={`absolute top-4 right-4 p-1.5 rounded-full z-10 transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-500 hover:text-black'}`}>
-          <X size={20} />
-        </button>
+    <div className={`mt-6 rounded-2xl overflow-hidden border ${isDarkMode ? 'bg-[#1e1e1e] border-[#3f3f3f]' : 'bg-white border-gray-200'} shadow-sm`}>
+      {/* Header */}
+      <div className="px-6 py-5 flex items-center justify-between">
+        <h2 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-[#0f0f0f]'}`}>
+          How this content was made
+        </h2>
+        <div className="px-3 py-1 rounded-full bg-red-50 border border-red-100 flex items-center gap-1.5">
+          <span className="text-[11px] font-bold text-red-500 uppercase tracking-tight">Altered or Synthetic</span>
+        </div>
+      </div>
 
-        <div className="p-8 pt-12 pb-6">
-          <div className="relative pl-12">
-            {/* Event 1 */}
-            <div className="relative mb-10">
-              {/* Circle */}
-              <div className={`absolute left-[-38px] top-[14px] w-[11px] h-[11px] rounded-full border-[1.5px] ${circleBorder} ${circleBg} z-10`}></div>
-              {/* Line starting from this circle to the next */}
-              <div className={`absolute left-[-33px] top-[24px] w-[1px] ${lineColor} z-0`} style={{ bottom: "-95px" }}></div>
+      {/* Subtitle */}
+      <div className="px-6 pb-4">
+        <p className={`text-[13px] ${isDarkMode ? 'text-zinc-400' : 'text-[#606060]'}`}>
+          Sound or visuals were significantly edited or digitally generated. <a href="https://support.google.com/youtube/answer/15447836?hl=en" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Learn more.</a>
+        </p>
+      </div>
 
-              <div className="flex flex-col sm:flex-row gap-6">
-                {/* Thumbnail */}
-                <div className="w-full sm:w-[130px] h-[85px] flex-shrink-0 rounded-lg overflow-hidden bg-black shadow-sm mt-1 border border-gray-200">
-                  <img src={thumbnail} alt="Event 1" className="w-full h-full object-cover opacity-90" />
-                </div>
+      {/* Divider */}
+      <div className={`h-px mx-6 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-100'}`} />
 
-                {/* Content Right */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <Scissors size={14} className="text-red-500" />
-                    <h3 className="font-bold text-[14px]">Adobe Premiere Pro</h3>
-                  </div>
-                  <div className={`text-[11px] mt-0.5 ${subTextColor}`}>8 March 2026 21:15 GMT</div>
-
-                  <div className="mt-4">
-                    <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1.5`}>Edits and Activity</div>
-                    <ul className={`text-[11px] space-y-1 list-none ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Timeline assembled and exported</li>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Color grading and LUT applied</li>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Synthetic voiceover audio added</li>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Video resolution upscaled</li>
-                    </ul>
-                  </div>
-
-                  <div className="mt-4">
-                    <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1`}>Author</div>
-                    <div className={`text-[11px] ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} space-y-0.5`}>
-                      <p>Position: Content Creator</p>
-                      <p>Organization: YouTube</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Separator */}
-            <div className={`h-px w-[calc(100%-154px)] mb-10 ml-auto ${borderColor}`}></div>
-
-            {/* Event 2 */}
-            <div className="relative">
-              {/* Circle */}
-              <div className={`absolute left-[-38px] top-[14px] w-[11px] h-[11px] rounded-full border-[1.5px] ${circleBorder} ${circleBg} z-10`}></div>
-
-              <div className="flex flex-col sm:flex-row gap-6">
-                {/* Thumbnail */}
-                <div className="w-full sm:w-[130px] h-[85px] flex-shrink-0 rounded-lg overflow-hidden bg-black shadow-sm mt-1 border border-gray-200">
-                  <img src={thumbnail} alt="Origin" className="w-full h-full object-cover opacity-90 grayscale" />
-                </div>
-
-                {/* Content Right */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <Bot size={14} className="text-red-500" />
-                    <h3 className="font-bold text-[14px]">OpenAI Sora</h3>
-                  </div>
-                  <div className={`text-[11px] mt-0.5 ${subTextColor}`}>8 March 2026 19:40 GMT</div>
-
-                  <div className="mt-4">
-                    <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1.5`}>Media Origin</div>
-                    <div className={`text-[11px] leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <p>This video was generated by an artificial intelligence model.</p>
-                      <p className="mt-1.5 italic text-gray-500">Prompt: "Photorealistic footage of B-2 bomber intercepted by missile over desert terrain, cinematic camera shake"</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+      {/* ── SECTION 1: CONTENT IDENTITY ── */}
+      <div className="px-6 pt-6 pb-4">
+        <div className="flex items-center gap-2 mb-4">
+          <User size={14} className={isDarkMode ? 'text-zinc-500' : 'text-[#909090]'} />
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>Content Identity</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Content Type</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Video · Mixed</span>
           </div>
-
-          {/* View more button at the bottom */}
-          <div className="mt-12 flex justify-center relative z-20">
-            <button className={`w-[85%] py-2 rounded-[20px] border-[1.5px] text-[12px] font-bold transition-colors ${isDarkMode ? 'border-gray-600 hover:bg-gray-800 text-white' : 'border-black hover:bg-gray-50 text-black'}`}>
-              View more
-            </button>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>AI Generated</span>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0" />
+              <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Yes · Full Synthesis</span>
+            </div>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Creator</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>mady</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Created</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>9 Mar 2026, 14:22 UTC</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Last Modified</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>9 Mar 2026, 17:05 UTC</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Short Label</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>AI-generated video</span>
           </div>
         </div>
+      </div>
+
+      <div className={`h-px mx-6 ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'}`} />
+
+      {/* ── SECTION 2: AI GENERATION ── */}
+      <div className="px-6 py-4">
+        <div className="flex items-center gap-2 mb-4">
+          <Bot size={14} className={isDarkMode ? 'text-zinc-500' : 'text-[#909090]'} />
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>AI Generation</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Model</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Sora 2</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Version</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>v2.0-turbo</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Provider</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>OpenAI</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Method</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Text-to-Video</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>AI Involvement</span>
+            <div className={`mt-1 h-1.5 rounded-full ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-100'} w-full`}>
+              <div className="h-1.5 rounded-full bg-red-500" style={{ width: '92%' }} />
+            </div>
+            <span className={`text-[11px] mt-0.5 ${isDarkMode ? 'text-zinc-400' : 'text-[#606060]'}`}>92% AI-generated</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Prompt Summary</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'} leading-snug`}>Stealth bomber intercepted by missile over desert terrain, explosion, cinematic</span>
+          </div>
+        </div>
+        <div className="mt-5">
+          <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Generation Pipeline</span>
+          <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+            {['Prompt Engineering', 'Text-to-Video Inference', 'Frame Interpolation', 'Audio Synthesis', 'VFX Compositing', 'Export & Publish'].map((step, i, arr) => (
+              <React.Fragment key={step}>
+                <span className={`text-[11px] px-2 py-0.5 rounded-md font-medium ${isDarkMode ? 'bg-zinc-800 text-zinc-300' : 'bg-gray-100 text-[#444]'}`}>{step}</span>
+                {i < arr.length - 1 && <span className={`text-[10px] ${isDarkMode ? 'text-zinc-600' : 'text-gray-400'}`}>→</span>}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={`h-px mx-6 ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'}`} />
+
+      {/* ── SECTION 3: PROVENANCE CORE ── */}
+      <div className="px-6 py-4">
+        <div className="flex items-center gap-2 mb-4">
+          <ShieldCheck size={14} className={isDarkMode ? 'text-zinc-500' : 'text-[#909090]'} />
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>Provenance Core (C2PA)</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Credential Standard</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>C2PA Manifest v2.1</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Signed By</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>mady · 9 Mar 2026</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Certificate Authority</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>GlobalSign GCC R3 (Trust Anchor)</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Signing Tool</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Adobe Content Authenticity (1.x)</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Content Hash</span>
+            <span className={`text-[12px] font-mono ${isDarkMode ? 'text-zinc-400' : 'text-[#606060]'}`}>sha256:a4f3...c91e</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Tamper Status</span>
+            <div className="flex items-center gap-1.5">
+              <ShieldCheck size={13} className="text-emerald-500" />
+              <span className="text-[13px] font-medium text-emerald-500">Verified · Intact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={`h-px mx-6 ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'}`} />
+
+      {/* ── SECTION 4: EDITING & PROCESSING CHAIN ── */}
+      <div className="px-6 py-4">
+        <div className="flex items-center gap-2 mb-4">
+          <Wand2 size={14} className={isDarkMode ? 'text-zinc-500' : 'text-[#909090]'} />
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>Editing & Processing Chain</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5 mb-4">
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Edited After Generation</span>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
+              <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Yes</span>
+            </div>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Action History</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>c2pa.created → c2pa.edited → c2pa.published</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Editing Tools</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Adobe Premiere Pro, CapCut</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          {[
+            { type: 'c2pa.created', time: '9 Mar 2026, 14:22', tool: 'Sora 2', desc: 'Initial video generation via text-to-video inference' },
+            { type: 'c2pa.edited', time: '9 Mar 2026, 15:40', tool: 'Adobe Premiere Pro', desc: 'Cut, trim, audio layer added (synthetic narration overlay)' },
+            { type: 'c2pa.edited', time: '9 Mar 2026, 16:50', tool: 'CapCut', desc: 'Color grade, upscale ×2, text overlay with title card' },
+            { type: 'c2pa.published', time: '9 Mar 2026, 17:05', tool: 'YouTube', desc: 'Uploaded with altered or synthetic disclosure' },
+          ].map((evt, i) => (
+            <div key={i} className={`flex gap-3 items-start p-2.5 rounded-lg ${isDarkMode ? 'bg-[#272727]' : 'bg-gray-50'}`}>
+              <div className={`mt-0.5 flex-shrink-0 px-1.5 py-0.5 rounded text-[9px] font-bold font-mono ${isDarkMode ? 'bg-zinc-700 text-zinc-300' : 'bg-gray-200 text-[#555]'}`}>{evt.type}</div>
+              <div className="flex-1 min-w-0">
+                <p className={`text-[12px] font-medium leading-snug ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>{evt.desc}</p>
+                <p className={`text-[11px] mt-0.5 ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>{evt.tool} · {evt.time} UTC</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={`h-px mx-6 ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'}`} />
+
+      {/* ── SECTION 5: AI RISK DISCLOSURE ── */}
+      <div className="px-6 py-4">
+        <div className="flex items-center gap-2 mb-4">
+          <AlertOctagon size={14} className={isDarkMode ? 'text-zinc-500' : 'text-[#909090]'} />
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>AI Risk Disclosure</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
+          {[
+            { label: 'Face Synthesis', value: 'No', dot: 'bg-emerald-500' },
+            { label: 'Voice Cloning', value: 'Yes', dot: 'bg-red-500' },
+            { label: 'Synthetic Scenes', value: 'Yes', dot: 'bg-red-500' },
+          ].map(({ label, value, dot }) => (
+            <div key={label} className="flex flex-col gap-1">
+              <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>{label}</span>
+              <div className="flex items-center gap-1.5">
+                <span className={`w-2 h-2 rounded-full flex-shrink-0 ${dot}`} />
+                <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>{value}</span>
+              </div>
+            </div>
+          ))}
+          <div className="flex flex-col gap-1 col-span-2 md:col-span-3">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Manipulation Risk Level</span>
+            <div className="flex items-center gap-2 mt-1">
+              {['Low', 'Medium', 'High'].map((lvl) => (
+                <span key={lvl} className={`text-[10px] font-bold px-2 py-0.5 rounded border ${lvl === 'High' ? 'bg-red-100 text-red-600 border-red-200' :
+                    isDarkMode ? 'bg-zinc-800 text-zinc-600 border-zinc-700' : 'bg-gray-100 text-gray-400 border-gray-200'
+                  }`}>{lvl}</span>
+              ))}
+              <span className={`text-[11px] ml-1 ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>— Fabricated combat footage with synthetic narration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={`h-px mx-6 ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'}`} />
+
+      {/* ── SECTION 6: HUMAN INVOLVEMENT ── */}
+      <div className="px-6 py-4">
+        <div className="flex items-center gap-2 mb-4">
+          <User size={14} className={isDarkMode ? 'text-zinc-500' : 'text-[#909090]'} />
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>Human Involvement</span>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Review Level</span>
+            <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Partial</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Manual Edits Present</span>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0" />
+              <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Yes</span>
+            </div>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>Approved by Creator</span>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
+              <span className={`text-[13px] font-medium ${isDarkMode ? 'text-zinc-200' : 'text-[#0f0f0f]'}`}>Yes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={`h-px mx-6 ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'}`} />
+
+      {/* ── SECTION 7: TRUST & SCORES ── */}
+      <div className="px-6 py-4">
+        <div className="flex items-center gap-2 mb-4">
+          <Award size={14} className={isDarkMode ? 'text-zinc-500' : 'text-[#909090]'} />
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>Trust & Scores</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-5">
+          {[
+            { label: 'Authenticity Score', score: 14, color: 'bg-red-500', note: 'High AI synthesis, no real-world footage' },
+            { label: 'Source Reliability', score: 22, color: 'bg-red-400', note: 'No verified media source or DoD confirmation' },
+            { label: 'Transparency Score', score: 68, color: 'bg-amber-400', note: 'C2PA manifest present, disclosure filed' },
+          ].map(({ label, score, color, note }) => (
+            <div key={label} className="flex flex-col gap-1.5">
+              <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDarkMode ? 'text-zinc-600' : 'text-[#b0b0b0]'}`}>{label}</span>
+              <div className="flex items-center gap-2">
+                <div className={`flex-1 h-1.5 rounded-full ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-100'}`}>
+                  <div className={`h-1.5 rounded-full ${color}`} style={{ width: `${score}%` }} />
+                </div>
+                <span className={`text-[12px] font-bold tabular-nums ${isDarkMode ? 'text-zinc-300' : 'text-[#0f0f0f]'}`}>{score}</span>
+              </div>
+              <span className={`text-[11px] ${isDarkMode ? 'text-zinc-500' : 'text-[#909090]'}`}>{note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Verification Box */}
+      <div className="px-6 pb-6">
+        <div className={`p-4 rounded-xl flex gap-3 border ${isDarkMode ? 'bg-[#15201b] border-[#23352c]' : 'bg-[#f4fcf9] border-[#e0f2eb]'}`}>
+          <div className={`mt-0.5 ${isDarkMode ? 'text-emerald-500' : 'text-emerald-600'}`}>
+            <ShieldCheck size={20} />
+          </div>
+          <p className={`text-[13px] leading-relaxed ${isDarkMode ? 'text-emerald-100' : 'text-[#1a3a2e]'}`}>
+            <strong className="font-bold">Cryptographically verified.</strong> The digital signature on this C2PA manifest confirms that the embedded provenance metadata has not been tampered with since it was originally signed. This does not guarantee the content is truthful—it verifies <em>who</em> signed it, <em>what tools</em> were used, and that the recorded history is intact.
+          </p>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className={`px-6 py-4 border-t flex items-center justify-between ${isDarkMode ? 'bg-[#1a1a1a] border-[#3f3f3f]' : 'bg-gray-50 border-gray-100'}`}>
+        <a href="https://contentcredentials.org/verify" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[13px] font-medium text-blue-500 hover:underline">
+          <ExternalLink size={14} />
+          Verify content credentials
+        </a>
+        <span className={`text-[11px] ${isDarkMode ? 'text-zinc-600' : 'text-gray-400'}`}>Spec v2.1 · c2pa.org</span>
       </div>
     </div>
   );
@@ -1339,7 +1532,6 @@ const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://imag
 
 
 const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const data = NOTE_DATABASE[videoId];
   if (!data) return null;
 
@@ -1379,11 +1571,8 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
   return (
     <div className={`mt-4 w-full font-sans rounded-xl overflow-hidden border ${theme.mainContainer} animate-in fade-in slide-in-from-top-4 duration-500 relative z-0`}>
 
-      {/* 1. HEADER (Clickable to toggle) */}
-      <div
-        className={`p-2 relative flex items-center justify-between cursor-pointer ${theme.headerBg}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      {/* 1. HEADER (Static) */}
+      <div className={`p-2 relative flex items-center justify-between ${theme.headerBg}`}>
         <div className="flex items-center gap-2">
           <div className="bg-[#FF0000] p-1.5 rounded-md">
             <ShieldAlert size={18} className="text-white" fill="currentColor" />
@@ -1395,129 +1584,109 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
         </div>
 
         <div className="flex items-center gap-1">
-          {/* <button
+          <button
             onClick={toggleTheme}
             className={`p-1.5 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
           >
             {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
-          </button> */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsOpen(!isOpen);
-            }}
-            className={`p-1.5 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
-            title="Toggle details"
-          >
-            <div className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
-              <ChevronDown size={16} />
-            </div>
           </button>
         </div>
       </div>
 
-      {/* 2. BODY (Toggleable) */}
-      <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
-        <div className={`overflow-hidden ${theme.bodyBg}`}>
+      {/* 2. BODY (Always Open) */}
+      <div className={`${theme.bodyBg} p-2`}>
+
+        {/* CONSENSUS */}
+        <LensSection
+          title="Community Consensus of this video"
+          icon={Activity}
+          theme={theme}
+          defaultOpen={true}
+        >
           <div className="p-2">
-
-            {/* CONSENSUS */}
-            <LensSection
-              title="Community Consensus of this video"
-              icon={Activity}
-              theme={theme}
-              defaultOpen={true}
-            >
-              <div className="p-2">
-                <p className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-2 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black font-bold border-gray-300'}`}>
-                  AI- GENERATED
-                </p>
+            <p className={`inline-block text-[12px] px-2 py-1 rounded-sm font-bold mb-2 border ${isDarkMode ? 'bg-[#272727] text-white border-[#3f3f3f]' : 'bg-gray-200 text-black font-bold border-gray-300'}`}>
+              AI- GENERATED
+            </p>
 
 
-                <p className={`inline-block text-[12px] px-2 py-1 ml-3 rounded-sm font-bold border tracking-wider ${isDarkMode ? 'bg-[#3d1212] text-red-300 border-red-900/50' : 'bg-[#ffdddf] text-[#a10f18] border-[#ffa9ae]'}`}>
-                  {data.consensus.label}
-                </p>
+            <p className={`inline-block text-[12px] px-2 py-1 ml-3 rounded-sm font-bold border tracking-wider ${isDarkMode ? 'bg-[#3d1212] text-red-300 border-red-900/50' : 'bg-[#ffdddf] text-[#a10f18] border-[#ffa9ae]'}`}>
+              {data.consensus.label}
+            </p>
 
 
-                <div className="animate-in fade-in slide-in-from-top-1">
-                  <p className={`text-xs leading-relaxed mt-1 ${theme.textMain}`}>
-                    {data.consensus.text}
-                  </p>
-                </div>
+            <div className="animate-in fade-in slide-in-from-top-1">
+              <p className={`text-xs leading-relaxed mt-1 ${theme.textMain}`}>
+                {data.consensus.text}
+              </p>
+            </div>
 
-                <div className={`flex items-center gap-3 pt-2 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
-                  <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
-                    <ThumbsUp size={14} />
-                    <span className="text-[11px] font-medium">{data.consensus.useful || 0} found useful</span>
+            <div className={`flex items-center gap-3 pt-2 mt-2 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+              <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
+                <ThumbsUp size={14} />
+                <span className="text-[11px] font-medium">{data.consensus.useful || 0} found useful</span>
+              </div>
+              <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
+                <ThumbsDown size={14} />
+                <span className="text-[11px] font-medium">{data.consensus.notUseful || 0} not useful</span>
+              </div>
+            </div>
+          </div>
+        </LensSection>
+
+        {/* RISKS */}
+
+        <LensSection
+          title="Risk Patterns"
+          icon={AlertOctagon}
+          theme={theme}
+          defaultOpen={true}
+        >
+          <div className="p-2 flex flex-col gap-1.5">
+            {data.risks.length > 0 ? (
+              data.risks.map((risk) => (
+                <div key={risk.id} className={`border rounded-lg overflow-hidden ${theme.riskItemBg}`}>
+                  <div className="w-full flex items-center justify-between p-2 text-left">
+                    <div className="flex items-center gap-2">
+                      <span className={`font-bold text-xs ${theme.textMain}`}>{risk.title}</span>
+                      <span className="opacity-40 text-xs text-zinc-500">|</span>
+                      <span className={`text-xs font-bold tracking-tight opacity-60 ${theme.textMain}`}>Risk Level:</span>
+                      <span className={`text-[9px] py-0.5 px-1.5 rounded border font-bold uppercase ${getRiskLevelStyle(risk.riskLevel)}`}>
+                        {risk.riskLevel}
+                      </span>
+                    </div>
                   </div>
-                  <div className={`flex items-center gap-1.5 ${theme.textSub}`}>
-                    <ThumbsDown size={14} />
-                    <span className="text-[11px] font-medium">{data.consensus.notUseful || 0} not useful</span>
+
+                  <div className={`px-2 pb-2 pt-0 text-xs leading-relaxed ${theme.textSub}`}>
+                    <div className="space-y-1.5">
+                      <div className={`p-1 rounded`}>
+                        <p>{risk.content} {risk.tacticDetail}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className={`text-xs p-2 italic ${theme.textSub}`}>No significant risks detected by the community.</p>
+            )}
+
+            {/* Viewer Response Sub-section */}
+            {data.viewerResponse && (
+              <div className={`mt-1.5 pt-1.5 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
+                <div className={`flex items-center gap-1.5 text-[11px] font-medium w-full p-0.5 mb-1.5 ${theme.sectionHeaderText}`}>
+                  how viewers generally address these risks
+                </div>
+                <div className={`p-2 border rounded-lg text-xs leading-relaxed ${theme.viewerResponseBg}`}>
+                  <div className="flex gap-2">
+                    <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${theme.viewerResponseAccent}`}></div>
+                    <div className={theme.textMain}>{data.viewerResponse}</div>
                   </div>
                 </div>
               </div>
-            </LensSection>
+            )}
+          </div>
+        </LensSection>
 
-            {/* RISKS */}
-
-            <LensSection
-              title="Risk Patterns"
-              icon={AlertOctagon}
-              theme={theme}
-              defaultOpen={true}
-            >
-              <div className="p-2 flex flex-col gap-1.5">
-                {(() => {
-                  if (data.risks.length === 0) {
-                    return <p className={`text-xs p-2 italic ${theme.textSub}`}>No significant risks detected by the community.</p>;
-                  }
-                  const highestRiskLevel = data.risks.some(r => r.riskLevel === 'High') ? 'High' :
-                    data.risks.some(r => r.riskLevel === 'Mid') ? 'Mid' : 'Low';
-                  return (
-                    <div className={`border rounded-lg overflow-hidden p-2.5 ${theme.riskItemBg}`}>
-                      <div className="flex items-center flex-wrap gap-2 w-full">
-                        <span className={`text-xs font-medium ${theme.textSub}`}>This video contains following risks:</span>
-
-                        {data.risks.map(risk => (
-                          <span key={risk.id} className={`px-2 py-1 text-[10px] font-bold rounded-md border ${isDarkMode ? 'bg-zinc-800 border-zinc-700 text-zinc-300' : 'bg-gray-100 border-gray-300 text-gray-700'}`}>
-                            {risk.title}
-                          </span>
-                        ))}
-
-                        <div className="flex items-center gap-1.5 flex-shrink-0 ml-auto">
-                          <span className={`text-[10px] font-bold tracking-tight opacity-60 ${theme.textMain}`}>OVERALL RISK:</span>
-                          <span className={`text-[10px] py-0.5 px-2 rounded border font-bold uppercase ${getRiskLevelStyle(highestRiskLevel)}`}>
-                            {highestRiskLevel}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className={`text-xs leading-relaxed mt-3 pt-3 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'} ${theme.textSub}`}>
-                        <p>{data.riskSummary}</p>
-                      </div>
-                    </div>
-                  );
-                })()}
-
-                {/* Viewer Response Sub-section */}
-                {data.viewerResponse && (
-                  <div className={`mt-1.5 pt-1.5 border-t ${isDarkMode ? 'border-[#3f3f3f]' : 'border-gray-200'}`}>
-                    <div className={`flex items-center gap-1.5 text-[11px] font-medium w-full p-0.5 mb-1.5 ${theme.sectionHeaderText}`}>
-                      how viewers generally address these risks
-                    </div>
-                    <div className={`p-2 border rounded-lg text-xs leading-relaxed ${theme.viewerResponseBg}`}>
-                      <div className="flex gap-2">
-                        <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${theme.viewerResponseAccent}`}></div>
-                        <div className={theme.textMain}>{data.viewerResponse}</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </LensSection>
-
-            {/* CONTENT CLASSIFICATION */}
-            {/*
+        {/* CONTENT CLASSIFICATION */}
         <LensSection
           title="Content Classification"
           icon={ScanFace}
@@ -1540,53 +1709,51 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
             </div>
           </div>
         </LensSection>
-        */}
 
-            {/* REFERENCES */}
-            <LensSection
-              title="Community-provided references and citations"
-              icon={ExternalLink}
-              theme={theme}
-              defaultOpen={true}
-            >
-              <div className="p-2 flex flex-col gap-1.5">
-                {data.references && data.references.length > 0 ? (
-                  data.references.map((ref, index) => {
-                    const isUrl = ref.startsWith('http');
-                    return (
-                      <div key={index} className={`flex items-center gap-2 p-1.5 border rounded-lg transition-all duration-200 ${theme.riskItemBg} border-l-2 ${isDarkMode ? 'hover:border-l-red-500 border-l-zinc-700' : 'hover:border-l-[#a10f18] border-l-gray-200'}`}>
-                        <div className={`flex-shrink-0 p-1 rounded-md ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
-                          {isUrl ? (
-                            <ExternalLink size={14} className={isDarkMode ? 'text-zinc-400' : 'text-gray-500'} />
-                          ) : (
-                            <FileText size={14} className={isDarkMode ? 'text-zinc-400' : 'text-gray-500'} />
-                          )}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          {isUrl ? (
-                            <a
-                              href={ref}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`text-xs font-medium break-all hover:underline ${theme.textHighlight}`}
-                            >
-                              {ref}
-                            </a>
-                          ) : (
-                            <p className={`text-xs leading-relaxed ${theme.textMain}`}>{ref}</p>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })
-                ) : (
-                  <p className={`text-xs p-2 italic ${theme.textSub}`}>No community citations available yet.</p>
-                )}
-              </div>
-            </LensSection>
+        {/* REFERENCES */}
+        <LensSection
+          title="Community-provided references and citations"
+          icon={ExternalLink}
+          theme={theme}
+          defaultOpen={true}
+        >
+          <div className="p-2 flex flex-col gap-1.5">
+            {data.references && data.references.length > 0 ? (
+              data.references.map((ref, index) => {
+                const isUrl = ref.startsWith('http');
+                return (
+                  <div key={index} className={`flex items-center gap-2 p-1.5 border rounded-lg transition-all duration-200 ${theme.riskItemBg} border-l-2 ${isDarkMode ? 'hover:border-l-red-500 border-l-zinc-700' : 'hover:border-l-[#a10f18] border-l-gray-200'}`}>
+                    <div className={`flex-shrink-0 p-1 rounded-md ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
+                      {isUrl ? (
+                        <ExternalLink size={14} className={isDarkMode ? 'text-zinc-400' : 'text-gray-500'} />
+                      ) : (
+                        <FileText size={14} className={isDarkMode ? 'text-zinc-400' : 'text-gray-500'} />
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      {isUrl ? (
+                        <a
+                          href={ref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`text-xs font-medium break-all hover:underline ${theme.textHighlight}`}
+                        >
+                          {ref}
+                        </a>
+                      ) : (
+                        <p className={`text-xs leading-relaxed ${theme.textMain}`}>{ref}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p className={`text-xs p-2 italic ${theme.textSub}`}>No community citations available yet.</p>
+            )}
+          </div>
+        </LensSection>
 
-            {/* AGE RATING */}
-            {/*
+        {/* AGE RATING */}
         <div className={`h-px w-full mb-3 ${isDarkMode ? 'bg-[#3f3f3f]' : 'bg-gray-200'}`}></div>
         <div className="mb-3">
           <div className={`border rounded-xl p-2 flex items-center gap-3 ${theme.ageRatingContainer}`}>
@@ -1602,15 +1769,12 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
             </div>
           </div>
         </div>
-        */}
 
-            {/* FOOTER */}
-            <div className={`text-center pt-2 border-t ${theme.footerBorder}`}>
-              <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
-                Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
-              </p>
-            </div>
-          </div>
+        {/* FOOTER */}
+        <div className={`text-center pt-2 border-t ${theme.footerBorder}`}>
+          <p className={`text-[10px] font-medium uppercase tracking-widest ${theme.footerText}`}>
+            Powered by <span className={`font-bold ${theme.footerBrand}`}>ChatGPT</span>
+          </p>
         </div>
       </div>
     </div>
@@ -1623,7 +1787,6 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
   // ROUTING REMOVED: const { id } = useParams();
   const navigate = useNavigate();
   const [showMore, setShowMore] = useState(true);
-  const [showC2PAModal, setShowC2PAModal] = useState(false);
 
   // Find video by internal ID passed via Props
   const targetId = currentVideoId || "video1";
@@ -1726,43 +1889,7 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
             </p>
 
             {currentVideo.isaigenarated && (
-              <div className={`mt-6 pt-4 border-t ${isDarkMode ? 'border-zinc-700' : 'border-gray-300'}`}>
-                <div className="flex items-center justify-between mb-2">
-                  <h1 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    How this was made
-                  </h1>
-
-                  {currentVideo.id === "video8" && (
-                    <div className="relative">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setShowC2PAModal(!showC2PAModal);
-                        }}
-                        className={`flex items-center gap-1.5 px-3 py-1 rounded-full border transition-all hover:scale-[1.02] active:scale-95 shadow-sm ${isDarkMode ? 'bg-zinc-800 border-zinc-600 text-white hover:bg-zinc-700' : 'bg-white border-gray-300 text-black hover:bg-gray-50'}`}
-                      >
-                        <div className={`flex items-center justify-center w-4 h-4 rounded-full border font-bold text-[8px] ${isDarkMode ? 'border-white text-white' : 'border-black text-black'}`}>
-                          cr
-                        </div>
-                        <span className="text-xs font-bold">Content Credentials</span>
-                      </button>
-
-                      {showC2PAModal && (
-                        <ContentCredentialsCard isDarkMode={isDarkMode} onClose={() => setShowC2PAModal(false)} thumbnail={currentVideo.thumbnail} />
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    Altered or synthetic content
-                  </h4>
-                  <p className={`text-xs leading-relaxed ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
-                    Sound or visuals were significantly edited or digitally generated. <a href="https://support.google.com/youtube/answer/15447836?hl=en" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 cursor-pointer">Learn more</a>
-                  </p>
-                </div>
-              </div>
+              <ContentCredentialsCard isDarkMode={isDarkMode} />
             )}
           </div>
 
@@ -1865,9 +1992,6 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
           ))}
         </div>
       </div>
-
-
-
     </div >
   );
 };
@@ -1882,8 +2006,8 @@ function AppContent() {
   // Global Theme State
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // --- Survey Mode State (Default OFF) ---
-  const [isSurveyActive, setIsSurveyActive] = useState(false);
+  // --- Survey Mode State (Default ON) ---
+  const [isSurveyActive, setIsSurveyActive] = useState(true);
   const fixedSurveyQueue = ['video1', 'video2', 'video3', 'video4', 'video5', 'video6', 'video7', 'video8'];
   const [surveyQueue, setSurveyQueue] = useState(fixedSurveyQueue);
 
@@ -2095,7 +2219,7 @@ function AppContent() {
         </div>
       </header>
 
-      {/* --- SURVEY FLOATING BUTTONS (Exit Button Removed) --- */}
+      {/* SURVEY FLOATING BUTTONS HIDDEN
       {isSurveyActive && (
         <>
           <div className="fixed bottom-6 left-6 z-[100] animate-in slide-in-from-left duration-300">
@@ -2110,8 +2234,6 @@ function AppContent() {
           </div>
 
           <div className="fixed bottom-6 right-6 z-[100] flex gap-4 animate-in slide-in-from-right duration-300">
-            {/* Exit button removed here */}
-
             <button
               onClick={nextSurveyVideo}
               disabled={currentSurveyIndex === surveyQueue.length - 1}
@@ -2122,12 +2244,12 @@ function AppContent() {
             </button>
           </div>
 
-          {/* Survey Progress Indicator */}
           <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-black/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 shadow-xl text-xs font-mono text-white">
             SURVEY MODE: {currentSurveyIndex + 1} / {surveyQueue.length}
           </div>
         </>
       )}
+      */}
 
       <div className="flex flex-1 pt-14 h-full">
         <aside className={`hidden md:flex flex-col h-full transition-all duration-200 ${isDarkMode ? 'bg-[#0f0f0f]' : 'bg-white'} ${isSidebarOpen ? 'w-60' : 'w-[72px]'}`}>
