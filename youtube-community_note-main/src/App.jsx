@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
+import { db } from './firebase';
+import { doc, getDoc, setDoc, serverTimestamp, increment } from 'firebase/firestore';
 import {
   Menu, Search, Mic, Bell, Video, Home, Compass,
   PlaySquare, Clock, ThumbsUp, ThumbsDown, Share2,
@@ -10,8 +12,10 @@ import {
   Activity, Eye, Mic2, CheckCircle2, Download, Scissors, ListPlus,
   AlertOctagon, Info, Trash2, Maximize2, Minimize2, Sun, Moon,
   ArrowLeft, ArrowRight, PlayCircle, XCircle, ClipboardList, Bot,
-  FileText, Link2, Quote, User, Wand2, List, Award, ShieldCheck
+  FileText, Link2, Quote, User, Wand2, List, Award, ShieldCheck,
+  Lock, Fingerprint, Layers, BarChart3
 } from 'lucide-react';
+import AnalysisResultPage from './components/AnalysisResultPage';
 
 
 const CSV_DATA = {
@@ -359,7 +363,7 @@ const CSV_DATA = {
     ]
   },
   "-UBaW1OIgTo": {
-    "description": "How will Humanity look in 400 Years? This exciting time-lapse of our future produced entirely by Artificially Intelligent Concept Futurists tells us exactly how. \n\n#artificialintelligence \n#science \n#scifi \n#humanevolutionproject\n#evolutiongame\n#stablediffusion \n#aihumanevolution\n#chatgpt \n#notoaiart\n#joerogan \n#joeroganexperience \n#shorts \n#funny \n#lexfridman \n#openai \n#deepmind \n#aws \n#airesearch\n#asmr \n#aiart\n#españa \n#english \n\nContents\n\n0:00 The Reckoning - Year 2040\n0:55 The Retreat - Year 2100 \n1:16 The Return - Year 2200\n1:44 The Recreation - Year 2250\n2:15 The Restart - Year 2400 \n\nIf you enjoyed this video and would like to collaborate, email us at:\narcadiafoundry@gmail.com\n\nIf you found this video intellectually stimulating, then check out some inspirations for this video:\n \nTed Talks: @TEDx \nAi-Da House of Lords Inquiry: • AI robot Ai-Da gives evidence to a House o... \nSpaceX: @SpaceX \nNASA: @NASA \nTim Holman on Generative Art: • Tim Holman - Generative Art Speedrun \nMatt DesLauriers on Generative Machines: • Generative Machines with Matt DesLauriers \nAitrepreneur on AI Art: @Aitrepreneur \nMattVidPro on AI Art: @MattVidPro \n \n\nAnd special thanks to @EonSound for providing us with our Royalty-Free Sci-fi Cyberpunk Soundtrack.",
+    "description": "How will Humanity look in 400 Years? This exciting time-lapse of our future produced entirely by Artificially Intelligent Concept Futurists tells us exactly how. \n\n#artificialintelligence #science #scifi #humanevolutionproject#evolutiongame#stablediffusion #aihumanevolution#chatgpt #notoaiart#joerogan \n#joeroganexperience #shorts #funny #lexfridman #openai #deepmind #aws #airesearch#asmr #aiart #españa #english \nIf you enjoyed this video and would like to collaborate, email us at:\narcadiafoundry@gmail.com",
     "comments": [
       "So cool ! We really need to rethink our ways",
       "Looks like AI got its future plots from every sci-fi movie",
@@ -561,7 +565,7 @@ const VIDEO_DB = [
   { id: "video6", ytId: "n2muvB3NGZc", title: "New video shows previous clash between Pretti and federal agents", channel: "CNN", views: "248K", uploadedAt: "2 weeks ago", likes: "2.7K", subscribers: "19.1M", duration: "10:03", isaigenarated: false },
   { id: "video7", ytId: "-Sv9YjU0fRE", title: "Hacker who donated $4 Billions to Palestine & Africa!", channel: "The Knowledge Nexus", views: "154", uploadedAt: "1 year ago", likes: "14", subscribers: "79", duration: "2:49", isaigenarated: false },
   { id: "video5", ytId: "hoTBQC5XVSU", title: "BREAKING: Piyush Goyal Reveals New Government-Backed Investment Platform QuantumAI 🇮🇳", channel: "CCN NEWS", views: "56K", uploadedAt: "4 hours ago", likes: "200", subscribers: "5K", duration: "1:47", isaigenarated: false },
-  { id: "video13", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline", views: "8.9M", uploadedAt: "2 years ago", likes: "300K", subscribers: "2.5M", duration: "15:20", isaigenarated: false },
+  { id: "video13", ytId: "-UBaW1OIgTo", title: "THE FUTURE OF HUMANITY: A.I Predicts 400 Years", channel: "Future Timeline", views: "8.9M", uploadedAt: "2 years ago", likes: "300K", subscribers: "2.5M", duration: "15:20", isaigenarated: true },
   { id: "video3", ytId: "DY5vnaCx_KE", title: "A Time Traveler's VLOG | Google VEO 3 AI Short Film + Assets Available", channel: "Uisato", views: "215K", uploadedAt: "8 months ago", likes: "4.4K", subscribers: "11.2K", duration: "1.46", isaigenarated: false },
   { id: "video8", ytId: "hfuYpYpwgDI", title: "Iran shot down America's proud B-2 bomber in one hit...", channel: "Muhammed Faisal", views: "215K", uploadedAt: "1 month ago", likes: "4.4K", subscribers: "11.2K", duration: "0.31", isaigenarated: true }
 
@@ -1227,7 +1231,8 @@ const LensSection = ({ title, icon: Icon, children, theme, defaultOpen = false }
   );
 };
 
-const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" }) => {
+const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop", videoId }) => {
+  const [expanded, setExpanded] = useState(false);
   const cardBg = isDarkMode ? 'bg-[#1c1c1c]' : 'bg-white';
   const textColor = isDarkMode ? 'text-white' : 'text-black';
   const subTextColor = isDarkMode ? 'text-gray-400' : 'text-gray-500';
@@ -1237,47 +1242,68 @@ const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://imag
   const circleBorder = isDarkMode ? 'border-gray-400' : 'border-black';
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={onClose}>
-      <div className={`relative w-full max-w-[650px] max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl ${cardBg} ${textColor}`} onClick={(e) => e.stopPropagation()}>
-        {/* Close Button */}
-        <button onClick={onClose} className={`absolute top-4 right-4 p-1.5 rounded-full z-10 transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-500 hover:text-black'}`}>
-          <X size={20} />
+    <div id="training-c2pa-overlay" className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={onClose}>
+      <div id="training-c2pa-modal" className={`relative w-full max-w-[480px] rounded-2xl shadow-2xl transition-all duration-300 flex flex-col overflow-hidden ${expanded ? 'max-h-[92vh]' : 'max-h-[440px]'} ${cardBg} ${textColor}`} onClick={(e) => e.stopPropagation()}>
+        {/* Sticky Close Button */}
+        <button onClick={onClose} className={`sticky top-0 self-end p-1.5 m-2 mb-0 rounded-full z-20 flex-shrink-0 transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-gray-400 hover:text-white' : 'hover:bg-gray-100 text-gray-500 hover:text-black'}`}>
+          <X size={18} />
         </button>
 
-        <div className="p-8 pt-12 pb-6">
+        <div className="overflow-y-auto flex-1 px-8 pb-6 -mt-4 rounded-b-2xl custom-scrollbar">
+          <style>{`
+            .custom-scrollbar::-webkit-scrollbar {
+              width: 6px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+              background: ${isDarkMode ? '#3f3f3f' : '#e5e7eb'};
+              border-radius: 10px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+              background: ${isDarkMode ? '#4f4f4f' : '#d1d5db'};
+            }
+          `}</style>
           <div className="relative pl-12">
-            {/* Event 1 */}
+
+            {/* Section 1: ASSERTION LAYER */}
             <div className="relative mb-10">
-              {/* Circle */}
               <div className={`absolute left-[-38px] top-[14px] w-[11px] h-[11px] rounded-full border-[1.5px] ${circleBorder} ${circleBg} z-10`}></div>
-              {/* Line starting from this circle to the next */}
               <div className={`absolute left-[-33px] top-[24px] w-[1px] ${lineColor} z-0`} style={{ bottom: "-95px" }}></div>
 
               <div className="flex flex-col sm:flex-row gap-6">
-                {/* Thumbnail */}
                 <div className="w-full sm:w-[130px] h-[85px] flex-shrink-0 rounded-lg overflow-hidden bg-black shadow-sm mt-1 border border-gray-200">
-                  <img src={thumbnail} alt="Event 1" className="w-full h-full object-cover opacity-90" />
+                  <img src={thumbnail} alt="Assertion" className="w-full h-full object-cover opacity-90" />
                 </div>
-
-                {/* Content Right */}
                 <div className="flex-1">
+
                   <div className="flex items-center gap-2">
                     <Scissors size={14} className="text-red-500" />
-                    <h3 className="font-bold text-[14px]">Adobe Premiere Pro</h3>
+                    <h3 className="font-bold text-[14px]">{videoId === "video13" ? "Stable Diffusion / ChatGPT" : "Adobe Premiere Pro"}</h3>
                   </div>
-                  <div className={`text-[11px] mt-0.5 ${subTextColor}`}>8 March 2026 21:15 GMT</div>
+                  <div className={`text-[11px] mt-0.5 ${subTextColor}`}>9 Mar 2026, 15:40 UTC</div>
 
-                  <div className="mt-4">
+                  <div className="mt-3">
                     <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1.5`}>Edits and Activity</div>
                     <ul className={`text-[11px] space-y-1 list-none ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Timeline assembled and exported</li>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Color grading and LUT applied</li>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Synthetic voiceover audio added</li>
-                      <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Video resolution upscaled</li>
+                      {videoId === "video13" ? (
+                        <>
+                          <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> AI Image Generation (Stable Diffusion)</li>
+                          <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> AI Script & Concept (ChatGPT)</li>
+                          <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> AI Voiceover Generation</li>
+                        </>
+                      ) : (
+                        <>
+                          <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Cut, trim, audio layer added (synthetic narration)</li>
+                          <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Color grade, upscale ×2, text overlay with title card</li>
+                          <li className="flex gap-1.5 items-start"><span className="text-[10px] mt-px">•</span> Uploaded with altered or synthetic disclosure</li>
+                        </>
+                      )}
                     </ul>
                   </div>
 
-                  <div className="mt-4">
+                  <div className="mt-3">
                     <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1`}>Author</div>
                     <div className={`text-[11px] ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} space-y-0.5`}>
                       <p>Position: Content Creator</p>
@@ -1288,33 +1314,87 @@ const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://imag
               </div>
             </div>
 
-            {/* Separator */}
-            <div className={`h-px w-[calc(100%-154px)] mb-10 ml-auto ${borderColor}`}></div>
+            {/* Separator 1 */}
+            <div className={`h-px w-[calc(100%-50px)] mb-10 ml-auto ${borderColor}`}></div>
 
-            {/* Event 2 */}
+            {/* Section 2: SIGNATURE LAYER */}
+            <div className="relative mb-10">
+              <div className={`absolute left-[-38px] top-[14px] w-[11px] h-[11px] rounded-full border-[1.5px] ${circleBorder} ${circleBg} z-10`}></div>
+              <div className={`absolute left-[-33px] top-[24px] w-[1px] ${lineColor} z-0`} style={{ bottom: "-95px" }}></div>
+
+              <div className="flex flex-col sm:flex-row gap-6">
+                <div className="w-full sm:w-[130px] h-[85px] flex-shrink-0 rounded-lg overflow-hidden bg-black shadow-sm mt-1 border border-gray-200">
+                  <img src={thumbnail} alt="Signature" className="w-full h-full object-cover opacity-70 sepia" />
+                </div>
+                <div className="flex-1">
+
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck size={14} className="text-green-500" />
+                    <h3 className="font-bold text-[14px]">Adobe Content Authenticity</h3>
+                  </div>
+                  <div className={`text-[11px] mt-0.5 ${subTextColor}`}>9 Mar 2026 · Signed by mady</div>
+
+                  <div className="mt-3">
+                    <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1.5`}>Provenance & Signature</div>
+                    <div className={`text-[11px] ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} space-y-1.5`}>
+                      <p>Standard: C2PA Manifest v2.1</p>
+                      <p>Certificate: GlobalSign GCC R3 (Trust Anchor)</p>
+                      <p>Hash: <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'}`}>sha256:c4f3...c91e</span></p>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <CheckCircle2 size={12} className="text-green-500" />
+                        <span className="text-green-500 font-semibold text-[11px]">Verified · Intact</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Separator 2 */}
+            <div className={`h-px w-[calc(100%-50px)] mb-10 ml-auto ${borderColor}`}></div>
+
+            {/* Section 3: VALIDATION LAYER */}
             <div className="relative">
-              {/* Circle */}
               <div className={`absolute left-[-38px] top-[14px] w-[11px] h-[11px] rounded-full border-[1.5px] ${circleBorder} ${circleBg} z-10`}></div>
 
               <div className="flex flex-col sm:flex-row gap-6">
-                {/* Thumbnail */}
                 <div className="w-full sm:w-[130px] h-[85px] flex-shrink-0 rounded-lg overflow-hidden bg-black shadow-sm mt-1 border border-gray-200">
-                  <img src={thumbnail} alt="Origin" className="w-full h-full object-cover opacity-90 grayscale" />
+                  <img src={thumbnail} alt="Validation" className="w-full h-full object-cover opacity-90 grayscale" />
                 </div>
-
-                {/* Content Right */}
                 <div className="flex-1">
+
                   <div className="flex items-center gap-2">
                     <Bot size={14} className="text-red-500" />
-                    <h3 className="font-bold text-[14px]">OpenAI Sora</h3>
+                    <h3 className="font-bold text-[14px]">OpenAI Sora 2</h3>
                   </div>
-                  <div className={`text-[11px] mt-0.5 ${subTextColor}`}>8 March 2026 19:40 GMT</div>
+                  <div className={`text-[11px] mt-0.5 ${subTextColor}`}>9 Mar 2026, 14:22 UTC</div>
 
-                  <div className="mt-4">
+                  <div className="mt-3">
                     <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1.5`}>Media Origin</div>
                     <div className={`text-[11px] leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                      <p>This video was generated by an artificial intelligence model.</p>
-                      <p className="mt-1.5 italic text-gray-500">Prompt: "Photorealistic footage of B-2 bomber intercepted by missile over desert terrain, cinematic camera shake"</p>
+                      <p>This video was generated by an AI model (v2.0-turbo, Text-to-Video).</p>
+                      <p className="mt-1.5 italic text-gray-500">Prompt: "Stealth bomber intercepted by missile over desert terrain, explosion, cinematic"</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-3">
+                    <div className={`text-[10px] font-bold uppercase tracking-wider ${textColor} mb-1.5`}>Trust Scores</div>
+                    <div className="space-y-2">
+                      {[
+                        { label: 'Authenticity', score: 14, color: 'bg-red-500' },
+                        { label: 'Source Reliability', score: 22, color: 'bg-orange-500' },
+                        { label: 'Transparency', score: 68, color: 'bg-green-500' },
+                      ].map(item => (
+                        <div key={item.label}>
+                          <div className="flex items-center justify-between mb-0.5">
+                            <span className={`text-[10px] ${subTextColor}`}>{item.label}</span>
+                            <span className={`text-[10px] font-bold ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>{item.score}/100</span>
+                          </div>
+                          <div className={`w-full h-1.5 rounded-full overflow-hidden ${isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-200'}`}>
+                            <div className={`h-full rounded-full ${item.color}`} style={{ width: `${item.score}%` }}></div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -1322,13 +1402,16 @@ const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://imag
             </div>
 
           </div>
+        </div>
 
-          {/* View more button at the bottom */}
-          <div className="mt-12 flex justify-center relative z-20">
-            <button className={`w-[85%] py-2 rounded-[20px] border-[1.5px] text-[12px] font-bold transition-colors ${isDarkMode ? 'border-gray-600 hover:bg-gray-800 text-white' : 'border-black hover:bg-gray-50 text-black'}`}>
-              View more
-            </button>
-          </div>
+        {/* Sticky Footer with View more / Show less button */}
+        <div className={`sticky bottom-0 w-full flex justify-center py-4 z-30 border-t ${borderColor} ${cardBg}`}>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className={`w-[85%] py-2 rounded-[25px] border-[1.5px] text-[12px] font-bold transition-all duration-300 ${isDarkMode ? 'border-gray-600 hover:bg-gray-800 text-white' : 'border-black hover:bg-gray-50 text-black'} active:scale-95`}
+          >
+            {expanded ? 'Show less' : 'View more'}
+          </button>
         </div>
       </div>
     </div>
@@ -1338,8 +1421,18 @@ const ContentCredentialsCard = ({ isDarkMode, onClose, thumbnail = "https://imag
 // --- COMMUNITY LENS TOOL UI  ---
 
 
-const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme, initialOpen = false, activeTrainingStep }) => {
+  const [isOpen, setIsOpen] = useState(initialOpen);
+
+  useEffect(() => {
+    // Step 6 (index 5) is Detailed Breakdown
+    if (activeTrainingStep === 5) {
+      setIsOpen(true);
+    } else if (activeTrainingStep !== undefined && activeTrainingStep < 5) {
+      // Keep it closed for earlier steps if in training mode
+      setIsOpen(false);
+    }
+  }, [activeTrainingStep]);
   const data = NOTE_DATABASE[videoId];
   if (!data) return null;
 
@@ -1354,7 +1447,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
     cardBorder: isDarkMode ? 'border-[#3f3f3f] bg-[#0f0f0f]' : 'border-gray-300 bg-gray-50',
     sectionHeaderBg: isDarkMode ? 'bg-[#3d1212]' : 'bg-[#ffdddf]',
     sectionHeaderText: isDarkMode ? 'text-red-300' : 'text-[#a10f18]',
-    riskItemBg: isDarkMode ? 'bg-[#1e1e1e] border-[#3f3f3f] hover:bg-[#2a2a2a]' : 'bg-white border-gray-200 hover:bg-gray-100',
+    riskItemBg: isDarkMode ? 'bg-[#1e1e1e] border-[#3f3f3f]' : 'bg-white border-gray-200',
     viewerResponseBg: isDarkMode ? 'bg-[#1a1a1a] border-[#3f3f3f]' : 'bg-white border-gray-200',
     viewerResponseAccent: isDarkMode ? 'bg-red-900' : 'bg-[#ffdddf]',
     riskHigh: isDarkMode ? 'bg-red-900/50 text-red-200 border-red-800' : 'bg-red-100 text-red-700 border-red-200',
@@ -1381,6 +1474,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
 
       {/* 1. HEADER (Clickable to toggle) */}
       <div
+        id="training-community-lens-header"
         className={`p-2 relative flex items-center justify-between cursor-pointer ${theme.headerBg}`}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -1395,12 +1489,6 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
         </div>
 
         <div className="flex items-center gap-1">
-          {/* <button
-            onClick={toggleTheme}
-            className={`p-1.5 rounded-full transition-colors ${isDarkMode ? 'hover:bg-[#3f3f3f] text-[#f1f1f1]' : 'hover:bg-gray-200 text-gray-600'}`}
-          >
-            {isDarkMode ? <Sun size={14} /> : <Moon size={14} />}
-          </button> */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -1417,7 +1505,7 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
       </div>
 
       {/* 2. BODY (Toggleable) */}
-      <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+      <div id="training-community-lens-details" className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
         <div className={`overflow-hidden ${theme.bodyBg}`}>
           <div className="p-2">
 
@@ -1617,9 +1705,406 @@ const CommunityLensUI = ({ videoId, isDarkMode, toggleTheme }) => {
   );
 };
 
+// --- Analytics Hook ---
+const useAnalytics = (videoId, isModalOpen = false) => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  
+  let pid = null;
+  for (const [key, value] of params.entries()) {
+    const lowerKey = key.toLowerCase();
+    if (lowerKey === 'prolific_pid' || lowerKey === 'prolofic_pid' || lowerKey === 'uid') {
+      pid = value;
+      break;
+    }
+  }
+  
+  if (!pid && location.search.includes('PID?')) {
+    const match = location.search.match(/PID\?([^&]+)/);
+    if (match) pid = match[1];
+  }
+
+  const analyticsData = React.useRef({
+    'training-video': { viewTimeMs: 0, hoverTimeMs: 0, clicks: 0, revisitCount: 0, firstSeenTimeSec: null, firstClickTimeSec: null },
+    'training-user-data': { viewTimeMs: 0, hoverTimeMs: 0, clicks: 0, revisitCount: 0, firstSeenTimeSec: null, firstClickTimeSec: null },
+    'training-platform-data': { viewTimeMs: 0, hoverTimeMs: 0, clicks: 0, revisitCount: 0, firstSeenTimeSec: null, firstClickTimeSec: null },
+    'training-community-tool': { viewTimeMs: 0, hoverTimeMs: 0, clicks: 0, revisitCount: 0, firstSeenTimeSec: null, firstClickTimeSec: null },
+    'training-comments': { viewTimeMs: 0, hoverTimeMs: 0, clicks: 0, revisitCount: 0, firstSeenTimeSec: null, firstClickTimeSec: null },
+    'training-c2pa-button': { viewTimeMs: 0, hoverTimeMs: 0, clicks: 0, revisitCount: 0, firstSeenTimeSec: null, firstClickTimeSec: null },
+  });
+  // Tracks whether an element was actively intersecting *before* a pause.
+  // Used to correctly resume without counting re-entries as revisits.
+  const wasIntersectingBeforePause = React.useRef({});
+
+  const activeIntersections = React.useRef({});
+  const activeHovers = React.useRef({});
+  const pausedIntersections = React.useRef(null);
+  const pausedHovers = React.useRef(null);
+  const isModalOpenRef = React.useRef(isModalOpen);
+  const lastSavedDataStr = React.useRef(null);
+  
+  // Track start time for offset calculations
+  const sessionStartTimeMs = React.useRef(Date.now());
+  
+  // Track total active time
+  const totalActiveTimeMs = React.useRef(0);
+  const lastActiveTickMs = React.useRef(Date.now());
+  
+  // Track scroll speed
+  const totalScrollPixels = React.useRef(0);
+  const lastScrollPos = React.useRef(0);
+
+  const saveToFirebase = React.useCallback(async (forceSave = false) => {
+    if (!pid || !videoId) return;
+
+    // Prevent background interval from spamming Firebase when the tab is hidden!
+    if (document.visibilityState === 'hidden' && forceSave !== true) return;
+
+    const KEY_MAPPING = {
+      'training-video': 'video',
+      'training-user-data': 'Creator-driven indicators',
+      'training-platform-data': 'platform-provided indicators',
+      'training-community-tool': 'communitylens',
+      'training-comments': 'user comments',
+      'training-c2pa-button': 'c2pa design'
+    };
+
+    const now = Date.now();
+    const finalData = {};
+    Object.keys(analyticsData.current).forEach(id => {
+      const mappedKey = KEY_MAPPING[id] || id.replace('training-', '');
+      
+      let currentViewTimeMs = analyticsData.current[id].viewTimeMs;
+      if (activeIntersections.current && activeIntersections.current[id]) {
+        currentViewTimeMs += (now - activeIntersections.current[id]);
+      }
+      
+      let currentHoverTimeMs = analyticsData.current[id].hoverTimeMs;
+      if (activeHovers.current && activeHovers.current[id]) {
+        currentHoverTimeMs += (now - activeHovers.current[id]);
+      }
+
+      finalData[mappedKey] = {
+        viewTimeSec: Math.round(currentViewTimeMs / 1000),
+        hoverTimeSec: Math.round(currentHoverTimeMs / 1000),
+        clicks: analyticsData.current[id].clicks,
+        revisitCount: analyticsData.current[id].revisitCount,
+        firstSeenTimeSec: analyticsData.current[id].firstSeenTimeSec,
+        firstClickTimeSec: analyticsData.current[id].firstClickTimeSec
+      };
+    });
+
+    let currentTotalActiveMs = totalActiveTimeMs.current;
+    if (document.visibilityState === 'visible' && !isModalOpenRef.current && pausedIntersections.current === null) {
+      if (lastActiveTickMs.current) {
+        currentTotalActiveMs += (now - lastActiveTickMs.current);
+      }
+    }
+    const activeSecs = Math.max(1, currentTotalActiveMs / 1000);
+    const avgScroll = Math.round(totalScrollPixels.current / activeSecs);
+
+    const payloadStr = JSON.stringify({ analytics: finalData, totalActiveSessionTimeSec: Math.round(activeSecs), averageScrollSpeedPxPerSec: avgScroll });
+    if (!forceSave && payloadStr === lastSavedDataStr.current) {
+      return; // Skip write if data is exactly the same (dirty check)
+    }
+
+    try {
+      const docRef = doc(db, 'users analytical data', pid, 'videos', videoId);
+      
+      await setDoc(docRef, { 
+        analytics: finalData,
+        totalActiveSessionTimeSec: Math.round(activeSecs),
+        averageScrollSpeedPxPerSec: Math.round(totalScrollPixels.current / activeSecs),
+        writeCount: increment(1)
+      }, { merge: true });
+      console.log("Analytics saved successfully:", finalData);
+    } catch (error) {
+      console.error("Error saving analytics:", error);
+    }
+  }, [pid, videoId]);
+
+  const pauseTracking = React.useCallback(() => {
+    if (pausedIntersections.current !== null) return; // Already paused
+    
+    const now = Date.now();
+    pausedIntersections.current = { ...activeIntersections.current };
+    pausedHovers.current = { ...activeHovers.current };
+
+    Object.keys(activeIntersections.current).forEach(id => {
+      if (activeIntersections.current[id]) {
+        analyticsData.current[id].viewTimeMs += (now - activeIntersections.current[id]);
+        // Remember which elements were actively being tracked when we paused
+        wasIntersectingBeforePause.current[id] = true;
+        activeIntersections.current[id] = null;
+      } else {
+        wasIntersectingBeforePause.current[id] = false;
+      }
+    });
+    Object.keys(activeHovers.current).forEach(id => {
+      if (activeHovers.current[id]) {
+        analyticsData.current[id].hoverTimeMs += (now - activeHovers.current[id]);
+        activeHovers.current[id] = null;
+      }
+    });
+    
+    totalActiveTimeMs.current += (now - lastActiveTickMs.current);
+    lastActiveTickMs.current = now;
+
+    saveToFirebase(true); // Force a save to record the paused state
+  }, [saveToFirebase]);
+
+  const resumeTracking = React.useCallback(() => {
+    if (pausedIntersections.current === null) return; // Already running
+    if (document.visibilityState === 'hidden' || isModalOpenRef.current) return; // Cannot resume if still hidden/blocked
+    
+    lastActiveTickMs.current = Date.now();
+    
+    if (pausedIntersections.current) {
+      Object.keys(pausedIntersections.current).forEach(id => {
+        // Only resume if the element was actually being tracked before the pause
+        if (wasIntersectingBeforePause.current[id]) {
+          activeIntersections.current[id] = Date.now();
+        }
+      });
+    }
+    if (pausedHovers.current) {
+      Object.keys(pausedHovers.current).forEach(id => {
+        if (pausedHovers.current[id]) activeHovers.current[id] = Date.now();
+      });
+    }
+    pausedIntersections.current = null;
+    pausedHovers.current = null;
+  }, []);
+
+  // Update modal ref and pause/resume logic
+  React.useEffect(() => {
+    isModalOpenRef.current = isModalOpen;
+    if (isModalOpen) {
+      pauseTracking();
+      // Specifically start tracking view time for the C2PA modal since it's the only thing visible
+      activeIntersections.current['training-c2pa-button'] = Date.now();
+    } else {
+      // Finalize tracking for the C2PA modal
+      if (activeIntersections.current['training-c2pa-button']) {
+        analyticsData.current['training-c2pa-button'].viewTimeMs += (Date.now() - activeIntersections.current['training-c2pa-button']);
+        activeIntersections.current['training-c2pa-button'] = null;
+      }
+      resumeTracking();
+    }
+  }, [isModalOpen, pauseTracking, resumeTracking]);
+
+  React.useEffect(() => {
+    if (!pid || !videoId) return;
+
+    // Immediately trigger an initial save so 0-value fields appear in Firebase right away
+    saveToFirebase();
+
+    const observer = new IntersectionObserver((entries) => {
+      if (isModalOpenRef.current || document.visibilityState === 'hidden') return;
+
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        if (!analyticsData.current[id]) return;
+
+        // Use 20% for normal elements, but >0% for the comments since it's very long
+        const requiredThreshold = id === 'training-comments' ? 0 : 0.2;
+
+        if (entry.isIntersecting && entry.intersectionRatio >= requiredThreshold) {
+          if (id === 'training-c2pa-button') {
+            if (analyticsData.current[id].firstSeenTimeSec === null) {
+              analyticsData.current[id].firstSeenTimeSec = Math.round((Date.now() - sessionStartTimeMs.current) / 1000);
+              analyticsData.current[id].revisitCount = 1;
+            }
+            return; // Skip accumulating viewTimeMs for the button itself
+          }
+
+          // Start the timer only if not already running
+          if (!activeIntersections.current[id]) {
+            activeIntersections.current[id] = Date.now();
+            // Count as revisit only if element has been seen before AND it was not running
+            // when the modal/tab paused it (to avoid counting resume-from-pause as a new visit)
+            if (analyticsData.current[id].firstSeenTimeSec === null) {
+              // Very first time ever seen
+              analyticsData.current[id].firstSeenTimeSec = Math.round((Date.now() - sessionStartTimeMs.current) / 1000);
+              analyticsData.current[id].revisitCount = 1;
+            } else if (!wasIntersectingBeforePause.current[id]) {
+              // Genuinely scrolled back to it (not a resume from pause)
+              analyticsData.current[id].revisitCount += 1;
+            }
+          }
+        } else {
+          // If it dropped below the threshold, pause the timer
+          if (activeIntersections.current[id]) {
+            analyticsData.current[id].viewTimeMs += (Date.now() - activeIntersections.current[id]);
+            activeIntersections.current[id] = null;
+          }
+        }
+      });
+    }, { 
+      rootMargin: '0px 0px -40% 0px', // Shave 40% off the bottom (only track top 60% of screen)
+      threshold: [0, 0.05, 0.1, 0.2, 0.25] // Fire updates at these intervals so our logic catches it
+    });
+
+    const handleMouseEnter = (e) => {
+      let id = e.currentTarget.id;
+      if (id === 'training-c2pa-modal' || id === 'training-c2pa-overlay') id = 'training-c2pa-button';
+
+      if (analyticsData.current[id]) {
+        if (isModalOpenRef.current && id !== 'training-c2pa-button') return;
+        
+        activeHovers.current[id] = Date.now();
+        
+        // Guarantee the window is focused when hovering over the video.
+        // This ensures that if the user clicks the video (even if they just clicked out to DevTools),
+        // the browser will correctly fire a 'blur' event.
+        if (id === 'training-video') {
+          window.focus();
+        }
+      }
+    };
+
+    const handleMouseLeave = (e) => {
+      let id = e.currentTarget.id;
+      if (id === 'training-c2pa-modal' || id === 'training-c2pa-overlay') id = 'training-c2pa-button';
+
+      if (analyticsData.current[id] && activeHovers.current[id]) {
+        analyticsData.current[id].hoverTimeMs += (Date.now() - activeHovers.current[id]);
+        activeHovers.current[id] = null;
+      }
+    };
+
+    const handleClick = (e) => {
+      let target = e.target;
+      while (target && target !== document) {
+        let id = target.id;
+        // Map clicks inside the modal wrapper itself to the c2pa button tracker
+        if (id === 'training-c2pa-modal' || id === 'training-c2pa-overlay') id = 'training-c2pa-button';
+
+        if (id && analyticsData.current[id]) {
+          analyticsData.current[id].clicks += 1;
+          if (analyticsData.current[id].firstClickTimeSec === null) {
+            analyticsData.current[id].firstClickTimeSec = Math.round((Date.now() - sessionStartTimeMs.current) / 1000);
+          }
+          break;
+        }
+        target = target.parentNode;
+      }
+    };
+
+    // Special handler for cross-origin iframe clicks (like YouTube video)
+    const handleBlur = () => {
+      // Wait a tiny bit to ensure hover states are accurate
+      setTimeout(() => {
+        // If the window loses focus while the mouse is hovering over the video, 
+        // it strictly means the user clicked the iframe.
+        if (activeHovers.current['training-video'] && !isModalOpenRef.current) {
+          analyticsData.current['training-video'].clicks += 1;
+          if (analyticsData.current['training-video'].firstClickTimeSec === null) {
+            analyticsData.current['training-video'].firstClickTimeSec = Math.round((Date.now() - sessionStartTimeMs.current) / 1000);
+          }
+          console.log(`Video click tracked! Total: ${analyticsData.current['training-video'].clicks}`);
+          
+          // Force focus back to the main window so the next click registers as another blur event
+          window.focus();
+        }
+      }, 50);
+    };
+
+    const handleScroll = (e) => {
+      if (isModalOpenRef.current) return;
+      const currentPos = e.target.scrollTop;
+      totalScrollPixels.current += Math.abs(currentPos - lastScrollPos.current);
+      lastScrollPos.current = currentPos;
+    };
+
+    const attachListeners = () => {
+      const sections = Object.keys(analyticsData.current);
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.dataset.analyticsAttached) {
+          observer.observe(el);
+          el.addEventListener('mouseenter', handleMouseEnter);
+          el.addEventListener('mouseleave', handleMouseLeave);
+          el.dataset.analyticsAttached = 'true';
+        }
+      });
+      ['training-c2pa-modal', 'training-c2pa-overlay'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && !el.dataset.analyticsAttached) {
+          el.addEventListener('mouseenter', handleMouseEnter);
+          el.addEventListener('mouseleave', handleMouseLeave);
+          el.dataset.analyticsAttached = 'true';
+        }
+      });
+    };
+
+    // Attach initially after a brief timeout to let DOM render
+    const attachTimeout = setTimeout(() => {
+      const mainEl = document.getElementById('main-content');
+      if (mainEl) {
+        lastScrollPos.current = mainEl.scrollTop;
+        mainEl.addEventListener('scroll', handleScroll, { passive: true });
+      }
+      attachListeners();
+    }, 500);
+
+    // Watch for DOM changes (like modal appearing) to re-attach listeners
+    const mutObserver = new MutationObserver(() => {
+      attachListeners();
+    });
+    mutObserver.observe(document.body, { childList: true, subtree: true });
+
+    document.addEventListener('click', handleClick, true);
+    window.addEventListener('blur', handleBlur);
+
+    const intervalId = setInterval(() => saveToFirebase(false), 60000);
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        pauseTracking();
+      } else {
+        resumeTracking();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      clearTimeout(attachTimeout);
+      clearInterval(intervalId);
+      mutObserver.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener('click', handleClick, true);
+      window.removeEventListener('blur', handleBlur);
+      
+      const mainEl = document.getElementById('main-content');
+      if (mainEl) mainEl.removeEventListener('scroll', handleScroll);
+      
+      observer.disconnect();
+      const sections = Object.keys(analyticsData.current);
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.removeEventListener('mouseenter', handleMouseEnter);
+          el.removeEventListener('mouseleave', handleMouseLeave);
+          delete el.dataset.analyticsAttached;
+        }
+      });
+      ['training-c2pa-modal', 'training-c2pa-overlay'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.removeEventListener('mouseenter', handleMouseEnter);
+          el.removeEventListener('mouseleave', handleMouseLeave);
+          delete el.dataset.analyticsAttached;
+        }
+      });
+      saveToFirebase(true); // Final save on unmount
+    };
+  }, [pid, videoId, saveToFirebase]);
+};
+
 // --- Page Components ---
 
-const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
+const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId, activeTrainingStep }) => {
   // ROUTING REMOVED: const { id } = useParams();
   const navigate = useNavigate();
   const [showMore, setShowMore] = useState(true);
@@ -1629,20 +2114,82 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
   const targetId = currentVideoId || "video1";
   const currentVideo = videos.find(v => v.id === targetId);
 
+  // Initialize analytics tracking (auto-disables if uid is absent)
+  // Pass showC2PAModal to pause tracking when modal is open
+  useAnalytics(targetId, showC2PAModal);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setShowMore(true);
   }, [targetId]);
+
+  useEffect(() => {
+    // Force description open for steps 1-3 to ensure platform indicators are visible
+    if (activeTrainingStep <= 2) {
+      setShowMore(true);
+    }
+
+    // Force modal open on Step 7 (index 6) with a delay to show the button first
+    if (activeTrainingStep === 6) {
+      const timer = setTimeout(() => {
+        setShowC2PAModal(true);
+      }, 2100);
+      return () => clearTimeout(timer);
+    } else {
+      setShowC2PAModal(false);
+    }
+  }, [activeTrainingStep]);
 
   if (!currentVideo) return <div className="p-10 text-white">Video not found.</div>;
 
   // UPDATED: Dynamic comment count
   const commentCount = currentVideo.comments.length;
 
+  const platformDataContent = currentVideo.isaigenarated ? (
+    <>
+      <div className="flex items-center justify-between mb-2">
+        <h1 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          How this was made
+        </h1>
+
+        {(currentVideo.id === "video8" || currentVideo.id === "video13") && (activeTrainingStep === undefined || activeTrainingStep >= 5) && (
+          <div className="relative">
+            <button
+              id="training-c2pa-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowC2PAModal(!showC2PAModal);
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-full border transition-all hover:scale-[1.02] active:scale-95 shadow-sm ${isDarkMode ? 'bg-zinc-800 border-zinc-600 text-white hover:bg-zinc-700' : 'bg-white border-gray-300 text-black hover:bg-gray-50'}`}
+            >
+              <div className={`flex items-center justify-center w-4 h-4 rounded-full border font-bold text-[8px] ${isDarkMode ? 'border-white text-white' : 'border-black text-black'}`}>
+                cr
+              </div>
+              <span className="text-xs font-bold">Content Credentials</span>
+            </button>
+
+            {showC2PAModal && (
+              <ContentCredentialsCard isDarkMode={isDarkMode} onClose={() => setShowC2PAModal(false)} thumbnail={currentVideo.thumbnail} videoId={currentVideo.id} />
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          Altered or synthetic content
+        </h4>
+        <p className={`text-xs leading-relaxed ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
+          Sound or visuals were significantly edited or digitally generated. <a href="https://support.google.com/youtube/answer/15447836?hl=en" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 cursor-pointer">Learn more</a>
+        </p>
+      </div>
+    </>
+  ) : null;
+
   return (
     <div className="flex flex-col lg:flex-row max-w-[1700px] mx-auto p-4 lg:p-6 gap-6 animate-in fade-in duration-500">
       <div className="flex-1 min-w-0">
-        <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-lg relative z-20">
+        <div id="training-video" className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-lg relative z-20">
 
           {/* UPDATED IFRAME: Added key, mute=1 */}
           <iframe
@@ -1660,114 +2207,91 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
 
         </div>
 
-        <div className="mt-4">
-          <h1 className={`text-xl font-bold line-clamp-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.title}</h1>
+        <div id="training-user-data">
+          <div className="mt-4">
+            <h1 className={`text-xl font-bold line-clamp-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.title}</h1>
 
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-3 gap-4">
-            <div className="flex items-center gap-3">
-              <img
-                src={currentVideo.channelAvatar}
-                className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-300'}`}
-                alt={currentVideo.channelName}
-              />
-              <div>
-                <h3 className={`font-bold text-base ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.channelName}</h3>
-                {/* DYNAMIC SUBSCRIBER COUNT */}
-                <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{currentVideo.subscribers} subscribers</p>
-              </div>
-              <button className={`ml-2 px-4 py-2 rounded-full font-medium text-sm transition-colors ${isDarkMode ? 'bg-white text-black hover:bg-zinc-200' : 'bg-black text-white hover:bg-zinc-800'}`}>
-                Subscribe
-              </button>
-            </div>
-
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-              <div className={`flex items-center rounded-full ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
-                <button className={`flex items-center gap-2 px-4 py-2 rounded-l-full border-r transition-colors ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
-                  <ThumbsUp size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
-                  {/* DYNAMIC LIKE COUNT */}
-                  <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.likes}</span>
-                </button>
-                <button className={`px-4 py-2 rounded-r-full transition-colors border-r ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
-                  <ThumbsDown size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
+            <div className="flex flex-wrap items-center justify-between mt-3 gap-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <img
+                  src={currentVideo.channelAvatar}
+                  className={`w-10 h-10 rounded-full flex-shrink-0 ${isDarkMode ? 'bg-zinc-700' : 'bg-gray-300'}`}
+                  alt={currentVideo.channelName}
+                />
+                <div className="min-w-[100px]">
+                  <h3 className={`font-bold text-base line-clamp-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.channelName}</h3>
+                  {/* DYNAMIC SUBSCRIBER COUNT */}
+                  <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>{currentVideo.subscribers}</p>
+                </div>
+                <button className={`ml-1 sm:ml-2 px-3 sm:px-4 py-2 rounded-full font-medium text-sm transition-colors flex-shrink-0 ${isDarkMode ? 'bg-white text-black hover:bg-zinc-200' : 'bg-black text-white hover:bg-zinc-800'}`}>
+                  Subscribe
                 </button>
               </div>
 
-              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
-                <Share2 size={18} />
-                <span className="text-sm font-medium">Share</span>
-              </button>
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+                <div className={`flex items-center rounded-full ${isDarkMode ? 'bg-zinc-800' : 'bg-gray-100'}`}>
+                  <button className={`flex items-center gap-2 px-4 py-2 rounded-l-full border-r transition-colors ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
+                    <ThumbsUp size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
+                    {/* DYNAMIC LIKE COUNT */}
+                    <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-black'}`}>{currentVideo.likes}</span>
+                  </button>
+                  <button className={`px-4 py-2 rounded-r-full transition-colors border-r ${isDarkMode ? 'hover:bg-zinc-700 border-zinc-700' : 'hover:bg-gray-200 border-gray-300'}`}>
+                    <ThumbsDown size={18} className={isDarkMode ? 'text-white' : 'text-black'} />
+                  </button>
+                </div>
 
-              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
-                <Download size={18} />
-                <span className="text-sm font-medium">Download</span>
-              </button>
+                <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+                  <Share2 size={18} />
+                  <span className="text-sm font-medium">Share</span>
+                </button>
 
-              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap hidden xl:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
-                <Scissors size={18} />
-                <span className="text-sm font-medium">Clip</span>
-              </button>
+                <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+                  <Download size={18} />
+                  <span className="text-sm font-medium">Download</span>
+                </button>
 
-              <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors hidden sm:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
-                <MoreVertical size={18} />
-              </button>
+                <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors whitespace-nowrap hidden xl:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+                  <Scissors size={18} />
+                  <span className="text-sm font-medium">Clip</span>
+                </button>
+
+                <button className={`flex items-center gap-2 px-4 py-2 rounded-full transition-colors hidden sm:flex ${isDarkMode ? 'bg-zinc-800 hover:bg-zinc-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-black'}`}>
+                  <MoreVertical size={18} />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Expandable Description Box */}
-        <div className={`mt-4 rounded-xl p-3 text-sm transition-all duration-200 ${isDarkMode ? 'bg-zinc-800/50' : 'bg-gray-100'} ${showMore ? '' : (isDarkMode ? 'cursor-pointer hover:bg-zinc-800' : 'cursor-pointer hover:bg-gray-200')}`} onClick={() => !showMore && setShowMore(true)}>
-          <div className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-            {currentVideo.views} views • {currentVideo.uploadedAt}  <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}></span>
-          </div>
+          {/* Expandable Description Box */}
+          <div className={`mt-4 rounded-xl p-3 text-sm transition-all duration-200 ${isDarkMode ? 'bg-zinc-800/50' : 'bg-gray-100'} ${showMore ? '' : (isDarkMode ? 'cursor-pointer hover:bg-zinc-800' : 'cursor-pointer hover:bg-gray-200')}`} onClick={() => !showMore && setShowMore(true)}>
+            <div className={`font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              {currentVideo.views} views • {currentVideo.uploadedAt}  <span className={isDarkMode ? 'text-zinc-400' : 'text-gray-600'}></span>
+            </div>
 
-          <div className={`relative ${showMore ? '' : 'max-h-20 overflow-hidden'}`}>
-            <p className={`whitespace-pre-line leading-relaxed ${isDarkMode ? 'text-white/90' : 'text-black/90'}`}>
-              {currentVideo.description}
-            </p>
+            <div className={`relative ${showMore ? '' : 'max-h-20 overflow-hidden'}`}>
+              <p className={`whitespace-pre-line leading-relaxed ${isDarkMode ? 'text-white/90' : 'text-black/90'}`}>
+                {currentVideo.description}
+              </p>
+            </div>
 
-            {currentVideo.isaigenarated && (
-              <div className={`mt-6 pt-4 border-t ${isDarkMode ? 'border-zinc-700' : 'border-gray-300'}`}>
-                <div className="flex items-center justify-between mb-2">
-                  <h1 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    How this was made
-                  </h1>
-
-                  {currentVideo.id === "video8" && (
-                    <div className="relative">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setShowC2PAModal(!showC2PAModal);
-                        }}
-                        className={`flex items-center gap-1.5 px-3 py-1 rounded-full border transition-all hover:scale-[1.02] active:scale-95 shadow-sm ${isDarkMode ? 'bg-zinc-800 border-zinc-600 text-white hover:bg-zinc-700' : 'bg-white border-gray-300 text-black hover:bg-gray-50'}`}
-                      >
-                        <div className={`flex items-center justify-center w-4 h-4 rounded-full border font-bold text-[8px] ${isDarkMode ? 'border-white text-white' : 'border-black text-black'}`}>
-                          cr
-                        </div>
-                        <span className="text-xs font-bold">Content Credentials</span>
-                      </button>
-
-                      {showC2PAModal && (
-                        <ContentCredentialsCard isDarkMode={isDarkMode} onClose={() => setShowC2PAModal(false)} thumbnail={currentVideo.thumbnail} />
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <h4 className={`text-xs font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    Altered or synthetic content
-                  </h4>
-                  <p className={`text-xs leading-relaxed ${isDarkMode ? 'text-zinc-400' : 'text-gray-600'}`}>
-                    Sound or visuals were significantly edited or digitally generated. <a href="https://support.google.com/youtube/answer/15447836?hl=en" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 cursor-pointer">Learn more</a>
-                  </p>
-                </div>
+            {currentVideo.isaigenarated && activeTrainingStep === undefined && (
+              <div id="training-platform-data" className={`mt-4 pt-4 border-t ${isDarkMode ? 'border-zinc-700' : 'border-gray-300'}`}>
+                {platformDataContent}
               </div>
             )}
           </div>
+        </div>
 
+        {currentVideo.isaigenarated && activeTrainingStep !== undefined && (
+          <div id="training-platform-data" className={`mt-4 rounded-xl p-3 text-sm transition-all duration-200 ${isDarkMode ? 'bg-zinc-800/50' : 'bg-gray-100'}`}>
+            {platformDataContent}
+          </div>
+        )}
+
+        {/* Show More Button for main description */}
+        <div className="px-3">
           <button
-            className={`mt-2 font-bold block ${isDarkMode ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'}`}
+            className={`mt-2 font-bold block text-xs ${isDarkMode ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'}`}
             onClick={(e) => {
               e.stopPropagation();
               setShowMore(!showMore);
@@ -1779,16 +2303,20 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
 
         {/* Hide tool for video7 */}
         {currentVideo.id !== "video7" && (
-          <CommunityLensUI
-            videoId={currentVideo.id}
-            isDarkMode={isDarkMode}
-            toggleTheme={toggleTheme}
-          />
+          <div id="training-community-tool">
+            <CommunityLensUI
+              videoId={currentVideo.id}
+              isDarkMode={isDarkMode}
+              toggleTheme={toggleTheme}
+              initialOpen={false} // Start collapsed for training
+              activeTrainingStep={activeTrainingStep}
+            />
+          </div>
         )}
 
         <div className="mt-6 hidden md:block"> </div>
 
-        <div className="mt-6 hidden md:block">
+        <div id="training-comments" className="mt-6">
           <div className="flex items-center gap-8 mb-6">
             {/* UPDATED: Dynamic comment count */}
             <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>{commentCount} Comments</h3>
@@ -1848,23 +2376,25 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
         </div>
       </div>
 
-      <div className="lg:w-[350px] xl:w-[400px] flex-shrink-0">
-        <div className="flex gap-2 mb-4 overflow-x-auto no-scrollbar pb-2">
-          <CategoryPill label="All" isSelected={true} onClick={() => { }} isDarkMode={isDarkMode} />
-          <CategoryPill label="From this channel" isSelected={false} onClick={() => { }} isDarkMode={isDarkMode} />
-          <CategoryPill label="Related" isSelected={false} onClick={() => { }} isDarkMode={isDarkMode} />
+      {activeTrainingStep === undefined && (
+        <div className="hidden lg:block lg:w-[350px] xl:w-[400px] flex-shrink-0">
+          <div className="flex gap-2 mb-4 overflow-x-auto no-scrollbar pb-2">
+            <CategoryPill label="All" isSelected={true} onClick={() => { }} isDarkMode={isDarkMode} />
+            <CategoryPill label="From this channel" isSelected={false} onClick={() => { }} isDarkMode={isDarkMode} />
+            <CategoryPill label="Related" isSelected={false} onClick={() => { }} isDarkMode={isDarkMode} />
+          </div>
+          <div className="flex flex-col gap-2">
+            {videos.filter(v => v.id !== currentVideo.id).map((vid) => (
+              <div key={`rel-${vid.id}`}>
+                <RelatedVideoCard
+                  video={vid}
+                  isDarkMode={isDarkMode}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          {videos.filter(v => v.id !== currentVideo.id).map((vid) => (
-            <div key={`rel-${vid.id}`}>
-              <RelatedVideoCard
-                video={vid}
-                isDarkMode={isDarkMode}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
 
 
 
@@ -1872,10 +2402,246 @@ const WatchPage = ({ videos, isDarkMode, toggleTheme, currentVideoId }) => {
   );
 };
 
+// --- Training/Onboarding Overlay ---
+
+const TRAINING_STEPS = [
+  {
+    targetId: 'training-video',
+    title: 'YouTube Video Layout',
+    subtitle: 'The main video playback area where you watch the content. You can play or pause the content by clicking on it, and you can scroll through the video using the progress bar below the player.',
+  },
+  {
+    targetId: 'training-user-data',
+    title: 'Creator-provided Indicators',
+    subtitle: 'These are signals added by the creator of the video, such as the video title, description, or added hashtags. These indicators help viewers gain a better understanding of the content.',
+  },
+  {
+    targetId: 'training-platform-data',
+    title: 'Platform-provided Indicators',
+    subtitle: 'YouTube adds an "Altered or Synthetic Content" label when it flags a video as synthetic or AI-generated, so that viewers are aware of its nature before watching.',
+  },
+  {
+    targetId: 'training-comments',
+    title: 'Community Signals (User Comments)',
+    subtitle: 'These are insights shared by the content viewers in the comment section, reflecting how the community perceives the content. User comments often reveal what the wider community thinks about the video, including doubts or observations about whether the content is AI-generated.',
+  },
+  {
+    targetId: 'training-community-lens-header',
+    title: 'CommunityLens',
+    subtitle: 'CommunityLens is an integrated feature on YouTube that gives you an in-depth look at what the community thinks about an AI-generated video. It uses signals like user comments to summarize how viewers perceive and trust the content, point out potential risks, and highlight references or resources shared by the community to clarify the intent of the video.',
+  },
+  {
+    targetId: 'training-community-lens-details',
+    title: 'Detailed Breakdown of CommunityLens',
+    subtitle: 'CommunityLens analyzes community signals in-depth to help viewers better understand an AI-generated video through its three features:\n1. Community Consensus: A short summary of how the community perceives and trusts the content, based on what the viewers are saying in the comments. This gives viewers a quick sense of whether they find the video reliable, misleading, or somewhere in between.\n2. Potential Risk Patterns: A list of potential risks that viewers have raised about the content, along with their risk levels and how the community typically addresses them. This helps viewers understand what concerns other viewers have noticed and how they suggest dealing with them.\n3. Community References: CommunityLens extracts the relevant and useful links, citations, and resources shared by viewers in the comments to better clarify the intent of the content. These references can help viewers verify claims in the video or learn more about the topic from sources the community trusts.',
+  },
+  {
+    targetId: 'training-c2pa-modal',
+    title: 'Content Credentials with a Platform-provided C2PA Design',
+    subtitle: <>C2PA (Coalition for Content Provenance and Authenticity) is an open standard created by Adobe, Microsoft, and other industry partners to attach verifiable details to digital content, such as its digital signature, creation timeline, edits made, and the AI model used. Regarding AI-generated content, a well-designed platform-provided C2PA layout can explain these details directly on the video, helping viewers see at a glance who created the content, when and how it was generated, what AI tools were involved, and whether it has been altered since. <a href="https://c2pa.org/" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-700">Learn more about C2PA</a>.</>,
+  },
+];
+
+const TrainingOverlay = ({ currentStep, setCurrentStep, onFinish, variant = 'full' }) => {
+  const [highlightRect, setHighlightRect] = useState(null);
+  const step = TRAINING_STEPS[currentStep];
+
+  const updateHighlight = () => {
+    let el = document.getElementById(step.targetId);
+    if (!el) {
+      if (step.targetId === 'training-c2pa-modal') {
+        el = document.getElementById('training-c2pa-button');
+        setTimeout(updateHighlight, 200);
+        if (!el) return;
+      } else return;
+    }
+
+    const mainEl = document.getElementById('main-content');
+    if (mainEl) {
+      const delay = step.targetId === 'training-community-lens-details' ? 400 : 100;
+      setTimeout(() => {
+        const mainRect = mainEl.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        const relativeTop = elRect.top - mainRect.top + mainEl.scrollTop;
+        const offsetPosition = relativeTop - (mainEl.offsetHeight / 2) + (elRect.height / 2);
+        mainEl.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+        setTimeout(() => {
+          const finalRect = el.getBoundingClientRect();
+          const pad = 12;
+          setHighlightRect({
+            top: finalRect.top - pad,
+            left: finalRect.left - pad,
+            width: finalRect.width + pad * 2,
+            height: finalRect.height + pad * 2,
+          });
+        }, 1200);
+      }, delay);
+    }
+  };
+
+  useEffect(() => {
+    updateHighlight();
+    window.addEventListener('resize', updateHighlight);
+    return () => window.removeEventListener('resize', updateHighlight);
+  }, [currentStep, step.targetId]);
+
+  const nextStep = () => {
+    if (currentStep < TRAINING_STEPS.length - 1) setCurrentStep(currentStep + 1);
+    else onFinish();
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) setCurrentStep(currentStep - 1);
+  };
+
+  if (variant === 'mask') {
+    if (!highlightRect) return null;
+    return (
+      <div className="absolute inset-0 z-[200] pointer-events-none overflow-hidden rounded-[32px]">
+        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'auto' }}>
+          <defs>
+            <mask id="training-mask">
+              <rect x="0" y="0" width="100%" height="100%" fill="white" />
+              <rect
+                x={highlightRect.left - document.getElementById('main-content').getBoundingClientRect().left}
+                y={highlightRect.top - document.getElementById('main-content').getBoundingClientRect().top}
+                width={highlightRect.width}
+                height={highlightRect.height}
+                rx="12"
+                fill="black"
+                style={{ transition: 'all 250ms ease-in-out' }}
+              />
+            </mask>
+          </defs>
+          <rect x="0" y="0" width="100%" height="100%" fill="rgba(0,0,0,0.7)" mask="url(#training-mask)" />
+        </svg>
+        <div
+          className="absolute rounded-xl transition-all duration-500 ease-in-out"
+          style={{
+            top: highlightRect.top - document.getElementById('main-content').getBoundingClientRect().top,
+            left: highlightRect.left - document.getElementById('main-content').getBoundingClientRect().left,
+            width: highlightRect.width,
+            height: highlightRect.height,
+            boxShadow: '0 0 0 3px rgba(59,130,246,0.8), 0 0 30px 5px rgba(59,130,246,0.25)',
+          }}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-[50vh] max-h-[550px] bg-white rounded-[24px] shadow-2xl shadow-blue-500/20 p-5 md:p-6 flex flex-col justify-between border border-blue-400 relative overflow-hidden transition-all duration-500">
+      <div className="absolute top-0 left-0 w-full h-1.5 bg-blue-600"></div>
+      <div className="flex flex-col flex-1 min-h-0">
+        <div className="flex items-center justify-between mb-4 gap-2 flex-shrink-0">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+              <ShieldAlert size={14} fill="currentColor" />
+            </div>
+            <span className="text-[10px] font-black uppercase tracking-widest text-blue-600">Tutorial</span>
+          </div>
+          <div className="text-xs font-bold text-slate-400">Step {currentStep + 1} / {TRAINING_STEPS.length}</div>
+        </div>
+
+        <div className="flex gap-1 mb-5 flex-shrink-0">
+          {TRAINING_STEPS.map((_, i) => (
+            <div key={i} className={`h-1 flex-1 rounded-full transition-all duration-500 ${i === currentStep ? 'bg-blue-600' : i < currentStep ? 'bg-blue-200' : 'bg-slate-100'}`} />
+          ))}
+        </div>
+
+        <div className="flex-1 overflow-y-auto no-scrollbar pb-2 min-h-0">
+          <h3 className="text-lg md:text-xl font-black text-slate-900 mb-2 leading-tight">{step.title}</h3>
+          <p className="text-sm text-slate-500 leading-relaxed font-medium whitespace-pre-line">{step.subtitle}</p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-3 mt-3 flex-shrink-0">
+        <button
+          onClick={prevStep}
+          disabled={currentStep === 0}
+          className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl font-bold transition-all text-sm ${currentStep === 0 ? 'text-slate-300 cursor-not-allowed' : 'bg-slate-100 text-slate-600 hover:bg-slate-200 active:scale-95'}`}
+        >
+          <ArrowLeft size={16} strokeWidth={3} />
+          <span>Back</span>
+        </button>
+        <button
+          onClick={nextStep}
+          className="flex-[2] flex items-center justify-center gap-2 py-2 rounded-xl bg-blue-600 text-white font-black text-sm hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-500/20"
+        >
+          <span>{currentStep === TRAINING_STEPS.length - 1 ? 'Finish Tour' : 'Next'}</span>
+          <ArrowRight size={16} strokeWidth={3} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 // --- Main Application Component ---
 
 function AppContent() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  if (location.pathname === '/analysisresult') {
+    return <AnalysisResultPage />;
+  }
+
+  // Parse PROLIFIC_PID from URL and create a Firebase instance if needed
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    let pid = null;
+    for (const [key, value] of params.entries()) {
+      const lowerKey = key.toLowerCase();
+      if (lowerKey === 'prolific_pid' || lowerKey === 'prolofic_pid' || lowerKey === 'uid') {
+        pid = value;
+        break;
+      }
+    }
+    
+    if (!pid && location.search.includes('PID?')) {
+      const match = location.search.match(/PID\?([^&]+)/);
+      if (match) pid = match[1];
+    }
+
+    if (pid) {
+      const checkAndCreateUser = async () => {
+        try {
+          // 1. Create the main user document
+          const userRef = doc(db, 'users analytical data', pid);
+          const userSnap = await getDoc(userRef);
+          
+          if (!userSnap.exists()) {
+            await setDoc(userRef, {
+              PROLIFIC_PID: pid,
+              createdAt: serverTimestamp(),
+            });
+            console.log("Firebase instance created for user:", pid);
+          }
+
+          // 2. Create the video-specific document directly (no 'session' sub-document)
+          const videoId = location.pathname.replace(/^\/+/, '');
+          if (videoId) {
+            const videoRef = doc(db, 'users analytical data', pid, 'videos', videoId);
+            const videoSnap = await getDoc(videoRef);
+            
+            if (!videoSnap.exists()) {
+              await setDoc(videoRef, {
+                videoId: videoId,
+                accessedAt: serverTimestamp(),
+              });
+              console.log(`Firebase instance created for video ${videoId} under user:`, pid);
+            }
+          }
+        } catch (error) {
+          console.error("Error creating user/video instance:", error);
+        }
+      };
+      
+      checkAndCreateUser();
+    }
+  }, [location.search]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [videos, setVideos] = useState(INITIAL_VIDEOS);
@@ -1884,7 +2650,7 @@ function AppContent() {
 
   // --- Survey Mode State (Default OFF) ---
   const [isSurveyActive, setIsSurveyActive] = useState(false);
-  const fixedSurveyQueue = ['video1', 'video2', 'video3', 'video4', 'video5', 'video6', 'video7', 'video8'];
+  const fixedSurveyQueue = ['video1', 'video2', 'video3', 'video4', 'video5', 'video6', 'video7', 'video8', 'video9'];
   const [surveyQueue, setSurveyQueue] = useState(fixedSurveyQueue);
 
   // Initialize index directly from the URL to prevent flickering
@@ -1894,11 +2660,14 @@ function AppContent() {
     return idx !== -1 ? idx : 0;
   });
 
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  // Sync index from URL
+  const isTrainingMode = location.pathname === '/training';
+  const [activeTrainingStep, setActiveTrainingStep] = useState(0);
+  const [isTrainingFinished, setIsTrainingFinished] = useState(false);
+
+  // Sync index from URL (skip in training mode)
   useEffect(() => {
+    if (isTrainingMode) return;
     const pathId = location.pathname.replace(/^\/+/, '');
     const idx = surveyQueue.indexOf(pathId);
     if (idx !== -1 && idx !== currentSurveyIndex) {
@@ -1906,15 +2675,16 @@ function AppContent() {
     } else if (!pathId) {
       navigate(`/${surveyQueue[0]}`, { replace: true });
     }
-  }, [location.pathname, surveyQueue]);
+  }, [location.pathname, surveyQueue, isTrainingMode]);
 
-  // Sync URL from index
+  // Sync URL from index (skip in training mode)
   useEffect(() => {
+    if (isTrainingMode) return;
     const currentId = surveyQueue[currentSurveyIndex];
     if (currentId && location.pathname !== `/${currentId}`) {
       navigate(`/${currentId}`);
     }
-  }, [currentSurveyIndex, surveyQueue, navigate]);
+  }, [currentSurveyIndex, surveyQueue, navigate, isTrainingMode]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -2008,6 +2778,78 @@ function AppContent() {
       )}
     </div>
   );
+
+  if (isTrainingMode) {
+    const trainingVideos = INITIAL_VIDEOS.map(v =>
+      v.id === 'video13' ? { ...v, _trainingMode: true } : v
+    );
+    return (
+      <div className="flex h-screen bg-white p-2 md:p-4 gap-2 md:gap-4 overflow-hidden font-sans relative">
+        {/* Left: Embedded YouTube UI */}
+        <div className="flex-[60] relative rounded-[24px] shadow-[0_0_60px_rgba(0,0,0,0.6)] overflow-hidden border border-white/5 bg-white group transform-gpu transition-all duration-250 ease-in-out">
+          <div className="absolute inset-0 overflow-y-auto custom-scrollbar" id="main-content">
+            <WatchPage
+              videos={trainingVideos}
+              isDarkMode={false}
+              toggleTheme={() => { }}
+              currentVideoId="video13"
+              activeTrainingStep={activeTrainingStep}
+            />
+          </div>
+          {/* Internal Mask */}
+          {!isTrainingFinished && (
+            <TrainingOverlay
+              variant="mask"
+              currentStep={activeTrainingStep}
+              setCurrentStep={setActiveTrainingStep}
+              onFinish={() => setIsTrainingFinished(true)}
+            />
+          )}
+        </div>
+
+        {/* Right: Training Sidebar */}
+        <div className="flex-[40] px-4 md:px-8 xl:px-12 flex flex-col justify-center items-center animate-in slide-in-from-right duration-700 transition-all duration-500 ease-in-out">
+          <div className="relative w-full max-w-[480px]">
+            {!isTrainingFinished && (
+              <TrainingOverlay
+                variant="instructions"
+                currentStep={activeTrainingStep}
+                setCurrentStep={setActiveTrainingStep}
+                onFinish={() => setIsTrainingFinished(true)}
+              />
+            )}
+            {/* Design accents */}
+            <div className="absolute -z-10 -top-20 -right-20 w-64 h-64 bg-blue-600/10 blur-[100px] rounded-full hidden md:block"></div>
+            <div className="absolute -z-10 -bottom-20 -left-20 w-64 h-64 bg-purple-600/10 blur-[100px] rounded-full hidden md:block"></div>
+          </div>
+        </div>
+
+        {/* Finished Popup Overlay */}
+        {isTrainingFinished && (
+          <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+            <div className="bg-white rounded-[24px] p-6 md:p-10 max-w-md w-full shadow-2xl flex flex-col items-center text-center animate-in zoom-in-95 duration-300">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                <CheckCircle2 size={32} className="text-green-600" />
+              </div>
+              <h2 className="text-xl md:text-2xl font-black text-slate-900 mb-4">Tutorial Complete!</h2>
+              <p className="text-sm md:text-base text-slate-600 mb-8 font-medium">
+                Now that you've completed the tutorial, please click on the "start the survey" button.
+              </p>
+              <button
+                onClick={() => {
+                  setIsTrainingFinished(false);
+                  setActiveTrainingStep(0);
+                }}
+                className="w-full py-3 md:py-4 rounded-xl font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+              >
+                Restart the Tutorial
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className={`flex flex-col h-screen overflow-hidden font-sans relative transition-colors duration-200 ${isDarkMode ? 'bg-[#0f0f0f] text-white' : 'bg-white text-black'}`}>
@@ -2134,7 +2976,7 @@ function AppContent() {
           <SidebarContent collapsed={!isSidebarOpen} isDarkMode={isDarkMode} />
         </aside>
 
-        <main className={`flex-1 overflow-y-auto relative custom-scrollbar ${isDarkMode ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
+        <main id="main-content" className={`flex-1 overflow-y-auto relative custom-scrollbar ${isDarkMode ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
           {/* OPTIMIZED: Routes commented out to enforce single-view fixed flow */}
           {/* <Routes>
             <Route
@@ -2155,13 +2997,17 @@ function AppContent() {
           </Routes> 
           */}
 
-          {/* Direct Render of Survey Mode */}
-          <WatchPage
-            videos={INITIAL_VIDEOS}
-            isDarkMode={isDarkMode}
-            toggleTheme={toggleTheme}
-            currentVideoId={surveyQueue[currentSurveyIndex]}
-          />
+          {/* Direct Render — Training Mode or Survey Mode */}
+          {(() => {
+            return (
+              <WatchPage
+                videos={INITIAL_VIDEOS}
+                isDarkMode={isDarkMode}
+                toggleTheme={toggleTheme}
+                currentVideoId={surveyQueue[currentSurveyIndex]}
+              />
+            );
+          })()}
         </main>
       </div>
 
